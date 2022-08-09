@@ -1,0 +1,194 @@
+.section-signup {
+    width: 550px;
+    margin: 50px auto 0;
+
+    .logo {
+        width: 100%;
+    }
+
+    .form-signup {
+        width: 100%;
+
+        .style-wrapper {
+            border: 1px solid $border-color;
+            margin-bottom: 34px;
+        }
+
+        .style-container {
+            padding: 40px 34px 35px;
+        }
+    }
+}
+
+.signup-type {
+    font-size: 0;
+    .button-buyer,
+    .button-seller {
+        width: calc(100% / 2);
+        border: none;
+        padding: 19px 87px 18px 86px;
+        font-style: normal;
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .button-buyer {
+        background-color: inherit;
+    }
+    .button-seller {
+        background-color: #f2f2f2;
+    }
+}
+
+.label-block {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+input {
+    border: 1px solid $border-color;
+    padding: 16px 15px 16px;
+    border-radius: $border-radius;
+    margin-bottom: 10px;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+input:focus {
+    outline: 1px solid $main-color;
+}
+
+input::-webkit-input-placeholder {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+input::-moz-placeholder {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+input:-ms-input-placeholder {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+input::-ms-input-placeholder {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+input::placeholder {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+#password,
+#password2,
+#name,
+#storeName {
+    width: 100%;
+}
+
+#username,
+#companyRegistrationNumber {
+    width: 346px;
+}
+
+.username-duplicate-check,
+.crn-duplicate-check {
+    width: 122px;
+    border: none;
+    padding: 18px 0;
+    color: $light-txt-color;
+    background-color: $main-color;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 8px;
+    border-radius: $border-radius;
+    vertical-align: middle;
+}
+
+// 휴대폰번호
+.phoneNumber {
+    width: 152px;
+}
+
+.phoneNumber.first {
+    padding: 16px 50px 16px;
+    border-radius: $border-radius;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background: url("../images/icon-down-arrow.svg") no-repeat;
+    background-size: 22px 22px;
+    background-position: calc(100% - 14px);
+}
+
+.phoneNumber.first:focus {
+    outline: 1px solid $main-color;
+}
+
+.phoneNumber.middle,
+.phoneNumber.last {
+    margin-left: 8px;
+}
+
+// 개인정보 동의
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:focus {
+    outline: none;
+}
+
+input[type="checkbox"] + label {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+
+    .important {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+}
+
+.message {
+    display: block;
+    color: $emphasis-txt-color;
+    margin-bottom: 20px;
+}
+
+.button-signup {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: $border-radius;
+    padding: 19px 0;
+    margin: 34px 0 110px;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: $light-txt-color;
+}
