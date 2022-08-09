@@ -4,14 +4,15 @@
 
     .logo {
         width: 100%;
+        background-color: $background-color;
     }
 
     .form-signup {
         width: 100%;
-
+        background-color: $background-color;
         .style-wrapper {
             border: 1px solid $border-color;
-            margin-bottom: 34px;
+            background-color: white;
         }
 
         .style-container {
@@ -22,12 +23,14 @@
 
 .signup-type {
     font-size: 0;
+
     .button-buyer,
     .button-seller {
         width: calc(100% / 2);
         border: none;
         padding: 19px 87px 18px 86px;
         font-style: normal;
+        font-weight: bolder;
         font-size: 18px;
         line-height: 22px;
     }
@@ -44,6 +47,7 @@
     text-align: left;
     margin-bottom: 10px;
     font-style: normal;
+    font-weight: bolder;
     font-size: 16px;
     line-height: 20px;
 }
@@ -64,30 +68,35 @@ input:focus {
 
 input::-webkit-input-placeholder {
     font-style: normal;
+    font-weight: normal;
     font-size: 16px;
     line-height: 16px;
 }
 
 input::-moz-placeholder {
     font-style: normal;
+    font-weight: normal;
     font-size: 16px;
     line-height: 16px;
 }
 
 input:-ms-input-placeholder {
     font-style: normal;
+    font-weight: normal;
     font-size: 16px;
     line-height: 16px;
 }
 
 input::-ms-input-placeholder {
     font-style: normal;
+    font-weight: normal;
     font-size: 16px;
     line-height: 16px;
 }
 
 input::placeholder {
     font-style: normal;
+    font-weight: normal;
     font-size: 16px;
     line-height: 16px;
 }
@@ -99,7 +108,7 @@ input::placeholder {
     width: 100%;
 }
 
-#username,
+.input-signup-username,
 #companyRegistrationNumber {
     width: 346px;
 }
@@ -112,6 +121,7 @@ input::placeholder {
     color: $light-txt-color;
     background-color: $main-color;
     font-style: normal;
+    font-weight: bolder;
     font-size: 16px;
     line-height: 20px;
     margin-left: 8px;
@@ -126,6 +136,7 @@ input::placeholder {
 
 .phoneNumber.first {
     padding: 16px 50px 16px;
+    border: 1px solid $border-color;
     border-radius: $border-radius;
     font-style: normal;
     font-size: 16px;
@@ -146,16 +157,28 @@ input::placeholder {
 .phoneNumber.middle,
 .phoneNumber.last {
     margin-left: 8px;
+    text-align: center;
 }
 
 // 개인정보 동의
+.pia-check-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding-top: 34px;
+    padding-bottom: 8px;
+}
+
 input[type="checkbox"] {
     width: 16px;
     height: 16px;
-    padding: 0;
+    border: 1px solid $border-color;
     border-radius: 0;
-    margin: 0;
-    vertical-align: middle;
+    margin: 3px 10px 10px 0px;
     cursor: pointer;
 }
 
@@ -163,10 +186,11 @@ input[type="checkbox"]:focus {
     outline: none;
 }
 
-input[type="checkbox"] + label {
+.label-pia {
     font-style: normal;
     font-size: 16px;
     line-height: 20px;
+    vertical-align: top;
 
     .important {
         font-weight: bold;
@@ -178,6 +202,27 @@ input[type="checkbox"] + label {
     display: block;
     color: $emphasis-txt-color;
     margin-bottom: 20px;
+    font-weight: bolder;
+}
+
+.policy-box {
+    position: relative;
+    overflow: auto;
+    height: 88px;
+    padding: 12px;
+    border: 1px solid $border-color;
+    margin-bottom: 34px;
+    background-color: #fff;
+}
+
+.policy-text {
+    font-size: 12px;
+    line-height: 16px;
+
+    .first-sentence {
+        display: block;
+        font-weight: bolder;
+    }
 }
 
 .button-signup {
@@ -185,10 +230,13 @@ input[type="checkbox"] + label {
     width: 100%;
     border: none;
     border-radius: $border-radius;
+    background-color: $main-color;
     padding: 19px 0;
-    margin: 34px 0 110px;
+    margin-bottom: 110px;
     font-style: normal;
+    font-weight: bolder;
     font-size: 18px;
     line-height: 22px;
     color: $light-txt-color;
+    cursor: pointer;
 }
