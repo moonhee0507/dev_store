@@ -12,19 +12,27 @@ let loginType = "BUYER";
 
 buyerButton.addEventListener("click", () => {
     loginType = buyerButton.value;
+    buyerButton.style.backgroundColor = "inherit";
+    sellerButton.style.backgroundColor = "#F2F2F2";
     return loginType;
 });
-
 sellerButton.addEventListener("click", () => {
     loginType = sellerButton.value;
+    sellerButton.style.backgroundColor = "inherit";
+    buyerButton.style.backgroundColor = "#F2F2F2";
     return loginType;
 });
 
 // 로그인 버튼 활성화 함수
 function isDisabledButton() {
-    idInput.value !== "" && passwordInput.value !== ""
-        ? (loginButton.disabled = false)
-        : (loginButton.disabled = true);
+    if (idInput.value !== "" && passwordInput.value !== "") {
+        loginButton.disabled = false;
+        loginButton.style.backgroundColor = "#334863";
+        loginButton.style.cursor = "pointer";
+    } else {
+        loginButton.disabled = true;
+        loginButton.style.backgroundColor = "#abb5c2";
+    }
 }
 
 // input의 값이 변경되면 버튼 이벤트 발생

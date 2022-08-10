@@ -1,7 +1,22 @@
-import { idInput, message, signup } from "./signup";
+import {
+    signupType,
+    idInput,
+    message,
+    eachRequest,
+    signupButton,
+} from "./signupFeat";
+
+let passUsername = false;
+let passPassword = false;
+let passPassword2 = false;
+let passName = false;
+let passPhoneNumber = false;
+let passCRN = false;
+let passStoreName = false;
+let passAgreement = false;
 
 // (공통) 빈값 처리
-const input = document.querySelectorAll("input");
+export const input = document.querySelectorAll("input");
 for (let i = 1; i <= 3; i++) {
     input[i].addEventListener("focus", () => {
         input[i - 1].value === "" &&
@@ -14,8 +29,9 @@ const usernameDuplicateCheck = document.querySelector(
     ".username-duplicate-check"
 );
 usernameDuplicateCheck.addEventListener("click", async (event) => {
+    passUsername = false;
     // 회원가입 요청 함수 재사용
-    signup(event).then((resJson) => {
+    eachRequest(event).then((resJson) => {
         const usernameRegex = /^[a-zA-Z0-9]{5,20}/;
         if (idInput.value === "") {
             message[0].innerText = "필수 정보입니다.";
@@ -28,9 +44,20 @@ usernameDuplicateCheck.addEventListener("click", async (event) => {
         ) {
             message[0].innerText = "이미 사용 중인 아이디입니다.";
         } else {
+            message[0].classList.add("possible");
             message[0].innerText = "사용 가능한 아이디입니다.";
+            passUsername = true;
+            console.log("passUsername", passUsername);
         }
     });
+});
+// 중복확인 클릭 안내, 값 변경 시 pass false
+idInput.addEventListener("input", () => {
+    message[0].classList.remove("possible");
+    passUsername = false;
+    if (idInput.value !== "") {
+        message[0].innerText = "입력 후 중복확인 버튼을 눌러주세요.";
+    }
 });
 
 // password - regex(영문, 숫자, 특수문자 포함 8자 이상 && 소문자, 숫자 1개 이상 필수)
@@ -42,8 +69,11 @@ passwordInput.addEventListener("input", () => {
     if (!passwordRegex.test(passwordInput.value)) {
         message[1].innerText =
             "8자 이상 영문, 숫자, 특수문자를 사용하세요(소문자, 숫자 각1자 이상 필수).";
+        passPassword = false;
     } else {
         message[1].innerText = "";
+        passPassword = true;
+        console.log("passPassword", passPassword);
     }
 });
 
@@ -52,30 +82,34 @@ export const passwordInput2 = document.querySelector("#password2");
 passwordInput2.addEventListener("input", () => {
     if (passwordInput2.value !== passwordInput.value) {
         message[2].innerText = "비밀번호가 일치하지 않습니다.";
+        passPassword2 = false;
     } else {
         message[2].innerText = "";
+        passPassword2 = true;
+        console.log("passPassword2", passPassword2);
     }
 });
 
 // name - 빈값
 export const nameInput = document.querySelector("#name");
-nameInput.addEventListener("input", () => {
-    nameInput.value === ""
-        ? (message[3].innerText = "필수 정보입니다.")
-        : (message[3].innerText = "");
+nameInput.addEventListener("blur", () => {
+    if (nameInput.value === "") {
+        message[3].innerText = "필수 정보입니다.";
+        passName = false;
+    } else {
+        message[3].innerText = "";
+        passName = true;
+        console.log("passName", passName);
+    }
 });
 
 // phoneNumber - 중복 체크, regex
 export const phoneNumber = document.querySelectorAll(".phoneNumber");
 
-phoneNumber[2].addEventListener("blur", (event) => {
-    phoneNumberRegexCheck() && phoneNumberDuplicateCheck(event);
-});
-
-// 값 변경 시 message 지우기
 for (let i = 0; i <= 2; i++) {
-    phoneNumber[i].addEventListener("input", () => {
-        message[4].innerText = "";
+    phoneNumber[i].addEventListener("input", (event) => {
+        passPhoneNumber = false;
+        phoneNumberRegexCheck() && phoneNumberDuplicateCheck(event);
     });
 }
 
@@ -87,14 +121,12 @@ function phoneNumberRegexCheck() {
         phoneNumber[1].value === "" ||
         !middleRegex.test(phoneNumber[1].value)
     ) {
-        phoneNumber[1].focus();
         message[4].innerText = "전화번호를 올바르게 입력해주세요.";
         return false;
     } else if (
         phoneNumber[2].value === "" ||
         !lastRegex.test(phoneNumber[2].value)
     ) {
-        phoneNumber[2].focus();
         message[4].innerText = "전화번호를 올바르게 입력해주세요.";
         return false;
     }
@@ -102,7 +134,7 @@ function phoneNumberRegexCheck() {
 }
 
 function phoneNumberDuplicateCheck(event) {
-    signup(event).then((resJson) => {
+    eachRequest(event).then((resJson) => {
         if (
             resJson.phone_number &&
             resJson.phone_number[0] ===
@@ -111,6 +143,8 @@ function phoneNumberDuplicateCheck(event) {
             message[4].innerText = resJson.phone_number[0];
         } else {
             message[4].innerText = "";
+            passPhoneNumber = true;
+            console.log("passPhoneNumber", passPhoneNumber);
         }
     });
 }
@@ -141,11 +175,13 @@ export const crnInput = document.querySelector("#companyRegistrationNumber");
 crnInput.addEventListener("keydown", onlyNumber);
 crnInput.addEventListener("input", () => {
     numberMaxLength();
+    passCRN = false;
     message[5].innerText = "";
 });
 
 crnDuplicateCheck.addEventListener("click", async (event) => {
-    signup(event).then((resJson) => {
+    message[5].classList.remove("possible");
+    eachRequest(event).then((resJson) => {
         if (crnInput.value === "") {
             message[5].innerText = "필수 정보입니다.";
         } else if (!/^[0-9]{10,10}/.test(crnInput.value)) {
@@ -158,6 +194,9 @@ crnDuplicateCheck.addEventListener("click", async (event) => {
             message[5].innerText = "이미 사용 중인 사업자등록번호입니다.";
         } else {
             message[5].innerText = "사용 가능한 사업자등록번호입니다.";
+            message[5].classList.add("possible");
+            passCRN = true;
+            console.log("passCRN", passCRN);
         }
     });
 });
@@ -165,6 +204,9 @@ crnDuplicateCheck.addEventListener("click", async (event) => {
 // store_name - 중복 체크, regex
 export const storeNameInput = document.querySelector("#storeName");
 storeNameInput.addEventListener("input", async (event) => {
+    passStoreName = false;
+    message[6].classList.remove("possible");
+    message[6].innerText = "";
     storeNameRegexCheck() && storeNameDuplicateCheck(event);
 });
 
@@ -172,7 +214,10 @@ function storeNameRegexCheck() {
     const storeNameRegex = /^[a-zA-Z가-힣 ]+$/;
     if (
         storeNameInput.value === "" ||
-        !storeNameRegex.test(storeNameInput.value)
+        storeNameInput.value === " " ||
+        !storeNameRegex.test(storeNameInput.value) ||
+        /\s+(\s)/.test(storeNameInput.value)
+        // 전체 글자에서 연속된 공백이 2개 이상
     ) {
         storeNameInput.focus();
         message[6].innerText = "스토어 이름을 다시 확인해주세요.";
@@ -182,7 +227,7 @@ function storeNameRegexCheck() {
 }
 
 function storeNameDuplicateCheck(event) {
-    signup(event).then((resJson) => {
+    eachRequest(event).then((resJson) => {
         if (
             resJson.store_name &&
             resJson.store_name[0] === "해당 스토어이름은 이미 존재합니다."
@@ -190,6 +235,82 @@ function storeNameDuplicateCheck(event) {
             message[6].innerText = "이미 사용 중인 스토어 이름입니다.";
         } else {
             message[6].innerText = "사용 가능한 스토어 이름입니다.";
+            message[6].classList.add("possible");
+            passStoreName = true;
+            console.log("passStoreName", passStoreName);
         }
+    });
+}
+
+// PIA - 체크여부
+const agreementCheckbox = document.querySelector(
+    "#personalInfomationAgreement"
+);
+agreementCheckbox.addEventListener("click", () => {
+    if (agreementCheckbox.checked === true) {
+        passAgreement = true;
+        console.log("passAgreement", passAgreement);
+    } else {
+        passAgreement = false;
+    }
+});
+
+export function allPass() {
+    if (
+        !signupType &&
+        passUsername &&
+        passPassword &&
+        passPassword2 &&
+        passName &&
+        passPhoneNumber &&
+        passAgreement
+    ) {
+        signupButton.disabled = false;
+        signupButton.style.backgroundColor = "#334863";
+        signupButton.innerText = "시작하기";
+        signupButton.style.cursor = "pointer";
+        console.log("allPass 트루로 들어왔음!");
+        return true;
+    } else if (
+        signupType &&
+        passUsername &&
+        passPassword &&
+        passPassword2 &&
+        passName &&
+        passPhoneNumber &&
+        passCRN &&
+        passStoreName &&
+        passAgreement
+    ) {
+        signupButton.disabled = false;
+        signupButton.style.backgroundColor = "#334863";
+        signupButton.innerText = "시작하기";
+        signupButton.style.cursor = "pointer";
+        console.log("allPass 트루로 들어왔음!");
+        return true;
+    } else {
+        signupButton.disabled = true;
+        signupButton.style.backgroundColor = "#abb5c2";
+        signupButton.innerText = "모두 작성해주세요 :)";
+        console.log("allPass 뽤스로 들어왔음!");
+        return false;
+    }
+}
+
+// 버튼 활성화 여부 체크
+for (let i = 0; i < input.length; i++) {
+    input[i].addEventListener("input", () => {
+        allPass();
+        console.log(
+            signupType,
+            passUsername,
+            passPassword,
+            passPassword2,
+            passName,
+            passPhoneNumber,
+            passCRN,
+            passStoreName,
+            passAgreement
+        );
     });
 }
