@@ -149,7 +149,6 @@ img {
   font-size: 18px;
   line-height: 22px;
   color: #ffffff;
-  cursor: pointer;
 }
 
 .style-link {
@@ -205,6 +204,7 @@ img {
   font-weight: bolder;
   font-size: 18px;
   line-height: 22px;
+  cursor: pointer;
 }
 
 .signup-type .button-buyer {
@@ -293,6 +293,7 @@ input::placeholder {
   margin-left: 8px;
   border-radius: 5px;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .phoneNumber {
@@ -333,12 +334,12 @@ input::placeholder {
   -ms-flex-direction: row;
   flex-direction: row;
   padding-top: 34px;
-  padding-bottom: 8px;
+  padding-bottom: 25px;
 }
 
 input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
   border: 1px solid #c4c4c4;
   border-radius: 0;
   margin: 3px 10px 10px 0px;
@@ -368,6 +369,10 @@ input[type="checkbox"]:focus {
   font-weight: bolder;
 }
 
+.possible {
+  color: #0c964a;
+}
+
 .policy-box {
   position: relative;
   overflow: auto;
@@ -393,7 +398,7 @@ input[type="checkbox"]:focus {
   width: 100%;
   border: none;
   border-radius: 5px;
-  background-color: #334863;
+  background-color: #abb5c2;
   padding: 19px 0;
   margin-bottom: 110px;
   font-style: normal;
@@ -401,6 +406,5 @@ input[type="checkbox"]:focus {
   font-size: 18px;
   line-height: 22px;
   color: #ffffff;
-  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

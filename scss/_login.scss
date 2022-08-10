@@ -67,13 +67,6 @@
     margin-bottom: 16px;
 }
 
-// .input-login-username::placeholder,
-// .input-login-password::placeholder {
-//     font-style: normal;
-//     font-size: 16px;
-//     line-height: 16px;
-// }
-
 .input-login-username:focus,
 .input-login-password:focus {
     outline: none;
@@ -96,7 +89,6 @@
     font-size: 18px;
     line-height: 22px;
     color: $light-txt-color;
-    cursor: pointer;
 }
 
 .style-link {
