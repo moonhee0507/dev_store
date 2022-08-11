@@ -47,7 +47,6 @@ usernameDuplicateCheck.addEventListener("click", async (event) => {
             message[0].classList.add("possible");
             message[0].innerText = "사용 가능한 아이디입니다.";
             passUsername = true;
-            console.log("passUsername", passUsername);
         }
     });
 });
@@ -73,7 +72,6 @@ passwordInput.addEventListener("input", () => {
     } else {
         message[1].innerText = "";
         passPassword = true;
-        console.log("passPassword", passPassword);
     }
 });
 
@@ -86,7 +84,6 @@ passwordInput2.addEventListener("input", () => {
     } else {
         message[2].innerText = "";
         passPassword2 = true;
-        console.log("passPassword2", passPassword2);
     }
 });
 
@@ -99,16 +96,18 @@ nameInput.addEventListener("blur", () => {
     } else {
         message[3].innerText = "";
         passName = true;
-        console.log("passName", passName);
     }
 });
 
 // phoneNumber - 중복 체크, regex
+// TODO: select 변경하면 middle, last 빈값으로 reset
 export const phoneNumber = document.querySelectorAll(".phoneNumber");
 
 for (let i = 0; i <= 2; i++) {
     phoneNumber[i].addEventListener("input", (event) => {
         passPhoneNumber = false;
+        message[4].classList.remove("possible");
+        message[4].innerText = "";
         phoneNumberRegexCheck() && phoneNumberDuplicateCheck(event);
     });
 }
@@ -142,9 +141,9 @@ function phoneNumberDuplicateCheck(event) {
         ) {
             message[4].innerText = resJson.phone_number[0];
         } else {
-            message[4].innerText = "";
+            message[4].classList.add("possible");
+            message[4].innerText = "사용 가능한 전화번호입니다.";
             passPhoneNumber = true;
-            console.log("passPhoneNumber", passPhoneNumber);
         }
     });
 }
@@ -196,7 +195,6 @@ crnDuplicateCheck.addEventListener("click", async (event) => {
             message[5].innerText = "사용 가능한 사업자등록번호입니다.";
             message[5].classList.add("possible");
             passCRN = true;
-            console.log("passCRN", passCRN);
         }
     });
 });
@@ -237,7 +235,6 @@ function storeNameDuplicateCheck(event) {
             message[6].innerText = "사용 가능한 스토어 이름입니다.";
             message[6].classList.add("possible");
             passStoreName = true;
-            console.log("passStoreName", passStoreName);
         }
     });
 }
@@ -249,7 +246,6 @@ const agreementCheckbox = document.querySelector(
 agreementCheckbox.addEventListener("click", () => {
     if (agreementCheckbox.checked === true) {
         passAgreement = true;
-        console.log("passAgreement", passAgreement);
     } else {
         passAgreement = false;
     }
@@ -269,7 +265,6 @@ export function allPass() {
         signupButton.style.backgroundColor = "#334863";
         signupButton.innerText = "시작하기";
         signupButton.style.cursor = "pointer";
-        console.log("allPass 트루로 들어왔음!");
         return true;
     } else if (
         signupType &&
@@ -286,31 +281,22 @@ export function allPass() {
         signupButton.style.backgroundColor = "#334863";
         signupButton.innerText = "시작하기";
         signupButton.style.cursor = "pointer";
-        console.log("allPass 트루로 들어왔음!");
         return true;
     } else {
         signupButton.disabled = true;
         signupButton.style.backgroundColor = "#abb5c2";
         signupButton.innerText = "모두 작성해주세요 :)";
-        console.log("allPass 뽤스로 들어왔음!");
         return false;
     }
 }
 
+// TODO: setInterval x
 // 버튼 활성화 여부 체크
-for (let i = 0; i < input.length; i++) {
-    input[i].addEventListener("input", () => {
-        allPass();
-        console.log(
-            signupType,
-            passUsername,
-            passPassword,
-            passPassword2,
-            passName,
-            passPhoneNumber,
-            passCRN,
-            passStoreName,
-            passAgreement
-        );
-    });
-}
+// for (let i = 0; i < input.length; i++) {
+//     input[i].addEventListener("input", () => {
+//         allPass();
+//     });
+// }
+
+// 1초마다 함수 실행 - O
+// setInterval(allPass, 1000);
