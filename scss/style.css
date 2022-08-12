@@ -25,424 +25,544 @@ tbody,
 tr,
 th,
 td {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body,
 html {
-    width: 100%;
-    background-color: #fdd247;
+  width: 100%;
+  background-color: #fdd247;
 }
 
 body,
 button {
-    color: #333333;
-    font-family: NotoSansKR;
+  color: #333333;
+  font-family: NotoSansKR;
 }
 
 img {
-    width: 100%;
-    height: auto;
-    vertical-align: top;
+  width: 100%;
+  height: auto;
+  vertical-align: top;
 }
 
 .sr-only {
-    position: absolute;
-    clip: rect(0 0 0 0);
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
 }
 
 .max-width {
-    width: 1200px;
-    max-width: calc(100% - 60px);
-    margin: 0 auto;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  width: 1200px;
+  max-width: calc(100% - 60px);
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .section-login {
-    width: 550px;
-    margin: 50px auto 0;
+  width: 550px;
+  margin: 50px auto 0;
 }
 
 .section-login .logo {
-    width: 100%;
+  width: 100%;
 }
 
 .section-login .form-login {
-    width: 100%;
-    background-color: white;
+  width: 100%;
+  background-color: white;
 }
 
 .section-login .form-login .style-wrapper {
-    border: 1px solid #c4c4c4;
-    margin-bottom: 30px;
+  border: 1px solid #c4c4c4;
+  margin-bottom: 30px;
 }
 
 .section-login .form-login .style-container {
-    padding: 34px 34px 35px 34px;
+  padding: 34px 34px 35px 34px;
 }
 
 .login-type {
-    font-size: 0;
+  font-size: 0;
 }
 
 .login-type .button-buyer,
 .login-type .button-seller {
-    width: calc(100% / 2);
-    border: none;
-    padding: 19px 77px 18px 76px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 22px;
+  width: calc(100% / 2);
+  border: none;
+  padding: 19px 77px 18px 76px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .login-type .button-buyer {
-    background-color: inherit;
+  background-color: inherit;
 }
 
 .login-type .button-seller {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 .input-login-username {
-    margin-bottom: 6px;
+  margin-bottom: 6px;
 }
 
 .input-login-username,
 .input-login-password {
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px solid #c4c4c4;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #c4c4c4;
 }
 
 .input-login-password {
-    margin-bottom: 26px;
+  margin-bottom: 26px;
 }
 
 .error-message {
-    display: block;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 20px;
-    color: #eb5757;
-    margin-bottom: 16px;
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  color: #eb5757;
+  margin-bottom: 16px;
 }
 
 .input-login-username:focus,
 .input-login-password:focus {
-    outline: none;
+  outline: none;
 }
 
 .input-login-username,
 .input-login-password,
 .button-login {
-    width: 100%;
-    font-weight: bold;
+  width: 100%;
+  font-weight: bold;
 }
 
 .button-login {
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #abb5c2;
-    padding: 19px 0;
-    font-style: normal;
-    font-size: 18px;
-    line-height: 22px;
-    color: #ffffff;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #abb5c2;
+  padding: 19px 0;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
 }
 
 .style-link {
-    text-align: center;
+  text-align: center;
 }
 
 .style-link a {
-    text-decoration: none;
-    color: #333333;
+  text-decoration: none;
+  color: #333333;
 }
 
 .style-link .link-signup::after {
-    content: "|";
-    display: inline-block;
-    width: 33px;
-    height: 20px;
+  content: "|";
+  display: inline-block;
+  width: 33px;
+  height: 20px;
 }
 
 .section-signup {
-    width: 550px;
-    margin: 50px auto 0;
+  width: 550px;
+  margin: 50px auto 0;
 }
 
 .section-signup .logo {
-    width: 100%;
-    background-color: #fdd247;
+  width: 100%;
+  background-color: #fdd247;
 }
 
 .section-signup .form-signup {
-    width: 100%;
-    background-color: #fdd247;
+  width: 100%;
+  background-color: #fdd247;
 }
 
 .section-signup .form-signup .style-wrapper {
-    border: 1px solid #c4c4c4;
-    background-color: white;
+  border: 1px solid #c4c4c4;
+  background-color: white;
 }
 
 .section-signup .form-signup .style-container {
-    padding: 40px 34px 35px;
+  padding: 40px 34px 35px;
 }
 
 .signup-type {
-    font-size: 0;
+  font-size: 0;
 }
 
 .signup-type .button-buyer,
 .signup-type .button-seller {
-    width: calc(100% / 2);
-    border: none;
-    padding: 19px 87px 18px 86px;
-    font-style: normal;
-    font-weight: bolder;
-    font-size: 18px;
-    line-height: 22px;
-    cursor: pointer;
+  width: calc(100% / 2);
+  border: none;
+  padding: 19px 87px 18px 86px;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
 }
 
 .signup-type .button-buyer {
-    background-color: inherit;
+  background-color: inherit;
 }
 
 .signup-type .button-seller {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 .label-block {
-    display: block;
-    text-align: left;
-    margin-bottom: 10px;
-    font-style: normal;
-    font-weight: bolder;
-    font-size: 16px;
-    line-height: 20px;
+  display: block;
+  text-align: left;
+  margin-bottom: 10px;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 input {
-    border: 1px solid #c4c4c4;
-    padding: 16px 15px 16px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 20px;
+  border: 1px solid #c4c4c4;
+  padding: 16px 15px 16px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 input:focus {
-    outline: 1px solid #334863;
+  outline: 1px solid #334863;
 }
 
 input::-webkit-input-placeholder {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 16px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
 }
 
 input:-ms-input-placeholder {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 16px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
 }
 
 input::-ms-input-placeholder {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 16px;
-}
-
-input::-moz-placeholder {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 16px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
 }
 
 input::placeholder {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 16px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
 }
 
 #password,
 #password2,
 #name,
 #storeName {
-    width: 100%;
+  width: 100%;
 }
 
 .input-signup-username,
 #companyRegistrationNumber {
-    width: 346px;
+  width: 346px;
 }
 
 .username-duplicate-check,
 .crn-duplicate-check {
-    width: 122px;
-    border: none;
-    padding: 18px 0;
-    color: #ffffff;
-    background-color: #334863;
-    font-style: normal;
-    font-weight: bolder;
-    font-size: 16px;
-    line-height: 20px;
-    margin-left: 8px;
-    border-radius: 5px;
-    vertical-align: middle;
-    cursor: pointer;
+  width: 122px;
+  border: none;
+  padding: 18px 0;
+  color: #ffffff;
+  background-color: #334863;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 16px;
+  line-height: 20px;
+  margin-left: 8px;
+  border-radius: 5px;
+  vertical-align: middle;
+  cursor: pointer;
 }
 
 .phoneNumber {
-    width: 152px;
+  width: 152px;
 }
 
 .phoneNumber.first {
-    padding: 16px 50px 16px;
-    border: 1px solid #c4c4c4;
-    border-radius: 5px;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 20px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: url("../images/icon-down-arrow.svg") no-repeat;
-    background-size: 22px 22px;
-    background-position: calc(100% - 14px);
+  padding: 16px 50px 16px;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("../images/icon-down-arrow.svg") no-repeat;
+  background-size: 22px 22px;
+  background-position: calc(100% - 14px);
 }
 
 .phoneNumber.first:focus {
-    outline: 1px solid #334863;
+  outline: 1px solid #334863;
 }
 
 .phoneNumber.middle,
 .phoneNumber.last {
-    margin-left: 8px;
-    text-align: center;
+  margin-left: 8px;
+  text-align: center;
 }
 
 .pia-check-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    padding-top: 34px;
-    padding-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding-top: 34px;
+  padding-bottom: 25px;
 }
 
 input[type="checkbox"] {
-    width: 22px;
-    height: 22px;
-    border: 1px solid #c4c4c4;
-    border-radius: 0;
-    margin: 3px 10px 10px 0px;
-    cursor: pointer;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #c4c4c4;
+  border-radius: 0;
+  margin: 3px 10px 10px 0px;
+  cursor: pointer;
 }
 
 input[type="checkbox"]:focus {
-    outline: none;
+  outline: none;
 }
 
 .label-pia {
-    font-style: normal;
-    font-size: 16px;
-    line-height: 20px;
-    vertical-align: top;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  vertical-align: top;
 }
 
 .label-pia .important {
-    font-weight: bold;
-    text-decoration: underline;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .message {
-    display: block;
-    color: #eb5757;
-    margin-bottom: 20px;
-    font-weight: bolder;
+  display: block;
+  color: #eb5757;
+  margin-bottom: 20px;
+  font-weight: bolder;
 }
 
 .possible {
-    color: #0c964a;
+  color: #0c964a;
 }
 
 .policy-box {
-    position: relative;
-    overflow: auto;
-    height: 88px;
-    padding: 12px;
-    border: 1px solid #c4c4c4;
-    margin-bottom: 34px;
-    background-color: #fff;
+  position: relative;
+  overflow: auto;
+  height: 88px;
+  padding: 12px;
+  border: 1px solid #c4c4c4;
+  margin-bottom: 34px;
+  background-color: #fff;
 }
 
 .policy-text {
-    font-size: 12px;
-    line-height: 16px;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .policy-text .first-sentence {
-    display: block;
-    font-weight: bolder;
+  display: block;
+  font-weight: bolder;
 }
 
 .button-signup {
-    display: block;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    background-color: #abb5c2;
-    padding: 19px 0;
-    margin-bottom: 110px;
-    font-style: normal;
-    font-weight: bolder;
-    font-size: 18px;
-    line-height: 22px;
-    color: #ffffff;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #abb5c2;
+  padding: 19px 0;
+  margin-bottom: 110px;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
 }
 
-.main {
-    background-color: #334863;
+.list-products {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -webkit-column-gap: 30px;
+  column-gap: 30px;
+  row-gap: 78px;
+}
+
+.link-product {
+  text-decoration: none;
+  color: #333333;
+}
+
+.style-wrapper-img {
+  width: 380px;
+  height: 380px;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.style-wrapper-img .img-product {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.txt-seller {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  color: #828282;
+}
+
+.txt-product-name {
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #333333;
+  margin: 10px 0;
+}
+
+.txt-price-number {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.txt-price-unit {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.header {
+  background-color: #334863;
 }
 
 .header .head {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 22px 0;
 }
 
-.header img {
-    width: 200px;
+.header .style-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.header .logo {
+  width: 200px;
+}
+
+.style-search {
+  font-size: 0;
+  padding-left: 30px;
+}
+
+.style-search #searchProducts {
+  width: 500px;
+  height: 44px;
+  border: none;
+  border-radius: 24px 0 0 24px;
+  padding: 0 0 0 30px;
+  margin: 0;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.style-search .button-search {
+  height: 44px;
+  border: none;
+  border-radius: 0 24px 24px 0;
+  padding-right: 20px;
+  background-color: white;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+
+.style-search .button-search .img-search {
+  width: 24px;
+}
+
+.list-usermanu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+}
+
+.icon-shopping-bag,
+.icon-user {
+  display: block;
+  width: 32px;
+  margin: 0 auto 5px auto;
+}
+
+.link-list {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 footer {
-    bottom: 0;
+  bottom: 0;
 }
 
 .link-box {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
+/*# sourceMappingURL=style.css.map */

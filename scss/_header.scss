@@ -1,11 +1,78 @@
 .header {
+    background-color: $main-color;
+
     .head {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 22px 0;
     }
 
-    img {
+    .style-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .logo {
         width: 200px;
     }
+}
+
+// 검색
+.style-search {
+    font-size: 0;
+    padding-left: 30px;
+
+    #searchProducts {
+        width: 500px;
+        height: 44px;
+        border: none;
+        border-radius: 24px 0 0 24px;
+        padding: 0 0 0 30px;
+        margin: 0;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 16px;
+    }
+
+    .button-search {
+        height: 44px;
+        border: none;
+        border-radius: 0 24px 24px 0;
+        padding-right: 20px;
+        background-color: white;
+        vertical-align: bottom;
+        cursor: pointer;
+
+        .img-search {
+            width: 24px;
+        }
+    }
+}
+
+// 유저메뉴
+.list-usermanu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 30px;
+}
+
+.icon-shopping-bag,
+.icon-user {
+    display: block;
+    width: 32px;
+    margin: 0 auto 5px auto;
+}
+
+.link-list {
+    color: $light-txt-color;
+    text-decoration: none;
 }
