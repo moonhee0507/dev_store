@@ -2,7 +2,7 @@ class Router {
     constructor(routes) {
         // routes가 없는 경우 처리
         if (!routes) {
-            console.lof("경로를 초기화할 수 없다! 경로가 필요하다!");
+            console.log("경로를 초기화할 수 없습니다. 경로가 필요합니다.");
         }
 
         this.routes = routes;
