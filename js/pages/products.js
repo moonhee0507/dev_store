@@ -3,7 +3,7 @@ import { ProductCard } from "../components/productCard/index.js";
 
 class Products {
     constructor() {
-        this.mainElement = document.createElement("main");
+        this.sectionElement = document.createElement("section");
         this.products = {};
     }
 
@@ -24,9 +24,10 @@ class Products {
     async setProductList() {
         await this.getProductsData();
         console.log(this.products);
-        this.mainElement.classList.add("products");
+        this.sectionElement.classList.add("section-products");
 
         const productList = document.createElement("ul");
+        productList.classList.add("list-products");
 
         this.products.forEach((item) => {
             const productItem = document.createElement("li");
@@ -35,13 +36,13 @@ class Products {
             productList.appendChild(productItem);
         });
 
-        this.mainElement.append(productList);
+        this.sectionElement.append(productList);
     }
 
     render() {
         this.setProductList();
 
-        return this.mainElement;
+        return this.sectionElement;
     }
 }
 
