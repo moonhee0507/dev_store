@@ -1,3 +1,98 @@
+// 슬라이드
+.slide-wrapper {
+    // container
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 80px;
+}
+
+.slide-container {
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.slide {
+    background-repeat: no-repeat;
+    width: 1200px;
+    height: 500px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    overflow: hidden;
+}
+
+.slide-container.animated {
+    -webkit-transition: left 0.3s ease-in;
+    -o-transition: left 0.3s ease-in;
+    transition: left 0.3s ease-in;
+}
+
+.button-prev.disabled,
+.button-next.disabled {
+    display: none;
+}
+
+.button-prev {
+    background-image: url("../images/icon-swiper-left.png");
+    margin-left: -580px;
+}
+
+.button-next {
+    background-image: url("../images/icon-swiper-right.png");
+    margin-left: 530px;
+}
+
+.button-prev,
+.button-next {
+    position: absolute;
+    background-size: 100px 200px;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+// 페이저
+.pager {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    text-align: center;
+
+    span {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: $button-border;
+        border-radius: 50%;
+        margin: 0 5px;
+    }
+
+    span.active {
+        background: white;
+    }
+}
+
+// 상품
+.section-products {
+    padding-top: 80px;
+    padding-bottom: 180px;
+}
+
 .list-products {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -10,23 +105,22 @@
 // 링크
 .link-product {
     text-decoration: none;
-    color: $txt-color;
+    color: white;
 }
 
 // 상품 이미지
 .style-wrapper-img {
     width: 380px;
     height: 380px;
-    border: 1px solid $border-color;
     border-radius: 10px;
     margin-bottom: 16px;
+    overflow: hidden;
 
     .img-product {
         width: 100%;
         height: 100%;
         -o-object-fit: cover;
         object-fit: cover;
-        border-radius: 10px;
     }
 }
 
@@ -36,7 +130,7 @@
     font-weight: bold;
     font-size: 16px;
     line-height: 22px;
-    color: $sub-txt-color;
+    color: white;
 }
 
 // 상품명
@@ -46,7 +140,7 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 22px;
-    color: $txt-color;
+    color: white;
     margin: 10px 0;
 }
 
