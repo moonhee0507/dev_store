@@ -8,7 +8,7 @@
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        padding: 22px 0;
+        padding: 40px 0;
     }
 
     .style-wrapper {
@@ -40,6 +40,10 @@
         font-style: normal;
         font-size: 16px;
         line-height: 16px;
+        background-color: #303134;
+        color: #e8eaed;
+        -webkit-box-shadow: 5px black;
+        box-shadow: 5px 5px 5px black;
     }
 
     .button-search {
@@ -47,9 +51,11 @@
         border: none;
         border-radius: 0 24px 24px 0;
         padding-right: 20px;
-        background-color: white;
+        background-color: #303134;
         vertical-align: bottom;
         cursor: pointer;
+        -webkit-box-shadow: 5px 5px 5px black;
+        box-shadow: 5px 5px 5px black;
 
         .img-search {
             width: 24px;
@@ -73,6 +79,6 @@
 }
 
 .link-list {
-    color: $light-txt-color;
+    color: #e8eaed;
     text-decoration: none;
 }
