@@ -12,6 +12,7 @@ class ProductItem {
 
     render() {
         const product = document.createElement("a");
+        product.setAttribute("class", "link-product");
         product.setAttribute("href", `/products/${this.item.product_id}`);
 
         const productImage = new ProductImage(this.item.image);

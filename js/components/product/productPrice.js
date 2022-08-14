@@ -9,10 +9,12 @@ class ProductPrice {
 
         const productPrice = document.createElement("strong");
         productPrice.innerText = this.price;
+        productPrice.setAttribute("class", "txt-price-number");
         productPriceContainer.appendChild(productPrice);
 
         const priceType = document.createElement("span");
         priceType.innerText = "원";
+        priceType.setAttribute("class", "txt-price-unit");
         productPriceContainer.appendChild(priceType);
 
         return productPriceContainer;
