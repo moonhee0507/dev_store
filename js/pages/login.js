@@ -19,7 +19,7 @@ class Login {
         this.sectionElement.appendChild(divElement);
 
         // 이미지
-        logoElement.src = "../images/logo.png";
+        logoElement.src = "../images/logo.svg";
         logoElement.alt = "Logo";
 
         // 폼

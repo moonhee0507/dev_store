@@ -16,7 +16,7 @@ class Signup {
         this.sectionElement.appendChild(formElement);
 
         // 이미지
-        logoElement.src = "../images/logo.png";
+        logoElement.src = "../images/logo.svg";
         logoElement.alt = "Logo";
 
         // 폼
