@@ -1,9 +1,80 @@
-footer {
-    bottom: 0;
+.footer {
+    background-color: $footer-color;
 }
 
 .link-box {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 60px 0 30px;
+    border-bottom: 1px solid #3c4043;
+    margin-bottom: 30px;
+}
+
+// 소개 등
+.style-link-page {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    gap: 32px;
+
+    .link-page {
+        position: relative;
+        text-decoration: none;
+        color: #bdc1c6;
+        font-style: normal;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .link-page:not(:first-child)::after {
+        content: "|";
+        left: -17px;
+        position: absolute;
+    }
+}
+
+// sns
+.style-link-sns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 14px;
+
+    .icon-sns {
+        width: 32px;
+    }
+}
+
+// co-info
+.co-info {
+    padding-bottom: 63px;
+}
+
+.co-info-list {
+    dt,
+    dd {
+        display: inline-block;
+        color: #bdc1c6;
+    }
+}
+
+.txt-co-name {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.style-co-info:first-child {
+    margin-bottom: 10px;
+}
+
+.style-co-info:not(:first-child, :last-child) {
+    margin-bottom: 7px;
 }
