@@ -41,6 +41,10 @@ class ProductList {
 
     render() {
         this.setProductList();
+        const h2 = document.createElement("h2");
+        h2.setAttribute("class", "sr-only");
+        h2.innerText = "상품 리스트";
+        this.sectionElement.appendChild(h2);
 
         return this.sectionElement;
     }
