@@ -5,6 +5,10 @@ class Slide {
 
     render() {
         this.slideBox.setAttribute("class", "article-slide");
+        const h2 = document.createElement("h2");
+        h2.setAttribute("class", "sr-only");
+        h2.innerText = "스토어 이벤트 안내용 슬라이드";
+
         const slideWrapper = document.createElement("div");
         slideWrapper.setAttribute("class", "slide-wrapper");
 
@@ -59,6 +63,7 @@ class Slide {
         slideWrapper.appendChild(buttonPrev);
         slideWrapper.appendChild(buttonNext);
         slideContainer.append(slide1, slide2, slide3);
+        this.slideBox.appendChild(h2);
         this.slideBox.appendChild(slideWrapper);
 
         return this.slideBox;
