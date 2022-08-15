@@ -1,0 +1,216 @@
+.section-detail {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 50px;
+    -moz-column-gap: 50px;
+    column-gap: 50px;
+}
+
+.large {
+    width: 550px;
+    height: 550px;
+    margin-bottom: 0;
+}
+
+.product-detail-list {
+    color: white;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 600px;
+}
+
+.detail-txt-seller {
+    font-size: 18px;
+    line-height: 23px;
+    margin-bottom: 16px;
+}
+
+.detail-txt-product-name {
+    font-size: 36px;
+    line-height: 45px;
+}
+
+.detail-product-price {
+    margin: 20px 0 138px;
+
+    .detail-txt-price-number {
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 45px;
+    }
+
+    .detail-txt-price-unit {
+        font-size: 18px;
+        line-height: 23px;
+    }
+}
+
+.detail-shipping-method,
+.detail-shipping-fee {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+// 수량
+.style-wrapper-quentity {
+    font-size: 0;
+    border-top: 2px solid $border-color;
+    border-bottom: 2px solid $border-color;
+    padding: 30px 0;
+    margin: 20px 0 32px;
+
+    .button-quentity {
+        width: 30px;
+        height: 30px;
+        border: 1px solid $button-border;
+        vertical-align: bottom;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    .button-quentity.minus {
+        border-radius: $border-radius 0 0 $border-radius;
+        background: url(../images/icon-minus.png) no-repeat;
+        background-position: center;
+        background-size: 15px 15px;
+    }
+
+    .button-quentity.plus {
+        border-radius: 0 $border-radius $border-radius 0;
+        background: url(../images/icon-plus.png) no-repeat;
+        background-position: center;
+        background-size: 15px 15px;
+    }
+
+    .input-quentity {
+        width: 45px;
+        height: 30px;
+        border: 1px solid $button-border;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        background-color: $main-color;
+        color: white;
+    }
+}
+
+// 토탈
+.style-wrapper-total {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+
+    .detail-txt-total-price {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 23px;
+        -ms-flex-item-align: end;
+        align-self: flex-end;
+    }
+
+    .style-container-total {
+        font-size: 18px;
+        line-height: 23px;
+        -ms-flex-item-align: end;
+        align-self: flex-end;
+
+        // 총 수량
+        .detail-txt-total-quentity {
+            display: inline-block;
+            vertical-align: bottom;
+        }
+
+        .detail-txt-total-quentity::after {
+            content: "|";
+            margin: 0 5px;
+        }
+
+        // 수량
+        .detail-number-total-quentity {
+            font-weight: bold;
+        }
+
+        .detail-number-total-price {
+            font-weight: bold;
+            font-size: 36px;
+            line-height: 36px;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+
+        .detail-txt-total-price-unit {
+            vertical-align: bottom;
+        }
+    }
+}
+
+// 바로 구매 및 장바구니 버튼
+.link-buy {
+    width: 400px;
+    background-color: $point-purple;
+}
+
+.link-shopping-bag {
+    width: 180px;
+    background-color: $point-red;
+    margin-left: 15px;
+}
+
+.link-buy,
+.link-shopping-bag {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    border: none;
+    border-radius: $border-radius;
+    padding: 15px 0;
+    margin-top: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+// 상품 상세
+.style-wrapper-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 140px;
+
+    li {
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .style-container-info {
+        width: 100%;
+        padding: 20px 0;
+        border-bottom: 3px solid white;
+
+        .link-product-info {
+            display: inline-block;
+            width: 100%;
+            text-decoration: none;
+            color: white;
+        }
+    }
+
+    .style-container-info:hover {
+        border-color: $point-green;
+        .link-product-info {
+            color: $point-green;
+        }
+    }
+}
