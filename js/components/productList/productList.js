@@ -1,7 +1,7 @@
-import { API_URL } from "../common/constants";
-import { ProductCard } from "../components/productCard/index.js";
+import { API_URL } from "../../common/constants";
+import { ProductCard } from "../productCard/index.js";
 
-class Products {
+class ProductList {
     constructor() {
         this.sectionElement = document.createElement("section");
         this.products = {};
@@ -46,4 +46,4 @@ class Products {
     }
 }
 
-export default Products;
+export default ProductList;
