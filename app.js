@@ -1,4 +1,4 @@
-import { Products, ProductDetail, Login, Signup } from "./js/pages/index.js";
+import { Home, ProductDetail, Login, Signup } from "./js/pages/index.js";
 import { Router } from "./utils/index.js";
 
 export default class App {
@@ -11,7 +11,7 @@ export default class App {
 
         // 미리 경로를 정해 놓는 곳
         const router = new Router({
-            "/": Products,
+            "/": Home,
             "/products": ProductDetail,
             "/login": Login,
             "/signup": Signup,
