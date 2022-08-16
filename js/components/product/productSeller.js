@@ -4,12 +4,20 @@ class ProductSeller {
     }
 
     render() {
-        // 셀러
-        const productSeller = document.createElement("p");
-        productSeller.setAttribute("class", "txt-seller");
-        productSeller.innerText = this.store;
+        if (window.location.pathname === "/") {
+            const productSeller = document.createElement("p");
+            productSeller.setAttribute("class", "txt-seller");
+            productSeller.innerText = this.store;
 
-        return productSeller;
+            return productSeller;
+        } else if (window.location.pathname.includes("/products/")) {
+            const li = document.createElement("li");
+            const productSeller = document.createElement("p");
+            productSeller.setAttribute("class", "detail-txt-seller");
+            productSeller.innerText = this.store;
+            li.appendChild(productSeller);
+            return li;
+        }
     }
 }
 
