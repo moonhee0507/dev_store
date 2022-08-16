@@ -16,6 +16,7 @@ class Header {
         logoImg.setAttribute("class", "logo");
         logoImg.setAttribute("src", "../images/logo.svg");
         logoImg.setAttribute("alt", "dev store logo");
+        a.setAttribute("href", "/");
         a.appendChild(logoImg);
         h1.appendChild(a);
         styleWrapper.appendChild(h1);
