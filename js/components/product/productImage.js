@@ -4,9 +4,16 @@ class ProductImage {
     }
 
     render() {
-        // 상품 이미지
         const productImgContainer = document.createElement("div");
-        productImgContainer.setAttribute("class", "style-wrapper-img");
+
+        if (window.location.pathname === "/") {
+            productImgContainer.setAttribute("class", "style-wrapper-img");
+        } else if (window.location.pathname.includes("/products/")) {
+            productImgContainer.setAttribute(
+                "class",
+                "style-wrapper-img large"
+            );
+        }
 
         const productImg = document.createElement("img");
         productImg.setAttribute("class", "img-product");
