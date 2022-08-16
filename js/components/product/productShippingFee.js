@@ -1,7 +1,14 @@
 class ProductShippingFee {
-    constructor() {}
+    constructor(shippingFee) {
+        this.shippingFee = shippingFee;
+    }
 
-    render() {}
+    render() {
+        const m = document.createElement("h1");
+        m.innerText = this.shippingFee;
+
+        return m;
+    }
 }
 
 export default ProductShippingFee;
