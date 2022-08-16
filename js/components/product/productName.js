@@ -4,12 +4,21 @@ class ProductName {
     }
 
     render() {
-        // 상품명
-        const productName = document.createElement("strong");
-        productName.setAttribute("class", "txt-product-name");
-        productName.innerText = this.name;
+        if (window.location.pathname === "/") {
+            const productName = document.createElement("strong");
+            productName.setAttribute("class", "txt-product-name");
+            productName.innerText = this.name;
 
-        return productName;
+            return productName;
+        } else if (window.location.pathname.includes("/products/")) {
+            const li = document.createElement("li");
+            const productName = document.createElement("strong");
+            productName.setAttribute("class", "detail-txt-product-name");
+            productName.innerText = this.name;
+            li.appendChild(productName);
+
+            return li;
+        }
     }
 }
 
