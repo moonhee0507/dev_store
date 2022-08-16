@@ -1,4 +1,4 @@
-.section-detail {
+.style-wrapper-detail {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -54,14 +54,14 @@
 }
 
 // 수량
-.style-wrapper-quentity {
+.style-wrapper-quantity {
     font-size: 0;
     border-top: 2px solid $border-color;
     border-bottom: 2px solid $border-color;
     padding: 30px 0;
     margin: 20px 0 32px;
 
-    .button-quentity {
+    .button-quantity {
         width: 30px;
         height: 30px;
         border: 1px solid $button-border;
@@ -71,21 +71,21 @@
         cursor: pointer;
     }
 
-    .button-quentity.minus {
+    .button-quantity.minus {
         border-radius: $border-radius 0 0 $border-radius;
         background: url(../images/icon-minus.png) no-repeat;
         background-position: center;
         background-size: 15px 15px;
     }
 
-    .button-quentity.plus {
+    .button-quantity.plus {
         border-radius: 0 $border-radius $border-radius 0;
         background: url(../images/icon-plus.png) no-repeat;
         background-position: center;
         background-size: 15px 15px;
     }
 
-    .input-quentity {
+    .input-quantity {
         width: 45px;
         height: 30px;
         border: 1px solid $button-border;
@@ -123,18 +123,18 @@
         align-self: flex-end;
 
         // 총 수량
-        .detail-txt-total-quentity {
+        .detail-txt-total-quantity {
             display: inline-block;
             vertical-align: bottom;
         }
 
-        .detail-txt-total-quentity::after {
+        .detail-txt-total-quantity::after {
             content: "|";
             margin: 0 5px;
         }
 
         // 수량
-        .detail-number-total-quentity {
+        .detail-number-total-quantity {
             font-weight: bold;
         }
 
