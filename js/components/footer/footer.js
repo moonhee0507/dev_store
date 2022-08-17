@@ -98,7 +98,7 @@ class Footer {
                 </div>
                 <div class="style-co-info">
                     <dt>대표</dt>
-                    <dd>dev king</dd>
+                    <dd>문희</dd>
                 </div>
             </dl>
         `;
