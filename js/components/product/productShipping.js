@@ -21,7 +21,7 @@ class ProductShippingMethod {
         if (!this.shippingFee) {
             txtFee.innerText = "무료배송";
         } else {
-            txtFee.innerText = this.shippingFee + "원";
+            txtFee.innerText = this.shippingFee.toLocaleString("ko-KR") + "원";
         }
 
         li.append(txtMethod, txtFee);
