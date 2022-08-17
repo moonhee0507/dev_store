@@ -152,6 +152,10 @@ class Signup {
         validation.src = "../js/validation.js";
         body.appendChild(validation);
 
+        logoElement.addEventListener("click", () => {
+            window.location.pathname = "/";
+        });
+
         return this.sectionElement;
     }
 }

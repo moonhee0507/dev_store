@@ -75,6 +75,10 @@ class Login {
         loginFeat.src = "../js/loginFeat.js";
         body.appendChild(loginFeat);
 
+        logoElement.addEventListener("click", () => {
+            window.location.pathname = "/";
+        });
+
         return this.sectionElement;
     }
 }
