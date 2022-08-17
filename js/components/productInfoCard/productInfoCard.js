@@ -7,6 +7,7 @@ import {
     ProductQuantity,
     ProductTotal,
 } from "../product/index.js";
+import { BuyNowButton, ShoppingBagButton } from "../button/index.js";
 
 class ProductInfoCard {
     constructor(info) {
@@ -30,11 +31,18 @@ class ProductInfoCard {
 
         // quantity
         const li = document.createElement("li");
-        const productQuantity = new ProductQuantity();
+        const productQuantity = new ProductQuantity(
+            this.info.stock,
+            this.info.price
+        );
         li.append(productQuantity.render());
 
         // total
-        const productTotal = new ProductTotal(this.info.price);
+        const productTotal = new ProductTotal(this.info.stock, this.info.price);
+
+        // button
+        const buyNowButton = new BuyNowButton();
+        const shoppingBagButton = new ShoppingBagButton();
 
         document
             .querySelector(".style-wrapper-detail")
@@ -46,6 +54,8 @@ class ProductInfoCard {
         this.ul.appendChild(productShipping.render());
         this.ul.appendChild(li);
         this.ul.appendChild(productTotal.render());
+        this.ul.appendChild(buyNowButton.render());
+        this.ul.appendChild(shoppingBagButton.render());
 
         return this.ul;
     }
