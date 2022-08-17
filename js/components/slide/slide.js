@@ -44,10 +44,10 @@ class Slide {
         pager.setAttribute("class", "pager");
 
         // prev, next
-        const buttonPrev = document.createElement("a");
-        const buttonNext = document.createElement("a");
-        buttonPrev.setAttribute("href", "#");
-        buttonNext.setAttribute("href", "#");
+        const buttonPrev = document.createElement("button");
+        const buttonNext = document.createElement("button");
+        buttonPrev.setAttribute("type", "button");
+        buttonNext.setAttribute("type", "button");
         buttonPrev.setAttribute("class", "button-prev");
         buttonNext.setAttribute("class", "button-next");
 
