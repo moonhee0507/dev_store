@@ -8,7 +8,7 @@ class ProductPrice {
             const productPriceContainer = document.createElement("div");
 
             const productPrice = document.createElement("strong");
-            productPrice.innerText = this.price;
+            productPrice.innerText = this.price.toLocaleString("ko-KR");
             productPrice.setAttribute("class", "txt-price-number");
             productPriceContainer.appendChild(productPrice);
 
@@ -24,7 +24,7 @@ class ProductPrice {
             container.setAttribute("class", "detail-product-price");
 
             const productPrice = document.createElement("strong");
-            productPrice.innerText = this.price;
+            productPrice.innerText = this.price.toLocaleString("ko-KR");
             productPrice.setAttribute("class", "detail-txt-price-number");
 
             const priceType = document.createElement("span");
