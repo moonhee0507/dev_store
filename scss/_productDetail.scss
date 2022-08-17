@@ -96,6 +96,12 @@
         background-color: $main-color;
         color: white;
     }
+
+    .txt-stock {
+        display: inline;
+        margin-left: 15px;
+        font-size: 16px;
+    }
 }
 
 // 토탈
@@ -180,18 +186,19 @@
     cursor: pointer;
 }
 
-// 상품 상세
+// 상세탭
 .style-wrapper-info {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    margin-top: 140px;
+    margin: 140px 0 30px;
+    -webkit-box-shadow: 5px -5px 5px black;
+    box-shadow: 5px -5px 5px black;
 
     li {
-        -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
+        width: 25%;
         text-align: center;
+        cursor: pointer;
     }
 
     .style-container-info {
@@ -208,9 +215,13 @@
     }
 
     .style-container-info:hover {
-        border-color: $point-green;
+        background-color: white;
+        -webkit-transition: all ease 1s 0s;
+        -o-transition: all ease 1s 0s;
+        transition: all ease 1s 0s;
         .link-product-info {
-            color: $point-green;
+            color: black;
+            font-weight: bold;
         }
     }
 }

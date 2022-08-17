@@ -4,6 +4,7 @@
 
     .logo {
         width: 100%;
+        cursor: pointer;
     }
 
     .form-login {
@@ -96,7 +97,7 @@
 
     a {
         text-decoration: none;
-        color: $txt-color;
+        color: #595959;
     }
 
     .link-signup::after {

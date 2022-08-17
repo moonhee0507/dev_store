@@ -4,7 +4,7 @@
 
     .logo {
         width: 100%;
-        background-color: $background-color;
+        cursor: pointer;
     }
 
     .form-signup {
@@ -193,6 +193,7 @@ input[type="checkbox"]:focus {
     font-size: 16px;
     line-height: 20px;
     vertical-align: top;
+    color: white;
 
     .important {
         font-weight: bold;
