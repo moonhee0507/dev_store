@@ -78,6 +78,11 @@ async function login(event) {
         ) {
             errorMessage.textContent = "*로그인 유형을 확인해주세요.";
         }
+
+        if (resJson.token) {
+            localStorage.setItem("token", resJson.token);
+            window.location.pathname = "/";
+        }
     } catch (err) {
         console.error(err);
     }
