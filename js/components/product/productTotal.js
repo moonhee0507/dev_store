@@ -1,5 +1,6 @@
 class ProductTotal {
-    constructor(price) {
+    constructor(stock, price) {
+        this.stock = stock;
         this.price = price;
         this.li = document.createElement("li");
     }
@@ -21,9 +22,16 @@ class ProductTotal {
             총 수량 <span class="detail-number-total-quantity">1</span>개
         `;
         numTotalPrice.setAttribute("class", "detail-number-total-price");
-        numTotalPrice.innerText = "17500";
+        numTotalPrice.innerText = this.price.toLocaleString("ko-KR");
         txtTotalPriceUnit.setAttribute("class", "detail-txt-total-price-unit");
         txtTotalPriceUnit.innerText = "원";
+
+        if (this.stock === 0) {
+            txtTotalQuantity.innerHTML = `
+                총 수량 <span class="detail-number-total-quantity">0</span>개
+            `;
+            numTotalPrice.innerText = "0";
+        }
 
         totalContainer.append(
             txtTotalQuantity,
