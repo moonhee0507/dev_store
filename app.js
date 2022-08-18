@@ -1,4 +1,12 @@
-import { Home, ProductDetail, Login, Signup } from "./js/pages/index.js";
+import {
+    Home,
+    ProductDetail,
+    Login,
+    Signup,
+    MoveInfo,
+    Payment,
+    Cart,
+} from "./js/pages/index.js";
 import { Router } from "./utils/index.js";
 
 export default class App {
@@ -13,8 +21,12 @@ export default class App {
         const router = new Router({
             "/": Home,
             "/products": ProductDetail,
-            "/login": Login,
-            "/signup": Signup,
+            "/login": window.localStorage.getItem("token") ? MoveInfo : Login,
+            "/signup": window.localStorage.getItem("token") ? MoveInfo : Signup,
+            "/payment": window.localStorage.getItem("token")
+                ? Payment
+                : MoveInfo,
+            "/cart": Cart,
         });
 
         // root에 띄워준다
