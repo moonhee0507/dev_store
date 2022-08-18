@@ -56,7 +56,7 @@ class Header {
         listUsermenu.appendChild(listItem1);
 
         const linkList1 = document.createElement("a");
-        linkList1.setAttribute("href", "/");
+        linkList1.setAttribute("href", "/cart");
         linkList1.setAttribute("class", "link-list");
         listItem1.appendChild(linkList1);
 
@@ -69,8 +69,8 @@ class Header {
         const listItem2 = document.createElement("li");
         listUsermenu.appendChild(listItem2);
 
+        // 조건부: 토큰이 있으면 로그인을 마이페이지로 변경
         const linkList2 = document.createElement("a");
-        linkList2.setAttribute("href", "/login");
         linkList2.setAttribute("class", "link-list");
         listItem2.appendChild(linkList2);
 
@@ -78,7 +78,15 @@ class Header {
         userImg.setAttribute("class", "icon-user");
         userImg.setAttribute("src", "../images/icon-user.svg");
 
-        linkList2.append(userImg, "로그인");
+        if (window.localStorage.getItem("token")) {
+            // 마이페이지
+            linkList2.setAttribute("href", "/");
+            linkList2.append(userImg, "마이페이지");
+        } else {
+            // 로그인
+            linkList2.setAttribute("href", "/login");
+            linkList2.append(userImg, "로그인");
+        }
 
         this.head.appendChild(styleWrapper);
         this.head.appendChild(nav);
