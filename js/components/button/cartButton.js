@@ -1,11 +1,11 @@
-class BuyNowButton {
+class CartButton {
     constructor() {
         this.button = document.createElement("button");
     }
 
     render() {
-        this.button.setAttribute("class", "button-buy");
-        this.button.innerText = "바로 구매";
+        this.button.setAttribute("class", "button-cart");
+        this.button.innerText = "장바구니";
 
         const body = document.querySelector("body");
         const modal = document.querySelector(".modal");
@@ -60,4 +60,4 @@ class BuyNowButton {
     }
 }
 
-export default BuyNowButton;
+export default CartButton;
