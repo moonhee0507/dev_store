@@ -81,6 +81,10 @@ input[type="number"] {
   margin: 50px auto 0;
 }
 
+.section-login .login-header .link-logo {
+  display: block;
+}
+
 .section-login .logo {
   width: 100%;
   cursor: pointer;
@@ -138,6 +142,11 @@ input[type="number"] {
   margin-bottom: 26px;
 }
 
+.input-login-username:focus,
+.input-login-password:focus {
+  background-color: #f2f2f2;
+}
+
 .error-message {
   display: block;
   font-style: normal;
@@ -191,6 +200,10 @@ input[type="number"] {
 .section-signup {
   width: 550px;
   margin: 50px auto 0;
+}
+
+.section-signup .signup-header .link-logo {
+  display: block;
 }
 
 .section-signup .logo {
@@ -306,7 +319,7 @@ input::placeholder {
   border: none;
   padding: 18px 0;
   color: #ffffff;
-  background-color: #202124;
+  background-color: #334863;
   font-style: normal;
   font-weight: bolder;
   font-size: 16px;
@@ -656,8 +669,19 @@ input[type="checkbox"]:focus {
 }
 
 .link-list {
-  color: #e8eaed;
+  color: #c0c0c0;
   text-decoration: none;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .footer {
@@ -891,19 +915,19 @@ input[type="checkbox"]:focus {
   vertical-align: bottom;
 }
 
-.link-buy {
+.button-buy {
   width: 400px;
   background-color: #a158fe;
 }
 
-.link-shopping-bag {
+.button-cart {
   width: 180px;
   background-color: #f24822;
   margin-left: 15px;
 }
 
-.link-buy,
-.link-shopping-bag {
+.button-buy,
+.button-cart {
   display: inline-block;
   text-decoration: none;
   text-align: center;
@@ -955,5 +979,129 @@ input[type="checkbox"]:focus {
 .style-wrapper-info .style-container-info:hover .link-product-info {
   color: black;
   font-weight: bold;
+}
+
+.style-wrapper-move {
+  width: 400px;
+  background-color: white;
+  padding: 20px 0;
+  margin: 50px auto 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  -webkit-box-shadow: 10px 10px 10px black;
+  box-shadow: 10px 10px 10px black;
+}
+
+.txt-info {
+  vertical-align: bottom;
+}
+
+.sec {
+  position: relative;
+  top: 3px;
+  display: inline-block;
+  -webkit-animation: bounce 0.3s ease infinite alternate;
+  animation: bounce 0.3s ease infinite alternate;
+  color: #a158fe;
+  text-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+@-webkit-keyframes bounce {
+  100% {
+    top: -20px;
+    text-shadow: 0 50px 25px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes bounce {
+  100% {
+    top: -20px;
+    text-shadow: 0 50px 25px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 360px;
+  height: 200px;
+  text-align: center;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background-color: white;
+}
+
+.modal-content .button-close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  width: 22px;
+  height: 22px;
+  background: url("../images/icon-delete.png") no-repeat;
+  background-size: 22px 22px;
+  background-position: center center;
+  cursor: pointer;
+}
+
+.modal-content .modal-wrapper-txt {
+  margin: 50px 0 30px;
+}
+
+.modal-content .modal-wrapper-txt .txt-goToLogin {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.modal-content .modal-wrapper-button {
+  font-size: 0;
+}
+
+.modal-content .modal-wrapper-button .button-no,
+.modal-content .modal-wrapper-button .button-yes {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.modal-content .modal-wrapper-button .button-no {
+  border: 1px solid #c4c4c4;
+  color: #767676;
+  margin-right: 10px;
+}
+
+.modal-content .modal-wrapper-button .button-yes {
+  background-color: #a158fe;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */
