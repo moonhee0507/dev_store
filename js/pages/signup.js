@@ -4,6 +4,12 @@ class Signup {
     }
 
     render() {
+        const h1 = document.createElement("h1");
+        h1.setAttribute("class", "signup-header");
+        const linkLogo = document.createElement("a");
+        linkLogo.setAttribute("class", "link-logo");
+        linkLogo.setAttribute("href", "/");
+
         const logoElement = document.createElement("img");
         const formElement = document.createElement("form");
 
@@ -12,12 +18,14 @@ class Signup {
         logoElement.classList.add("logo");
         formElement.classList.add("form-signup");
 
-        this.sectionElement.appendChild(logoElement);
+        this.sectionElement.appendChild(h1);
         this.sectionElement.appendChild(formElement);
 
         // 이미지
         logoElement.src = "../images/logo.svg";
         logoElement.alt = "Logo";
+        linkLogo.appendChild(logoElement);
+        h1.appendChild(linkLogo);
 
         // 폼
         const styleWrapper = document.createElement("div");
@@ -68,7 +76,6 @@ class Signup {
             <label for="phoneNumber" class="label-block">휴대폰번호</label>
             <select class="phoneNumber first" name="phoneNumber-first" required>
                 <option value="010">010</option>
-                <option value="011">011</option>
             </select>
 
             <input id="phoneNumber" class="phoneNumber middle" type="tel" minlength="3" maxlength="4" required>
@@ -145,12 +152,6 @@ class Signup {
         signupFeat.type = "module";
         signupFeat.src = "../js/signupFeat.js";
         body.appendChild(signupFeat);
-
-        // Validation
-        const validation = document.createElement("script");
-        validation.type = "module";
-        validation.src = "../js/validation.js";
-        body.appendChild(validation);
 
         logoElement.addEventListener("click", () => {
             window.location.pathname = "/";

@@ -4,6 +4,12 @@ class Login {
     }
 
     render() {
+        const h1 = document.createElement("h1");
+        h1.setAttribute("class", "login-header");
+        const linkLogo = document.createElement("a");
+        linkLogo.setAttribute("class", "link-logo");
+        linkLogo.setAttribute("href", "/");
+
         const logoElement = document.createElement("img");
         const formElement = document.createElement("form");
         const divElement = document.createElement("div");
@@ -14,13 +20,15 @@ class Login {
         formElement.classList.add("form-login");
         divElement.classList.add("style-link");
 
-        this.sectionElement.appendChild(logoElement);
+        this.sectionElement.appendChild(h1);
         this.sectionElement.appendChild(formElement);
         this.sectionElement.appendChild(divElement);
 
         // 이미지
         logoElement.src = "../images/logo.svg";
         logoElement.alt = "Logo";
+        linkLogo.appendChild(logoElement);
+        h1.appendChild(linkLogo);
 
         // 폼
         const styleWrapper = document.createElement("div");
