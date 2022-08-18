@@ -7,6 +7,8 @@ const loginButton = document.querySelector(".button-login");
 const buyerButton = document.querySelector(".button-buyer");
 const sellerButton = document.querySelector(".button-seller");
 
+idInput.focus();
+
 // 로그인 타입 기본값
 let loginType = "BUYER";
 
@@ -72,6 +74,8 @@ async function login(event) {
         } else if (resJson.FAIL_Message === "로그인 정보가 없습니다.") {
             errorMessage.textContent =
                 "*아이디 또는 비밀번호가 일치하지 않습니다.";
+            passwordInput.value = "";
+            passwordInput.focus();
         } else if (
             resJson.FAIL_Message ===
             "로그인 정보가 없습니다. 로그인 유형을 학인해주세요."
@@ -81,7 +85,7 @@ async function login(event) {
 
         if (resJson.token) {
             localStorage.setItem("token", resJson.token);
-            window.location.pathname = "/";
+            window.history.back();
         }
     } catch (err) {
         console.error(err);
@@ -89,3 +93,11 @@ async function login(event) {
 }
 
 loginButton.addEventListener("click", login);
+
+// input 내용을 변경하면 message 사라지게 하기
+const input = document.querySelectorAll("input");
+for (let i = 0; i < input.length; i++) {
+    input[i].addEventListener("input", () => {
+        errorMessage.innerText = "";
+    });
+}
