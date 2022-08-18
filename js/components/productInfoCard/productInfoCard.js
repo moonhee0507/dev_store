@@ -7,7 +7,7 @@ import {
     ProductQuantity,
     ProductTotal,
 } from "../product/index.js";
-import { BuyNowButton, ShoppingBagButton } from "../button/index.js";
+import { BuyNowButton, CartButton } from "../button/index.js";
 
 class ProductInfoCard {
     constructor(info) {
@@ -42,7 +42,7 @@ class ProductInfoCard {
 
         // button
         const buyNowButton = new BuyNowButton();
-        const shoppingBagButton = new ShoppingBagButton();
+        const cartButton = new CartButton();
 
         document
             .querySelector(".style-wrapper-detail")
@@ -55,7 +55,7 @@ class ProductInfoCard {
         this.ul.appendChild(li);
         this.ul.appendChild(productTotal.render());
         this.ul.appendChild(buyNowButton.render());
-        this.ul.appendChild(shoppingBagButton.render());
+        this.ul.appendChild(cartButton.render());
 
         return this.ul;
     }
