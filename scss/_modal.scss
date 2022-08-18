@@ -1,0 +1,85 @@
+// 모달
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 360px;
+    height: 200px;
+    text-align: center;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+
+    background-color: white;
+
+    .button-close {
+        position: fixed;
+        top: 18px;
+        right: 18px;
+        border: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-radius: 0;
+        width: 22px;
+        height: 22px;
+        background: url("../images/icon-delete.png") no-repeat;
+        background-size: 22px 22px;
+        background-position: center center;
+        cursor: pointer;
+    }
+    .modal-wrapper-txt {
+        margin: 50px 0 30px;
+
+        .txt-goToLogin {
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+
+    .modal-wrapper-button {
+        font-size: 0;
+
+        .button-no,
+        .button-yes {
+            border: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border-radius: 10px;
+            width: 100px;
+            height: 40px;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        .button-no {
+            border: 1px solid #c4c4c4;
+            color: #767676;
+            margin-right: 10px;
+        }
+
+        .button-yes {
+            background-color: $point-purple;
+            color: white;
+        }
+    }
+}
