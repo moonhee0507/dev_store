@@ -159,19 +159,19 @@
 }
 
 // 바로 구매 및 장바구니 버튼
-.link-buy {
+.button-buy {
     width: 400px;
     background-color: $point-purple;
 }
 
-.link-shopping-bag {
+.button-cart {
     width: 180px;
     background-color: $point-red;
     margin-left: 15px;
 }
 
-.link-buy,
-.link-shopping-bag {
+.button-buy,
+.button-cart {
     display: inline-block;
     text-decoration: none;
     text-align: center;
