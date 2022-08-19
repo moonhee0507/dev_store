@@ -18,7 +18,7 @@ class CartButton {
             // 로그인 되어 있으면 /payment 이동
             // 로그인이 안되어 있으면 로그인 안내 모달 띄우기
             if (window.localStorage.getItem("token")) {
-                window.location.pathname = "/payment";
+                window.location.pathname = "/cart";
             } else {
                 // 로그인 안내 모달 띄우기
                 modal.classList.toggle("show");
