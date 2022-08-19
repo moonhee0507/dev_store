@@ -18,6 +18,14 @@ class ProductName {
             li.appendChild(productName);
 
             return li;
+        } else if (window.location.pathname === "/cart") {
+            const li = document.createElement("li");
+            const productName = document.createElement("strong");
+            productName.setAttribute("class", "cart-txt-product-name");
+            productName.innerText = this.name;
+            li.appendChild(productName);
+
+            return li;
         }
     }
 }

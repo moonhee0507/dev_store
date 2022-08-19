@@ -17,6 +17,13 @@ class ProductSeller {
             productSeller.innerText = this.store;
             li.appendChild(productSeller);
             return li;
+        } else if (window.location.pathname === "/cart") {
+            const li = document.createElement("li");
+            const productSeller = document.createElement("p");
+            productSeller.setAttribute("class", "cart-txt-seller");
+            productSeller.innerText = this.store;
+            li.appendChild(productSeller);
+            return li;
         }
     }
 }

@@ -1,27 +1,25 @@
 class ProductImage {
     constructor(src) {
-        this.src = src;
+        this.src = src; // Home, Detail
+        this.wrapper = document.createElement("div");
     }
 
     render() {
-        const productImgContainer = document.createElement("div");
-
         if (window.location.pathname === "/") {
-            productImgContainer.setAttribute("class", "style-wrapper-img");
+            this.wrapper.setAttribute("class", "style-wrapper-img");
         } else if (window.location.pathname.includes("/products/")) {
-            productImgContainer.setAttribute(
-                "class",
-                "style-wrapper-img large"
-            );
+            this.wrapper.setAttribute("class", "style-wrapper-img large");
+        } else if (window.location.pathname === "/cart") {
+            this.wrapper.setAttribute("class", "style-wrapper-img small");
         }
 
         const productImg = document.createElement("img");
         productImg.setAttribute("class", "img-product");
         productImg.setAttribute("src", `${this.src}`);
         productImg.setAttribute("alt", "상품이미지");
-        productImgContainer.appendChild(productImg);
+        this.wrapper.appendChild(productImg);
 
-        return productImgContainer;
+        return this.wrapper;
     }
 }
 

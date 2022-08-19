@@ -9,9 +9,6 @@ class ProductShippingMethod {
         const txtMethod = document.createElement("span");
         const txtFee = document.createElement("span");
 
-        txtMethod.setAttribute("class", "detail-shipping-method");
-        txtFee.setAttribute("class", "detail-shipping-fee");
-
         if (this.shippingMethod === "DELIVERY") {
             txtMethod.innerText = "택배배송" + " / ";
         } else if (this.shippingMethod === "PARCEL") {
@@ -25,6 +22,16 @@ class ProductShippingMethod {
         }
 
         li.append(txtMethod, txtFee);
+
+        // 상품 상세페이지
+        if (window.location.pathname.includes("/products/")) {
+            txtMethod.setAttribute("class", "detail-shipping-method");
+            txtFee.setAttribute("class", "detail-shipping-fee");
+            // 장바구니 페이지
+        } else if (window.location.pathname === "/cart") {
+            txtMethod.setAttribute("class", "cart-shipping-method");
+            txtFee.setAttribute("class", "cart-shipping-fee");
+        }
 
         return li;
     }

@@ -35,6 +35,23 @@ class ProductPrice {
             li.appendChild(container);
 
             return li;
+        } else if (window.location.pathname === "/cart") {
+            const li = document.createElement("li");
+            const container = document.createElement("div");
+            container.setAttribute("class", "cart-product-price");
+
+            const productPrice = document.createElement("strong");
+            productPrice.innerText = this.price.toLocaleString("ko-KR");
+            productPrice.setAttribute("class", "cart-txt-price-number");
+
+            const priceType = document.createElement("span");
+            priceType.innerText = "원";
+            priceType.setAttribute("class", "cart-txt-price-unit");
+
+            container.append(productPrice, priceType);
+            li.appendChild(container);
+
+            return li;
         }
     }
 }
