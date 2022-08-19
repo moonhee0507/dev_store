@@ -27,21 +27,6 @@ class ProductQuantity {
         txtMinus.innerText = "구매 수량 빼기";
         txtPlus.innerText = "구매 수량 더하기";
 
-        const txtStock = document.createElement("p");
-        txtStock.setAttribute("class", "txt-stock");
-        txtStock.innerHTML = `
-            * 재고 : <span class="num-stock">${this.stock}</span>개
-        `;
-
-        minusButton.appendChild(txtMinus);
-        plusButton.appendChild(txtPlus);
-        this.quantityWrapper.append(
-            minusButton,
-            quantityInput,
-            plusButton,
-            txtStock
-        );
-
         // + 버튼을 누르면 숫자 1 추가
         let qt = parseInt(quantityInput.value);
         // 재고 0개
@@ -75,6 +60,32 @@ class ProductQuantity {
                     (qt * this.price).toLocaleString("ko-KR");
             }
         });
+
+        // 상품 상세 페이지
+        if (window.location.pathname.includes("/products/")) {
+            const txtStock = document.createElement("p");
+            txtStock.setAttribute("class", "txt-stock");
+            txtStock.innerHTML = `
+                * 재고 : <span class="num-stock">${this.stock}</span>개
+            `;
+
+            minusButton.appendChild(txtMinus);
+            plusButton.appendChild(txtPlus);
+            this.quantityWrapper.append(
+                minusButton,
+                quantityInput,
+                plusButton,
+                txtStock
+            );
+
+            // 장바구니 페이지
+        } else if (window.location.pathname === "/cart") {
+            this.quantityWrapper.classList.add("cart");
+
+            minusButton.appendChild(txtMinus);
+            plusButton.appendChild(txtPlus);
+            this.quantityWrapper.append(minusButton, quantityInput, plusButton);
+        }
 
         return this.quantityWrapper;
     }
