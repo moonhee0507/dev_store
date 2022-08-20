@@ -4,8 +4,6 @@ class ProductTotal {
         this.price = price;
         this.li = document.createElement("li");
         this.div = document.createElement("div");
-
-        console.log(this);
     }
 
     render() {
@@ -56,8 +54,8 @@ class ProductTotal {
             const txtTotalPriceUnit = document.createElement("span");
 
             numTotalPrice.setAttribute("class", "cart-number-total-price");
-            // TODO: price인데 왜 this.stock으로 해야 제대로 나오는건지 확인
-            numTotalPrice.innerText = this.stock.toLocaleString("ko-KR");
+            // TODO: this 관련 공부
+            numTotalPrice.innerText = this.price.toLocaleString("ko-KR");
             txtTotalPriceUnit.setAttribute(
                 "class",
                 "cart-txt-total-price-unit"
