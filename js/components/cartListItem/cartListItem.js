@@ -1,5 +1,4 @@
 import { API_URL } from "../../common/constants.js";
-import BuyNowButton from "../button/buyNowButton.js";
 import { ProductQuantity, ProductTotal } from "../product/index.js";
 import { ProductInfoCard } from "../productInfoCard/index.js";
 
@@ -21,7 +20,6 @@ class CartListItem {
         const data = await res.json();
 
         this.cartItem = await data;
-        console.log(this.cartItem);
     }
     // 상세내용 세팅하기
     async setCart() {
@@ -41,16 +39,71 @@ class CartListItem {
         const productInfoCard = new ProductInfoCard(this.cartItem);
 
         // 수량 열
-        const productQuantity = new ProductQuantity(this.cartItem);
+        const productQuantity = new ProductQuantity(
+            this.cartItem.stock,
+            this.cartItem.price
+        );
 
         // 상품금액 열
-        const productTotal = new ProductTotal(this.cartItem.price);
+        const productTotal = new ProductTotal(
+            this.cartItem.stock,
+            this.cartItem.price
+        );
 
         this.wrapper.appendChild(closeButton);
         this.wrapper.appendChild(checkButton);
         this.wrapper.appendChild(productInfoCard.render());
         this.wrapper.appendChild(productQuantity.render());
         this.wrapper.appendChild(productTotal.render());
+
+        // 체크박스 클릭 시 토글
+        checkButton.addEventListener("click", () => {
+            checkButton.classList.toggle("fill");
+        });
+
+        const allCheckBox = document.querySelectorAll(".button-cart-check");
+        let itemAllCheck = false;
+
+        // 제목 체크박스가 클릭될 때마다 나머지 체크박스 반영
+        for (let i = 0; i < allCheckBox.length; i++) {
+            allCheckBox[0].addEventListener("click", () => {
+                // 제목행 체크되어 있으면 나머지도 체크
+                if (allCheckBox[0].className.includes("fill")) {
+                    allCheckBox[i].classList.add("fill");
+                    itemAllCheck = true;
+                } else {
+                    allCheckBox[1].classList.remove("fill");
+                    allCheckBox[i] && allCheckBox[i].classList.remove("fill");
+                    itemAllCheck = false;
+                }
+            });
+
+            // 모두 체크되어 있는 상태에서 하나 해제하면 제목행 체크 해제
+            allCheckBox[i].addEventListener("click", () => {
+                // NodeList 배열화
+                const arrAllCheckBox = Array.from(allCheckBox);
+                // 클래스명 배열 변수화
+                const arrClassNameAllCheckBox = arrAllCheckBox.map(
+                    (item) => item.className
+                );
+                // 배열 맨앞 요소 제거
+                arrClassNameAllCheckBox.shift();
+
+                let everyElHasFill = arrClassNameAllCheckBox.every((el) => {
+                    return el.includes("fill");
+                });
+
+                if (itemAllCheck) {
+                    !allCheckBox[i].className.includes("fill") &&
+                        allCheckBox[0].classList.remove("fill");
+                    itemAllCheck = false;
+                } else {
+                    everyElHasFill
+                        ? allCheckBox[0].classList.add("fill")
+                        : allCheckBox[0].classList.remove("fill");
+                }
+            });
+        }
     }
 
     render() {

@@ -36,12 +36,17 @@ class CartList {
         cartRow.setAttribute("class", "cart-row");
         const cartRowList = document.createElement("ul");
         cartRowList.setAttribute("class", "cart-row-list");
-        cartRowList.innerHTML = `
-            <li><button type="button" class="button-cart-check"></button></li>
-            <li>상품정보</li>
-            <li>수량</li>
-            <li>상품금액</li>
-        `;
+
+        const col1 = document.createElement("li");
+        const buttonCartCheck = document.createElement("button");
+        buttonCartCheck.setAttribute("type", "button");
+        buttonCartCheck.setAttribute("class", "button-cart-check");
+        const col2 = document.createElement("li");
+        col2.innerText = "상품정보";
+        const col3 = document.createElement("li");
+        col3.innerText = "수량";
+        const col4 = document.createElement("li");
+        col4.innerText = "상품금액";
 
         const cartProducts = document.createElement("div");
         cartProducts.classList.add("cart-products");
@@ -53,12 +58,20 @@ class CartList {
             cartProducts.appendChild(cartProduct);
         });
 
+        col1.appendChild(buttonCartCheck);
+        cartRowList.append(col1, col2, col3, col4);
         cartRow.appendChild(cartRowList);
         this.sectionElement.append(h2, cartRow, cartProducts);
+
+        // 체크박스를 클릭하면 토글
+        buttonCartCheck.addEventListener("click", () => {
+            buttonCartCheck.classList.toggle("fill");
+        });
     }
 
     render() {
         this.setCartData();
+
         return this.sectionElement;
     }
 }
