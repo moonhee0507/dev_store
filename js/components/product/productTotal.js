@@ -54,8 +54,11 @@ class ProductTotal {
             const txtTotalPriceUnit = document.createElement("span");
 
             numTotalPrice.setAttribute("class", "cart-number-total-price");
-            // TODO: this 관련 공부
-            numTotalPrice.innerText = this.price.toLocaleString("ko-KR");
+            if (this.stock === 0) {
+                numTotalPrice.innerText = 0;
+            } else {
+                numTotalPrice.innerText = this.price.toLocaleString("ko-KR");
+            }
             txtTotalPriceUnit.setAttribute(
                 "class",
                 "cart-txt-total-price-unit"
@@ -66,6 +69,9 @@ class ProductTotal {
             buyNowButtonSmall.setAttribute("class", "button-buy small");
             buyNowButtonSmall.innerText = "주문하기";
 
+            buyNowButtonSmall.addEventListener("click", () => {
+                window.location.pathname = "/payment";
+            });
             this.div.append(
                 numTotalPrice,
                 txtTotalPriceUnit,
