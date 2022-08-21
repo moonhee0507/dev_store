@@ -25,7 +25,12 @@ class CartListItem {
     async setCart() {
         await this.getProductData();
 
-        this.wrapper.setAttribute("class", "wrapper-cart-product");
+        this.wrapper.setAttribute(
+            "class",
+            this.cartItem.stock === 0
+                ? "wrapper-cart-product soldout"
+                : "wrapper-cart-product"
+        );
 
         // x 버튼
         const closeButton = document.createElement("button");
@@ -33,7 +38,7 @@ class CartListItem {
 
         // 체크박스 열
         const checkButton = document.createElement("button");
-        checkButton.setAttribute("class", "button-cart-check");
+        checkButton.setAttribute("class", "button-cart-check fill");
 
         // 상품정보 열
         const productInfoCard = new ProductInfoCard(this.cartItem);
@@ -103,6 +108,18 @@ class CartListItem {
                         : allCheckBox[0].classList.remove("fill");
                 }
             });
+        }
+
+        // closeButton 클릭 시 삭제
+        closeButton.addEventListener("click", () => {
+            this.wrapper.remove();
+        });
+
+        // this.cartItem.stock === 0이면 체크박스 해제
+        if (this.cartItem.stock === 0) {
+            checkButton.setAttribute("class", "button-cart-check");
+            checkButton.style.cursor = "default";
+            checkButton.disabled = true;
         }
     }
 
