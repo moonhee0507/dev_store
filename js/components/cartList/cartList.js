@@ -40,7 +40,7 @@ class CartList {
         const col1 = document.createElement("li");
         const buttonCartCheck = document.createElement("button");
         buttonCartCheck.setAttribute("type", "button");
-        buttonCartCheck.setAttribute("class", "button-cart-check");
+        buttonCartCheck.setAttribute("class", "button-cart-check fill");
         const col2 = document.createElement("li");
         col2.innerText = "상품정보";
         const col3 = document.createElement("li");
@@ -63,7 +63,7 @@ class CartList {
         cartRow.appendChild(cartRowList);
         this.sectionElement.append(h2, cartRow, cartProducts);
 
-        // 체크박스를 클릭하면 토글
+        // 체크박스 토글
         buttonCartCheck.addEventListener("click", () => {
             buttonCartCheck.classList.toggle("fill");
         });
