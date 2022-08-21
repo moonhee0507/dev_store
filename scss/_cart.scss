@@ -149,15 +149,6 @@
         }
     }
 
-    // 수량
-    .style-wrapper-quantity.cart {
-        border-top: none;
-        border-bottom: none;
-        padding: 0;
-        margin: 0;
-        vertical-align: center;
-    }
-
     // 상품금액 열
     .cart-last-col {
         .cart-number-total-price,
@@ -168,6 +159,48 @@
             color: $point-red;
         }
     }
+}
+
+// 상품카드 품절
+.wrapper-cart-product.soldout {
+    width: 100%;
+    height: 100%;
+}
+.wrapper-cart-product.soldout::after {
+    position: absolute;
+    content: "";
+    background: url("../images/sold-out.svg") no-repeat center center;
+    background-color: white;
+    background-size: 105%;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    top: auto;
+    left: 450px;
+    -webkit-box-shadow: 4px 4px 20px 0px black;
+    box-shadow: 3px 3px 10px 0px black;
+}
+
+// 수량
+.style-wrapper-quantity.cart {
+    position: relative;
+    border-top: none;
+    border-bottom: none;
+    padding: 0;
+    margin: 0;
+    vertical-align: center;
+}
+
+.input-quantity.cart {
+    background-color: inherit;
+    color: inherit;
+}
+
+.cart-txt-stock {
+    position: absolute;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 16px;
 }
 
 // 작은 버튼

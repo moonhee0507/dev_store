@@ -58,12 +58,12 @@
     font-size: 0;
     border-top: 2px solid $border-color;
     border-bottom: 2px solid $border-color;
-    padding: 30px 0;
+    padding: 45px 0;
     margin: 20px 0 32px;
 
     .button-quantity {
-        width: 30px;
-        height: 30px;
+        width: 45px;
+        height: 45px;
         border: 1px solid $button-border;
         vertical-align: bottom;
         padding: 0;
@@ -86,14 +86,17 @@
     }
 
     .input-quantity {
-        width: 45px;
-        height: 30px;
+        width: 50px;
+        height: 45px;
         border: 1px solid $button-border;
         border-radius: 0;
+        border-left: none;
+        border-right: none;
         padding: 0;
         margin: 0;
         text-align: center;
         background-color: $main-color;
+        font-size: 18px;
         color: white;
     }
 

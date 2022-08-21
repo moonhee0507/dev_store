@@ -818,13 +818,13 @@ input[type="checkbox"]:focus {
   font-size: 0;
   border-top: 2px solid #c4c4c4;
   border-bottom: 2px solid #c4c4c4;
-  padding: 30px 0;
+  padding: 45px 0;
   margin: 20px 0 32px;
 }
 
 .style-wrapper-quantity .button-quantity {
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   border: 1px solid #bdbdbd;
   vertical-align: bottom;
   padding: 0;
@@ -847,14 +847,17 @@ input[type="checkbox"]:focus {
 }
 
 .style-wrapper-quantity .input-quantity {
-  width: 45px;
-  height: 30px;
+  width: 50px;
+  height: 45px;
   border: 1px solid #bdbdbd;
   border-radius: 0;
+  border-left: none;
+  border-right: none;
   padding: 0;
   margin: 0;
   text-align: center;
   background-color: #202124;
+  font-size: 18px;
   color: white;
 }
 
@@ -1129,7 +1132,36 @@ input[type="checkbox"]:focus {
   color: #767676;
 }
 
-.wrapper-cart-product .style-wrapper-quantity.cart {
+.wrapper-cart-product .cart-last-col .cart-number-total-price,
+.wrapper-cart-product .cart-last-col .cart-txt-total-price-unit {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: #f24822;
+}
+
+.wrapper-cart-product.soldout {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper-cart-product.soldout::after {
+  position: absolute;
+  content: "";
+  background: url("../images/sold-out.svg") no-repeat center center;
+  background-color: white;
+  background-size: 105%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  top: auto;
+  left: 450px;
+  -webkit-box-shadow: 4px 4px 20px 0px black;
+  box-shadow: 3px 3px 10px 0px black;
+}
+
+.style-wrapper-quantity.cart {
+  position: relative;
   border-top: none;
   border-bottom: none;
   padding: 0;
@@ -1137,12 +1169,16 @@ input[type="checkbox"]:focus {
   vertical-align: center;
 }
 
-.wrapper-cart-product .cart-last-col .cart-number-total-price,
-.wrapper-cart-product .cart-last-col .cart-txt-total-price-unit {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 23px;
-  color: #f24822;
+.input-quantity.cart {
+  background-color: inherit;
+  color: inherit;
+}
+
+.cart-txt-stock {
+  position: absolute;
+  text-align: left;
+  margin-top: 10px;
+  font-size: 16px;
 }
 
 .button-buy.small {
