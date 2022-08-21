@@ -1,6 +1,7 @@
 class ProductImage {
-    constructor(src) {
+    constructor(src, id) {
         this.src = src; // Home, Detail
+        this.id = id; // Cart
         this.wrapper = document.createElement("div");
     }
 
@@ -11,6 +12,9 @@ class ProductImage {
             this.wrapper.setAttribute("class", "style-wrapper-img large");
         } else if (window.location.pathname === "/cart") {
             this.wrapper.setAttribute("class", "style-wrapper-img small");
+            this.wrapper.addEventListener("click", () => {
+                window.location.pathname = `/products/${this.id}`;
+            });
         }
 
         const productImg = document.createElement("img");
