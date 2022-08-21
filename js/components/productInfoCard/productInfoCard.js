@@ -67,7 +67,10 @@ class ProductInfoCard {
             const cartDetailList = document.createElement("ul");
             cartDetailList.setAttribute("class", "cart-detail-list");
 
-            const productImage = new ProductImage(this.info.image);
+            const productImage = new ProductImage(
+                this.info.image,
+                this.info.product_id
+            );
             const productSeller = new ProductSeller(this.info.seller_store);
             const productName = new ProductName(this.info.product_name);
             const productPrice = new ProductPrice(this.info.price);
