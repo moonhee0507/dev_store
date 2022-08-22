@@ -1,7 +1,8 @@
 class ProductTotal {
-    constructor(stock, price) {
+    constructor(stock, price, quantity) {
         this.stock = stock;
         this.price = price;
+        this.quantity = quantity;
         this.li = document.createElement("li");
         this.div = document.createElement("div");
     }
@@ -57,7 +58,9 @@ class ProductTotal {
             if (this.stock === 0) {
                 numTotalPrice.innerText = 0;
             } else {
-                numTotalPrice.innerText = this.price.toLocaleString("ko-KR");
+                numTotalPrice.innerText = (
+                    this.price * this.quantity
+                ).toLocaleString("ko-KR");
             }
             txtTotalPriceUnit.setAttribute(
                 "class",
