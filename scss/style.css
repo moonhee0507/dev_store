@@ -658,7 +658,7 @@ input[type="checkbox"]:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 .icon-shopping-bag,
@@ -669,19 +669,73 @@ input[type="checkbox"]:focus {
 }
 
 .link-list {
+  width: 50px;
+  height: 50px;
+  background-color: inherit;
+  border: none;
+  margin: 0;
   color: #c0c0c0;
+  cursor: pointer;
+}
+
+.link-list.cart {
+  width: 120px;
+  background: url("../images/icon-shopping-bag.svg") no-repeat;
+  background-size: 45px 45px;
+  padding: 0 0 0 45px;
+  font-size: 16px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown .link-list.mypage {
+  background: url("../images/icon-user.svg") no-repeat center center;
+  background-size: 45px 45px;
+}
+
+.dropdown .link-list.mypage .drop-content {
+  position: absolute;
+  top: 60px;
+  right: -35px;
+  width: 130px;
+  z-index: 1;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 3px 3px 3px 3px black;
+  box-shadow: 3px 3px 3px 3px black;
+}
+
+.dropdown .link-list.mypage .drop-content::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-bottom: 22px solid white;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  top: -10px;
+  right: 45px;
+  z-index: -1;
+}
+
+.dropdown .link-list.mypage .link-drop {
+  display: block;
+  padding: 13px;
+  margin: 5px;
   text-decoration: none;
-  font-size: 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  color: #767676;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.dropdown .link-list.mypage .link-drop:hover {
+  color: black;
+  border: 2px solid #767676;
 }
 
 .footer {
@@ -1017,6 +1071,21 @@ input[type="checkbox"]:focus {
   width: 20px;
 }
 
+.style-wrapper-nocart {
+  border: 3px dotted #303134;
+  padding: 170px;
+}
+
+.style-wrapper-nocart .txt-nocart {
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 45px;
+}
+
+.style-wrapper-nocart .txt-add-cart {
+  font-size: 20px;
+}
+
 .cart-products {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1321,6 +1390,7 @@ input[type="checkbox"]:focus {
   height: 100%;
   display: none;
   background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
 }
 
 .modal.show {
@@ -1366,6 +1436,10 @@ input[type="checkbox"]:focus {
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
+}
+
+.modal-content .modal-wrapper-txt.delete {
+  margin: 60px 0 30px;
 }
 
 .modal-content .modal-wrapper-button {
