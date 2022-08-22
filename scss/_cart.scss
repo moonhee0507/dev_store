@@ -30,6 +30,20 @@
     }
 }
 
+.style-wrapper-nocart {
+    border: 3px dotted #303134;
+    padding: 170px;
+
+    .txt-nocart {
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 45px;
+    }
+    .txt-add-cart {
+        font-size: 20px;
+    }
+}
+
 // 카드 여러개 묶음
 .cart-products {
     display: -webkit-box;
