@@ -46,7 +46,7 @@ class ProductInfoCard {
 
             // button
             const buyNowButton = new BuyNowButton();
-            const cartButton = new CartButton();
+            const cartButton = new CartButton(this.info.product_id);
 
             document
                 .querySelector(".style-wrapper-detail")
