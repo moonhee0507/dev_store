@@ -1,4 +1,5 @@
 import { API_URL } from "../../common/constants.js";
+import DeleteCartItem from "../modal/deleteCartItem";
 import { ProductQuantity, ProductTotal } from "../product/index.js";
 import { ProductInfoCard } from "../productInfoCard/index.js";
 
@@ -46,13 +47,18 @@ class CartListItem {
         // 수량 열
         const productQuantity = new ProductQuantity(
             this.cartItem.stock,
-            this.cartItem.price
+            this.cartItem.price,
+            this.item.quantity,
+            this.item.cart_item_id,
+            this.item.is_active,
+            this.item.product_id
         );
 
         // 상품금액 열
         const productTotal = new ProductTotal(
             this.cartItem.stock,
-            this.cartItem.price
+            this.cartItem.price,
+            this.item.quantity
         );
 
         this.wrapper.appendChild(closeButton);
@@ -110,10 +116,10 @@ class CartListItem {
             });
         }
 
-        // closeButton 클릭 시 삭제
-        closeButton.addEventListener("click", () => {
-            this.wrapper.remove();
-        });
+        // 장바구니 삭제
+        const deleteCartItem = new DeleteCartItem(this.item.cart_item_id);
+        const deleteModalGroup = document.querySelector(".delete-modal-group");
+        deleteModalGroup.appendChild(deleteCartItem.render());
 
         // this.cartItem.stock === 0이면 체크박스 해제
         if (this.cartItem.stock === 0) {
