@@ -18,6 +18,10 @@ class Cart {
         this.cartList = new CartList();
         this.cartTotal = new CartTotal();
         this.buyNowButton = new BuyNowButton();
+        const changeModalGroup = document.createElement("div");
+        changeModalGroup.setAttribute("class", "change-modal-group");
+        const deleteModalGroup = document.createElement("div");
+        deleteModalGroup.setAttribute("class", "delete-modal-group");
         this.footer = new Footer();
 
         // header
@@ -31,11 +35,22 @@ class Cart {
         main.appendChild(this.cartList.render());
         main.appendChild(this.cartTotal.render());
         main.appendChild(this.buyNowButton.render());
+        main.appendChild(changeModalGroup);
+        main.appendChild(deleteModalGroup);
 
         // footer
         const footer = document.createElement("footer");
         footer.setAttribute("class", "footer");
         footer.appendChild(this.footer.render());
+
+        // 스크립트
+        setTimeout(() => {
+            const body = document.querySelector("body");
+            const cartTotalFeat = document.createElement("script");
+            cartTotalFeat.type = "module";
+            cartTotalFeat.src = "../js/cartTotalFeat.js";
+            body.appendChild(cartTotalFeat);
+        }, 2000);
 
         document.getElementById("root").append(header, main, footer);
     }

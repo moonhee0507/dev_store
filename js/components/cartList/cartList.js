@@ -1,5 +1,6 @@
 import { API_URL } from "../../common/constants";
 import CartListItem from "../cartListItem/cartListItem";
+import NoCart from "../noCart/noCart";
 
 class CartList {
     constructor() {
@@ -18,14 +19,12 @@ class CartList {
         });
         const data = await res.json();
 
-        this.cart = await data.results;
-        console.log(this.cart);
+        this.cart = await data;
     }
 
     // 장바구니 내용 세팅하기
     async setCartData() {
         await this.getCartData();
-        console.log(this.cart);
         this.sectionElement.classList.add("section-cart");
 
         const h2 = document.createElement("h2");
@@ -51,12 +50,20 @@ class CartList {
         const cartProducts = document.createElement("div");
         cartProducts.classList.add("cart-products");
 
-        this.cart.forEach((item) => {
-            const cartProduct = document.createElement("div");
-            const cartListItem = new CartListItem(item);
-            cartProduct.appendChild(cartListItem.render());
-            cartProducts.appendChild(cartProduct);
-        });
+        if (this.cart.count !== 0) {
+            this.cart.results.forEach((item) => {
+                const cartProduct = document.createElement("div");
+                const cartListItem = new CartListItem(item);
+                cartProduct.appendChild(cartListItem.render());
+                cartProducts.appendChild(cartProduct);
+            });
+        } else {
+            const noCart = new NoCart();
+            cartProducts.appendChild(noCart.render());
+            document.querySelector(".wrapper-cart-total").style.display =
+                "none";
+            document.querySelector(".button-buy.middle").style.display = "none";
+        }
 
         col1.appendChild(buttonCartCheck);
         cartRowList.append(col1, col2, col3, col4);
