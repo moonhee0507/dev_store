@@ -1,5 +1,8 @@
+import { API_URL } from "../../common/constants";
+
 class CartButton {
-    constructor() {
+    constructor(product_id) {
+        this.product_id = product_id;
         this.button = document.createElement("button");
     }
 
@@ -13,12 +16,17 @@ class CartButton {
         const buttonNo = document.querySelector(".button-no");
         const buttonYes = document.querySelector(".button-yes");
 
-        // 클릭이벤트
         this.button.addEventListener("click", () => {
+            const product_id = this.product_id.toString();
+            let quantity = parseInt(
+                document.querySelector(".input-quantity.cart").value
+            );
+
             // 로그인 되어 있으면 /payment 이동
             // 로그인이 안되어 있으면 로그인 안내 모달 띄우기
             if (window.localStorage.getItem("token")) {
-                window.location.pathname = "/cart";
+                // 장바구니에 물건 넣기(POST)
+                addToCartReq();
             } else {
                 // 로그인 안내 모달 띄우기
                 modal.classList.toggle("show");
@@ -27,6 +35,33 @@ class CartButton {
                 if (modal.classList.contains("show")) {
                     body.style.overflow = "hidden";
                 }
+            }
+
+            async function addToCartReq() {
+                await fetch(`${API_URL}/cart/`, {
+                    method: "POST",
+                    headers: {
+                        Authorization: `JWT ${window.localStorage.getItem(
+                            "token"
+                        )}`,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        product_id: product_id,
+                        quantity: quantity,
+                        check: true,
+                    }),
+                })
+                    .then((res) => {
+                        res.ok === true
+                            ? (window.location.pathname = "/cart")
+                            : window.confirm(
+                                  "재고 수량이 초과 되었습니다. \n장바구니로 이동하시겠습니까?"
+                              ) && (window.location.pathname = "/cart");
+                    })
+                    .catch((e) => {
+                        console.error(e);
+                    });
             }
         });
 
