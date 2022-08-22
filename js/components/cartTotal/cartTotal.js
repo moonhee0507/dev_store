@@ -1,6 +1,7 @@
 class CartTotal {
     constructor() {
         this.sectionElement = document.createElement("section");
+        this.numCartSum = document.createElement("p");
     }
 
     render() {
@@ -10,15 +11,13 @@ class CartTotal {
         const txtCartSum = document.createElement("p");
         txtCartSum.setAttribute("class", "txt-cart-sum");
         txtCartSum.innerText = "총 상품금액";
-        const numCartSum = document.createElement("p");
-        numCartSum.setAttribute("class", "num-cart-sum");
-        numCartSum.innerText = "46500";
+        this.numCartSum.setAttribute("class", "num-cart-sum");
         const cartTotalUnit1 = document.createElement("span");
         cartTotalUnit1.innerText = "원";
         cartTotalUnit1.setAttribute("class", "cart-total-unit");
-        numCartSum.appendChild(cartTotalUnit1);
+        this.numCartSum.appendChild(cartTotalUnit1);
 
-        totalCol1.append(txtCartSum, numCartSum);
+        totalCol1.append(txtCartSum, this.numCartSum);
 
         const totalCol2 = document.createElement("div");
         totalCol2.setAttribute("class", "total-col2");
@@ -42,7 +41,6 @@ class CartTotal {
         txtCartSumShipping.innerText = "배송비";
         const numCartSumShipping = document.createElement("p");
         numCartSumShipping.setAttribute("class", "num-cart-sum-shipping");
-        numCartSumShipping.innerText = "0";
         const cartTotalUnit3 = document.createElement("span");
         cartTotalUnit3.innerText = "원";
         cartTotalUnit3.setAttribute("class", "cart-total-unit");
@@ -57,7 +55,6 @@ class CartTotal {
         expectedPaymentAmount.innerText = "결제 예정 금액";
         const strong = document.createElement("strong");
         strong.setAttribute("class", "num-amount");
-        strong.innerText = "46500";
         const txtAmountUnit = document.createElement("span");
         txtAmountUnit.setAttribute("class", "txt-amount-unit");
         txtAmountUnit.innerText = "원";
@@ -66,6 +63,7 @@ class CartTotal {
         totalCol4.append(expectedPaymentAmount, strong);
 
         this.sectionElement.append(totalCol1, totalCol2, totalCol3, totalCol4);
+
         return this.sectionElement;
     }
 }
