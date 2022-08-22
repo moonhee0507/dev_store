@@ -1,3 +1,6 @@
+import { API_URL } from "../../common/constants";
+import { GoToLogin } from "../modal";
+
 class Header {
     constructor() {
         this.head = document.createElement("div");
@@ -55,42 +58,102 @@ class Header {
         const listItem1 = document.createElement("li");
         listUsermenu.appendChild(listItem1);
 
-        const linkList1 = document.createElement("a");
-        linkList1.setAttribute("href", "/cart");
-        linkList1.setAttribute("class", "link-list");
-        listItem1.appendChild(linkList1);
-
-        const shoppingBagImg = document.createElement("img");
-        shoppingBagImg.setAttribute("class", "icon-shopping-bag");
-        shoppingBagImg.setAttribute("src", "../images/icon-shopping-bag.svg");
-
-        linkList1.append(shoppingBagImg, "장바구니");
+        const cartButton = document.createElement("button");
+        cartButton.setAttribute("class", "link-list cart");
+        cartButton.setAttribute("type", "button");
+        cartButton.innerText = "장바구니";
+        listItem1.appendChild(cartButton);
 
         const listItem2 = document.createElement("li");
         listUsermenu.appendChild(listItem2);
 
-        // 조건부: 토큰이 있으면 로그인을 마이페이지로 변경
-        const linkList2 = document.createElement("a");
-        linkList2.setAttribute("class", "link-list");
-        listItem2.appendChild(linkList2);
+        // 조건부: 로그인-마이페이지
+        const myPageButton = document.createElement("button");
+        myPageButton.setAttribute("class", "link-list mypage");
+        myPageButton.setAttribute("type", "button");
+        // 마이페이지 DropDown div
+        const dropDown = document.createElement("div");
+        dropDown.setAttribute("class", "dropdown");
+        dropDown.appendChild(myPageButton);
+        listItem2.appendChild(dropDown);
 
         const userImg = document.createElement("img");
         userImg.setAttribute("class", "icon-user");
         userImg.setAttribute("src", "../images/icon-user.svg");
 
+        // 로그인 안내 모달 생성
+        const goToLogin = new GoToLogin();
+
         if (window.localStorage.getItem("token")) {
-            // 마이페이지
-            linkList2.setAttribute("href", "/");
-            linkList2.append(userImg, "마이페이지");
+            // 장바구니페이지로 이동
+            cartButton.addEventListener("click", () => {
+                window.location.pathname = "/cart";
+            });
+
+            // 마이페이지 드롭다운박스(마이페이지, 로그아웃)
+            const dropContent = document.createElement("div");
+            dropContent.setAttribute("class", "drop-content");
+            dropContent.style.display = "none";
+            const linkDropMy = document.createElement("a");
+            linkDropMy.setAttribute("class", "link-drop");
+            const linkDropLogout = document.createElement("a");
+            linkDropLogout.setAttribute("class", "link-drop");
+            linkDropMy.innerText = "마이페이지";
+            linkDropLogout.innerText = "로그아웃";
+            dropContent.append(linkDropMy, linkDropLogout);
+            myPageButton.appendChild(dropContent);
+            myPageButton.addEventListener("click", dropDown);
+
+            function dropDown() {
+                if (dropContent.style.display === "none") {
+                    dropContent.style.display = "block";
+                } else {
+                    dropContent.style.display = "none";
+                }
+            }
+
+            // 로그아웃 기능
+            linkDropLogout.addEventListener("click", () => {
+                logout();
+            });
+
+            async function logout() {
+                await fetch(`${API_URL}/accounts/logout/`, {
+                    method: "POST",
+                    headers: {
+                        Authorization: `JWT ${window.localStorage.getItem(
+                            "token"
+                        )}`,
+                        "Content-Type": "application/json",
+                    },
+                })
+                    .then((res) => {
+                        // res.ok === true && (window.location.pathname = "/");
+                        console.log(res);
+                    })
+                    .catch((e) => console.error(e));
+            }
         } else {
-            // 로그인
-            linkList2.setAttribute("href", "/login");
-            linkList2.append(userImg, "로그인");
+            // 토큰이 없으면 로그인
+            myPageButton.append(userImg, "로그인");
+            myPageButton.addEventListener("click", () => {
+                window.location.pathname = "/login";
+            });
+            // 장바구니 클릭이벤트(로그인 안내 모달)
+            cartButton.addEventListener("click", () => {
+                const body = document.querySelector("body");
+                const modal = document.querySelector(".modal");
+                modal.classList.add("show");
+                // 모달 class가 show면 body의 overflow hidden처리
+                if (modal.classList.contains("show")) {
+                    body.style.overflow = "hidden";
+                }
+            });
         }
 
         this.head.appendChild(styleWrapper);
         this.head.appendChild(nav);
-
+        this.head.appendChild(goToLogin.render());
         return this.head;
     }
 }
