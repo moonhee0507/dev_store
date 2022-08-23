@@ -10,9 +10,10 @@ import {
 import { BuyNowButton, CartButton } from "../button/index.js";
 
 class ProductInfoCard {
-    constructor(info) {
+    constructor(info, order_quantity) {
         this.infoWrapper = document.createElement("div");
-        this.info = info; // Home, Detail
+        this.info = info; // Home, Detail, cart, payment
+        this.order_quantity = order_quantity; // payment
     }
 
     render() {
@@ -61,6 +62,7 @@ class ProductInfoCard {
             this.infoWrapper.appendChild(ul);
             this.infoWrapper.appendChild(buyNowButton.render());
             this.infoWrapper.appendChild(cartButton.render());
+
             // 장바구니 페이지
         } else if (window.location.pathname === "/cart") {
             this.infoWrapper.setAttribute("class", "cart-product-info-col");
@@ -84,6 +86,34 @@ class ProductInfoCard {
             cartDetailList.append(productName.render());
             cartDetailList.append(productPrice.render());
             cartDetailList.append(productShipping.render());
+
+            // 결제페이지
+        } else if (window.location.pathname === "/payment") {
+            const productImage = new ProductImage(this.info.image);
+
+            const ul = document.createElement("ul");
+            ul.setAttribute("class", "payment-detail-list");
+            const productSeller = new ProductSeller(this.info.seller_store);
+            const productName = new ProductName(this.info.product_name);
+            const quantityList = document.createElement("li");
+
+            // 주문수량
+            const paymentTxtQuantity = document.createElement("p");
+            paymentTxtQuantity.setAttribute("class", "payment-txt-quantity");
+            paymentTxtQuantity.innerText = "수량 : ";
+            const paymentNumQuantity = document.createElement("span");
+            paymentNumQuantity.setAttribute("class", "payment-num-quantity");
+            paymentNumQuantity.innerText = this.order_quantity;
+
+            paymentTxtQuantity.appendChild(paymentNumQuantity);
+            quantityList.appendChild(paymentTxtQuantity);
+            ul.append(
+                productSeller.render(),
+                productName.render(),
+                quantityList
+            );
+            this.infoWrapper.append(productImage.render());
+            this.infoWrapper.append(ul);
         }
 
         return this.infoWrapper;

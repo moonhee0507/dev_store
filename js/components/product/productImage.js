@@ -10,7 +10,10 @@ class ProductImage {
             this.wrapper.setAttribute("class", "style-wrapper-img");
         } else if (window.location.pathname.includes("/products/")) {
             this.wrapper.setAttribute("class", "style-wrapper-img large");
-        } else if (window.location.pathname === "/cart") {
+        } else if (
+            window.location.pathname === "/cart" ||
+            window.location.pathname === "/payment"
+        ) {
             this.wrapper.setAttribute("class", "style-wrapper-img small");
             this.wrapper.addEventListener("click", () => {
                 window.location.pathname = `/products/${this.id}`;
