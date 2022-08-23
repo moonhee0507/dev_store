@@ -64,6 +64,9 @@ class Header {
         cartButton.innerText = "장바구니";
         listItem1.appendChild(cartButton);
 
+        const showQt = document.createElement("em");
+        showQt.setAttribute("class", "header-cart-qt");
+
         const listItem2 = document.createElement("li");
         listUsermenu.appendChild(listItem2);
 
@@ -77,10 +80,6 @@ class Header {
         dropDown.appendChild(myPageButton);
         listItem2.appendChild(dropDown);
 
-        const userImg = document.createElement("img");
-        userImg.setAttribute("class", "icon-user");
-        userImg.setAttribute("src", "../images/icon-user.svg");
-
         // 로그인 안내 모달 생성
         const goToLogin = new GoToLogin();
 
@@ -89,6 +88,7 @@ class Header {
             cartButton.addEventListener("click", () => {
                 window.location.pathname = "/cart";
             });
+            cartButton.appendChild(showQt);
 
             // 마이페이지 드롭다운박스(마이페이지, 로그아웃)
             const dropContent = document.createElement("div");
@@ -103,6 +103,9 @@ class Header {
             dropContent.append(linkDropMy, linkDropLogout);
             myPageButton.appendChild(dropContent);
             myPageButton.addEventListener("click", dropDown);
+            myPageButton.addEventListener("blur", () => {
+                dropContent.style.display = "none";
+            });
 
             function dropDown() {
                 if (dropContent.style.display === "none") {
@@ -128,14 +131,36 @@ class Header {
                     },
                 })
                     .then((res) => {
-                        // res.ok === true && (window.location.pathname = "/");
-                        console.log(res);
+                        if (res.ok === true) {
+                            window.localStorage.removeItem("token");
+                            window.location.pathname = "/";
+                        } else {
+                            console.error("다시 시도해주세요.");
+                        }
                     })
                     .catch((e) => console.error(e));
             }
+
+            // 장바구니 갯수 보여주기
+            async function getCartData() {
+                await fetch(`${API_URL}/cart/`, {
+                    method: "GET",
+                    headers: {
+                        Authorization: `JWT ${window.localStorage.getItem(
+                            "token"
+                        )}`,
+                        "Content-Type": "application/json",
+                    },
+                })
+                    .then((res) => res.json())
+                    .then((data) => (showQt.innerText = data.count))
+                    .catch((e) => console.error(e));
+            }
+            getCartData();
         } else {
             // 토큰이 없으면 로그인
-            myPageButton.append(userImg, "로그인");
+            const loginButton = document.createElement("p");
+            loginButton.innerText = "로그인";
             myPageButton.addEventListener("click", () => {
                 window.location.pathname = "/login";
             });
