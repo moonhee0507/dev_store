@@ -14,6 +14,7 @@ class ProductInfoCard {
         this.infoWrapper = document.createElement("div");
         this.info = info; // Home, Detail, cart, payment
         this.order_quantity = order_quantity; // payment
+        console.log(this);
     }
 
     render() {
@@ -21,7 +22,10 @@ class ProductInfoCard {
         if (window.location.pathname.includes("/products/")) {
             const ul = document.createElement("ul");
             ul.setAttribute("class", "product-detail-list");
-            const productImage = new ProductImage(this.info.image);
+            const productImage = new ProductImage(
+                this.info.image,
+                this.info.product_id
+            );
 
             const productSeller = new ProductSeller(this.info.seller_store);
             const productName = new ProductName(this.info.product_name);
@@ -89,7 +93,10 @@ class ProductInfoCard {
 
             // 결제페이지
         } else if (window.location.pathname === "/payment") {
-            const productImage = new ProductImage(this.info.image);
+            const productImage = new ProductImage(
+                this.info.image,
+                this.info.product_id
+            );
 
             const ul = document.createElement("ul");
             ul.setAttribute("class", "payment-detail-list");

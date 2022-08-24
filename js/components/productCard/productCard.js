@@ -15,7 +15,10 @@ class ProductItem {
         product.setAttribute("class", "link-product");
         product.setAttribute("href", `/products/${this.item.product_id}`);
 
-        const productImage = new ProductImage(this.item.image);
+        const productImage = new ProductImage(
+            this.item.image,
+            this.item.product_id
+        );
         const productSeller = new ProductSeller(this.item.seller_store);
         const productName = new ProductName(this.item.product_name);
         const productPrice = new ProductPrice(this.item.price);
