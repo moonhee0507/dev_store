@@ -1,5 +1,6 @@
 class BuyNowButton {
-    constructor() {
+    constructor(stock) {
+        this.stock = stock;
         this.button = document.createElement("button");
     }
 
@@ -15,11 +16,53 @@ class BuyNowButton {
             const buttonNo = document.querySelector(".button-no");
             const buttonYes = document.querySelector(".button-yes");
 
+            if (this.stock === 0) {
+                this.button.disabled = true;
+                this.button.style.cursor = "default";
+                this.button.innerText = "구매 불가";
+            }
+
             // 클릭이벤트
             this.button.addEventListener("click", () => {
                 // 로그인 되어 있으면 /payment 이동
                 // 로그인이 안되어 있으면 로그인 안내 모달 띄우기
                 if (window.localStorage.getItem("token")) {
+                    // 로컬스토리지에 상품정보 저장하기
+                    let productId = document.location.pathname
+                        .split("/")
+                        .slice(-1)
+                        .join();
+                    let src = document.querySelector(".img-product").src;
+                    let seller =
+                        document.querySelector(".detail-txt-seller").innerText;
+                    let productName = document.querySelector(
+                        ".detail-txt-product-name"
+                    ).innerText;
+                    let selectedQt = document
+                        .querySelector(".detail-number-total-quantity")
+                        .innerText.replace(",", "");
+                    let shipping = document.querySelector(
+                        ".detail-shipping-fee"
+                    ).innerText;
+                    let selectedTotal = document
+                        .querySelector(".detail-number-total-price")
+                        .innerText.replace(",", "");
+
+                    const fromDetail = {
+                        productId: productId,
+                        src: src,
+                        seller: seller,
+                        productName: productName,
+                        selectedQt: selectedQt,
+                        shipping: shipping,
+                        selectedTotal: selectedTotal,
+                    };
+
+                    localStorage.setItem(
+                        "fromDetail",
+                        JSON.stringify(fromDetail)
+                    );
+
                     window.location.pathname = "/payment";
                 } else {
                     // 로그인 안내 모달 띄우기
