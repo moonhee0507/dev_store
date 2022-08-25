@@ -14,6 +14,7 @@ class Header {
 
         // 로고
         const h1 = document.createElement("h1");
+        h1.setAttribute("title", "홈 이동");
         const a = document.createElement("a");
         const logoImg = document.createElement("img");
         logoImg.setAttribute("class", "logo");
