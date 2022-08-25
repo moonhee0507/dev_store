@@ -1,30 +1,11 @@
-import { API_URL } from "../../common/constants";
 import OrderListItem from "../orderListItem/orderListItem";
 
 class PayProducts {
     constructor() {
         this.sectionElement = document.createElement("section");
-        this.order = {};
     }
 
-    // 주문 목록 가져오기
-    async getOrderData() {
-        const res = await fetch(`${API_URL}/order/`, {
-            method: "GET",
-            headers: {
-                Authorization: `JWT ${window.localStorage.getItem("token")}`,
-                "Content-Type": "application/json",
-            },
-        });
-        const data = await res.json();
-
-        this.order = await data;
-        console.log(this.order);
-    }
-
-    // 주문 목록 세팅하기
-    async setOrderData() {
-        await this.getOrderData();
+    render() {
         this.sectionElement.classList.add("section-payment-products");
 
         const h3 = document.createElement("h3");
@@ -48,24 +29,53 @@ class PayProducts {
         const paymentProducts = document.createElement("div");
         paymentProducts.setAttribute("class", "payment-products");
 
-        this.order.results.forEach((item) => {
-            const orderProduct = document.createElement("div");
-            const orderListItem = new OrderListItem(item);
-            orderProduct.append(orderListItem.render());
-            paymentProducts.appendChild(orderProduct);
-        });
+        const orderProduct = document.createElement("div");
+        const orderListItem = new OrderListItem();
+        orderProduct.append(orderListItem.render());
+        paymentProducts.appendChild(orderProduct);
 
+        // 총 주문금액
+        const wrapperPaymentTotalAmount = document.createElement("div");
+        wrapperPaymentTotalAmount.setAttribute(
+            "class",
+            "wrapper-payment-total-amount"
+        );
+        const paymentTxtTotalAmount = document.createElement("p");
+        paymentTxtTotalAmount.setAttribute("class", "payment-txt-total-amount");
+        paymentTxtTotalAmount.innerText = "총 주문금액 ";
+        const paymentNumTotalAmount = document.createElement("span");
+        paymentNumTotalAmount.setAttribute("class", "payment-num-total-amount");
+        paymentNumTotalAmount.innerText =
+            (
+                parseInt(
+                    JSON.parse(window.localStorage.getItem("fromDetail"))
+                        .selectedTotal
+                ) +
+                Number(
+                    JSON.parse(
+                        window.localStorage.getItem("fromDetail")
+                    ).shipping.replace(/\D/g, "")
+                )
+            ).toLocaleString("ko-KR") + "원";
+        const paymentUnitTotalAmount = document.createElement("span");
+        paymentUnitTotalAmount.setAttribute(
+            "class",
+            "payment-unit-total-amount"
+        );
+
+        wrapperPaymentTotalAmount.append(
+            paymentTxtTotalAmount,
+            paymentNumTotalAmount,
+            paymentUnitTotalAmount
+        );
         paymentRowList.append(col1, col2, col3, col4);
         paymentRow.appendChild(paymentRowList);
         this.sectionElement.append(
             h3,
             paymentRow,
-            paymentProducts
-            // wrapperPaymentTotalAmount
+            paymentProducts,
+            wrapperPaymentTotalAmount
         );
-    }
-    render() {
-        this.setOrderData();
 
         return this.sectionElement;
     }
