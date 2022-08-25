@@ -14,7 +14,6 @@ class ProductInfoCard {
         this.infoWrapper = document.createElement("div");
         this.info = info; // Home, Detail, cart, payment
         this.order_quantity = order_quantity; // payment
-        console.log(this);
     }
 
     render() {
@@ -50,7 +49,7 @@ class ProductInfoCard {
             );
 
             // button
-            const buyNowButton = new BuyNowButton();
+            const buyNowButton = new BuyNowButton(this.info.stock);
             const cartButton = new CartButton(this.info.product_id);
 
             document
@@ -93,15 +92,12 @@ class ProductInfoCard {
 
             // 결제페이지
         } else if (window.location.pathname === "/payment") {
-            const productImage = new ProductImage(
-                this.info.image,
-                this.info.product_id
-            );
+            const productImage = new ProductImage();
 
             const ul = document.createElement("ul");
             ul.setAttribute("class", "payment-detail-list");
-            const productSeller = new ProductSeller(this.info.seller_store);
-            const productName = new ProductName(this.info.product_name);
+            const productSeller = new ProductSeller();
+            const productName = new ProductName();
             const quantityList = document.createElement("li");
 
             // 주문수량
@@ -110,7 +106,9 @@ class ProductInfoCard {
             paymentTxtQuantity.innerText = "수량 : ";
             const paymentNumQuantity = document.createElement("span");
             paymentNumQuantity.setAttribute("class", "payment-num-quantity");
-            paymentNumQuantity.innerText = this.order_quantity;
+            paymentNumQuantity.innerText = JSON.parse(
+                window.localStorage.getItem("fromDetail")
+            ).selectedQt;
 
             paymentTxtQuantity.appendChild(paymentNumQuantity);
             quantityList.appendChild(paymentTxtQuantity);

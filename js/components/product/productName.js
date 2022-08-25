@@ -30,7 +30,9 @@ class ProductName {
             const li = document.createElement("li");
             const productName = document.createElement("strong");
             productName.setAttribute("class", "payment-txt-product-name");
-            productName.innerText = this.name;
+            productName.innerText = JSON.parse(
+                window.localStorage.getItem("fromDetail")
+            ).productName;
             li.appendChild(productName);
 
             return li;

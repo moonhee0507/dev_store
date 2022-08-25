@@ -28,7 +28,9 @@ class ProductSeller {
             const li = document.createElement("li");
             const productSeller = document.createElement("p");
             productSeller.setAttribute("class", "payment-txt-seller");
-            productSeller.innerText = this.store;
+            productSeller.innerText = JSON.parse(
+                window.localStorage.getItem("fromDetail")
+            ).seller;
             li.appendChild(productSeller);
             return li;
         }
