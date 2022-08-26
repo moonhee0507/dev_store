@@ -288,9 +288,12 @@
     flex-wrap: wrap;
     border-bottom: 2px solid #303134;
     padding: 18px 0;
-    input[name="input-method"] {
+    input[name="payment_method"] {
         width: initial;
         margin-left: 10px;
+    }
+    label {
+        padding-left: 5px;
     }
 }
 
@@ -391,4 +394,11 @@
     font-size: 20px;
     line-height: 25px;
     color: white;
+}
+
+.payment-error-message {
+    color: $point-red;
+    padding-left: 20px;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
 }

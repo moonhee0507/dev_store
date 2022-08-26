@@ -1654,9 +1654,13 @@ input[type="checkbox"]:focus {
   padding: 18px 0;
 }
 
-.method-wrapper input[name="input-method"] {
+.method-wrapper input[name="payment_method"] {
   width: initial;
   margin-left: 10px;
+}
+
+.method-wrapper label {
+  padding-left: 5px;
 }
 
 .article-final-payment {
@@ -1755,6 +1759,13 @@ input[type="checkbox"]:focus {
   font-size: 20px;
   line-height: 25px;
   color: white;
+}
+
+.payment-error-message {
+  color: #f24822;
+  padding-left: 20px;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
 }
 
 .style-wrapper-move {
