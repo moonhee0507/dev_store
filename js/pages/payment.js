@@ -37,6 +37,14 @@ class Payment {
         footer.setAttribute("class", "footer");
         footer.appendChild(this.footer.render());
 
+        // Daum 우편번호
+        const fileLoading = document.createElement("script");
+        fileLoading.setAttribute(
+            "src",
+            "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
+        );
+        document.body.appendChild(fileLoading);
+
         document.getElementById("root").append(header, main, footer);
     }
 }
