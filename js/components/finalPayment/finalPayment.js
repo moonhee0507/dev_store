@@ -1,3 +1,5 @@
+import { API_URL } from "../../common/constants";
+
 class FinalPayment {
     constructor() {
         this.article = document.createElement("article");
@@ -87,17 +89,23 @@ class FinalPayment {
             "class",
             "style-wrapper-final-agree"
         );
-        const buttonPayment = document.createElement("button");
-        buttonPayment.setAttribute("class", "button-payment");
-        buttonPayment.innerText = "결제하기";
 
         const checkFinalAgree = document.createElement("input");
         checkFinalAgree.setAttribute("type", "checkbox");
         checkFinalAgree.setAttribute("id", "check-final-agree");
+        checkFinalAgree.setAttribute("required", true);
         const checkFinalLabel = document.createElement("label");
         checkFinalLabel.setAttribute("for", "check-final-agree");
         checkFinalLabel.innerText =
             "주문 내용을 확인하였으며, 정보 제공 등에 동의합니다.";
+
+        // 결제하기 버튼
+        const buttonPayment = document.createElement("button");
+        buttonPayment.setAttribute("type", "submit");
+        buttonPayment.setAttribute("class", "button-payment");
+        buttonPayment.setAttribute("disabled", true);
+        buttonPayment.classList.add("off");
+        buttonPayment.innerText = "결제하기";
 
         styleWrapperFinalAgree.append(checkFinalAgree, checkFinalLabel);
         styleWrapperGray.append(styleWrapperFinalAgree, buttonPayment);
@@ -118,6 +126,118 @@ class FinalPayment {
         finalCalcResult.append(listResult);
         styleWrapperFinal.append(finalCalcElement, finalCalcResult);
         this.article.append(title, styleWrapperFinal, styleWrapperGray);
+
+        // 결제하기 버튼 활성화
+        setTimeout(() => {
+            const input = document.getElementsByTagName("input");
+            const messages = document.querySelectorAll(
+                ".payment-error-message"
+            );
+            let arrMessages = [];
+
+            for (let j = 0; j < input.length; j++) {
+                input[j].addEventListener("input", () => {
+                    for (let i = 0; i < messages.length; i++) {
+                        arrMessages.push(messages[i].innerText);
+                    }
+                    changeButtonState();
+                });
+            }
+            function changeButtonState() {
+                arrMessages.length = 0;
+                if (
+                    arrMessages.every((currentString) => {
+                        currentString === "";
+                    }) &&
+                    checkFinalAgree.checked === true
+                ) {
+                    buttonPayment.setAttribute("disabled", false);
+                    buttonPayment.classList.remove("off");
+                } else {
+                    buttonPayment.setAttribute("disabled", true);
+                    buttonPayment.classList.add("off");
+                }
+            }
+        }, 1500);
+
+        // 결제 버튼 클릭 시 주문 생성
+        buttonPayment.addEventListener("click", (e) => {
+            e.preventDefault();
+            let product_id = parseInt(
+                JSON.parse(window.localStorage.getItem("fromDetail")).productId
+            );
+            let quantity = parseInt(
+                JSON.parse(window.localStorage.getItem("fromDetail")).selectedQt
+            );
+            let receiver = document.querySelector(
+                "#input-recipient-name"
+            ).value;
+            let receiver_phone_number =
+                document.querySelectorAll(".phone-container")[1].children[0]
+                    .value +
+                document.querySelectorAll(".phone-container")[1].children[2]
+                    .value +
+                document.querySelectorAll(".phone-container")[1].children[4]
+                    .value;
+            let address =
+                document.getElementById("input-address-main").value +
+                " " +
+                document.getElementById("input-address-sub").value;
+            let address_message =
+                document.getElementById("input-message").value;
+
+            let payment_method_Nodes =
+                document.getElementsByName("payment_method");
+
+            const payment_method = () => {
+                for (let i = 0; i < payment_method_Nodes.length; i++) {
+                    if (payment_method_Nodes[i].checked) {
+                        let payment_method = payment_method_Nodes[i].value;
+                        return payment_method;
+                    }
+                }
+            };
+
+            let total_price =
+                parseInt(
+                    JSON.parse(window.localStorage.getItem("fromDetail"))
+                        .selectedTotal
+                ) +
+                Number(
+                    JSON.parse(
+                        window.localStorage.getItem("fromDetail")
+                    ).shipping.replace(/\D/g, "")
+                );
+
+            order();
+
+            async function order() {
+                await fetch(`${API_URL}/order/`, {
+                    method: "POST",
+                    headers: {
+                        Authorization: `JWT ${window.localStorage.getItem(
+                            "token"
+                        )}`,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        product_id: product_id,
+                        quantity: quantity,
+                        order_kind: "direct_order",
+                        receiver: receiver,
+                        receiver_phone_number: receiver_phone_number,
+                        address: address,
+                        address_message: address_message,
+                        payment_method: payment_method(),
+                        total_price: total_price,
+                    }),
+                })
+                    .then((res) => res.json())
+                    .then((data) => console.log(data))
+                    .catch((e) => console.error(e));
+            }
+        });
+
         return this.article;
     }
 }
