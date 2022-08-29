@@ -20,6 +20,18 @@ class CartList {
         const data = await res.json();
 
         this.cart = await data;
+        console.log(this.cart); // this.cart.results.product_id, quantity
+
+        // 로컬스토리지에 상품id, qt 저장하기
+        const arr = new Array();
+        for (let i = 0; i < this.cart.count; i++) {
+            const cartItems = new Object();
+            cartItems.productId = `${this.cart.results[i].product_id}`;
+            cartItems.selectedQt = `${this.cart.results[i].quantity}`;
+            cartItems.checked = "true";
+            arr.push(cartItems);
+        }
+        localStorage.setItem("fromCartItems", JSON.stringify(arr));
     }
 
     // 장바구니 내용 세팅하기
