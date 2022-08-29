@@ -103,7 +103,7 @@ class FinalPayment {
         const buttonPayment = document.createElement("button");
         buttonPayment.setAttribute("type", "submit");
         buttonPayment.setAttribute("class", "button-payment");
-        buttonPayment.setAttribute("disabled", true);
+        buttonPayment.disabled = true;
         buttonPayment.classList.add("off");
         buttonPayment.innerText = "결제하기";
 
@@ -151,10 +151,10 @@ class FinalPayment {
                     }) &&
                     checkFinalAgree.checked === true
                 ) {
-                    buttonPayment.setAttribute("disabled", false);
+                    buttonPayment.disabled = false;
                     buttonPayment.classList.remove("off");
                 } else {
-                    buttonPayment.setAttribute("disabled", true);
+                    buttonPayment.disabled = true;
                     buttonPayment.classList.add("off");
                 }
             }
