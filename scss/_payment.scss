@@ -163,12 +163,16 @@
     input {
         width: 334px;
         border: none;
-        border-radius: 0;
+        border-radius: 5px;
         padding: 9px 0 9px 3px;
         margin: 0;
         font-size: 16px;
         color: white;
         background-color: #303134;
+    }
+
+    input:focus {
+        outline: 2px solid #c0c0c0;
     }
 }
 
@@ -210,13 +214,14 @@
 #input-orderer-phone-last,
 #input-recipient-phone-last {
     width: 100px;
+    text-align: center;
 }
 
 .input-orderer-phone.first,
 .input-recipient-phone.first {
     width: 95px;
     height: 40px;
-    border-radius: 0;
+    border-radius: 5px;
     border: none;
     background-color: #303134;
     text-align: center;
@@ -226,11 +231,17 @@
 
 // 우편번호
 .zip-code-area {
-    font-size: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
 #input-zip-code {
     width: 170px;
     margin-right: 10px;
+}
+#input-zip-code:focus,
+#input-address-main {
+    outline: none;
 }
 
 .find-zip-code {
@@ -245,6 +256,11 @@
     font-size: 16px;
     line-height: 20px;
     color: white;
+    cursor: pointer;
+}
+
+.find-zip-code:focus {
+    outline: 2px solid #c0c0c0;
 }
 
 // 배송주소
@@ -383,7 +399,7 @@
     }
 }
 // 결제하기 버튼
-.button-payment {
+.button-payment.off {
     display: block;
     border: none;
     border-radius: 5px;
@@ -394,11 +410,66 @@
     font-size: 20px;
     line-height: 25px;
     color: white;
+    cursor: default;
+}
+.button-payment {
+    display: block;
+    border: none;
+    border-radius: 5px;
+    background-color: $point-purple;
+    padding: 8px 55px;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 25px;
+    color: white;
+    cursor: pointer;
 }
 
 .payment-error-message {
+    font-size: 16px;
     color: $point-red;
     padding-left: 20px;
     -ms-flex-item-align: end;
     align-self: flex-end;
+}
+
+// 배송 메시지
+.message-container {
+    width: 800px;
+    position: relative;
+}
+#input-message {
+    position: absolute;
+    background: url("../images/icon-down-arrow.svg") no-repeat;
+    background-size: 25px 25px;
+    background-position: 99%;
+    background-color: #303134;
+    padding-right: 30px;
+}
+
+.comment-wrapper {
+    width: 800px;
+    display: none;
+    position: absolute;
+    top: 38px;
+    padding: 10px;
+    background-color: #303134;
+    border: 1px solid white;
+    font-size: 16px;
+    line-height: 20px;
+
+    li {
+        padding-left: 5px;
+    }
+
+    li:hover {
+        background: #858585;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    ul > :nth-child(1),
+    ul > :nth-child(2) {
+        margin-bottom: 10px;
+    }
 }

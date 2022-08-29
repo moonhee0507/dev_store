@@ -1526,12 +1526,16 @@ input[type="checkbox"]:focus {
 .section-shipping-info input {
   width: 334px;
   border: none;
-  border-radius: 0;
+  border-radius: 5px;
   padding: 9px 0 9px 3px;
   margin: 0;
   font-size: 16px;
   color: white;
   background-color: #303134;
+}
+
+.section-shipping-info input:focus {
+  outline: 2px solid #c0c0c0;
 }
 
 .fieldset-shipping-info {
@@ -1574,13 +1578,14 @@ input[type="checkbox"]:focus {
 #input-orderer-phone-last,
 #input-recipient-phone-last {
   width: 100px;
+  text-align: center;
 }
 
 .input-orderer-phone.first,
 .input-recipient-phone.first {
   width: 95px;
   height: 40px;
-  border-radius: 0;
+  border-radius: 5px;
   border: none;
   background-color: #303134;
   text-align: center;
@@ -1589,12 +1594,19 @@ input[type="checkbox"]:focus {
 }
 
 .zip-code-area {
-  font-size: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #input-zip-code {
   width: 170px;
   margin-right: 10px;
+}
+
+#input-zip-code:focus,
+#input-address-main {
+  outline: none;
 }
 
 .find-zip-code {
@@ -1609,6 +1621,11 @@ input[type="checkbox"]:focus {
   font-size: 16px;
   line-height: 20px;
   color: white;
+  cursor: pointer;
+}
+
+.find-zip-code:focus {
+  outline: 2px solid #c0c0c0;
 }
 
 #input-address-main,
@@ -1748,7 +1765,7 @@ input[type="checkbox"]:focus {
   vertical-align: top;
 }
 
-.button-payment {
+.button-payment.off {
   display: block;
   border: none;
   border-radius: 5px;
@@ -1759,13 +1776,152 @@ input[type="checkbox"]:focus {
   font-size: 20px;
   line-height: 25px;
   color: white;
+  cursor: default;
+}
+
+.button-payment {
+  display: block;
+  border: none;
+  border-radius: 5px;
+  background-color: #a158fe;
+  padding: 8px 55px;
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+  color: white;
+  cursor: pointer;
 }
 
 .payment-error-message {
+  font-size: 16px;
   color: #f24822;
   padding-left: 20px;
   -ms-flex-item-align: end;
   align-self: flex-end;
+}
+
+.message-container {
+  width: 800px;
+  position: relative;
+}
+
+#input-message {
+  position: absolute;
+  background: url("../images/icon-down-arrow.svg") no-repeat;
+  background-size: 25px 25px;
+  background-position: 99%;
+  background-color: #303134;
+  padding-right: 30px;
+}
+
+.comment-wrapper {
+  width: 800px;
+  display: none;
+  position: absolute;
+  top: 38px;
+  padding: 10px;
+  background-color: #303134;
+  border: 1px solid white;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.comment-wrapper li {
+  padding-left: 5px;
+}
+
+.comment-wrapper li:hover {
+  background: #858585;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-wrapper ul > :nth-child(1),
+.comment-wrapper ul > :nth-child(2) {
+  margin-bottom: 10px;
+}
+
+.not-style-wrapper {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.not-style-wrapper .not-style-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+}
+
+.not-img-container {
+  background: url("../images/icon-404.svg") no-repeat center center;
+  background-size: 100% 100%;
+  width: 270px;
+  height: 193px;
+}
+
+.not-description-container {
+  color: white;
+}
+
+.not-description-container strong {
+  display: block;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+  margin-bottom: 20px;
+}
+
+.not-description-container p {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.not-description-container .not-button-group {
+  font-size: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.not-description-container .not-button-group .button-tomain,
+.not-description-container .not-button-group .button-toprev {
+  width: 150px;
+  padding: 10px 0;
+  margin: 0;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  color: white;
+}
+
+.not-description-container .not-button-group .button-tomain {
+  background-color: #a158fe;
+  border: none;
+}
+
+.not-description-container .not-button-group .button-toprev {
+  background-color: inherit;
+  border: 1px solid #c4c4c4;
 }
 
 .style-wrapper-move {
