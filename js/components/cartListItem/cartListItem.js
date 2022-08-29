@@ -80,7 +80,8 @@ class CartListItem {
             allCheckBox[0].addEventListener("click", () => {
                 // 제목행 체크되어 있으면 나머지도 체크
                 if (allCheckBox[0].className.includes("fill")) {
-                    allCheckBox[i].classList.add("fill");
+                    this.cartItem.stock !== 0 &&
+                        allCheckBox[i].classList.add("fill");
                     itemAllCheck = true;
                 } else {
                     allCheckBox[1].classList.remove("fill");
