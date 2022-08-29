@@ -13,7 +13,11 @@ const isSoldout = document.querySelectorAll(".input-quantity");
 
 // 체크박스를 클릭할 때마다 새로 계산
 for (let i = 0; i < allCheckBox.length; i++) {
-    allCheckBox[i].addEventListener("click", calc);
+    allCheckBox[i].addEventListener("click", () => {
+        calc();
+        // 로컬스토리지 checked 값 수정 함수
+        editChecked();
+    });
 }
 
 function calc() {
@@ -84,4 +88,28 @@ for (let i = 0; i < cartCloseButton.length; i++) {
             body.style.overflow = "hidden";
         }
     });
+}
+
+// 로컬스토리지 checked 값 수정 함수
+function editChecked() {
+    const fromCartItems = JSON.parse(
+        window.localStorage.getItem("fromCartItems")
+    );
+    for (let i = 0; i < allCheckBox.length - 1; i++) {
+        if (allCheckBox[i + 1].className.includes("fill")) {
+            // i번째 로컬스토리지 요소의 checked 값이 true
+            fromCartItems[i].checked = "true";
+            window.localStorage.setItem(
+                "fromCartItems",
+                JSON.stringify(fromCartItems)
+            );
+        } else {
+            // i번째 로컬스토리지 요소의 checked 값이 false
+            fromCartItems[i].checked = "false";
+            window.localStorage.setItem(
+                "fromCartItems",
+                JSON.stringify(fromCartItems)
+            );
+        }
+    }
 }
