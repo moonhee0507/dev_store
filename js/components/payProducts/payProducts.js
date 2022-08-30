@@ -30,9 +30,7 @@ class PayProducts {
         paymentProducts.setAttribute("class", "payment-products");
 
         const orderProduct = document.createElement("div");
-        const orderListItem = new OrderListItem();
-        orderProduct.append(orderListItem.render());
-        paymentProducts.appendChild(orderProduct);
+        orderProduct.setAttribute("class", "style-wrapper-order-products");
 
         // 총 주문금액
         const wrapperPaymentTotalAmount = document.createElement("div");
@@ -45,18 +43,7 @@ class PayProducts {
         paymentTxtTotalAmount.innerText = "총 주문금액 ";
         const paymentNumTotalAmount = document.createElement("span");
         paymentNumTotalAmount.setAttribute("class", "payment-num-total-amount");
-        paymentNumTotalAmount.innerText =
-            (
-                parseInt(
-                    JSON.parse(window.localStorage.getItem("fromDetail"))
-                        .selectedTotal
-                ) +
-                Number(
-                    JSON.parse(
-                        window.localStorage.getItem("fromDetail")
-                    ).shipping.replace(/\D/g, "")
-                )
-            ).toLocaleString("ko-KR") + "원";
+
         const paymentUnitTotalAmount = document.createElement("span");
         paymentUnitTotalAmount.setAttribute(
             "class",
@@ -76,6 +63,69 @@ class PayProducts {
             paymentProducts,
             wrapperPaymentTotalAmount
         );
+
+        // 상품 상세(path1)에서 유입
+        if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "1"
+        ) {
+            const orderData = JSON.parse(localStorage.getItem("fromDetail"));
+            const orderListItem = new OrderListItem(orderData);
+            orderProduct.append(orderListItem.render());
+            paymentProducts.appendChild(orderProduct);
+
+            paymentNumTotalAmount.innerText =
+                (
+                    parseInt(
+                        JSON.parse(window.localStorage.getItem("fromDetail"))
+                            .selectedTotal
+                    ) +
+                    Number(
+                        JSON.parse(
+                            window.localStorage.getItem("fromDetail")
+                        ).shipping.replace(/\D/g, "")
+                    )
+                ).toLocaleString("ko-KR") + "원";
+
+            // 장바구니 메인버튼(path2)에서 유입
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "2"
+        ) {
+            JSON.parse(localStorage.getItem("filteredFromCartItems")).forEach(
+                (orderItem) => {
+                    const orderListItem = new OrderListItem(orderItem);
+                    orderProduct.append(orderListItem.render());
+                    paymentProducts.appendChild(orderProduct);
+                }
+            );
+
+            paymentNumTotalAmount.innerText =
+                parseInt(
+                    JSON.parse(localStorage.getItem("total")).amount
+                ).toLocaleString("ko-KR") + "원";
+            // 장바구니 미니버튼(path3)에서 유입
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "3"
+        ) {
+            const orderData = JSON.parse(localStorage.getItem("fromCartOne"));
+            const orderListItem = new OrderListItem(orderData);
+            orderProduct.append(orderListItem.render());
+            paymentProducts.appendChild(orderProduct);
+
+            paymentNumTotalAmount.innerText =
+                (
+                    parseInt(
+                        JSON.parse(localStorage.getItem("fromCartOne"))[0]
+                            .totalPrice
+                    ) +
+                    parseInt(
+                        JSON.parse(localStorage.getItem("fromCartOne"))[0]
+                            .shippingFee
+                    )
+                ).toLocaleString("ko-KR") + "원";
+        }
 
         return this.sectionElement;
     }
