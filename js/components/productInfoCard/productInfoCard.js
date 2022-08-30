@@ -10,10 +10,9 @@ import {
 import { BuyNowButton, CartButton } from "../button/index.js";
 
 class ProductInfoCard {
-    constructor(info, order_quantity) {
+    constructor(info) {
         this.infoWrapper = document.createElement("div");
         this.info = info; // Home, Detail, cart, payment
-        this.order_quantity = order_quantity; // payment
     }
 
     render() {
@@ -90,8 +89,11 @@ class ProductInfoCard {
             cartDetailList.append(productPrice.render());
             cartDetailList.append(productShipping.render());
 
-            // 결제페이지
-        } else if (window.location.pathname === "/payment") {
+            // 상품 상세(path1)에서 유입
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "1"
+        ) {
             const productImage = new ProductImage();
 
             const ul = document.createElement("ul");
@@ -109,7 +111,66 @@ class ProductInfoCard {
             paymentNumQuantity.innerText = JSON.parse(
                 window.localStorage.getItem("fromDetail")
             ).selectedQt;
+            paymentTxtQuantity.appendChild(paymentNumQuantity);
+            quantityList.appendChild(paymentTxtQuantity);
+            ul.append(
+                productSeller.render(),
+                productName.render(),
+                quantityList
+            );
+            this.infoWrapper.append(productImage.render());
+            this.infoWrapper.append(ul);
+            // 장바구니(path2)에서 유입
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "2"
+        ) {
+            const productImage = new ProductImage(this.info.src);
 
+            const ul = document.createElement("ul");
+            ul.setAttribute("class", "payment-detail-list");
+            const productSeller = new ProductSeller(this.info.sellerName);
+            const productName = new ProductName(this.info.productName);
+            const quantityList = document.createElement("li");
+
+            // 주문수량
+            const paymentTxtQuantity = document.createElement("p");
+            paymentTxtQuantity.setAttribute("class", "payment-txt-quantity");
+            paymentTxtQuantity.innerText = "수량 : ";
+            const paymentNumQuantity = document.createElement("span");
+            paymentNumQuantity.setAttribute("class", "payment-num-quantity");
+            paymentNumQuantity.innerText = this.info.selectedQt;
+            paymentTxtQuantity.appendChild(paymentNumQuantity);
+            quantityList.appendChild(paymentTxtQuantity);
+            ul.append(
+                productSeller.render(),
+                productName.render(),
+                quantityList
+            );
+            this.infoWrapper.append(productImage.render());
+            this.infoWrapper.append(ul);
+            // 장바구니(path3)에서 유입
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "3"
+        ) {
+            const productImage = new ProductImage();
+
+            const ul = document.createElement("ul");
+            ul.setAttribute("class", "payment-detail-list");
+            const productSeller = new ProductSeller();
+            const productName = new ProductName();
+            const quantityList = document.createElement("li");
+
+            // 주문수량
+            const paymentTxtQuantity = document.createElement("p");
+            paymentTxtQuantity.setAttribute("class", "payment-txt-quantity");
+            paymentTxtQuantity.innerText = "수량 : ";
+            const paymentNumQuantity = document.createElement("span");
+            paymentNumQuantity.setAttribute("class", "payment-num-quantity");
+            paymentNumQuantity.innerText = JSON.parse(
+                window.localStorage.getItem("fromCartOne")
+            )[0].selectedQt;
             paymentTxtQuantity.appendChild(paymentNumQuantity);
             quantityList.appendChild(paymentTxtQuantity);
             ul.append(

@@ -23,7 +23,6 @@ class ProductList {
     // 상품 리스트 세팅하기
     async setProductList() {
         await this.getProductsData();
-        console.log(this.products);
         this.sectionElement.classList.add("section-products");
 
         const productList = document.createElement("ul");

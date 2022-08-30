@@ -50,11 +50,6 @@ class FinalPayment {
         txtFinalShipping.innerText = "- 배송비";
         const numFinalShipping = document.createElement("p");
         numFinalShipping.setAttribute("class", "num-final-shipping");
-        numFinalShipping.innerText = Number(
-            JSON.parse(
-                window.localStorage.getItem("fromDetail")
-            ).shipping.replace(/\D/g, "")
-        ).toLocaleString("ko-KR");
         const txtFinalUnit3 = document.createElement("span");
         txtFinalUnit3.setAttribute("class", "txt-final-unit");
         txtFinalUnit3.innerText = "원";
@@ -66,17 +61,6 @@ class FinalPayment {
         txtFinalPayment.innerText = "- 결제금액";
         const numFinalPayment = document.createElement("p");
         numFinalPayment.setAttribute("class", "num-final-payment");
-        numFinalPayment.innerText = (
-            parseInt(
-                JSON.parse(window.localStorage.getItem("fromDetail"))
-                    .selectedTotal
-            ) +
-            Number(
-                JSON.parse(
-                    window.localStorage.getItem("fromDetail")
-                ).shipping.replace(/\D/g, "")
-            )
-        ).toLocaleString("ko-KR");
         const txtFinalPaymentUnit = document.createElement("span");
         txtFinalPaymentUnit.setAttribute("class", "txt-final-payment-unit");
         txtFinalPaymentUnit.innerText = "원";
@@ -110,13 +94,87 @@ class FinalPayment {
         styleWrapperFinalAgree.append(checkFinalAgree, checkFinalLabel);
         styleWrapperGray.append(styleWrapperFinalAgree, buttonPayment);
 
-        numFinalPrice.append(
-            parseInt(
-                JSON.parse(window.localStorage.getItem("fromDetail"))
-                    .selectedTotal
-            ).toLocaleString("ko-KR"),
-            txtFinalUnit1
-        );
+        if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "1"
+        ) {
+            numFinalPrice.append(
+                parseInt(
+                    JSON.parse(window.localStorage.getItem("fromDetail"))
+                        .selectedTotal
+                ).toLocaleString("ko-KR"),
+                txtFinalUnit1
+            );
+            numFinalShipping.innerText = Number(
+                JSON.parse(
+                    window.localStorage.getItem("fromDetail")
+                ).shipping.replace(/\D/g, "")
+            ).toLocaleString("ko-KR");
+            numFinalPayment.append(
+                (
+                    parseInt(
+                        JSON.parse(window.localStorage.getItem("fromDetail"))
+                            .selectedTotal
+                    ) +
+                    Number(
+                        JSON.parse(
+                            window.localStorage.getItem("fromDetail")
+                        ).shipping.replace(/\D/g, "")
+                    )
+                ).toLocaleString("ko-KR"),
+                txtFinalPaymentUnit
+            );
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "2"
+        ) {
+            numFinalPrice.append(
+                parseInt(
+                    JSON.parse(window.localStorage.getItem("total"))
+                        .selectedTotalPrice
+                ).toLocaleString("ko-KR"),
+                txtFinalUnit1
+            );
+            numFinalShipping.innerText = parseInt(
+                JSON.parse(window.localStorage.getItem("total"))
+                    .selectedTotalShippingFee
+            ).toLocaleString("ko-KR");
+            numFinalPayment.append(
+                parseInt(
+                    JSON.parse(window.localStorage.getItem("total")).amount
+                ).toLocaleString("ko-KR"),
+                txtFinalPaymentUnit
+            );
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "3"
+        ) {
+            numFinalPrice.append(
+                parseInt(
+                    JSON.parse(window.localStorage.getItem("fromCartOne"))[0]
+                        .totalPrice
+                ).toLocaleString("ko-KR"),
+                txtFinalUnit1
+            );
+            numFinalShipping.innerText = parseInt(
+                JSON.parse(window.localStorage.getItem("fromCartOne"))[0]
+                    .shippingFee
+            ).toLocaleString("ko-KR");
+            numFinalPayment.append(
+                (
+                    parseInt(
+                        JSON.parse(localStorage.getItem("fromCartOne"))[0]
+                            .totalPrice
+                    ) +
+                    parseInt(
+                        JSON.parse(localStorage.getItem("fromCartOne"))[0]
+                            .shippingFee
+                    )
+                ).toLocaleString("ko-KR"),
+                txtFinalPaymentUnit
+            );
+        }
+
         numFinalDiscount.append("0", txtFinalUnit2);
         numFinalShipping.appendChild(txtFinalUnit3);
         list1.append(txtFinalPrice, numFinalPrice);
@@ -233,7 +291,11 @@ class FinalPayment {
                     }),
                 })
                     .then((res) => res.json())
-                    .then((data) => console.log(data))
+                    .then((data) => {
+                        console.log(data);
+                        alert("결제가 완료되었습니다.");
+                        // TODO: 결제내역 확인하는 페이지 만들기
+                    })
                     .catch((e) => console.error(e));
             }
         });

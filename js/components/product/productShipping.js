@@ -54,11 +54,32 @@ class ProductShippingMethod {
 
             li.append(txtMethod, txtFee);
 
-            // 결제 페이지
-        } else if (window.location.pathname === "/payment") {
+            // 상품 상세(path1)에서 유입
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "1"
+        ) {
             paymentNumShipping.innerText = JSON.parse(
                 window.localStorage.getItem("fromDetail")
             ).shipping;
+
+            paymentTxtShipping.appendChild(paymentNumShipping);
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "2"
+        ) {
+            paymentNumShipping.innerText =
+                parseInt(this.shippingFee).toLocaleString("ko-KR") + "원";
+            paymentTxtShipping.appendChild(paymentNumShipping);
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "3"
+        ) {
+            paymentNumShipping.innerText =
+                parseInt(
+                    JSON.parse(window.localStorage.getItem("fromCartOne"))[0]
+                        .shippingFee
+                ).toLocaleString("ko-KR") + "원";
 
             paymentTxtShipping.appendChild(paymentNumShipping);
         }

@@ -1,8 +1,9 @@
 class ProductTotal {
-    constructor(stock, price, quantity) {
+    constructor(stock, price, quantity, product_id) {
         this.stock = stock;
         this.price = price;
         this.quantity = quantity;
+        this.product_id = product_id;
         this.li = document.createElement("li");
         this.div = document.createElement("div");
     }
@@ -73,7 +74,24 @@ class ProductTotal {
             buyNowButtonSmall.innerText = "주문하기";
 
             buyNowButtonSmall.addEventListener("click", () => {
-                window.location.pathname = "/payment";
+                if (this.quantity === 0) {
+                    alert(
+                        "해당 상품은 품절입니다. \n판매자에게 입고일자를 확인해주세요."
+                    );
+                } else {
+                    localStorage.setItem("path", "3");
+                    // fromCartItems 스토리지에서 클릭 상품 가져오기
+                    const fromCartOne = JSON.parse(
+                        localStorage.getItem("filteredFromCartItems")
+                    ).filter((el) => {
+                        return el.productId === `${this.product_id}`;
+                    });
+                    localStorage.setItem(
+                        "fromCartOne",
+                        JSON.stringify(fromCartOne)
+                    );
+                    window.location.pathname = "/payment";
+                }
             });
             this.div.append(
                 numTotalPrice,

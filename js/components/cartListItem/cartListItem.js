@@ -58,7 +58,8 @@ class CartListItem {
         const productTotal = new ProductTotal(
             this.cartItem.stock,
             this.cartItem.price,
-            this.item.quantity
+            this.item.quantity,
+            this.item.product_id
         );
 
         this.wrapper.appendChild(closeButton);

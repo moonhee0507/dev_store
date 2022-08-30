@@ -1,8 +1,10 @@
 import { ProductShipping } from "../product/index.js";
 import { ProductInfoCard } from "../productInfoCard/index.js";
+import AmountPerProduct from "../amountPerProduct/amountPerProduct.js";
 
 class OrderListItem {
-    constructor() {
+    constructor(orderItem) {
+        this.orderItem = orderItem; // path2
         this.wrapper = document.createElement("div");
     }
 
@@ -13,7 +15,7 @@ class OrderListItem {
         // 상품정보 열
         const paymentProductInfoCol = document.createElement("div");
         paymentProductInfoCol.setAttribute("class", "payment-product-info-col");
-        const productInfoCard = new ProductInfoCard();
+        const productInfoCard = new ProductInfoCard(this.orderItem);
         paymentProductInfoCol.appendChild(productInfoCard.render());
 
         // 할인 열
@@ -26,25 +28,20 @@ class OrderListItem {
         // 배송비 열
         const paymentShippingCol = document.createElement("div");
         paymentShippingCol.setAttribute("class", "payment-shipping-col");
-        const productShipping = new ProductShipping();
+        const productShipping = new ProductShipping(
+            this.orderItem.shippingMethod,
+            this.orderItem.shippingFee
+        );
         paymentShippingCol.appendChild(productShipping.render());
 
         // 주문금액 열
         const paymentOrderAmountCol = document.createElement("div");
         paymentOrderAmountCol.setAttribute("class", "payment-order-amount-col");
-        const paymentTxtAmount = document.createElement("p");
-        paymentTxtAmount.setAttribute("class", "payment-txt-amount");
-        const paymentNumAmount = document.createElement("span");
-        paymentNumAmount.setAttribute("class", "payment-num-amount");
-        paymentNumAmount.innerText =
-            Number(
-                JSON.parse(window.localStorage.getItem("fromDetail"))
-                    .selectedTotal
-            ).toLocaleString("ko-KR") + "원";
+        const amountPerProduct = new AmountPerProduct(
+            this.orderItem.totalPrice
+        );
 
-        console.log();
-        paymentTxtAmount.appendChild(paymentNumAmount);
-        paymentOrderAmountCol.appendChild(paymentTxtAmount);
+        paymentOrderAmountCol.appendChild(amountPerProduct.render());
 
         wrapperPaymentProduct.append(
             paymentProductInfoCol,

@@ -24,13 +24,38 @@ class ProductSeller {
             productSeller.innerText = this.store;
             li.appendChild(productSeller);
             return li;
-        } else if (window.location.pathname === "/payment") {
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "1"
+        ) {
             const li = document.createElement("li");
             const productSeller = document.createElement("p");
             productSeller.setAttribute("class", "payment-txt-seller");
             productSeller.innerText = JSON.parse(
                 window.localStorage.getItem("fromDetail")
             ).seller;
+            li.appendChild(productSeller);
+            return li;
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "2"
+        ) {
+            const li = document.createElement("li");
+            const productSeller = document.createElement("p");
+            productSeller.setAttribute("class", "payment-txt-seller");
+            productSeller.innerText = this.store;
+            li.appendChild(productSeller);
+            return li;
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "3"
+        ) {
+            const li = document.createElement("li");
+            const productSeller = document.createElement("p");
+            productSeller.setAttribute("class", "payment-txt-seller");
+            productSeller.innerText = JSON.parse(
+                window.localStorage.getItem("fromCartOne")
+            )[0].sellerName;
             li.appendChild(productSeller);
             return li;
         }

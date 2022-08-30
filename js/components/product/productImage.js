@@ -22,7 +22,10 @@ class ProductImage {
                 window.location.pathname = `/products/${this.id}`;
             });
             productImg.setAttribute("src", `${this.src}`);
-        } else if (window.location.pathname === "/payment") {
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "1"
+        ) {
             this.wrapper.setAttribute("class", "style-wrapper-img small");
             productImg.setAttribute(
                 "src",
@@ -31,6 +34,21 @@ class ProductImage {
             this.wrapper.addEventListener("click", () => {
                 window.location.pathname = `/products/${this.id}`;
             });
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "2"
+        ) {
+            this.wrapper.setAttribute("class", "style-wrapper-img small");
+            productImg.setAttribute("src", this.src);
+        } else if (
+            window.location.pathname === "/payment" &&
+            window.localStorage.getItem("path") === "3"
+        ) {
+            this.wrapper.setAttribute("class", "style-wrapper-img small");
+            productImg.setAttribute(
+                "src",
+                JSON.parse(window.localStorage.getItem("fromCartOne"))[0].src
+            );
         }
 
         this.wrapper.appendChild(productImg);
