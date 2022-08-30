@@ -26,7 +26,6 @@ class OrdererName {
         input.addEventListener("blur", () => {
             if (input.value === "") {
                 message.innerText = "*주문자 성함을 입력해주세요.";
-                input.focus();
             } else {
                 message.innerText = "";
             }
