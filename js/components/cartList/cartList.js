@@ -1,5 +1,6 @@
 import { API_URL } from "../../common/constants";
 import CartListItem from "../cartListItem/cartListItem";
+import ChangeQuantity from "../modal/changeQuantity";
 import NoCart from "../noCart/noCart";
 
 class CartList {
@@ -66,6 +67,11 @@ class CartList {
             this.cart.results.forEach((item) => {
                 const cartProduct = document.createElement("div");
                 const cartListItem = new CartListItem(item);
+                const changeQuantity = new ChangeQuantity(item);
+                const changeModalGroup = document.querySelector(
+                    ".change-modal-group"
+                );
+                changeModalGroup.appendChild(changeQuantity.render());
                 cartProduct.appendChild(cartListItem.render());
                 cartProducts.appendChild(cartProduct);
             });

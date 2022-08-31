@@ -1,13 +1,8 @@
 import { API_URL } from "../../common/constants";
 
 class ChangeQuantity {
-    constructor(stock, price, quantity, cart_item_id, is_active, product_id) {
-        this.stock = stock;
-        this.price = price;
-        this.quantity = quantity;
-        this.cart_item_id = cart_item_id;
-        this.is_active = is_active;
-        this.product_id = product_id;
+    constructor(item) {
+        this.item = item;
         this.modal = document.createElement("div");
     }
 
@@ -43,7 +38,7 @@ class ChangeQuantity {
         minusButton.setAttribute("class", "button-quantity minus");
         plusButton.setAttribute("class", "button-quantity plus");
         quantityInput.setAttribute("class", "input-quantity cart");
-        quantityInput.setAttribute("value", this.quantity);
+        quantityInput.setAttribute("value", this.item.quantity);
         quantityInput.setAttribute("type", "number");
         quantityInput.setAttribute("readOnly", "true");
 
@@ -100,9 +95,9 @@ class ChangeQuantity {
         });
 
         // 수정 버튼 누르면 존재하는 자원 변경 요청(PUT)
-        const cart_item_id = this.cart_item_id;
-        const product_id = this.product_id;
-        const is_active = this.is_active;
+        const cart_item_id = this.item.cart_item_id;
+        const product_id = this.item.product_id;
+        const is_active = this.item.is_active;
         buttonYes.addEventListener("click", () => {
             sendQuantityData();
         });

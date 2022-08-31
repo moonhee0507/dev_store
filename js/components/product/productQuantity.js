@@ -99,20 +99,6 @@ class ProductQuantity {
             plusButton.appendChild(txtPlus);
             this.quantityWrapper.append(minusButton, quantityInput, plusButton);
 
-            // changeQuantity 모달 생성(3개)
-            const changeQuantity = new ChangeQuantity(
-                this.stock,
-                this.price,
-                this.quantity,
-                this.cart_item_id,
-                this.is_active,
-                this.product_id
-            );
-            const changeModalGroup = document.querySelector(
-                ".change-modal-group"
-            );
-            changeModalGroup.appendChild(changeQuantity.render());
-
             // 재고 표시
             const txtStock = document.createElement("p");
             txtStock.setAttribute("class", "cart-txt-stock");
