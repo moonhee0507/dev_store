@@ -940,6 +940,11 @@ input[type="checkbox"]:focus {
   background-color: #202124;
   font-size: 18px;
   color: white;
+  cursor: default;
+}
+
+.style-wrapper-quantity .input-quantity:focus {
+  outline: none;
 }
 
 .style-wrapper-quantity .txt-stock {

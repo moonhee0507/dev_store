@@ -98,6 +98,10 @@
         background-color: $main-color;
         font-size: 18px;
         color: white;
+        cursor: default;
+    }
+    .input-quantity:focus {
+        outline: none;
     }
 
     .txt-stock {
