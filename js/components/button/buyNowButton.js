@@ -171,8 +171,6 @@ class BuyNowButton {
                 });
 
                 if (filteredFromCartItems.length > 0) {
-                    // window.localStorage.removeItem("fromCartItems");
-                    console.log(filteredFromCartItems);
                     // fromCartItems 새로 저장(/payment 최종 전달)
                     window.localStorage.setItem(
                         "filteredFromCartItems",
