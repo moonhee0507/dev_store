@@ -85,6 +85,7 @@ async function login(event) {
 
         if (resJson.token) {
             localStorage.setItem("token", resJson.token);
+            localStorage.setItem("1", username);
             window.history.back();
         }
     } catch (err) {

@@ -68,7 +68,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    gap: 5px;
+    gap: 10px;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -97,7 +97,13 @@
     background-size: 30px 30px;
     background-position: 10px 10px;
     padding: 0 0 0 30px;
+    font-size: 13px;
+}
+.link-list.login {
     font-size: 16px;
+    width: 75px;
+    background-color: #303134;
+    border-radius: 10px;
 }
 .link-list.cart:hover {
     background-color: #303134;
@@ -108,16 +114,23 @@
     position: relative;
 
     .link-list.mypage {
-        width: 35px;
-        height: 35px;
-        background: url("../images/icon-user.svg") no-repeat center center;
+        width: 140px;
+        height: 50px;
+        background: url("../images/icon-user.svg") no-repeat;
         background-size: 30px 30px;
+        background-position: 10px 10px;
+        padding: 0 20px 0 45px;
         border-radius: 50%;
-        background-color: #767676;
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+
         .drop-content {
             position: absolute;
-            top: 53px;
-            right: -43px;
+            top: 60px;
+            right: 9px;
             width: 120px;
             z-index: 1;
             background-color: white;
@@ -154,6 +167,30 @@
             border: 2px solid #767676;
         }
     }
+
+    .link-list.mypage:hover {
+        background-color: #303134;
+        border-radius: 10px;
+    }
+    .link-list.mypage:focus-visible {
+        border-radius: 10px;
+        border: 1px solid #303134;
+    }
+    .link-list.mypage::after {
+        content: "";
+        background: url("../images/icon-down-arrow.svg") no-repeat center center;
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 17px;
+        right: 5px;
+    }
+}
+
+.txt-user-id {
+    font-size: 13px;
+    vertical-align: bottom;
 }
 
 .header-cart-qt {

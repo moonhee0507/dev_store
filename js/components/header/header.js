@@ -91,6 +91,10 @@ class Header {
             });
             cartButton.appendChild(showQt);
 
+            const userId = document.createElement("strong");
+            userId.setAttribute("class", "txt-user-id");
+            userId.innerText = localStorage.getItem("1");
+
             // 마이페이지 드롭다운박스(마이페이지, 로그아웃)
             const dropContent = document.createElement("div");
             dropContent.setAttribute("class", "drop-content");
@@ -102,7 +106,7 @@ class Header {
             linkDropMy.innerText = "마이페이지";
             linkDropLogout.innerText = "로그아웃";
             dropContent.append(linkDropMy, linkDropLogout);
-            myPageButton.appendChild(dropContent);
+            myPageButton.append(userId, dropContent);
             myPageButton.addEventListener("click", dropDown);
             myPageButton.addEventListener("blur", () => {
                 dropContent.style.display = "none";
@@ -133,7 +137,7 @@ class Header {
                 })
                     .then((res) => {
                         if (res.ok === true) {
-                            window.localStorage.removeItem("token");
+                            window.localStorage.clear();
                             window.location.pathname = "/";
                         } else {
                             console.error("다시 시도해주세요.");
@@ -162,9 +166,14 @@ class Header {
             // 토큰이 없으면 로그인
             const loginButton = document.createElement("p");
             loginButton.innerText = "로그인";
+            loginButton.title = "로그인";
+            myPageButton.classList.remove("mypage");
+            myPageButton.classList.add("login");
+
             myPageButton.addEventListener("click", () => {
                 window.location.pathname = "/login";
             });
+            myPageButton.appendChild(loginButton);
             // 장바구니 클릭이벤트(로그인 안내 모달)
             cartButton.addEventListener("click", () => {
                 const body = document.querySelector("body");
