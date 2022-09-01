@@ -19,14 +19,19 @@ class ProductItem {
             this.item.image,
             this.item.product_id
         );
+        const styleWrapperSNP = document.createElement("div");
+        styleWrapperSNP.setAttribute("class", "style-wrapper-SNP");
         const productSeller = new ProductSeller(this.item.seller_store);
         const productName = new ProductName(this.item.product_name);
         const productPrice = new ProductPrice(this.item.price);
 
         product.appendChild(productImage.render());
-        product.appendChild(productSeller.render());
-        product.appendChild(productName.render());
-        product.appendChild(productPrice.render());
+        product.appendChild(styleWrapperSNP);
+        styleWrapperSNP.append(
+            productSeller.render(),
+            productName.render(),
+            productPrice.render()
+        );
 
         return product;
     }
