@@ -50,7 +50,7 @@ class Cart {
             cartTotalFeat.type = "module";
             cartTotalFeat.src = "../js/cartTotalFeat.js";
             body.appendChild(cartTotalFeat);
-        }, 2000);
+        }, 1500);
 
         document.getElementById("root").append(header, main, footer);
     }

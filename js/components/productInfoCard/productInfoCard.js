@@ -49,7 +49,10 @@ class ProductInfoCard {
 
             // button
             const buyNowButton = new BuyNowButton(this.info.stock);
-            const cartButton = new CartButton(this.info.product_id);
+            const cartButton = new CartButton(
+                this.info.stock,
+                this.info.product_id
+            );
 
             document
                 .querySelector(".style-wrapper-detail")

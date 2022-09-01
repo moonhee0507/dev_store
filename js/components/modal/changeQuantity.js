@@ -56,48 +56,43 @@ class ChangeQuantity {
         this.modal.appendChild(modalContent);
 
         const body = document.querySelector("body");
-
-        // 바깥부분 클릭하면 모달창이 없어지는 기능
-        this.modal.addEventListener("click", (e) => {
-            const target = e.target;
-            if (target.classList.contains("show")) {
-                target.classList.remove("show");
-                body.style.overflow = "auto";
-            }
-        });
-        // x 버튼 클릭하면 모달창이 없어지는 기능
-        buttonClose.addEventListener("click", () => {
-            this.modal.classList.remove("show");
-            body.style.overflow = "auto";
-        });
-        // 취소 버튼 누르면 모달창이 없어지는 기능
-        buttonNo.addEventListener("click", () => {
-            this.modal.classList.remove("show");
-            body.style.overflow = "auto";
-        });
-
-        let qt = parseInt(quantityInput.value);
-        // + 버튼을 누르면 숫자 1 추가
-        plusButton.addEventListener("click", () => {
-            if (this.stock === qt) {
-                plusButton.disabled = true;
-            } else {
-                qt += 1;
-                quantityInput.value = `${qt}`;
-            }
-        });
-        // - 버튼을 누르면 숫자 1 차감
-        minusButton.addEventListener("click", () => {
-            if (qt > 1) {
-                qt -= 1;
-                quantityInput.value = `${qt}`;
-            }
-        });
-
-        // 수정 버튼 누르면 존재하는 자원 변경 요청(PUT)
         const cart_item_id = this.item.cart_item_id;
         const product_id = this.item.product_id;
         const is_active = this.item.is_active;
+        let qt = parseInt(quantityInput.value);
+
+        // 해당 상품 재고 확인
+        checkStock();
+        async function checkStock() {
+            const res = await fetch(`${API_URL}/products/${product_id}/`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            const data = await res.json();
+            const stock = data.stock;
+
+            // + 버튼을 누르면 숫자 1 추가
+            plusButton.addEventListener("click", () => {
+                if (stock === qt) {
+                    plusButton.disabled = true;
+                    plusButton.style.cursor = "default";
+                } else {
+                    qt += 1;
+                    quantityInput.value = `${qt}`;
+                }
+            });
+            // - 버튼을 누르면 숫자 1 차감
+            minusButton.addEventListener("click", () => {
+                if (qt > 1) {
+                    qt -= 1;
+                    quantityInput.value = `${qt}`;
+                }
+            });
+        }
+
+        // 수정 버튼 누르면 존재하는 자원 변경 요청(PUT)
         buttonYes.addEventListener("click", () => {
             sendQuantityData();
         });
@@ -120,6 +115,31 @@ class ChangeQuantity {
                 .then((res) => res.ok === true && location.reload())
                 .catch((e) => console.error(e));
         }
+
+        // 바깥부분 클릭하면 모달창이 없어지는 기능
+        this.modal.addEventListener("click", (e) => {
+            const target = e.target;
+            if (target.classList.contains("show")) {
+                target.classList.remove("show");
+                body.style.overflow = "auto";
+                quantityInput.value = this.item.quantity;
+                qt = parseInt(quantityInput.value);
+            }
+        });
+        // x 버튼 클릭하면 모달창이 없어지는 기능
+        buttonClose.addEventListener("click", () => {
+            this.modal.classList.remove("show");
+            body.style.overflow = "auto";
+            quantityInput.value = this.item.quantity;
+            qt = parseInt(quantityInput.value);
+        });
+        // 취소 버튼 누르면 모달창이 없어지는 기능
+        buttonNo.addEventListener("click", () => {
+            this.modal.classList.remove("show");
+            body.style.overflow = "auto";
+            quantityInput.value = this.item.quantity;
+            qt = parseInt(quantityInput.value);
+        });
 
         return this.modal;
     }
