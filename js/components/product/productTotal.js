@@ -81,6 +81,75 @@ class ProductTotal {
                 } else {
                     localStorage.setItem("path", "3");
                     // fromCartItems 스토리지에서 클릭 상품 가져오기
+                    const initialCartStorage = JSON.parse(
+                        localStorage.getItem("fromCartItems")
+                    );
+                    const imgProduct =
+                        document.querySelectorAll(".img-product");
+                    const sellerName =
+                        document.querySelectorAll(".cart-txt-seller");
+                    const productName = document.querySelectorAll(
+                        ".cart-txt-product-name"
+                    );
+                    const shippingFee =
+                        document.querySelectorAll(".cart-shipping-fee");
+                    const productPrice = document.querySelectorAll(
+                        ".cart-txt-price-number"
+                    );
+                    const totalPrice = document.querySelectorAll(
+                        ".cart-number-total-price"
+                    );
+
+                    const selectedTotalPrice = document
+                        .querySelector(".num-cart-sum")
+                        .innerText.replace(/\D/g, "");
+                    const selectedTotalShippingFee = document
+                        .querySelector(".num-cart-sum-shipping")
+                        .innerText.replace(/\D/g, "");
+                    const amount = document
+                        .querySelector(".num-amount")
+                        .innerText.replace(/\D/g, "");
+
+                    for (let i = 0; i < initialCartStorage.length; i++) {
+                        initialCartStorage[i].src = imgProduct[i].src;
+                        initialCartStorage[i].sellerName =
+                            sellerName[i].innerText;
+                        initialCartStorage[i].productName =
+                            productName[i].innerText;
+                        initialCartStorage[i].productPrice = productPrice[
+                            i
+                        ].innerText.replace(/\D/g, "");
+                        initialCartStorage[i].shippingFee = shippingFee[
+                            i
+                        ].innerText.replace(/\D/g, "");
+                        initialCartStorage[i].totalPrice = totalPrice[
+                            i
+                        ].innerText.replace(/\D/g, "");
+                    }
+                    const total = {
+                        selectedTotalPrice: selectedTotalPrice,
+                        selectedTotalShippingFee: selectedTotalShippingFee,
+                        amount: amount,
+                    };
+                    localStorage.setItem("total", JSON.stringify(total));
+                    localStorage.removeItem("fromCartItems");
+                    localStorage.setItem(
+                        "fromCartItems",
+                        JSON.stringify(initialCartStorage)
+                    );
+
+                    // 로컬스토리지의 값이 checked가 true 이면서, selectedQt가 0이 아닌 것 추출
+                    const filteredFromCartItems = JSON.parse(
+                        window.localStorage.getItem("fromCartItems")
+                    ).filter((el) => {
+                        return el.checked === "true" && el.selectedQt !== "0";
+                    });
+
+                    window.localStorage.setItem(
+                        "filteredFromCartItems",
+                        JSON.stringify(filteredFromCartItems)
+                    );
+
                     const fromCartOne = JSON.parse(
                         localStorage.getItem("filteredFromCartItems")
                     ).filter((el) => {
