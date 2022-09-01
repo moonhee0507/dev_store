@@ -100,21 +100,25 @@
     font-size: 13px;
 }
 .link-list.login {
-    font-size: 16px;
     width: 75px;
     background-color: #303134;
     border-radius: 10px;
+    font-size: 13px;
+}
+.link-list.login:hover {
+    color: white;
 }
 .link-list.cart:hover {
     background-color: #303134;
     border-radius: 10px;
+    color: white;
 }
 
 .dropdown {
     position: relative;
 
     .link-list.mypage {
-        width: 140px;
+        width: 120px;
         height: 50px;
         background: url("../images/icon-user.svg") no-repeat;
         background-size: 30px 30px;
@@ -126,11 +130,12 @@
         overflow: hidden;
         -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
+        text-align: center;
 
         .drop-content {
             position: absolute;
             top: 60px;
-            right: 9px;
+            right: 0;
             width: 120px;
             z-index: 1;
             background-color: white;
@@ -171,19 +176,18 @@
     .link-list.mypage:hover {
         background-color: #303134;
         border-radius: 10px;
+        color: white;
     }
     .link-list.mypage:focus-visible {
         border-radius: 10px;
         border: 1px solid #303134;
     }
     .link-list.mypage::after {
-        content: "";
-        background: url("../images/icon-down-arrow.svg") no-repeat center center;
-        background-size: contain;
-        width: 20px;
-        height: 20px;
         position: absolute;
-        top: 17px;
+        content: "▾";
+        font-size: 13px;
+        color: #c0c0c0;
+        top: 16px;
         right: 5px;
     }
 }
@@ -203,5 +207,22 @@
     left: 30px;
     font-size: 10px;
     line-height: 13px;
+    color: white;
+}
+
+.link-seller-center {
+    display: block;
+    background: url("../images/icon-shopping-bag.svg") no-repeat;
+    background-size: 30px 30px;
+    background-position: 20px 9px;
+    padding: 0 0 0 30px;
+    width: 170px;
+    height: 50px;
+    background-color: $point-purple;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 47px;
     color: white;
 }

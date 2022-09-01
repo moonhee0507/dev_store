@@ -59,19 +59,9 @@ class Header {
         const listItem1 = document.createElement("li");
         listUsermenu.appendChild(listItem1);
 
-        const cartButton = document.createElement("button");
-        cartButton.setAttribute("class", "link-list cart");
-        cartButton.setAttribute("type", "button");
-        cartButton.innerText = "장바구니";
-        listItem1.appendChild(cartButton);
-
-        const showQt = document.createElement("em");
-        showQt.setAttribute("class", "header-cart-qt");
-
         const listItem2 = document.createElement("li");
         listUsermenu.appendChild(listItem2);
 
-        // 조건부: 로그인-마이페이지
         const myPageButton = document.createElement("button");
         myPageButton.setAttribute("class", "link-list mypage");
         myPageButton.setAttribute("type", "button");
@@ -81,16 +71,29 @@ class Header {
         dropDown.appendChild(myPageButton);
         listItem2.appendChild(dropDown);
 
-        // 로그인 안내 모달 생성
-        const goToLogin = new GoToLogin();
+        async function logout() {
+            await fetch(`${API_URL}/accounts/logout/`, {
+                method: "POST",
+                headers: {
+                    Authorization: `JWT ${window.localStorage.getItem(
+                        "token"
+                    )}`,
+                    "Content-Type": "application/json",
+                },
+            })
+                .then((res) => {
+                    if (res.ok === true) {
+                        window.localStorage.clear();
+                        window.location.pathname = "/";
+                    } else {
+                        console.error("다시 시도해주세요.");
+                    }
+                })
+                .catch((e) => console.error(e));
+        }
 
-        if (window.localStorage.getItem("token")) {
-            // 장바구니페이지로 이동
-            cartButton.addEventListener("click", () => {
-                window.location.pathname = "/cart";
-            });
-            cartButton.appendChild(showQt);
-
+        const infoFeat = () => {
+            // id
             const userId = document.createElement("strong");
             userId.setAttribute("class", "txt-user-id");
             userId.innerText = localStorage.getItem("1");
@@ -124,28 +127,26 @@ class Header {
             linkDropLogout.addEventListener("click", () => {
                 logout();
             });
+        };
+        if (
+            localStorage.getItem("token") &&
+            localStorage.getItem("loginType") === "BUYER"
+        ) {
+            // 장바구니
+            const cartButton = document.createElement("button");
+            cartButton.setAttribute("class", "link-list cart");
+            cartButton.setAttribute("type", "button");
+            cartButton.innerText = "장바구니";
+            listItem1.appendChild(cartButton);
 
-            async function logout() {
-                await fetch(`${API_URL}/accounts/logout/`, {
-                    method: "POST",
-                    headers: {
-                        Authorization: `JWT ${window.localStorage.getItem(
-                            "token"
-                        )}`,
-                        "Content-Type": "application/json",
-                    },
-                })
-                    .then((res) => {
-                        if (res.ok === true) {
-                            window.localStorage.clear();
-                            window.location.pathname = "/";
-                        } else {
-                            console.error("다시 시도해주세요.");
-                        }
-                    })
-                    .catch((e) => console.error(e));
-            }
+            const showQt = document.createElement("em");
+            showQt.setAttribute("class", "header-cart-qt");
 
+            cartButton.addEventListener("click", () => {
+                window.location.pathname = "/cart";
+            });
+            cartButton.appendChild(showQt);
+            getCartData();
             // 장바구니 갯수 보여주기
             async function getCartData() {
                 await fetch(`${API_URL}/cart/`, {
@@ -161,9 +162,31 @@ class Header {
                     .then((data) => (showQt.innerText = data.count))
                     .catch((e) => console.error(e));
             }
-            getCartData();
+            infoFeat();
+        } else if (
+            localStorage.getItem("token") &&
+            localStorage.getItem("loginType") === "SELLER"
+        ) {
+            infoFeat();
+
+            // 판매자센터 버튼
+            const sellerCenterButton = document.createElement("a");
+            sellerCenterButton.setAttribute("href", "/center");
+            sellerCenterButton.setAttribute("title", "판매자 센터");
+            sellerCenterButton.setAttribute("class", "link-seller-center");
+            sellerCenterButton.innerText = "판매자 센터";
+            listItem1.appendChild(sellerCenterButton);
         } else {
-            // 토큰이 없으면 로그인
+            const cartButton = document.createElement("button");
+            cartButton.setAttribute("class", "link-list cart");
+            cartButton.setAttribute("type", "button");
+            cartButton.innerText = "장바구니";
+            listItem1.appendChild(cartButton);
+
+            // 로그인 안내 모달 생성
+            const goToLogin = new GoToLogin();
+            this.head.appendChild(goToLogin.render());
+
             const loginButton = document.createElement("p");
             loginButton.innerText = "로그인";
             loginButton.title = "로그인";
@@ -188,7 +211,7 @@ class Header {
 
         this.head.appendChild(styleWrapper);
         this.head.appendChild(nav);
-        this.head.appendChild(goToLogin.render());
+
         return this.head;
     }
 }

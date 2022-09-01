@@ -11,6 +11,7 @@ idInput.focus();
 
 // 로그인 타입 기본값
 let loginType = "BUYER";
+localStorage.setItem("loginType", loginType);
 
 buyerButton.addEventListener("click", () => {
     loginType = buyerButton.value;
@@ -22,6 +23,7 @@ sellerButton.addEventListener("click", () => {
     loginType = sellerButton.value;
     sellerButton.style.backgroundColor = "inherit";
     buyerButton.style.backgroundColor = "#F2F2F2";
+    localStorage.setItem("loginType", loginType);
     return loginType;
 });
 
