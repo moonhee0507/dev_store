@@ -1,7 +1,8 @@
 import { API_URL } from "../../common/constants";
 
 class CartButton {
-    constructor(product_id) {
+    constructor(stock, product_id) {
+        this.stock = stock;
         this.product_id = product_id;
         this.button = document.createElement("button");
     }
@@ -22,11 +23,14 @@ class CartButton {
                 document.querySelector(".input-quantity.cart").value
             );
 
-            // 로그인 되어 있으면 /payment 이동
             // 로그인이 안되어 있으면 로그인 안내 모달 띄우기
             if (window.localStorage.getItem("token")) {
-                // 장바구니에 물건 넣기(POST)
-                addToCartReq();
+                if (this.stock === 0) {
+                    alert("해당 상품은 재고가 없습니다.");
+                } else {
+                    // 장바구니에 물건 넣기(POST)
+                    addToCartReq();
+                }
             } else {
                 // 로그인 안내 모달 띄우기
                 modal.classList.toggle("show");
@@ -54,7 +58,8 @@ class CartButton {
                 })
                     .then((res) => {
                         res.ok === true
-                            ? (window.location.pathname = "/cart")
+                            ? window.confirm("장바구니로 이동하시겠습니까?") &&
+                              (window.location.pathname = "/cart")
                             : window.confirm(
                                   "재고 수량이 초과 되었습니다. \n장바구니로 이동하시겠습니까?"
                               ) && (window.location.pathname = "/cart");
