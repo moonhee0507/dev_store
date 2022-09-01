@@ -221,12 +221,52 @@ class FinalPayment {
         // 결제 버튼 클릭 시 주문 생성
         buttonPayment.addEventListener("click", (e) => {
             e.preventDefault();
-            let product_id = parseInt(
-                JSON.parse(window.localStorage.getItem("fromDetail")).productId
-            );
-            let quantity = parseInt(
-                JSON.parse(window.localStorage.getItem("fromDetail")).selectedQt
-            );
+            const product_id = () => {
+                if (window.localStorage.getItem("path") === "1") {
+                    let product_id = parseInt(
+                        JSON.parse(window.localStorage.getItem("fromDetail"))
+                            .productId
+                    );
+
+                    return product_id;
+                } else if (window.localStorage.getItem("path") === "2") {
+                    let product_id = "";
+
+                    return product_id;
+                } else if (window.localStorage.getItem("path") === "3") {
+                    let product_id = parseInt(
+                        JSON.parse(
+                            window.localStorage.getItem("fromCartOne")
+                        )[0].productId
+                    );
+
+                    return product_id;
+                }
+            };
+
+            const quantity = () => {
+                if (window.localStorage.getItem("path") === "1") {
+                    let quantity = parseInt(
+                        JSON.parse(window.localStorage.getItem("fromDetail"))
+                            .selectedQt
+                    );
+
+                    return quantity;
+                } else if (window.localStorage.getItem("path") === "2") {
+                    let quantity = "";
+
+                    return quantity;
+                } else if (window.localStorage.getItem("path") === "3") {
+                    let quantity = parseInt(
+                        JSON.parse(
+                            window.localStorage.getItem("fromCartOne")
+                        )[0].selectedQt
+                    );
+
+                    return quantity;
+                }
+            };
+
             let receiver = document.querySelector(
                 "#input-recipient-name"
             ).value;
@@ -256,16 +296,70 @@ class FinalPayment {
                 }
             };
 
-            let total_price =
-                parseInt(
-                    JSON.parse(window.localStorage.getItem("fromDetail"))
-                        .selectedTotal
-                ) +
-                Number(
-                    JSON.parse(
-                        window.localStorage.getItem("fromDetail")
-                    ).shipping.replace(/\D/g, "")
-                );
+            const order_kind = () => {
+                if (window.localStorage.getItem("path") === "1") {
+                    let order_kind = "direct_order";
+
+                    return order_kind;
+                } else if (window.localStorage.getItem("path") === "2") {
+                    let order_kind = "cart_order";
+
+                    return order_kind;
+                } else if (window.localStorage.getItem("path") === "3") {
+                    let order_kind = "cart_one_order";
+
+                    return order_kind;
+                }
+            };
+
+            const total_price = () => {
+                if (window.localStorage.getItem("path") === "1") {
+                    let total_price =
+                        parseInt(
+                            JSON.parse(
+                                window.localStorage.getItem("fromDetail")
+                            ).selectedTotal
+                        ) +
+                        Number(
+                            JSON.parse(
+                                window.localStorage.getItem("fromDetail")
+                            ).shipping.replace(/\D/g, "")
+                        );
+
+                    return total_price;
+                } else if (window.localStorage.getItem("path") === "2") {
+                    const fromCartItems = JSON.parse(
+                        localStorage.getItem("fromCartItems")
+                    );
+
+                    const allShippingFee = fromCartItems
+                        .map((item) => parseInt(item.shippingFee))
+                        .reduce((a, b) => {
+                            return a + b;
+                        });
+
+                    let total_price =
+                        parseInt(
+                            JSON.parse(window.localStorage.getItem("total"))
+                                .selectedTotalPrice
+                        ) + allShippingFee;
+
+                    return total_price;
+                } else if (window.localStorage.getItem("path") === "3") {
+                    let total_price =
+                        parseInt(
+                            JSON.parse(
+                                window.localStorage.getItem("fromCartOne")
+                            )[0].totalPrice
+                        ) +
+                        parseInt(
+                            JSON.parse(
+                                window.localStorage.getItem("fromCartOne")
+                            )[0].shippingFee
+                        );
+                    return total_price;
+                }
+            };
 
             order();
 
@@ -279,21 +373,21 @@ class FinalPayment {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        product_id: product_id,
-                        quantity: quantity,
-                        order_kind: "direct_order",
+                        product_id: product_id(),
+                        quantity: quantity(),
+                        order_kind: order_kind(),
                         receiver: receiver,
                         receiver_phone_number: receiver_phone_number,
                         address: address,
                         address_message: address_message,
                         payment_method: payment_method(),
-                        total_price: total_price,
+                        total_price: total_price(),
                     }),
                 })
                     .then((res) => res.json())
                     .then((data) => {
                         console.log(data);
-                        alert("결제가 완료되었습니다.");
+                        // alert("결제가 완료되었습니다.");
                         // TODO: 결제내역 확인하는 페이지 만들기
                     })
                     .catch((e) => console.error(e));

@@ -1,6 +1,7 @@
 import { API_URL } from "../../common/constants";
 import CartListItem from "../cartListItem/cartListItem";
 import ChangeQuantity from "../modal/changeQuantity";
+import DeleteCartItem from "../modal/deleteCartItem";
 import NoCart from "../noCart/noCart";
 
 class CartList {
@@ -68,10 +69,15 @@ class CartList {
                 const cartProduct = document.createElement("div");
                 const cartListItem = new CartListItem(item);
                 const changeQuantity = new ChangeQuantity(item);
+                const deleteCartItem = new DeleteCartItem(item.cart_item_id);
                 const changeModalGroup = document.querySelector(
                     ".change-modal-group"
                 );
+                const deleteModalGroup = document.querySelector(
+                    ".delete-modal-group"
+                );
                 changeModalGroup.appendChild(changeQuantity.render());
+                deleteModalGroup.appendChild(deleteCartItem.render());
                 cartProduct.appendChild(cartListItem.render());
                 cartProducts.appendChild(cartProduct);
             });

@@ -1,5 +1,4 @@
 import { API_URL } from "../../common/constants.js";
-import DeleteCartItem from "../modal/deleteCartItem";
 import { ProductQuantity, ProductTotal } from "../product/index.js";
 import { ProductInfoCard } from "../productInfoCard/index.js";
 
@@ -117,11 +116,6 @@ class CartListItem {
                 }
             });
         }
-
-        // 장바구니 삭제
-        const deleteCartItem = new DeleteCartItem(this.item.cart_item_id);
-        const deleteModalGroup = document.querySelector(".delete-modal-group");
-        deleteModalGroup.appendChild(deleteCartItem.render());
 
         // this.cartItem.stock === 0이면 체크박스 해제
         if (this.cartItem.stock === 0) {
