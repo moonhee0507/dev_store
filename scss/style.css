@@ -540,6 +540,20 @@ input[type="checkbox"]:focus {
   row-gap: 78px;
 }
 
+.list-products li {
+  background-color: #303134;
+  border-radius: 10px;
+}
+
+.list-products li:hover {
+  -webkit-box-shadow: 10px 10px 10px 5px black;
+  box-shadow: 10px 10px 10px 5px black;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
 .link-product {
   text-decoration: none;
   color: white;
@@ -548,8 +562,8 @@ input[type="checkbox"]:focus {
 .style-wrapper-img {
   width: 380px;
   height: 380px;
-  border-radius: 10px;
-  margin-bottom: 16px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   overflow: hidden;
 }
 
@@ -558,6 +572,10 @@ input[type="checkbox"]:focus {
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+}
+
+.style-wrapper-SNP {
+  padding: 20px;
 }
 
 .txt-seller {
@@ -658,7 +676,7 @@ input[type="checkbox"]:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 5px;
+  gap: 10px;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -688,7 +706,14 @@ input[type="checkbox"]:focus {
   background-size: 30px 30px;
   background-position: 10px 10px;
   padding: 0 0 0 30px;
+  font-size: 13px;
+}
+
+.link-list.login {
   font-size: 16px;
+  width: 75px;
+  background-color: #303134;
+  border-radius: 10px;
 }
 
 .link-list.cart:hover {
@@ -701,18 +726,23 @@ input[type="checkbox"]:focus {
 }
 
 .dropdown .link-list.mypage {
-  width: 35px;
-  height: 35px;
-  background: url("../images/icon-user.svg") no-repeat center center;
+  width: 140px;
+  height: 50px;
+  background: url("../images/icon-user.svg") no-repeat;
   background-size: 30px 30px;
+  background-position: 10px 10px;
+  padding: 0 20px 0 45px;
   border-radius: 50%;
-  background-color: #767676;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .dropdown .link-list.mypage .drop-content {
   position: absolute;
-  top: 53px;
-  right: -43px;
+  top: 60px;
+  right: 9px;
   width: 120px;
   z-index: 1;
   background-color: white;
@@ -750,6 +780,32 @@ input[type="checkbox"]:focus {
 .dropdown .link-list.mypage .link-drop:hover {
   color: black;
   border: 2px solid #767676;
+}
+
+.dropdown .link-list.mypage:hover {
+  background-color: #303134;
+  border-radius: 10px;
+}
+
+.dropdown .link-list.mypage:focus-visible {
+  border-radius: 10px;
+  border: 1px solid #303134;
+}
+
+.dropdown .link-list.mypage::after {
+  content: "";
+  background: url("../images/icon-down-arrow.svg") no-repeat center center;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 17px;
+  right: 5px;
+}
+
+.txt-user-id {
+  font-size: 13px;
+  vertical-align: bottom;
 }
 
 .header-cart-qt {
