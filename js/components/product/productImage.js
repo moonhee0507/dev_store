@@ -11,7 +11,7 @@ class ProductImage {
         productImg.setAttribute("alt", "상품이미지");
 
         if (window.location.pathname === "/") {
-            this.wrapper.setAttribute("class", "style-wrapper-img");
+            this.wrapper.setAttribute("class", "style-wrapper-img card");
             productImg.setAttribute("src", `${this.src}`);
         } else if (window.location.pathname.includes("/products/")) {
             this.wrapper.setAttribute("class", "style-wrapper-img large");

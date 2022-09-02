@@ -87,7 +87,7 @@
 
 // 상품
 .section-products {
-    padding-top: 80px;
+    padding-top: 40px;
     padding-bottom: 180px;
 }
 
@@ -126,8 +126,7 @@
 .style-wrapper-img {
     width: 380px;
     height: 380px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
     overflow: hidden;
 
     .img-product {
@@ -136,6 +135,12 @@
         -o-object-fit: cover;
         object-fit: cover;
     }
+}
+.style-wrapper-img.card {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .style-wrapper-SNP {

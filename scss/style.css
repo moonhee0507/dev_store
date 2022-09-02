@@ -527,7 +527,7 @@ input[type="checkbox"]:focus {
 }
 
 .section-products {
-  padding-top: 80px;
+  padding-top: 40px;
   padding-bottom: 180px;
 }
 
@@ -563,8 +563,7 @@ input[type="checkbox"]:focus {
 .style-wrapper-img {
   width: 380px;
   height: 380px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -573,6 +572,13 @@ input[type="checkbox"]:focus {
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+}
+
+.style-wrapper-img.card {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .style-wrapper-SNP {
@@ -611,6 +617,10 @@ input[type="checkbox"]:focus {
 
 .header {
   background-color: #202124;
+  border-bottom: 1px solid #191919;
+  -webkit-box-shadow: 0 4px 5px 0px #191919;
+  box-shadow: 0 4px 5px 0px #191919;
+  margin-bottom: 35px;
 }
 
 .header .head {
@@ -620,7 +630,7 @@ input[type="checkbox"]:focus {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 20px 10px;
+  padding: 20px 0;
 }
 
 .header .style-wrapper {
@@ -842,6 +852,14 @@ input[type="checkbox"]:focus {
   font-size: 16px;
   line-height: 47px;
   color: white;
+}
+
+.title-seller-center {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 38px;
+  color: white;
+  margin-left: 20px;
 }
 
 .footer {
@@ -1935,6 +1953,241 @@ input[type="checkbox"]:focus {
 .comment-wrapper ul > :nth-child(1),
 .comment-wrapper ul > :nth-child(2) {
   margin-bottom: 10px;
+}
+
+.section-dashboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: #e9e9e9;
+}
+
+.style-container-center-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.style-container-center-top h3,
+.style-container-center-top .center-txt-seller {
+  display: inline;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.style-container-center-top .center-txt-seller {
+  margin-left: 16px;
+  color: #a158fe;
+}
+
+.style-container-upload {
+  position: relative;
+}
+
+.style-container-upload .link-upload {
+  display: block;
+  width: 168px;
+  background-color: #a158fe;
+  border-radius: 5px;
+  padding: 14px 10px 16px 60px;
+  text-align: left;
+  text-decoration: none;
+  color: white;
+}
+
+.style-container-upload::before {
+  position: absolute;
+  content: "";
+  background: url("../images/icon-upload.png") no-repeat;
+  background-size: 25px 25px;
+  width: 25px;
+  height: 25px;
+  top: 10px;
+  left: 26px;
+}
+
+.style-container-center-middle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+  padding: 44px 0;
+}
+
+.style-container-center-middle .center-menu {
+  border-radius: 5px;
+  background-color: inherit;
+}
+
+.style-container-center-middle .center-menu li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 250px;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.style-container-center-middle .center-menu li div {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.style-container-center-middle .center-menu li .num-small {
+  width: 20px;
+  height: 20px;
+  background-color: #f24822;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 0;
+}
+
+.style-container-center-middle .center-menu li .num-small em {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.style-container-center-middle .center-menu li:hover,
+.style-container-center-middle .center-menu li:active,
+.style-container-center-middle .center-menu li:focus {
+  border-radius: 5px;
+  background-color: #303134;
+  cursor: pointer;
+}
+
+.style-container-center-middle .center-view {
+  width: 100%;
+  height: 500px;
+  background: #333333;
+  border: 1px solid #4c4c4c;
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.style-container-center-middle .center-view .view-head {
+  border-bottom: 1px solid #4c4c4c;
+}
+
+.style-container-center-middle .center-view .view-head,
+.style-container-center-middle .center-view .view-body {
+  text-align: center;
+  background-color: #202124;
+}
+
+.view-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.view-list .center-head.product-info,
+.view-list .center-col1 {
+  width: 55.5%;
+}
+
+.view-list .center-head.price,
+.view-list .center-col2 {
+  width: 19.5%;
+}
+
+.view-list .center-head.edit,
+.view-list .center-col3 {
+  width: 12.5%;
+}
+
+.view-list .center-head.delete,
+.view-list .center-col4 {
+  width: 12.5%;
+}
+
+.view-list.add {
+  padding: 13px 0;
+  border-bottom: 1px solid #4c4c4c;
+}
+
+.style-container-center-col1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.center-img-wrapper {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.center-img-wrapper .center-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.center-txt-product {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.center-txt-stock {
+  font-size: 16px;
+  line-height: 20px;
+  color: #767676;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.center-num-price {
+  display: block;
+}
+
+.button-center-edit,
+.button-center-delete {
+  width: 70px;
+  border: none;
+  background-color: #a158fe;
+  border-radius: 5px;
+  padding: 10px 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+.button-center-edit:focus,
+.button-center-delete:focus {
+  outline: 1px solid white;
+}
+
+.button-center-delete {
+  background-color: #303134;
 }
 
 .not-style-wrapper {
