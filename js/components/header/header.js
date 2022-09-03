@@ -48,7 +48,15 @@ class Header {
         formSearch.appendChild(labelSearch);
         formSearch.appendChild(inputSearch);
         formSearch.appendChild(buttonSearch);
-        styleWrapper.appendChild(formSearch);
+
+        // 판매자 센터
+        const titleSellerCenter = document.createElement("h2");
+        titleSellerCenter.setAttribute("class", "title-seller-center");
+        titleSellerCenter.innerText = "판매자 센터";
+
+        styleWrapper.appendChild(
+            location.pathname === "/center" ? titleSellerCenter : formSearch
+        );
 
         // 사용자 메뉴(우측 상단)
         const nav = document.createElement("nav");
@@ -128,6 +136,7 @@ class Header {
                 logout();
             });
         };
+
         if (
             localStorage.getItem("token") &&
             localStorage.getItem("loginType") === "BUYER"
@@ -210,7 +219,9 @@ class Header {
         }
 
         this.head.appendChild(styleWrapper);
-        this.head.appendChild(nav);
+        window.location.pathname === "/center"
+            ? null
+            : this.head.appendChild(nav);
 
         return this.head;
     }
