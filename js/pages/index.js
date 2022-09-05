@@ -6,3 +6,4 @@ export { default as MoveInfo } from "./moveInfo.js";
 export { default as Payment } from "./payment.js";
 export { default as Cart } from "./cart.js";
 export { default as Center } from "./center.js";
+export { default as Upload } from "./upload.js";
