@@ -7,6 +7,7 @@ import {
     Payment,
     Cart,
     Center,
+    Upload,
 } from "./js/pages/index.js";
 import { Router } from "./utils/index.js";
 
@@ -29,6 +30,7 @@ export default class App {
                 : MoveInfo,
             "/cart": Cart,
             "/center": Center,
+            "/upload": Upload,
         });
 
         // root에 띄워준다
