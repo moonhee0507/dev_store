@@ -1,6 +1,6 @@
 import { API_URL } from "../../common/constants";
 
-class DeleteCartItem {
+class DeleteItemModal {
     constructor(cart_item_id) {
         this.cart_item_id = cart_item_id;
         this.modal = document.createElement("div");
@@ -82,4 +82,4 @@ class DeleteCartItem {
     }
 }
 
-export default DeleteCartItem;
+export default DeleteItemModal;
