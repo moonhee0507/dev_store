@@ -20,22 +20,23 @@
     -ms-flex-align: center;
     align-items: center;
 
-    h3,
-    .center-txt-seller {
-        display: inline;
-        font-size: 36px;
-        line-height: 44px;
-    }
     .center-txt-seller {
         margin-left: 16px;
         color: $point-purple;
     }
 }
 
-.style-container-upload {
-    position: relative;
+.center-title3,
+.center-txt-seller {
+    display: inline;
+    font-size: 36px;
+    line-height: 44px;
+    color: $soft-white;
+}
 
+.style-container-upload {
     .link-upload {
+        position: relative;
         display: block;
         width: 168px;
         background-color: $point-purple;
@@ -46,7 +47,7 @@
         color: white;
     }
 }
-.style-container-upload::before {
+.link-upload::before {
     position: absolute;
     content: "";
     background: url("../images/icon-upload.png") no-repeat;
@@ -225,7 +226,7 @@
 }
 .button-center-edit:focus,
 .button-center-delete:focus {
-    outline: 1px solid white;
+    outline: 3px solid white;
 }
 .button-center-delete {
     background-color: #303134;
