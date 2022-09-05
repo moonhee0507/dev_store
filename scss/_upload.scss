@@ -1,0 +1,227 @@
+.center-title3.upload {
+    display: block;
+}
+.upload-aside {
+    display: inline;
+}
+
+.upload-aside-wrapper {
+    width: 230px;
+    padding-top: 44px;
+    display: inherit;
+    position: absolute;
+
+    em {
+        font-style: normal;
+        font-size: 16px;
+        line-height: 20px;
+        color: $point-red;
+    }
+
+    .style-wrapper-reference {
+        background: #ffefe8;
+        border-radius: 5px;
+        padding: 20px;
+        margin-top: 10px;
+
+        p {
+            font-size: 14px;
+            line-height: 18px;
+            color: black;
+        }
+    }
+}
+
+.style-wrapper-upload-content {
+    padding-left: 310px;
+    color: $soft-white;
+}
+
+.txt-upload-small {
+    margin-bottom: 10px;
+}
+
+.style-wrapper-upload-grid {
+    display: grid;
+    grid-template-columns: 400px auto;
+    grid-template-rows: auto auto;
+    row-gap: 50px;
+
+    em {
+        display: block;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+
+// 상품 이미지
+.style-container-img {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: #c4c4c4;
+}
+
+.button-upload-img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.style-container-upload-inputs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding-left: 40px;
+    gap: 13px;
+
+    em {
+        display: block;
+    }
+
+    // 인풋공통
+    input {
+        background-color: #303134;
+        padding: 10px 0 10px 8px;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        font-size: 16px;
+        line-height: 20px;
+        color: white;
+    }
+
+    input:focus {
+        outline: none;
+    }
+}
+
+.input-container-productname {
+    background-color: #303134;
+    border-radius: 5px;
+    overflow: hidden;
+
+    #input-upload-productname {
+        width: calc(100% - 50px);
+    }
+    .txt-char-limit {
+        width: 70px;
+        color: grey;
+    }
+}
+.input-container-productname:focus {
+    outline: none;
+}
+
+.input-container-price,
+.input-container-shippingfee,
+.input-container-stock {
+    font-size: 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.txt-upload-unit {
+    display: inline-block;
+    background-color: #1a1a1a;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+#input-upload-price,
+#input-upload-shippingfee,
+#input-upload-stock {
+    width: 166px;
+    vertical-align: top;
+}
+
+.button-container-shippingmethod {
+    font-size: 0;
+}
+.button-parcel,
+.button-delivery {
+    background-color: #303134;
+    width: 180px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    padding: 10px 0;
+    margin: 0 10px 0 0;
+    font-size: 16px;
+    line-height: 20px;
+    color: white;
+    cursor: pointer;
+}
+.button-parcel:hover,
+.button-delivery:hover {
+    background-color: $point-purple;
+}
+
+.style-container-upload-detail {
+    position: relative;
+    grid-column: 1/3;
+    grid-row: 2/3;
+
+    p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        font-size: 30px;
+        line-height: 30px;
+    }
+}
+.editor {
+    background-color: #1a1a1a;
+    width: 100%;
+    height: 300px;
+}
+
+.button-container-upload {
+    font-size: 0;
+    text-align: right;
+    margin: 50px 0;
+
+    .button-upload-cancel,
+    .button-upload-save {
+        width: 160px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        padding: 10px 0;
+        margin: 0 10px 0 0;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        color: black;
+        cursor: pointer;
+    }
+
+    .button-upload-save {
+        color: white;
+        background-color: $point-purple;
+    }
+}
