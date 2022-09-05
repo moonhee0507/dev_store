@@ -1,9 +1,26 @@
+import { API_URL } from "../../common/constants";
+
 class DashboardMenu {
     constructor() {
         this.menu = document.createElement("div");
+        this.saleQt = {};
     }
 
-    render() {
+    async getSaleQt() {
+        const res = await fetch(`${API_URL}/seller/`, {
+            method: "GET",
+            headers: {
+                Authorization: `JWT ${window.localStorage.getItem("token")}`,
+                "Content-Type": "application/json",
+            },
+        });
+        const qt = await res.json();
+        this.saleQt = await qt.count;
+    }
+
+    async setSaleQt() {
+        await this.getSaleQt();
+
         this.menu.setAttribute("class", "center-menu");
 
         const ul = document.createElement("ul");
@@ -17,7 +34,7 @@ class DashboardMenu {
         txtOnsale.setAttribute("class", "txt-onsale");
         const numOnsale = document.createElement("span");
         numOnsale.setAttribute("class", "num-onsale");
-        numOnsale.innerText = 3;
+        numOnsale.innerText = this.saleQt;
         txtOnsale.append("판매중인 상품(", numOnsale, ")");
 
         listArr.push(txtOnsale);
@@ -69,6 +86,9 @@ class DashboardMenu {
         }
         txtOrderDelivery.after(numSmallOd);
         txtInquiryReview.after(numSmallIr);
+    }
+    render() {
+        this.setSaleQt();
 
         return this.menu;
     }
