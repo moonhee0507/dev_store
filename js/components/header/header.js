@@ -55,7 +55,9 @@ class Header {
         titleSellerCenter.innerText = "판매자 센터";
 
         styleWrapper.appendChild(
-            location.pathname === "/center" ? titleSellerCenter : formSearch
+            location.pathname === "/center" || location.pathname === "/upload"
+                ? titleSellerCenter
+                : formSearch
         );
 
         // 사용자 메뉴(우측 상단)
@@ -219,7 +221,8 @@ class Header {
         }
 
         this.head.appendChild(styleWrapper);
-        window.location.pathname === "/center"
+        window.location.pathname === "/center" ||
+        window.location.pathname === "/upload"
             ? null
             : this.head.appendChild(nav);
 
