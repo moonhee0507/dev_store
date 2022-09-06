@@ -5,9 +5,8 @@ import DashboardMenu from "../components/dashboardMenu/dashboardMenu.js";
 import DashboardView from "../components/dashboardView/dashboardView.js";
 
 class Center {
-    constructor(header, section, footer) {
+    constructor(header, footer) {
         this.header = header;
-        this.section = section;
         this.footer = footer;
     }
 
@@ -20,12 +19,12 @@ class Center {
         header.setAttribute("class", "header");
         header.appendChild(this.header.render());
 
-        // section
-        const section = document.createElement("section");
-        section.setAttribute("class", "max-width");
+        // main
+        const main = document.createElement("main");
+        main.setAttribute("class", "max-width");
         const dashboard = document.createElement("div");
         dashboard.setAttribute("class", "style-wrapper-dashboard");
-        section.appendChild(dashboard);
+        main.appendChild(dashboard);
 
         // 대시보드 타이틀(셀러명)
         const dashboardTitle = new DashboardTitle();
@@ -43,7 +42,7 @@ class Center {
         footer.appendChild(this.footer.render());
 
         dashboard.append(dashboardTitle.render(), dashboardMain);
-        document.getElementById("root").append(header, section, footer);
+        document.getElementById("root").append(header, main, footer);
     }
 }
 
