@@ -45,23 +45,16 @@ class UploadImage {
             let formData = new FormData();
             formData.append("image", currentFile[0]);
             validFileType(currentFile) && preview(currentFile);
+            iconBlur();
         }
 
         // 미리보기 기능
         function preview(currentFile) {
-            console.log("미리보기");
             const reader = new FileReader();
             reader.onload = () => {
-                // const base64String = reader.result
-                // .replace("data:", "")
-                // .replace(/^.+,/, "");
-                // localStorage.setItem("uploadImg", base64String);
                 imgContainer.style.backgroundImage = `url(${reader.result})`;
-                // imgContainer.style.backgroundImage = `url(data:image/png;base64,${base64String})`;
             };
             reader.readAsDataURL(currentFile[0]);
-
-            iconBlur();
         }
 
         // 파일 선택 후 아이콘 스타일 변경
@@ -72,9 +65,6 @@ class UploadImage {
         let fileTypes = ["image/jpg", "image/jpeg", "image/png"];
 
         function validFileType(currentFile) {
-            console.log(currentFile[0].type);
-            console.log(fileTypes.includes(currentFile[0].type));
-
             if (fileTypes.includes(currentFile[0].type)) {
                 return true;
             } else {

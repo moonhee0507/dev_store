@@ -16,6 +16,7 @@ class UploadProductName {
         const input = document.createElement("input");
         input.setAttribute("type", "text");
         input.setAttribute("id", "input-upload-productname");
+        input.setAttribute("name", "product-name");
         input.setAttribute("maxlength", "20");
         input.setAttribute("minlength", "4");
         input.placeholder = "4~20자 이내";

@@ -18,6 +18,7 @@ class UploadShippingFee {
         const input = document.createElement("input");
         input.setAttribute("type", "text");
         input.setAttribute("id", "input-upload-shippingfee");
+        input.setAttribute("name", "shipping-fee");
 
         const span = document.createElement("span");
         span.setAttribute("class", "txt-upload-unit");

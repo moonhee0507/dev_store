@@ -12,12 +12,14 @@ class UploadEditor {
 
         const editor = document.createElement("div");
         editor.setAttribute("class", "editor");
-        const p = document.createElement("p");
-        p.innerText = "editor area";
+
+        const textarea = document.createElement("textarea");
+        textarea.setAttribute("id", "upload-textarea");
+        textarea.setAttribute("required", true);
+        textarea.setAttribute("name", "product-info");
 
         this.container.appendChild(em);
-        this.container.appendChild(editor);
-        editor.appendChild(p);
+        this.container.appendChild(textarea);
 
         return this.container;
     }

@@ -18,6 +18,7 @@ class UploadPrice {
         const input = document.createElement("input");
         input.setAttribute("type", "text");
         input.setAttribute("id", "input-upload-price");
+        input.setAttribute("name", "product-price");
 
         const span = document.createElement("span");
         span.setAttribute("class", "txt-upload-unit");

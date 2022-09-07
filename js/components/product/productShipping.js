@@ -20,9 +20,9 @@ class ProductShippingMethod {
             txtFee.setAttribute("class", "detail-shipping-fee");
 
             if (this.shippingMethod === "DELIVERY") {
-                txtMethod.innerText = "택배배송" + " / ";
+                txtMethod.innerText = "직접배송" + " / ";
             } else if (this.shippingMethod === "PARCEL") {
-                txtMethod.innerText = "등기통상" + " / ";
+                txtMethod.innerText = "택배배송" + " / ";
             }
 
             if (!this.shippingFee) {
@@ -40,9 +40,9 @@ class ProductShippingMethod {
             txtFee.setAttribute("class", "cart-shipping-fee");
 
             if (this.shippingMethod === "DELIVERY") {
-                txtMethod.innerText = "택배배송" + " / ";
+                txtMethod.innerText = "직접배송" + " / ";
             } else if (this.shippingMethod === "PARCEL") {
-                txtMethod.innerText = "등기통상" + " / ";
+                txtMethod.innerText = "택배배송" + " / ";
             }
 
             if (!this.shippingFee) {

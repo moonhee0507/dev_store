@@ -18,6 +18,7 @@ class UploadStock {
         const input = document.createElement("input");
         input.setAttribute("type", "text");
         input.setAttribute("id", "input-upload-stock");
+        input.setAttribute("name", "product-stock");
 
         const span = document.createElement("span");
         span.setAttribute("class", "txt-upload-unit");
