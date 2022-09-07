@@ -62,8 +62,12 @@ class DeleteItemModal {
             deleteReq();
         });
 
+        const middleAPI = () => {
+            return window.location.pathname === "/cart" ? "cart" : "products";
+        };
+
         async function deleteReq() {
-            await fetch(`${API_URL}/cart/${cart_item_id}/`, {
+            await fetch(`${API_URL}/${middleAPI()}/${cart_item_id}/`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `JWT ${window.localStorage.getItem(
