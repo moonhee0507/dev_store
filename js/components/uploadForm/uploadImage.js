@@ -1,5 +1,3 @@
-import { API_URL } from "../../common/constants";
-
 class UploadImage {
     constructor() {
         this.container = document.createElement("div");
@@ -71,6 +69,14 @@ class UploadImage {
                 alert(".jpg, .jpeg, .png 파일만 업로드 가능합니다.");
                 return false;
             }
+        }
+
+        // 수정버튼
+        if (window.localStorage.getItem("edit")) {
+            imgContainer.style.backgroundImage = `url(${
+                JSON.parse(window.localStorage.getItem("edit")).image
+            })`;
+            iconBlur();
         }
 
         return this.container;

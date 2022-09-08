@@ -58,6 +58,13 @@ class UploadProductName {
             }
         });
 
+        // 수정버튼
+        if (window.localStorage.getItem("edit")) {
+            input.value = JSON.parse(
+                window.localStorage.getItem("edit")
+            ).product_name;
+        }
+
         return this.container;
     }
 }

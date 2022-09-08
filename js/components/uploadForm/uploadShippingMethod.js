@@ -48,6 +48,23 @@ class UploadShippingMethod {
             e.target.style.background = "#a158fe";
         }
 
+        // 수정버튼
+        if (
+            window.localStorage.getItem("edit") &&
+            JSON.parse(window.localStorage.getItem("edit")).shipping_method ===
+                "PARCEL"
+        ) {
+            parcel.style.background = "#a158fe";
+            delivery.style.background = "#303134";
+        } else if (
+            window.localStorage.getItem("edit") &&
+            JSON.parse(window.localStorage.getItem("edit")).shipping_method ===
+                "DELIVERY"
+        ) {
+            delivery.style.background = "#a158fe";
+            parcel.style.background = "#303134";
+        }
+
         return this.container;
     }
 }

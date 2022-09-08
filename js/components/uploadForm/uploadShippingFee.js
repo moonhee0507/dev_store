@@ -31,6 +31,13 @@ class UploadShippingFee {
 
         input.addEventListener("keyup", numberFormatter);
 
+        // 수정버튼
+        if (window.localStorage.getItem("edit")) {
+            input.value = parseInt(
+                JSON.parse(window.localStorage.getItem("edit")).shipping_fee
+            ).toLocaleString("ko-KR");
+        }
+
         return this.container;
     }
 }
