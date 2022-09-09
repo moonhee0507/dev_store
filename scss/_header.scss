@@ -31,40 +31,137 @@
 
 // 검색
 .style-search {
+    position: relative;
     font-size: 0;
     padding-left: 30px;
 
     #searchProducts {
-        width: 300px;
+        width: 310px;
         height: 44px;
         border: none;
-        border-radius: 24px 0 0 24px;
-        padding: 0 0 0 30px;
+        border-radius: 0;
+        padding: 0 0 0 15px;
         margin: 0;
-        font-style: normal;
+        font-family: $base-font;
         font-size: 16px;
         line-height: 16px;
         background-color: #303134;
         color: #e8eaed;
-        -webkit-box-shadow: 5px black;
-        box-shadow: 5px 5px 5px black;
+    }
+
+    #searchProducts::-webkit-input-placeholder {
+        font-family: $base-font;
+        font-size: 16px;
+        line-height: 27px;
+    }
+    #searchProducts::-moz-placeholder {
+        font-family: $base-font;
+        font-size: 16px;
+        line-height: 27px;
+    }
+    #searchProducts:-ms-input-placeholder {
+        font-family: $base-font;
+        font-size: 16px;
+        line-height: 27px;
+    }
+    #searchProducts::-ms-input-placeholder {
+        font-family: $base-font;
+        font-size: 16px;
+        line-height: 27px;
+    }
+    #searchProducts::placeholder {
+        font-family: $base-font;
+        font-size: 16px;
+        line-height: 27px;
     }
 
     .button-search {
         height: 44px;
         border: none;
-        border-radius: 0 24px 24px 0;
-        padding-right: 20px;
+        padding: 10px;
         background-color: #303134;
         vertical-align: bottom;
         cursor: pointer;
-        -webkit-box-shadow: 5px 5px 5px black;
-        box-shadow: 5px 5px 5px black;
 
         .img-search {
             width: 24px;
         }
     }
+    .button-search:focus {
+        outline: none;
+        .img-search {
+            outline: 1px solid white;
+        }
+    }
+}
+
+#searchProducts:hover,
+#searchProducts:hover ~ .button-search,
+#searchProducts:focus,
+#searchProducts:focus ~ .button-search {
+    background-color: #191919;
+}
+
+#searchProducts:focus-visible {
+    outline: none;
+}
+
+#searchProducts::-ms-clear,
+#searchProducts::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+#searchProducts::-webkit-search-decoration,
+#searchProducts::-webkit-search-cancel-button,
+#searchProducts::-webkit-search-results-button,
+#searchProducts::-webkit-search-results-decoration {
+    display: none;
+}
+
+.autocomplete {
+    // display: none;
+    position: absolute;
+    width: 354px;
+    background-color: #303134;
+    z-index: 9999;
+
+    .list-match {
+        li {
+            height: 40px;
+            overflow: hidden;
+
+            .link-match {
+                display: block;
+                padding: 0 15px;
+                text-decoration: none;
+                color: white;
+            }
+            .autocomplete-name {
+                display: block;
+                font-size: 16px;
+                line-height: 36px;
+                overflow: hidden;
+                -o-text-overflow: ellipsis;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+.autocomplete.show {
+    display: block;
+}
+
+.link-match:hover {
+    background-color: #191919;
+}
+
+.link-match:focus-visible {
+    outline: none;
+    background-color: #191919;
 }
 
 // 유저메뉴
