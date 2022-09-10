@@ -11,8 +11,16 @@ class UploadCancelButton {
         this.button.addEventListener("click", goBack);
 
         function goBack() {
-            if (confirm("상품 등록을 취소하시겠습니까?")) {
+            if (
+                confirm(
+                    `상품 ${
+                        window.localStorage.getItem("edit") ? "수정" : "등록"
+                    }을 취소하시겠습니까?`
+                )
+            ) {
                 window.history.back();
+                window.localStorage.removeItem("edit");
+                window.localStorage.removeItem("shipping_method");
             }
         }
 
