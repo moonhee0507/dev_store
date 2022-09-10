@@ -27,6 +27,8 @@ class ProductEditButton {
             });
 
             const data = await res.json();
+            delete data.seller;
+            delete data.seller_store;
             window.localStorage.setItem("edit", JSON.stringify(data));
         }
 
