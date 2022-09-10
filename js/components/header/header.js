@@ -1,5 +1,6 @@
 import { API_URL } from "../../common/constants";
 import { GoToLogin } from "../modal";
+import SearchProducts from "./searchProducts";
 
 class Header {
     constructor() {
@@ -26,28 +27,7 @@ class Header {
         styleWrapper.appendChild(h1);
 
         // 검색
-        const formSearch = document.createElement("form");
-        formSearch.setAttribute("class", "style-search");
-        const labelSearch = document.createElement("label");
-        labelSearch.setAttribute("for", "searchProducts");
-        labelSearch.setAttribute("class", "sr-only");
-        labelSearch.innerText = "상품 검색";
-        const inputSearch = document.createElement("input");
-        inputSearch.setAttribute("id", "searchProducts");
-        inputSearch.setAttribute("type", "search");
-        inputSearch.setAttribute("placeholder", "상품을 검색해보세요!");
-        const buttonSearch = document.createElement("button");
-        buttonSearch.setAttribute("type", "submit");
-        buttonSearch.setAttribute("class", "button-search");
-        const searchImg = document.createElement("img");
-        searchImg.setAttribute("class", "img-search");
-        searchImg.setAttribute("src", "../images/icon-search.png");
-        searchImg.setAttribute("alt", "search icon");
-        buttonSearch.appendChild(searchImg);
-
-        formSearch.appendChild(labelSearch);
-        formSearch.appendChild(inputSearch);
-        formSearch.appendChild(buttonSearch);
+        const searchProducts = new SearchProducts();
 
         // 판매자 센터
         const titleSellerCenter = document.createElement("h2");
@@ -57,7 +37,7 @@ class Header {
         styleWrapper.appendChild(
             location.pathname === "/center" || location.pathname === "/upload"
                 ? titleSellerCenter
-                : formSearch
+                : searchProducts.render()
         );
 
         // 사용자 메뉴(우측 상단)
