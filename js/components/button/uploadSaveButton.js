@@ -6,9 +6,13 @@ class UploadSaveButton {
     }
 
     render() {
+        const storageEdit = JSON.parse(window.localStorage.getItem("edit"));
+
         this.button.setAttribute("type", "submit");
         this.button.setAttribute("class", "button-upload-save");
-        this.button.innerText = "저장하기";
+        window.localStorage.getItem("edit")
+            ? (this.button.innerText = "수정하기")
+            : (this.button.innerText = "저장하기");
 
         this.button.addEventListener("click", (e) => {
             e.preventDefault();
@@ -26,7 +30,9 @@ class UploadSaveButton {
                     .value.replace(/\D/g, "")
             );
 
-            const shipping_method = localStorage.getItem("shipping_method");
+            const shipping_method = storageEdit
+                ? storageEdit.shipping_method
+                : window.localStorage.getItem("shipping_method");
 
             const shipping_fee = parseInt(
                 document
@@ -46,7 +52,7 @@ class UploadSaveButton {
             const token = window.localStorage.getItem("token");
 
             const formData = new FormData();
-            formData.append("image", image);
+            image && formData.append("image", image);
             formData.append("product_name", product_name);
             formData.append("price", price);
             formData.append("shipping_method", shipping_method);
@@ -58,9 +64,10 @@ class UploadSaveButton {
             save(formData);
         });
 
+        const id = parseInt(storageEdit?.product_id);
         async function save(formData) {
-            await fetch(`${API_URL}/products/`, {
-                method: "POST",
+            await fetch(`${API_URL}/products/${id ? id + "/" : ""}`, {
+                method: id ? "PATCH" : "POST",
                 headers: {
                     Authorization: `JWT ${window.localStorage.getItem(
                         "token"
@@ -74,6 +81,8 @@ class UploadSaveButton {
                         setTimeout(() => {
                             window.location.pathname = `/products/${data.product_id}`;
                         }, 1000);
+                        window.localStorage.removeItem("edit");
+                        window.localStorage.removeItem("shipping_method");
                     } else {
                         alert("error");
                     }
