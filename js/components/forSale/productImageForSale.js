@@ -7,7 +7,7 @@ class ProductImageForSale {
 
     render() {
         this.wrapper.setAttribute("class", "center-img-wrapper");
-        this.wrapper.setAttribute("title", "판매 페이지 바로가기");
+        this.wrapper.setAttribute("title", "바로가기");
         const img = document.createElement("img");
         img.setAttribute("class", "center-img");
         img.setAttribute("src", this.image);
