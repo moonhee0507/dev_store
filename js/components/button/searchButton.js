@@ -1,5 +1,4 @@
 import { API_URL } from "../../common/constants";
-import Search from "../../pages/search";
 
 class SearchButton {
     constructor() {
@@ -18,7 +17,14 @@ class SearchButton {
 
         this.button.addEventListener("click", (e) => {
             e.preventDefault();
-            getProductsData();
+            const input = document.getElementById("searchProducts");
+            if (input.value === "") {
+                alert(
+                    "검색어가 입력되지 않았습니다.\n정확한 검색어를 입력하여 다시 검색해주세요."
+                );
+            } else {
+                getProductsData();
+            }
         });
 
         async function getProductsData() {
@@ -28,21 +34,14 @@ class SearchButton {
                     "Content-Type": "application/json",
                 },
             })
-                .then((res) => res.json())
-                .then((data) => {
-                    const keyword =
-                        document.getElementById("searchProducts").value;
-                    const results = data.results.filter((el) => {
-                        return el.product_name.includes(keyword);
-                    });
-                    console.log(results);
-                    window.localStorage.setItem("keyword", keyword);
-                    window.localStorage.setItem(
-                        "results",
-                        JSON.stringify(results)
-                    );
-
-                    window.location.pathname = `/search/?${keyword}`;
+                .then((res) => {
+                    if (res.ok === true) {
+                        let keyword =
+                            document.getElementById("searchProducts").value;
+                        window.location.pathname = `/search/keyword=${keyword}`;
+                    } else {
+                        alert("error");
+                    }
                 })
                 .catch((e) => console.error(e));
         }
