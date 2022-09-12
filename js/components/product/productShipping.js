@@ -34,6 +34,8 @@ class ProductShippingMethod {
 
             li.append(txtMethod, txtFee);
 
+            return li;
+
             // 장바구니 페이지
         } else if (window.location.pathname === "/cart") {
             txtMethod.setAttribute("class", "cart-shipping-method");
@@ -54,6 +56,8 @@ class ProductShippingMethod {
 
             li.append(txtMethod, txtFee);
 
+            return li;
+
             // 상품 상세(path1)에서 유입
         } else if (
             window.location.pathname === "/payment" &&
@@ -64,6 +68,8 @@ class ProductShippingMethod {
             ).shipping;
 
             paymentTxtShipping.appendChild(paymentNumShipping);
+
+            return paymentTxtShipping;
         } else if (
             window.location.pathname === "/payment" &&
             window.localStorage.getItem("path") === "2"
@@ -71,6 +77,8 @@ class ProductShippingMethod {
             paymentNumShipping.innerText =
                 parseInt(this.shippingFee).toLocaleString("ko-KR") + "원";
             paymentTxtShipping.appendChild(paymentNumShipping);
+
+            return paymentTxtShipping;
         } else if (
             window.location.pathname === "/payment" &&
             window.localStorage.getItem("path") === "3"
@@ -82,11 +90,23 @@ class ProductShippingMethod {
                 ).toLocaleString("ko-KR") + "원";
 
             paymentTxtShipping.appendChild(paymentNumShipping);
-        }
 
-        return window.location.pathname === "/payment"
-            ? paymentTxtShipping
-            : li;
+            return paymentTxtShipping;
+        } else if (window.location.pathname.includes("/search")) {
+            const p = document.createElement("p");
+            p.setAttribute("class", "search-shipping");
+
+            const span = document.createElement("span");
+            span.setAttribute("class", "search-shipping-fee");
+
+            span.innerText = this.shippingFee
+                ? this.shippingFee.toLocaleString("ko-FR") + "원"
+                : "무료";
+
+            p.append("배송비 ", span);
+
+            return p;
+        }
     }
 }
 
