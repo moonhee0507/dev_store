@@ -1,7 +1,7 @@
 import Header from "../components/header/header.js";
-import SearchList from "../components/header/searchList.js";
 import SearchDescription from "../components/searchDescription/searchDescription.js";
 import SearchFilter from "../components/searchFilter/searchFilter.js";
+import SearchList from "../components/searchList/searchList.js";
 
 class Search {
     constructor(header) {
