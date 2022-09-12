@@ -15,7 +15,7 @@ class ProductImageForSale {
         this.wrapper.appendChild(img);
 
         this.wrapper.addEventListener("click", () => {
-            window.location.pathname = `/products/${this.id}`;
+            window.location.href = `/products/${this.id}`;
         });
 
         return this.wrapper;

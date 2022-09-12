@@ -154,7 +154,7 @@ class Signup {
         body.appendChild(signupFeat);
 
         logoElement.addEventListener("click", () => {
-            window.location.pathname = "/";
+            window.location.href = "/";
         });
 
         return this.sectionElement;

@@ -65,7 +65,7 @@ class BuyNowButton {
 
                     window.localStorage.setItem("path", "1");
 
-                    window.location.pathname = "/payment";
+                    window.location.href = "/payment";
                 } else {
                     // 로그인 안내 모달 띄우기
                     modal.classList.toggle("show");
@@ -100,7 +100,7 @@ class BuyNowButton {
 
             // 예 버튼을 누르면 로그인 페이지로 이동하는 기능
             buttonYes.addEventListener("click", () => {
-                window.location.pathname = "/login";
+                window.location.href = "/login";
             });
 
             // 장바구니 페이지(하단)
@@ -177,7 +177,7 @@ class BuyNowButton {
                         JSON.stringify(filteredFromCartItems)
                     );
                     window.localStorage.setItem("path", "2");
-                    window.location.pathname = "/payment";
+                    window.location.href = "/payment";
                 } else {
                     alert("선택된 상품이 없습니다.");
                 }

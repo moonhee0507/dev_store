@@ -79,7 +79,7 @@ class UploadSaveButton {
                 .then((data) => {
                     if (data.product_id) {
                         setTimeout(() => {
-                            window.location.pathname = `/products/${data.product_id}`;
+                            window.location.href = `/products/${data.product_id}`;
                         }, 1000);
                         window.localStorage.removeItem("edit");
                         window.localStorage.removeItem("shipping_method");

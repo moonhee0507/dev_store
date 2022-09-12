@@ -84,7 +84,7 @@ class Login {
         body.appendChild(loginFeat);
 
         logoElement.addEventListener("click", () => {
-            window.location.pathname = "/";
+            window.location.href = "/";
         });
 
         return this.sectionElement;

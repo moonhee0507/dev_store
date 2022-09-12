@@ -4,7 +4,9 @@ class ProductPrice {
     }
 
     render() {
-        if (window.location.pathname === "/") {
+        const url = window.location.pathname;
+
+        if (url === "/" || url.includes("/store")) {
             const productPriceContainer = document.createElement("div");
 
             const productPrice = document.createElement("strong");
@@ -18,7 +20,7 @@ class ProductPrice {
             productPriceContainer.appendChild(priceType);
 
             return productPriceContainer;
-        } else if (window.location.pathname.includes("/products/")) {
+        } else if (url.includes("/products/")) {
             const li = document.createElement("li");
             const container = document.createElement("div");
             container.setAttribute("class", "detail-product-price");
@@ -35,7 +37,7 @@ class ProductPrice {
             li.appendChild(container);
 
             return li;
-        } else if (window.location.pathname === "/cart") {
+        } else if (url === "/cart") {
             const li = document.createElement("li");
             const container = document.createElement("div");
             container.setAttribute("class", "cart-product-price");
@@ -52,6 +54,19 @@ class ProductPrice {
             li.appendChild(container);
 
             return li;
+        } else if (url.includes("/search")) {
+            const div = document.createElement("div");
+            div.setAttribute("class", "search-product-price");
+            const strong = document.createElement("strong");
+            strong.setAttribute("class", "search-number-price");
+            strong.innerText = this.price.toLocaleString("ko-KR");
+            const span = document.createElement("span");
+            span.setAttribute("class", "search-txt-unit");
+            span.innerText = "원";
+
+            div.append(strong, span);
+
+            return div;
         }
     }
 }

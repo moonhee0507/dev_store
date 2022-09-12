@@ -159,7 +159,7 @@ class ProductTotal {
                         "fromCartOne",
                         JSON.stringify(fromCartOne)
                     );
-                    window.location.pathname = "/payment";
+                    window.location.href = "/payment";
                 }
             });
             this.div.append(

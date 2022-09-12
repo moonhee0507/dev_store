@@ -383,7 +383,7 @@ async function signup(event) {
             resJson.phone_number &&
             resJson.user_type
         ) {
-            window.location.pathname = "/login";
+            window.location.href = "/login";
         } else if (
             resJson.username &&
             resJson.name &&
@@ -392,7 +392,7 @@ async function signup(event) {
             resJson.company_registration_number &&
             resJson.store_name
         ) {
-            window.location.pathname = "/login";
+            window.location.href = "/login";
         }
     } catch (err) {
         console.error(err);

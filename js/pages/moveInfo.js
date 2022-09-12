@@ -16,7 +16,7 @@ class MoveInfo {
         sec.innerText = `${count}`;
         // 3초 후 홈 이동
         setTimeout(() => {
-            window.location.pathname = "/";
+            window.location.href = "/";
         }, 3000);
         // 1초 마다 텍스트 변화
         setInterval(() => {

@@ -59,10 +59,10 @@ class CartButton {
                     .then((res) => {
                         res.ok === true
                             ? window.confirm("장바구니로 이동하시겠습니까?") &&
-                              (window.location.pathname = "/cart")
+                              (window.location.href = "/cart")
                             : window.confirm(
                                   "재고 수량이 초과 되었습니다. \n장바구니로 이동하시겠습니까?"
-                              ) && (window.location.pathname = "/cart");
+                              ) && (window.location.href = "/cart");
                     })
                     .catch((e) => {
                         console.error(e);
@@ -93,7 +93,7 @@ class CartButton {
 
         // 예 버튼을 누르면 로그인 페이지로 이동하는 기능
         buttonYes.addEventListener("click", () => {
-            window.location.pathname = "/login";
+            window.location.href = "/login";
         });
 
         return this.button;

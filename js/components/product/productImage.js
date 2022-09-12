@@ -7,23 +7,24 @@ class ProductImage {
 
     render() {
         const productImg = document.createElement("img");
+        const url = window.location.pathname;
         productImg.setAttribute("class", "img-product");
         productImg.setAttribute("alt", "상품이미지");
 
-        if (window.location.pathname === "/") {
+        if (url === "/" || url.includes("/store")) {
             this.wrapper.setAttribute("class", "style-wrapper-img card");
             productImg.setAttribute("src", `${this.src}`);
-        } else if (window.location.pathname.includes("/products/")) {
+        } else if (url.includes("/products/")) {
             this.wrapper.setAttribute("class", "style-wrapper-img large");
             productImg.setAttribute("src", `${this.src}`);
-        } else if (window.location.pathname === "/cart") {
+        } else if (url === "/cart") {
             this.wrapper.setAttribute("class", "style-wrapper-img small");
             this.wrapper.addEventListener("click", () => {
-                window.location.pathname = `/products/${this.id}`;
+                window.location.href = `/products/${this.id}`;
             });
             productImg.setAttribute("src", `${this.src}`);
         } else if (
-            window.location.pathname === "/payment" &&
+            url === "/payment" &&
             window.localStorage.getItem("path") === "1"
         ) {
             this.wrapper.setAttribute("class", "style-wrapper-img small");
@@ -32,16 +33,16 @@ class ProductImage {
                 JSON.parse(window.localStorage.getItem("fromDetail")).src
             );
             this.wrapper.addEventListener("click", () => {
-                window.location.pathname = `/products/${this.id}`;
+                window.location.href = `/products/${this.id}`;
             });
         } else if (
-            window.location.pathname === "/payment" &&
+            url === "/payment" &&
             window.localStorage.getItem("path") === "2"
         ) {
             this.wrapper.setAttribute("class", "style-wrapper-img small");
             productImg.setAttribute("src", this.src);
         } else if (
-            window.location.pathname === "/payment" &&
+            url === "/payment" &&
             window.localStorage.getItem("path") === "3"
         ) {
             this.wrapper.setAttribute("class", "style-wrapper-img small");
@@ -49,6 +50,9 @@ class ProductImage {
                 "src",
                 JSON.parse(window.localStorage.getItem("fromCartOne"))[0].src
             );
+        } else if (url.includes("/search")) {
+            this.wrapper.setAttribute("class", "style-wrapper-img small");
+            productImg.setAttribute("src", this.src);
         }
 
         this.wrapper.appendChild(productImg);

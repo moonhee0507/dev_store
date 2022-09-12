@@ -57,7 +57,7 @@ class GoToLogin {
         });
         // 예 버튼을 누르면 로그인 페이지로 이동하는 기능
         buttonYes.addEventListener("click", () => {
-            window.location.pathname = "/login";
+            window.location.href = "/login";
         });
 
         return this.modal;

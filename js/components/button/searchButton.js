@@ -38,7 +38,7 @@ class SearchButton {
                     if (res.ok === true) {
                         let keyword =
                             document.getElementById("searchProducts").value;
-                        window.location.pathname = `/search/keyword=${keyword}`;
+                        window.location.href = `/search/keyword=${keyword}`;
                     } else {
                         alert("error");
                     }

@@ -1,16 +1,19 @@
 class ProductName {
-    constructor(name) {
+    constructor(name, id) {
         this.name = name;
+        this.id = id;
     }
 
     render() {
-        if (window.location.pathname === "/") {
+        const url = window.location.pathname;
+
+        if (url === "/" || url.includes("/store")) {
             const productName = document.createElement("strong");
             productName.setAttribute("class", "txt-product-name");
             productName.innerText = this.name;
 
             return productName;
-        } else if (window.location.pathname.includes("/products/")) {
+        } else if (url.includes("/products/")) {
             const li = document.createElement("li");
             const productName = document.createElement("strong");
             productName.setAttribute("class", "detail-txt-product-name");
@@ -18,7 +21,7 @@ class ProductName {
             li.appendChild(productName);
 
             return li;
-        } else if (window.location.pathname === "/cart") {
+        } else if (url === "/cart") {
             const li = document.createElement("li");
             const productName = document.createElement("strong");
             productName.setAttribute("class", "cart-txt-product-name");
@@ -27,7 +30,7 @@ class ProductName {
 
             return li;
         } else if (
-            window.location.pathname === "/payment" &&
+            url === "/payment" &&
             window.localStorage.getItem("path") === "1"
         ) {
             const li = document.createElement("li");
@@ -40,7 +43,7 @@ class ProductName {
 
             return li;
         } else if (
-            window.location.pathname === "/payment" &&
+            url === "/payment" &&
             window.localStorage.getItem("path") === "2"
         ) {
             const li = document.createElement("li");
@@ -51,7 +54,7 @@ class ProductName {
 
             return li;
         } else if (
-            window.location.pathname === "/payment" &&
+            url === "/payment" &&
             window.localStorage.getItem("path") === "3"
         ) {
             const li = document.createElement("li");
@@ -63,6 +66,16 @@ class ProductName {
             li.appendChild(productName);
 
             return li;
+        } else if (url.includes("/search")) {
+            const a = document.createElement("a");
+            a.setAttribute("href", `/products/${this.id}`);
+            a.setAttribute("class", "link-search-name");
+            const strong = document.createElement("strong");
+            strong.setAttribute("class", "search-txt-product-name");
+            strong.innerText = this.name;
+
+            a.appendChild(strong);
+            return a;
         }
     }
 }

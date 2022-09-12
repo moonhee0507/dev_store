@@ -13,7 +13,7 @@ class ProductEditButton {
         this.button.addEventListener("click", () => {
             getProductsData();
             setTimeout(() => {
-                window.location.pathname = "/upload";
+                window.location.href = "/upload";
             }, 1000);
         });
 
