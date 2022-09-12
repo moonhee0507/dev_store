@@ -1,6 +1,6 @@
 import { API_URL } from "../../common/constants";
 import { GoToLogin } from "../modal";
-import SearchProducts from "./searchProducts";
+import SearchBar from "./searchBar";
 
 class Header {
     constructor() {
@@ -27,7 +27,7 @@ class Header {
         styleWrapper.appendChild(h1);
 
         // 검색
-        const searchProducts = new SearchProducts();
+        const searchBar = new SearchBar();
 
         // 판매자 센터
         const titleSellerCenter = document.createElement("h2");
@@ -37,7 +37,7 @@ class Header {
         styleWrapper.appendChild(
             location.pathname === "/center" || location.pathname === "/upload"
                 ? titleSellerCenter
-                : searchProducts.render()
+                : searchBar.render()
         );
 
         // 사용자 메뉴(우측 상단)
