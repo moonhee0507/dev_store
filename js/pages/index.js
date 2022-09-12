@@ -8,3 +8,4 @@ export { default as Cart } from "./cart.js";
 export { default as Center } from "./center.js";
 export { default as Upload } from "./upload.js";
 export { default as Search } from "./search.js";
+export { default as Store } from "./store.js";
