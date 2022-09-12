@@ -17,12 +17,23 @@ class ProductList {
         });
         const data = await res.json();
 
-        this.products = await data.results;
+        if (window.location.pathname === "/") {
+            this.products = await data.results;
+        } else if (window.location.pathname.includes("/store")) {
+            this.products = await data.results.filter((el) => {
+                const sellerNumber = window.location.pathname.replace(
+                    /^\/store\//g,
+                    ""
+                );
+                return el.seller === parseInt(sellerNumber);
+            });
+        }
     }
 
     // 상품 리스트 세팅하기
     async setProductList() {
         await this.getProductsData();
+        console.log(this.products);
         this.sectionElement.classList.add("section-products");
 
         const productList = document.createElement("ul");
@@ -40,10 +51,10 @@ class ProductList {
 
     render() {
         this.setProductList();
-        const h2 = document.createElement("h2");
-        h2.setAttribute("class", "sr-only");
-        h2.innerText = "상품 리스트";
-        this.sectionElement.appendChild(h2);
+        const h3 = document.createElement("h3");
+        h3.setAttribute("class", "sr-only");
+        h3.innerText = "상품 리스트";
+        this.sectionElement.appendChild(h3);
 
         return this.sectionElement;
     }
