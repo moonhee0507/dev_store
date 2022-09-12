@@ -1,6 +1,7 @@
 import { API_URL } from "../../common/constants";
 import { GoToLogin } from "../modal";
 import SearchBar from "./searchBar";
+import StoreIntroduction from "../storeIntroduction/storeIntroduction";
 
 class Header {
     constructor() {
@@ -8,6 +9,7 @@ class Header {
     }
 
     render() {
+        const url = window.location.pathname;
         this.head.setAttribute("class", "head max-width");
 
         const styleWrapper = document.createElement("div");
@@ -34,11 +36,15 @@ class Header {
         titleSellerCenter.setAttribute("class", "title-seller-center");
         titleSellerCenter.innerText = "판매자 센터";
 
-        styleWrapper.appendChild(
-            location.pathname === "/center" || location.pathname === "/upload"
-                ? titleSellerCenter
-                : searchBar.render()
-        );
+        // 스토어명
+        const storeIntroduction = new StoreIntroduction();
+
+        !url.includes("/store") &&
+            styleWrapper.appendChild(
+                url === "/center" || url === "/upload"
+                    ? titleSellerCenter
+                    : searchBar.render()
+            );
 
         // 사용자 메뉴(우측 상단)
         const nav = document.createElement("nav");
@@ -74,7 +80,7 @@ class Header {
                 .then((res) => {
                     if (res.ok === true) {
                         window.localStorage.clear();
-                        window.location.pathname = "/";
+                        window.location.href = "/";
                     } else {
                         console.error("다시 시도해주세요.");
                     }
@@ -134,7 +140,7 @@ class Header {
             showQt.setAttribute("class", "header-cart-qt");
 
             cartButton.addEventListener("click", () => {
-                window.location.pathname = "/cart";
+                window.location.href = "/cart";
             });
             cartButton.appendChild(showQt);
             getCartData();
@@ -185,7 +191,7 @@ class Header {
             myPageButton.classList.add("login");
 
             myPageButton.addEventListener("click", () => {
-                window.location.pathname = "/login";
+                window.location.href = "/login";
             });
             myPageButton.appendChild(loginButton);
             // 장바구니 클릭이벤트(로그인 안내 모달)
@@ -201,8 +207,9 @@ class Header {
         }
 
         this.head.appendChild(styleWrapper);
-        window.location.pathname === "/center" ||
-        window.location.pathname === "/upload"
+        url.includes("/store") &&
+            this.head.appendChild(storeIntroduction.render());
+        url === "/center" || url === "/upload"
             ? null
             : this.head.appendChild(nav);
 

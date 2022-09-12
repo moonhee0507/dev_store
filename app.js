@@ -9,6 +9,7 @@ import {
     Center,
     Upload,
     Search,
+    Store,
 } from "./js/pages/index.js";
 import { Router } from "./utils/index.js";
 
@@ -33,6 +34,7 @@ export default class App {
             "/center": Center,
             "/upload": Upload,
             "/search": Search,
+            "/store": Store,
         });
 
         // root에 띄워준다

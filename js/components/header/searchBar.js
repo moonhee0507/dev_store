@@ -26,7 +26,7 @@ class SearchBar {
         inputSearch.setAttribute("type", "search");
         inputSearch.setAttribute("name", "q");
 
-        if (window.location.pathname !== "/") {
+        if (window.location.pathname.includes("/search")) {
             let keywordFromURL = window.location.pathname.replace(
                 /^\/search\/keyword=/g,
                 ""
