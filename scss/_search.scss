@@ -121,7 +121,7 @@
 
 .style-wrapper-search {
     color: $soft-white;
-    margin: 50px 0 100px;
+    margin: 30px 0 100px;
 
     .list-search-items {
         border: 3px solid #303134;
@@ -216,6 +216,11 @@
 
         .search-txt-quantity {
             display: inline-block;
+            margin-right: 5px;
+
+            .search-number-quantity {
+                padding-left: 5px;
+            }
         }
 
         .button-seller-info {
@@ -224,7 +229,7 @@
             border-radius: 5px;
             background-color: #171717;
             padding: 5px 0;
-            margin: 0;
+            margin: 0 0 0 10px;
             font-size: 13px;
             color: white;
             cursor: pointer;
@@ -253,4 +258,8 @@
             text-decoration: underline;
         }
     }
+}
+
+.style-wrapper-search > ul:not(:last-child) {
+    margin-bottom: 15px;
 }
