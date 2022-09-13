@@ -5,3 +5,5 @@ export { default as ProductPrice } from "./productPrice.js";
 export { default as ProductShipping } from "./productShipping.js";
 export { default as ProductQuantity } from "./productQuantity.js";
 export { default as ProductTotal } from "./productTotal.js";
+export { default as ProductDescription } from "./productDescription.js";
+export { default as RegistrationDate } from "./registrationDate.js";
