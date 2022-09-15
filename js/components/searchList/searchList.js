@@ -1,6 +1,7 @@
 import { API_URL } from "../../common/constants";
 import SearchListItem from "./searchListItem";
 import { ascending, descending } from "../../common/sort";
+import ProductCard from "../productCard/productCard.js";
 
 class SearchList {
     constructor() {
@@ -35,6 +36,7 @@ class SearchList {
 
         paintProducts(products);
 
+        // TODO: ul => li
         function paintProducts(products) {
             let result = products.forEach((item) => {
                 const ul = document.createElement("ul");
@@ -49,11 +51,11 @@ class SearchList {
         const buttonLowPrice = document.querySelector(".sort.low-price");
         const buttonHighPrice = document.querySelector(".sort.high-price");
         const buttonCreated = document.querySelector(".sort.created");
-        const productGroup = document.querySelector(".style-wrapper-search");
+        const buttonView = document.querySelectorAll(".search-view");
 
         function removeProducts() {
-            while (productGroup.firstChild) {
-                productGroup.removeChild(productGroup.firstChild);
+            while (wrapper.firstChild) {
+                wrapper.removeChild(wrapper.firstChild);
             }
         }
 
@@ -71,6 +73,32 @@ class SearchList {
         // buttonCreated.addEventListener("click", () => {
 
         // });
+
+        for (let i = 0; i < buttonView.length; i++) {
+            buttonView[i].addEventListener("click", () => {
+                if (i === 0) {
+                    removeProducts();
+                    paintProducts(products);
+                } else {
+                    removeProducts();
+                    setGrid(products);
+                }
+            });
+        }
+
+        // 그리드 정렬
+        const listProducts = document.createElement("ul");
+        listProducts.setAttribute("class", "list-products");
+        function setGrid() {
+            let result = products.forEach((item) => {
+                const li = document.createElement("li");
+                const productCard = new ProductCard(item);
+                li.appendChild(productCard.render());
+                listProducts.appendChild(li);
+                wrapper.appendChild(listProducts);
+            });
+            return result;
+        }
     }
 
     render() {
