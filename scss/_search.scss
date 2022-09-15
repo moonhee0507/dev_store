@@ -110,17 +110,24 @@
         font-size: 0;
         vertical-align: top;
 
-        a {
+        .search-view.list,
+        .search-view.grid {
+            border: 1px solid #303134;
             display: inline-block;
-            color: $soft-white;
-            text-decoration: none;
             width: 30px;
             height: 30px;
+            padding: 0;
+            margin: 0;
+            outline: none;
+            background-color: inherit;
             cursor: pointer;
         }
 
-        .search-view {
-            border: 1px solid #303134;
+        .search-view.list.on,
+        .search-view.list:focus,
+        .search-view.grid.on,
+        .search-view.grid:focus {
+            background-color: $point-purple;
         }
 
         .search-view.list:after {
@@ -133,6 +140,7 @@
             top: 5px;
             left: 5px;
         }
+
         .search-view.grid:after {
             position: absolute;
             content: "";

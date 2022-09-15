@@ -2690,17 +2690,24 @@ input[type="checkbox"]:focus {
   vertical-align: top;
 }
 
-.style-wrapper-filter .search-view-method a {
+.style-wrapper-filter .search-view-method .search-view.list,
+.style-wrapper-filter .search-view-method .search-view.grid {
+  border: 1px solid #303134;
   display: inline-block;
-  color: #e9e9e9;
-  text-decoration: none;
   width: 30px;
   height: 30px;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  background-color: inherit;
   cursor: pointer;
 }
 
-.style-wrapper-filter .search-view-method .search-view {
-  border: 1px solid #303134;
+.style-wrapper-filter .search-view-method .search-view.list.on,
+.style-wrapper-filter .search-view-method .search-view.list:focus,
+.style-wrapper-filter .search-view-method .search-view.grid.on,
+.style-wrapper-filter .search-view-method .search-view.grid:focus {
+  background-color: #a158fe;
 }
 
 .style-wrapper-filter .search-view-method .search-view.list:after {
