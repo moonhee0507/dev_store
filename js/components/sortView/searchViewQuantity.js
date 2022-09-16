@@ -22,6 +22,18 @@ class SearchViewQuantity {
             ul.appendChild(li);
         }
 
+        this.div.appendChild(a);
+        a.appendChild(ul);
+
+        this.div.addEventListener("click", dropdown);
+        function dropdown() {
+            if (ul.classList.contains("show")) {
+                ul.classList.remove("show");
+            } else {
+                ul.classList.add("show");
+            }
+        }
+
         return this.div;
     }
 }
