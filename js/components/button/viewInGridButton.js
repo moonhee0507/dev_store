@@ -1,17 +1,33 @@
 class ViewInGridButton {
     constructor() {
-        this.a = document.createElement("a");
+        this.button = document.createElement("button");
     }
 
     render() {
-        this.a.setAttribute("class", "search-view grid");
-        const span = document.createElement("span");
-        span.setAttribute("class", "sr-only");
-        span.innerText = "그리드 방식";
+        this.button.setAttribute("class", "search-view grid");
+        this.button.setAttribute("type", "button");
+        this.button.setAttribute("title", "그리드 방식");
 
-        this.a.appendChild(span);
+        this.button.addEventListener("click", (e) => {
+            initialize();
+            let target = e.target;
+            colorize(target);
+        });
 
-        return this.a;
+        function colorize(target) {
+            target.classList.add("on");
+            target.disabled = true;
+        }
+
+        function initialize() {
+            const button = document.querySelectorAll(".search-view");
+            for (let i = 0; i < button.length; i++) {
+                button[i].classList.remove("on");
+                button[i].disabled = false;
+            }
+        }
+
+        return this.button;
     }
 }
 

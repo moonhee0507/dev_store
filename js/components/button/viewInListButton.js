@@ -1,17 +1,39 @@
 class ViewInListButton {
     constructor() {
-        this.a = document.createElement("a");
+        this.button = document.createElement("button");
     }
 
     render() {
-        this.a.setAttribute("class", "search-view list");
-        const span = document.createElement("span");
-        span.setAttribute("class", "sr-only");
-        span.innerText = "리스트 방식";
+        this.button.setAttribute("class", "search-view list");
+        this.button.setAttribute("type", "button");
+        this.button.setAttribute("title", "리스트 방식");
+        this.button.autofocus = true;
 
-        this.a.appendChild(span);
+        this.button.addEventListener("click", (e) => {
+            initialize();
+            let target = e.target;
+            colorize(target);
+        });
 
-        return this.a;
+        const button = this.button;
+        if (button.autofocus === true) {
+            colorize(button);
+        }
+
+        function colorize(target) {
+            target.classList.add("on");
+            target.disabled = true;
+        }
+
+        function initialize() {
+            const button = document.querySelectorAll(".search-view");
+            for (let i = 0; i < button.length; i++) {
+                button[i].classList.remove("on");
+                button[i].disabled = false;
+            }
+        }
+
+        return this.button;
     }
 }
 
