@@ -7,7 +7,7 @@ class SortView {
     }
 
     render() {
-        this.div.setAttribute("class", "search-view");
+        this.div.setAttribute("class", "sort-view");
 
         const searchViewQuantity = new SearchViewQuantity();
         const searchViewMethod = new SearchViewMethod();
