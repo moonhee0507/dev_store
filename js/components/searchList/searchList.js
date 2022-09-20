@@ -5,7 +5,7 @@ import ProductCard from "../productCard/productCard.js";
 
 class SearchList {
     constructor() {
-        this.wrapper = document.createElement("div");
+        this.wrapper = document.createElement("ul");
         this.results = {};
     }
 
@@ -36,14 +36,13 @@ class SearchList {
 
         paintProducts(products);
 
-        // TODO: ul => li
         function paintProducts(products) {
             let result = products.forEach((item) => {
-                const ul = document.createElement("ul");
-                ul.setAttribute("class", "list-search-items");
+                const li = document.createElement("li");
+                li.setAttribute("class", "list-search-items");
                 const searchListItem = new SearchListItem(item);
-                ul.appendChild(searchListItem.render());
-                wrapper.appendChild(ul);
+                li.appendChild(searchListItem.render());
+                wrapper.appendChild(li);
             });
             return result;
         }

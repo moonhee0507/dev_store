@@ -164,7 +164,7 @@
         padding: 20px;
     }
 
-    .list-search-items > li {
+    .list-search-items > div {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -295,6 +295,6 @@
     }
 }
 
-.style-wrapper-search > ul:not(:last-child) {
+.style-wrapper-search > li:not(:last-child) {
     margin-bottom: 15px;
 }

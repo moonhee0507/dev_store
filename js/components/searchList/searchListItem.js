@@ -5,7 +5,7 @@ import SearchInfoSub from "../searchInfoSub/searchInfoSub.js";
 class SearchListItem {
     constructor(item) {
         this.item = item;
-        this.li = document.createElement("li");
+        this.div = document.createElement("div");
     }
 
     render() {
@@ -13,11 +13,11 @@ class SearchListItem {
         const searchInfoMain = new SearchInfoMain(this.item);
         const searchInfoSub = new SearchInfoSub(this.item);
 
-        this.li.appendChild(productImage.render());
-        this.li.appendChild(searchInfoMain.render());
-        this.li.appendChild(searchInfoSub.render());
+        this.div.appendChild(productImage.render());
+        this.div.appendChild(searchInfoMain.render());
+        this.div.appendChild(searchInfoSub.render());
 
-        return this.li;
+        return this.div;
     }
 }
 
