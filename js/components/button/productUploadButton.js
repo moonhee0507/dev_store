@@ -12,6 +12,11 @@ class ProductUploadButton {
         linkUpload.innerText = "상품 업로드";
 
         this.container.appendChild(linkUpload);
+
+        linkUpload.addEventListener("click", () => {
+            window.localStorage.removeItem("edit");
+        });
+
         return this.container;
     }
 }
