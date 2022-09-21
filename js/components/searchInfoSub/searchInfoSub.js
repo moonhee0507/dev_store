@@ -11,11 +11,11 @@ class SearchInfoSub {
         this.ul.setAttribute("class", "search-seller-info");
 
         const productSeller = new ProductSeller(
-            this.item.seller_store,
+            this.item.store_name,
             this.item.seller
         );
         const sellerItemQuantity = new SellerItemQuantity(
-            this.item.seller_store,
+            this.item.store_name,
             this.item.seller
         ); // Int
         const productShipping = new ProductShipping(

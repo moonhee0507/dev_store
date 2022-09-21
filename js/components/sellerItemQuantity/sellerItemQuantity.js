@@ -18,7 +18,7 @@ class SellerItemQuantity {
         const data = await res.json();
 
         this.products = await data.results.filter((el) => {
-            return el.seller_store === this.store;
+            return el.store_name === this.store;
         });
     }
 

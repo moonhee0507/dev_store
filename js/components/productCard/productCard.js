@@ -21,7 +21,7 @@ class ProductItem {
         );
         const styleWrapperSNP = document.createElement("div");
         styleWrapperSNP.setAttribute("class", "style-wrapper-SNP");
-        const productSeller = new ProductSeller(this.item.seller_store);
+        const productSeller = new ProductSeller(this.item.store_name);
         const productName = new ProductName(this.item.product_name);
         const productPrice = new ProductPrice(this.item.price);
 

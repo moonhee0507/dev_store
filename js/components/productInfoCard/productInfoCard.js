@@ -25,7 +25,7 @@ class ProductInfoCard {
                 this.info.product_id
             );
 
-            const productSeller = new ProductSeller(this.info.seller_store);
+            const productSeller = new ProductSeller(this.info.store_name);
             const productName = new ProductName(this.info.product_name);
             const productPrice = new ProductPrice(this.info.price);
             const productShipping = new ProductShipping(
@@ -78,7 +78,7 @@ class ProductInfoCard {
                 this.info.image,
                 this.info.product_id
             );
-            const productSeller = new ProductSeller(this.info.seller_store);
+            const productSeller = new ProductSeller(this.info.store_name);
             const productName = new ProductName(this.info.product_name);
             const productPrice = new ProductPrice(this.info.price);
             const productShipping = new ProductShipping(

@@ -28,7 +28,7 @@ class ProductEditButton {
 
             const data = await res.json();
             delete data.seller;
-            delete data.seller_store;
+            delete data.store_name;
             window.localStorage.setItem("edit", JSON.stringify(data));
         }
 

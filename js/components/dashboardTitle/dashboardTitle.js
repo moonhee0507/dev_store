@@ -16,7 +16,7 @@ class DashboardTitle {
             },
         });
         const data = await res.json();
-        this.store = await data.results[0].seller_store;
+        this.store = await data.results[0].store_name;
     }
 
     async setSellerName() {

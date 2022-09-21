@@ -27,7 +27,7 @@ class StoreIntroduction {
                     const firstElement = data.results.find((el) => {
                         return el.seller === sellerNumber;
                     });
-                    h2.innerText = firstElement.seller_store;
+                    h2.innerText = firstElement.store_name;
                 })
                 .catch((e) => console.error(e));
         }
