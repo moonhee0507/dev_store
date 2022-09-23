@@ -10,6 +10,7 @@ class ProductImage {
         const url = window.location.pathname;
         productImg.setAttribute("class", "img-product");
         productImg.setAttribute("alt", "상품이미지");
+        productImg.setAttribute("loading", "lazy");
 
         if (url === "/" || url.includes("/store")) {
             this.wrapper.setAttribute("class", "style-wrapper-img card");
