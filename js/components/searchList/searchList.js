@@ -5,7 +5,7 @@ import ProductCard from "../productCard/productCard.js";
 
 class SearchList {
     constructor() {
-        this.wrapper = document.createElement("ul");
+        this.wrapper = document.createElement("div");
         this.results = {};
     }
 
@@ -33,17 +33,20 @@ class SearchList {
         this.wrapper.setAttribute("class", "style-wrapper-search");
         let products = this.results;
         let wrapper = this.wrapper;
+        const ul = document.createElement("ul");
 
         paintProducts(products);
 
         function paintProducts(products) {
+            ul.classList.remove("list-products");
             let result = products.forEach((item) => {
                 const li = document.createElement("li");
                 li.setAttribute("class", "list-search-items");
                 const searchListItem = new SearchListItem(item);
                 li.appendChild(searchListItem.render());
-                wrapper.appendChild(li);
+                ul.appendChild(li);
             });
+            wrapper.appendChild(ul);
             return result;
         }
 
@@ -53,8 +56,8 @@ class SearchList {
         const buttonView = document.querySelectorAll(".search-view");
 
         function removeProducts() {
-            while (wrapper.firstChild) {
-                wrapper.removeChild(wrapper.firstChild);
+            while (ul.firstChild) {
+                ul.removeChild(ul.firstChild);
             }
         }
 
@@ -86,16 +89,15 @@ class SearchList {
         }
 
         // 그리드 정렬
-        const listProducts = document.createElement("ul");
-        listProducts.setAttribute("class", "list-products");
         function setGrid() {
+            ul.classList.add("list-products");
             let result = products.forEach((item) => {
                 const li = document.createElement("li");
                 const productCard = new ProductCard(item);
                 li.appendChild(productCard.render());
-                listProducts.appendChild(li);
-                wrapper.appendChild(listProducts);
+                ul.appendChild(li);
             });
+            wrapper.appendChild(ul);
             return result;
         }
     }

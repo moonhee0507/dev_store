@@ -2879,7 +2879,7 @@ input[type="checkbox"]:focus {
   text-decoration: underline;
 }
 
-.style-wrapper-search > li:not(:last-child) {
+.style-wrapper-search > ul > li:not(:last-child) {
   margin-bottom: 15px;
 }
 
