@@ -13,19 +13,20 @@ idInput.focus();
 let loginType = "BUYER";
 localStorage.setItem("loginType", loginType);
 
-buyerButton.addEventListener("click", () => {
-    loginType = buyerButton.value;
-    buyerButton.style.backgroundColor = "inherit";
-    sellerButton.style.backgroundColor = "#F2F2F2";
-    return loginType;
-});
-sellerButton.addEventListener("click", () => {
-    loginType = sellerButton.value;
-    sellerButton.style.backgroundColor = "inherit";
-    buyerButton.style.backgroundColor = "#F2F2F2";
-    localStorage.setItem("loginType", loginType);
-    return loginType;
-});
+let buttonLoginType = [buyerButton, sellerButton];
+for (let i = 0; i < buttonLoginType.length; i++) {
+    buttonLoginType[i].addEventListener("click", () => {
+        initializeStyle();
+        buttonLoginType[i].style.backgroundColor = "inherit";
+        loginType = buttonLoginType[i].value;
+        localStorage.setItem("loginType", loginType);
+    });
+}
+function initializeStyle() {
+    for (let i = 0; i < buttonLoginType.length; i++) {
+        buttonLoginType[i].style.backgroundColor = "#F2F2F2";
+    }
+}
 
 // 로그인 버튼 활성화 함수
 function isDisabledButton() {
