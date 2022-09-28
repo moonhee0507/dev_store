@@ -298,3 +298,7 @@
 .style-wrapper-search > ul > li:not(:last-child) {
     margin-bottom: 15px;
 }
+
+.style-wrapper-search > ul > .list-grid:not(:last-child) {
+    margin-bottom: 0;
+}

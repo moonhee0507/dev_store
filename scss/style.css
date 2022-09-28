@@ -2883,6 +2883,10 @@ input[type="checkbox"]:focus {
   margin-bottom: 15px;
 }
 
+.style-wrapper-search > ul > .list-grid:not(:last-child) {
+  margin-bottom: 0;
+}
+
 .style-wrapper-store-introduction {
   position: relative;
   -webkit-box-flex: 1;
