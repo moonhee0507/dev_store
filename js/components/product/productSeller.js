@@ -9,11 +9,15 @@ class ProductSeller {
     render() {
         const url = window.location.pathname;
         if (url === "/" || url.includes("/store")) {
+            const div = document.createElement("div");
+            div.setAttribute("class", "style-container-seller-button");
             const productSeller = document.createElement("p");
+            const sellerInfoButton = new SellerInfoButton(this.seller);
             productSeller.setAttribute("class", "txt-seller");
             productSeller.innerText = this.store;
+            div.append(productSeller, sellerInfoButton.render());
 
-            return productSeller;
+            return div;
         } else if (url.includes("/products/")) {
             const li = document.createElement("li");
             const productSeller = document.createElement("p");
@@ -64,12 +68,20 @@ class ProductSeller {
             return li;
         } else if (url.includes("/search")) {
             const div = document.createElement("div");
+            div.setAttribute("class", "style-container-seller-button");
             const p = document.createElement("p");
-            p.setAttribute("class", "search-txt-seller");
             p.innerText = this.store;
 
             const sellerInfoButton = new SellerInfoButton(this.seller);
             div.append(p, sellerInfoButton.render());
+
+            let isGrid = window.localStorage.getItem("grid") ? true : false;
+            if (isGrid) {
+                p.setAttribute("class", "txt-seller");
+            } else {
+                p.setAttribute("class", "search-txt-seller");
+            }
+
             return div;
         }
     }

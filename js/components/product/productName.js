@@ -67,15 +67,21 @@ class ProductName {
 
             return li;
         } else if (url.includes("/search")) {
-            const a = document.createElement("a");
-            a.setAttribute("href", `/products/${this.id}`);
-            a.setAttribute("class", "link-search-name");
+            let isGrid = window.localStorage.getItem("grid") ? true : false;
             const strong = document.createElement("strong");
-            strong.setAttribute("class", "search-txt-product-name");
             strong.innerText = this.name;
 
-            a.appendChild(strong);
-            return a;
+            if (isGrid) {
+                strong.setAttribute("class", "txt-product-name");
+                return strong;
+            } else {
+                const a = document.createElement("a");
+                a.setAttribute("href", `/products/${this.id}`);
+                a.setAttribute("class", "link-search-name");
+                strong.setAttribute("class", "search-txt-product-name");
+                a.appendChild(strong);
+                return a;
+            }
         }
     }
 }

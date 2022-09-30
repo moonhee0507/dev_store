@@ -5,6 +5,7 @@ class ProductShippingMethod {
     }
 
     render() {
+        const url = window.location.pathname;
         const li = document.createElement("li");
         const txtMethod = document.createElement("span");
         const txtFee = document.createElement("span");
@@ -14,8 +15,18 @@ class ProductShippingMethod {
         const paymentNumShipping = document.createElement("span");
         paymentNumShipping.setAttribute("class", "payment-num-shipping");
 
-        // 상품 상세페이지
-        if (window.location.pathname.includes("/products/")) {
+        if (url === "/" || url.includes("/store/")) {
+            const p = document.createElement("p");
+            p.setAttribute("class", "card-container-shipping-method");
+            const span = document.createElement("span");
+            span.setAttribute("class", "card-container-shipping-fee");
+            span.innerText = this.shippingFee
+                ? this.shippingFee.toLocaleString("ko-FR") + "원"
+                : "무료";
+            p.append("배송비 ", span);
+
+            return p;
+        } else if (url.includes("/products/")) {
             txtMethod.setAttribute("class", "detail-shipping-method");
             txtFee.setAttribute("class", "detail-shipping-fee");
 
@@ -37,7 +48,7 @@ class ProductShippingMethod {
             return li;
 
             // 장바구니 페이지
-        } else if (window.location.pathname === "/cart") {
+        } else if (url === "/cart") {
             txtMethod.setAttribute("class", "cart-shipping-method");
             txtFee.setAttribute("class", "cart-shipping-fee");
 
@@ -60,7 +71,7 @@ class ProductShippingMethod {
 
             // 상품 상세(path1)에서 유입
         } else if (
-            window.location.pathname === "/payment" &&
+            url === "/payment" &&
             window.localStorage.getItem("path") === "1"
         ) {
             paymentNumShipping.innerText = JSON.parse(
@@ -71,7 +82,7 @@ class ProductShippingMethod {
 
             return paymentTxtShipping;
         } else if (
-            window.location.pathname === "/payment" &&
+            url === "/payment" &&
             window.localStorage.getItem("path") === "2"
         ) {
             paymentNumShipping.innerText =
@@ -80,7 +91,7 @@ class ProductShippingMethod {
 
             return paymentTxtShipping;
         } else if (
-            window.location.pathname === "/payment" &&
+            url === "/payment" &&
             window.localStorage.getItem("path") === "3"
         ) {
             paymentNumShipping.innerText =
@@ -92,18 +103,22 @@ class ProductShippingMethod {
             paymentTxtShipping.appendChild(paymentNumShipping);
 
             return paymentTxtShipping;
-        } else if (window.location.pathname.includes("/search")) {
+        } else if (url.includes("/search")) {
             const p = document.createElement("p");
-            p.setAttribute("class", "search-shipping");
-
             const span = document.createElement("span");
-            span.setAttribute("class", "search-shipping-fee");
-
             span.innerText = this.shippingFee
                 ? this.shippingFee.toLocaleString("ko-FR") + "원"
                 : "무료";
-
             p.append("배송비 ", span);
+
+            let isGrid = window.localStorage.getItem("grid") ? true : false;
+            if (isGrid) {
+                p.setAttribute("class", "card-container-shipping-method");
+                span.setAttribute("class", "card-container-shipping-fee");
+            } else {
+                p.setAttribute("class", "search-shipping");
+                span.setAttribute("class", "search-shipping-fee");
+            }
 
             return p;
         }

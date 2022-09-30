@@ -8,6 +8,7 @@ class ProductPrice {
 
         if (url === "/" || url.includes("/store")) {
             const productPriceContainer = document.createElement("div");
+            productPriceContainer.setAttribute("class", "card-container-price");
 
             const productPrice = document.createElement("strong");
             productPrice.innerText = this.price.toLocaleString("ko-KR");
@@ -56,15 +57,23 @@ class ProductPrice {
             return li;
         } else if (url.includes("/search")) {
             const div = document.createElement("div");
-            div.setAttribute("class", "search-product-price");
             const strong = document.createElement("strong");
-            strong.setAttribute("class", "search-number-price");
             strong.innerText = this.price.toLocaleString("ko-KR");
             const span = document.createElement("span");
-            span.setAttribute("class", "search-txt-unit");
             span.innerText = "원";
 
             div.append(strong, span);
+
+            let isGrid = window.localStorage.getItem("grid") ? true : false;
+            if (isGrid) {
+                div.setAttribute("class", "card-container-price");
+                strong.setAttribute("class", "txt-price-number");
+                span.setAttribute("class", "txt-price-unit");
+            } else {
+                div.setAttribute("class", "search-product-price");
+                strong.setAttribute("class", "search-number-price");
+                span.setAttribute("class", "search-txt-unit");
+            }
 
             return div;
         }

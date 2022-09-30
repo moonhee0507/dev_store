@@ -52,7 +52,12 @@ class ProductImage {
                 JSON.parse(window.localStorage.getItem("fromCartOne"))[0].src
             );
         } else if (url.includes("/search")) {
-            this.wrapper.setAttribute("class", "style-wrapper-img small");
+            let isGrid = window.localStorage.getItem("grid") ? true : false;
+            if (isGrid) {
+                this.wrapper.setAttribute("class", "style-wrapper-img card");
+            } else {
+                this.wrapper.setAttribute("class", "style-wrapper-img small");
+            }
             productImg.setAttribute("src", this.src);
         }
 
