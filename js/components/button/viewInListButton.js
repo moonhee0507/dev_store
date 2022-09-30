@@ -13,6 +13,7 @@ class ViewInListButton {
             initialize();
             let target = e.target;
             colorize(target);
+            window.localStorage.removeItem("grid");
         });
 
         const button = this.button;

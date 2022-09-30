@@ -258,21 +258,6 @@
             }
         }
 
-        .button-seller-info {
-            width: 50px;
-            border: 1px solid #3c4043;
-            border-radius: 5px;
-            background-color: #171717;
-            padding: 5px 0;
-            margin: 0 0 0 10px;
-            font-size: 13px;
-            color: white;
-            cursor: pointer;
-        }
-        .button-seller-info:focus {
-            outline: none;
-        }
-
         .link-all-products {
             position: relative;
             text-decoration: none;
@@ -301,4 +286,19 @@
 
 .style-wrapper-search > ul > .list-grid:not(:last-child) {
     margin-bottom: 0;
+}
+
+.button-seller-info {
+    width: 50px;
+    border: 1px solid #3c4043;
+    border-radius: 5px;
+    background-color: #171717;
+    padding: 5px 0;
+    margin: 0 0 0 10px;
+    font-size: 13px;
+    color: white;
+    cursor: pointer;
+}
+.button-seller-info:focus {
+    outline: none;
 }
