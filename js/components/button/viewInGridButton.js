@@ -4,6 +4,7 @@ class ViewInGridButton {
     }
 
     render() {
+        window.localStorage.removeItem("grid");
         this.button.setAttribute("class", "search-view grid");
         this.button.setAttribute("type", "button");
         this.button.setAttribute("title", "그리드 방식");
@@ -12,6 +13,7 @@ class ViewInGridButton {
             initialize();
             let target = e.target;
             colorize(target);
+            window.localStorage.setItem("grid", true);
         });
 
         function colorize(target) {
