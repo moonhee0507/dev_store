@@ -2861,7 +2861,6 @@ input[type="checkbox"]:focus {
 }
 
 .style-wrapper-search .search-seller-info .search-txt-seller {
-  position: relative;
   display: inline-block;
   font-size: 18px;
   color: #a158fe;
