@@ -13,3 +13,11 @@ export let descending = function (products) {
 
     return products;
 };
+
+export let newItemOrder = function (products) {
+    products.sort(function (a, b) {
+        return a.created_at - b.created_at;
+    });
+
+    return products;
+};

@@ -1,6 +1,6 @@
 import { API_URL } from "../../common/constants";
+import { ascending, descending, newItemOrder } from "../../common/sort";
 import SearchListItem from "./searchListItem";
-import { ascending, descending } from "../../common/sort";
 import ProductCard from "../productCard/productCard.js";
 
 class SearchList {
@@ -71,10 +71,11 @@ class SearchList {
             let arrProducts = descending(products);
             paintProducts(arrProducts);
         });
-        // TODO: 등록일순 함수 추가
-        // buttonCreated.addEventListener("click", () => {
-
-        // });
+        buttonCreated.addEventListener("click", () => {
+            removeProducts();
+            let arrProducts = newItemOrder(products);
+            paintProducts(arrProducts);
+        });
 
         for (let i = 0; i < buttonView.length; i++) {
             buttonView[i].addEventListener("click", () => {
