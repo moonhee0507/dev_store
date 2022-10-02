@@ -11,6 +11,9 @@ class ProductImage {
         productImg.setAttribute("class", "img-product");
         productImg.setAttribute("alt", "상품이미지");
         productImg.setAttribute("loading", "lazy");
+        this.wrapper.addEventListener("click", () => {
+            window.location.href = `/products/${this.id}`;
+        });
 
         if (url === "/" || url.includes("/store")) {
             this.wrapper.setAttribute("class", "style-wrapper-img card");
@@ -20,9 +23,6 @@ class ProductImage {
             productImg.setAttribute("src", `${this.src}`);
         } else if (url === "/cart") {
             this.wrapper.setAttribute("class", "style-wrapper-img small");
-            this.wrapper.addEventListener("click", () => {
-                window.location.href = `/products/${this.id}`;
-            });
             productImg.setAttribute("src", `${this.src}`);
         } else if (
             url === "/payment" &&
@@ -33,9 +33,6 @@ class ProductImage {
                 "src",
                 JSON.parse(window.localStorage.getItem("fromDetail")).src
             );
-            this.wrapper.addEventListener("click", () => {
-                window.location.href = `/products/${this.id}`;
-            });
         } else if (
             url === "/payment" &&
             window.localStorage.getItem("path") === "2"
