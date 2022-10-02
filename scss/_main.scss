@@ -102,6 +102,7 @@
     li {
         background-color: #303134;
         border-radius: 10px;
+        overflow: hidden;
     }
 
     li:hover {
@@ -110,9 +111,9 @@
         -webkit-transition: all 0.2s ease-out;
         -o-transition: all 0.2s ease-out;
         transition: all 0.2s ease-out;
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
+        -webkit-transform: translate(0, -5px);
+        -ms-transform: translate(0, -5px);
+        transform: translate(0, -5px);
     }
 }
 
@@ -120,6 +121,51 @@
 .link-product {
     text-decoration: none;
     color: white;
+    cursor: pointer;
+
+    position: relative;
+    -webkit-box-shadow: 6px 7px 40px -4px rgba(0, 0, 0, 0.2);
+    box-shadow: 6px 7px 40px -4px rgba(0, 0, 0, 0.2);
+}
+
+.link-product > span {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    -webkit-animation: glow-out 1.2s;
+    animation: glow-out 1.2s;
+    opacity: 0;
+}
+
+@-webkit-keyframes glow-out {
+    from {
+        opacity: 1;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: scale(20);
+        transform: scale(20);
+    }
+}
+
+@keyframes glow-out {
+    from {
+        opacity: 1;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: scale(20);
+        transform: scale(20);
+    }
 }
 
 // 상품 이미지

@@ -15,7 +15,6 @@ class ProductCard {
     render() {
         const product = document.createElement("a");
         product.setAttribute("class", "link-product");
-        product.setAttribute("href", `/products/${this.item.product_id}`);
         const productImage = new ProductImage(
             this.item.image,
             this.item.product_id
@@ -65,6 +64,24 @@ class ProductCard {
             productName.render(),
             containerDateShippingPrice
         );
+
+        product.addEventListener("click", (e) => {
+            let circle = document.createElement("span");
+            product.appendChild(circle);
+
+            // let x = e.clientX - e.target.offsetLeft;
+            let x = e.layerX;
+            // let y = e.clientY - e.target.offsetTop;
+            let y = e.layerY;
+
+            circle.style.left = `${x}px`;
+            circle.style.top = `${y}px`;
+
+            setTimeout(() => {
+                circle.remove();
+                window.location.href = `/products/${this.item.product_id}`;
+            }, 500);
+        });
 
         return product;
     }
