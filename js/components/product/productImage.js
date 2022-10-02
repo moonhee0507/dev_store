@@ -11,9 +11,6 @@ class ProductImage {
         productImg.setAttribute("class", "img-product");
         productImg.setAttribute("alt", "상품이미지");
         productImg.setAttribute("loading", "lazy");
-        this.wrapper.addEventListener("click", () => {
-            window.location.href = `/products/${this.id}`;
-        });
 
         if (url === "/" || url.includes("/store")) {
             this.wrapper.setAttribute("class", "style-wrapper-img card");
@@ -24,6 +21,9 @@ class ProductImage {
         } else if (url === "/cart") {
             this.wrapper.setAttribute("class", "style-wrapper-img small");
             productImg.setAttribute("src", `${this.src}`);
+            this.wrapper.addEventListener("click", () => {
+                window.location.href = `/products/${this.id}`;
+            });
         } else if (
             url === "/payment" &&
             window.localStorage.getItem("path") === "1"
@@ -49,6 +49,9 @@ class ProductImage {
                 JSON.parse(window.localStorage.getItem("fromCartOne"))[0].src
             );
         } else if (url.includes("/search")) {
+            this.wrapper.addEventListener("click", () => {
+                window.location.href = `/products/${this.id}`;
+            });
             let isGrid = window.localStorage.getItem("grid") ? true : false;
             if (isGrid) {
                 this.wrapper.setAttribute("class", "style-wrapper-img card");
