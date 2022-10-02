@@ -214,3 +214,40 @@
 .search-date {
     margin-left: 5px;
 }
+
+// 상품수, 전체상품보기
+.container-product-quantity-link {
+    display: inline-block;
+    color: #bdc1c6;
+}
+.search-txt-quantity {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 13px;
+
+    .search-number-quantity {
+        padding-left: 5px;
+    }
+}
+
+.link-all-products {
+    position: relative;
+    text-decoration: none;
+    color: $soft-white;
+    margin-left: 10px;
+    font-size: 13px;
+    color: #bdc1c6;
+}
+
+.link-all-products::before {
+    content: "|";
+    position: absolute;
+    top: 2px;
+    left: -9px;
+    color: #bdc1c6;
+    font-size: 13px;
+}
+
+.link-all-products:hover {
+    text-decoration: underline;
+}

@@ -16,14 +16,16 @@ class ProductCard {
         const product = document.createElement("a");
         product.setAttribute("class", "link-product");
         product.setAttribute("href", `/products/${this.item.product_id}`);
-
         const productImage = new ProductImage(
             this.item.image,
             this.item.product_id
         );
         const styleWrapperSNP = document.createElement("div");
         styleWrapperSNP.setAttribute("class", "style-wrapper-SNP");
-        const productSeller = new ProductSeller(this.item.store_name);
+        const productSeller = new ProductSeller(
+            this.item.store_name,
+            this.item.seller
+        );
         const productName = new ProductName(this.item.product_name);
 
         const containerDateShippingPrice = document.createElement("div");

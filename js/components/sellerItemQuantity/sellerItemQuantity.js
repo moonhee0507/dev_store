@@ -25,6 +25,7 @@ class SellerItemQuantity {
     async setProductData() {
         await this.getProductData();
 
+        this.div.setAttribute("class", "container-product-quantity-link");
         const p = document.createElement("p");
         p.setAttribute("class", "search-txt-quantity");
         const span = document.createElement("span");
@@ -37,7 +38,6 @@ class SellerItemQuantity {
         a.setAttribute("href", `/store/${this.seller}`);
         a.setAttribute("class", "link-all-products");
         a.innerText = "전체상품 보기";
-
         this.div.append(p, a);
     }
 

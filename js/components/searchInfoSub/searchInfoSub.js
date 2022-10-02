@@ -1,5 +1,4 @@
 import { ProductSeller, ProductShipping } from "../product/index.js";
-import SellerItemQuantity from "../sellerItemQuantity/sellerItemQuantity.js";
 
 class SearchInfoSub {
     constructor(item) {
@@ -14,16 +13,13 @@ class SearchInfoSub {
             this.item.store_name,
             this.item.seller
         );
-        const sellerItemQuantity = new SellerItemQuantity(
-            this.item.store_name,
-            this.item.seller
-        ); // Int
+
         const productShipping = new ProductShipping(
             this.item.shipping_method,
             this.item.shipping_fee
         );
 
-        let arrInfo = [productSeller, sellerItemQuantity, productShipping];
+        let arrInfo = [productSeller, productShipping];
 
         for (let i = 0; i < arrInfo.length; i++) {
             const li = document.createElement("li");
