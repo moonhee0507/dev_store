@@ -52,13 +52,13 @@ class ProductImage {
             this.wrapper.addEventListener("click", () => {
                 window.location.href = `/products/${this.id}`;
             });
+            productImg.setAttribute("src", this.src);
             let isGrid = window.localStorage.getItem("grid") ? true : false;
             if (isGrid) {
                 this.wrapper.setAttribute("class", "style-wrapper-img card");
             } else {
                 this.wrapper.setAttribute("class", "style-wrapper-img small");
             }
-            productImg.setAttribute("src", this.src);
         }
 
         this.wrapper.appendChild(productImg);

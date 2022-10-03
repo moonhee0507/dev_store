@@ -9,7 +9,10 @@ class SearchListItem {
     }
 
     render() {
-        const productImage = new ProductImage(this.item.image);
+        const productImage = new ProductImage(
+            this.item.image,
+            this.item.product_id
+        );
         const searchInfoMain = new SearchInfoMain(this.item);
         const searchInfoSub = new SearchInfoSub(this.item);
 
