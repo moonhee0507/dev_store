@@ -5,6 +5,7 @@ export { default as ProductEditButton } from "./productEditButton.js";
 export { default as ProductDeleteButton } from "./productDeleteButton.js";
 export { default as UploadCancelButton } from "./uploadCancelButton.js";
 export { default as UploadSaveButton } from "./uploadSaveButton.js";
+export { default as InputClearButton } from "./inputClearButton.js";
 export { default as SearchButton } from "./searchButton.js";
 export { default as ViewInListButton } from "./viewInListButton.js";
 export { default as ViewInGridButton } from "./viewInGridButton.js";
