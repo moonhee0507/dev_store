@@ -561,8 +561,6 @@ input[type="checkbox"]:focus {
   color: white;
   cursor: pointer;
   position: relative;
-  -webkit-box-shadow: 6px 7px 40px -4px rgba(0, 0, 0, 0.2);
-  box-shadow: 6px 7px 40px -4px rgba(0, 0, 0, 0.2);
 }
 
 .link-product > span {
@@ -779,28 +777,31 @@ input[type="checkbox"]:focus {
   color: #e8eaed;
 }
 
-.style-search #searchProducts::-webkit-input-placeholder {
-  font-family: NotoSansKR;
-  font-size: 16px;
-  line-height: 27px;
+.style-search .button-clear {
+  width: 12px;
+  height: 44px;
+  vertical-align: bottom;
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  background-color: #303134;
+  color: white;
 }
 
-.style-search #searchProducts:-ms-input-placeholder {
-  font-family: NotoSansKR;
-  font-size: 16px;
-  line-height: 27px;
+.style-search .button-clear .img-clear {
+  width: 10px;
+  border: none;
+  border-radius: 50%;
+  vertical-align: baseline;
 }
 
-.style-search #searchProducts::-ms-input-placeholder {
-  font-family: NotoSansKR;
-  font-size: 16px;
-  line-height: 27px;
+.style-search .button-clear:focus {
+  outline: none;
 }
 
-.style-search #searchProducts::placeholder {
-  font-family: NotoSansKR;
-  font-size: 16px;
-  line-height: 27px;
+.style-search .button-clear:focus .img-clear {
+  outline: 1px solid white;
 }
 
 .style-search .button-search {
@@ -824,17 +825,6 @@ input[type="checkbox"]:focus {
   outline: 1px solid white;
 }
 
-#searchProducts:hover,
-#searchProducts:hover ~ .button-search,
-#searchProducts:focus,
-#searchProducts:focus ~ .button-search {
-  background-color: #191919;
-}
-
-#searchProducts:focus-visible {
-  outline: none;
-}
-
 #searchProducts::-ms-clear,
 #searchProducts::-ms-reveal {
   display: none;
@@ -851,7 +841,7 @@ input[type="checkbox"]:focus {
 
 .autocomplete {
   position: absolute;
-  width: 354px;
+  width: 366px;
   background-color: #303134;
   z-index: 9999;
 }
@@ -875,6 +865,10 @@ input[type="checkbox"]:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.autocomplete .list-match li .style-keyword {
+  color: #29eda1;
 }
 
 .autocomplete.show {
