@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants";
+import getProducts from "../../common/api.js";
 import { ProductCard } from "../productCard/index.js";
 
 class ProductList {
@@ -9,13 +9,7 @@ class ProductList {
 
     // 전체 상품 정보 가져오기
     async getProductsData() {
-        const res = await fetch(`${API_URL}/products/`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        const data = await res.json();
+        const data = await getProducts(1);
 
         if (window.location.pathname === "/") {
             this.products = await data.results;
