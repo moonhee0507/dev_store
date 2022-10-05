@@ -62,6 +62,29 @@ img {
     margin: 0 auto;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    padding-top: 91px;
+}
+
+.button-top {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 20px;
+    background-color: black;
+    border: none;
+    font-size: 16px;
+    color: $soft-white;
+    cursor: pointer;
+}
+
+.button-top.show {
+    display: block;
+}
+
+.button-top:hover {
+    background-color: $soft-white;
+    color: black;
 }
 
 // input type number spin 제거
