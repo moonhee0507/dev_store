@@ -63,7 +63,7 @@ img {
   margin: 0 auto;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  padding-top: 91px;
+  padding-top: 120px;
 }
 
 .button-top {
@@ -1168,21 +1168,19 @@ input[type="checkbox"]:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 50px;
-  column-gap: 50px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .large {
-  width: 550px;
+  min-width: 550px;
   height: 550px;
   margin-bottom: 0;
 }
 
 .product-detail-list {
   color: white;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
   max-width: 600px;
 }
 
@@ -1195,10 +1193,6 @@ input[type="checkbox"]:focus {
 .detail-txt-product-name {
   font-size: 36px;
   line-height: 45px;
-}
-
-.detail-product-price {
-  margin: 20px 0 138px;
 }
 
 .detail-product-price .detail-txt-price-number {

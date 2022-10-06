@@ -1,9 +1,13 @@
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: $main-color;
     border-bottom: 1px solid #191919;
     -webkit-box-shadow: 0 4px 5px 0px #191919;
     box-shadow: 0 4px 5px 0px #191919;
-    margin-bottom: 35px;
+    z-index: 9999;
 
     .head {
         display: -webkit-box;

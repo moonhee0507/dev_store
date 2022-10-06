@@ -3,6 +3,7 @@ import Slide from "../components/slide/slide";
 import ProductList from "../components/productList/productList";
 import Footer from "../components/footer/footer";
 import infiniteScroll from "../common/infiniteScroll";
+import TopButton from "../components/button/topButton";
 
 class Home {
     constructor(header, slide, productList, footer) {
@@ -31,7 +32,11 @@ class Home {
         footer.setAttribute("class", "footer");
         footer.appendChild(this.footer.render());
 
-        document.getElementById("root").append(header, main, footer);
+        const topButton = new TopButton();
+
+        document
+            .getElementById("root")
+            .append(header, main, footer, topButton.render());
         setTimeout(() => {
             infiniteScroll();
         }, 1000);
