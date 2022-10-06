@@ -89,11 +89,11 @@ class SearchList {
             });
         }
 
-        // 그리드 정렬
         function setGrid() {
             ul.classList.add("list-products");
             let result = products.forEach((item) => {
                 const li = document.createElement("li");
+                li.classList.add("list-grid");
                 const productCard = new ProductCard(item);
                 li.appendChild(productCard.render());
                 ul.appendChild(li);
