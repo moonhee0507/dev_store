@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants.js";
+import { getProductsDetail } from "../../common/api.js";
 
 class RegistrationDate {
     constructor(id, created_at, updated_at) {
@@ -11,14 +11,7 @@ class RegistrationDate {
 
     async getDate() {
         const id = this.id;
-        const res = await fetch(`${API_URL}/products/${id}/`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-
-        const data = await res.json();
+        const data = await getProductsDetail(id);
         this.date = await data;
     }
 

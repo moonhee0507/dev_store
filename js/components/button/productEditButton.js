@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants";
+import { getProductsDetail } from "../../common/api.js";
 
 class ProductEditButton {
     constructor(id) {
@@ -19,14 +19,7 @@ class ProductEditButton {
 
         const id = this.id;
         async function getProductsData() {
-            const res = await fetch(`${API_URL}/products/${id}`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-
-            const data = await res.json();
+            const data = await getProductsDetail(id);
             delete data.seller;
             delete data.store_name;
             window.localStorage.setItem("edit", JSON.stringify(data));
