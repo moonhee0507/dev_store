@@ -39,7 +39,7 @@ class Home {
             .append(header, main, footer, topButton.render());
         setTimeout(() => {
             infiniteScroll();
-        }, 1000);
+        }, 2000);
     }
 }
 

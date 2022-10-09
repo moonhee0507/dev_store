@@ -2,23 +2,21 @@ import { ProductCard } from "../components/productCard";
 import getProducts from "./api";
 
 export default function infiniteScroll() {
-    const items = document.querySelector(".list-products").childNodes;
-
-    const observeLastItem = (observer, items) => {
-        const lastItem = items[items.length - 1];
-        observer.observe(lastItem);
-    };
-
-    let page = 1;
-    const observer = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    page += 1;
-                    getProducts(page).then((data) => {
+    let items = document.querySelector(".list-products").childNodes;
+    const spinner = document.querySelector("#spinner");
+    let callback = (entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                let page = parseInt(window.localStorage.getItem("page"));
+                let next = window.localStorage.getItem("next");
+                if (next === "null") {
+                    spinner.remove();
+                    return;
+                } else if (parseInt(next) === page + 1) {
+                    getProducts(page + 1).then((data) => {
                         const productList =
                             document.querySelector(".list-products");
-                        data.results.forEach((item) => {
+                        data?.results.forEach((item) => {
                             const productItem = document.createElement("li");
                             const productCard = new ProductCard(item);
                             productItem.appendChild(productCard.render());
@@ -26,10 +24,22 @@ export default function infiniteScroll() {
                         });
                     });
                     observer.unobserve(entry.target);
+                    setTimeout(() => {
+                        observeLastItem(observer, items);
+                    }, 3000);
                 }
-            });
-        },
-        { threshold: 1.0 }
-    );
+            }
+        });
+    };
+
+    const options = { threshold: 1 };
+
+    let observeLastItem = (observer, items) => {
+        let lastItem = items[items.length - 1];
+        observer.observe(lastItem);
+    };
+
+    let observer = new IntersectionObserver(callback, options);
+
     observeLastItem(observer, items);
 }
