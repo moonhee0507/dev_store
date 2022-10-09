@@ -1,6 +1,7 @@
-import Header from "../components/header/header";
-import ProductList from "../components/productList/productList";
-import Footer from "../components/footer/footer";
+import Header from "../components/header/header.js";
+import ProductList from "../components/productList/productList.js";
+import Footer from "../components/footer/footer.js";
+import TopButton from "../components/button/topButton.js";
 
 class Store {
     constructor(header, productList, footer) {
@@ -26,7 +27,10 @@ class Store {
         footer.setAttribute("class", "footer");
         footer.appendChild(this.footer.render());
 
-        document.getElementById("root").append(header, main, footer);
+        const topButton = new TopButton();
+
+        const root = document.getElementById("root");
+        root.append(header, main, footer, topButton.render());
     }
 }
 

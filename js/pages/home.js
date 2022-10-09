@@ -34,9 +34,8 @@ class Home {
 
         const topButton = new TopButton();
 
-        document
-            .getElementById("root")
-            .append(header, main, footer, topButton.render());
+        const root = document.getElementById("root");
+        root.append(header, main, footer, topButton.render());
         setTimeout(() => {
             infiniteScroll();
         }, 2000);
