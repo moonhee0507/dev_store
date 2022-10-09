@@ -13,7 +13,7 @@ export default function infiniteScroll() {
                     spinner.remove();
                     return;
                 } else if (parseInt(next) === page + 1) {
-                    getProducts(page + 1).then((data) => {
+                    getProducts(page + 1, true).then((data) => {
                         const productList =
                             document.querySelector(".list-products");
                         data?.results.forEach((item) => {

@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants";
+import getProducts from "../../common/api.js";
 import SearchListItem from "./searchListItem";
 
 class SearchList {
@@ -6,20 +6,24 @@ class SearchList {
         this.keyword = keyword;
         this.ul = document.createElement("ul");
         this.products = {};
+        this.productsOnAllPages = [];
     }
 
     async getItems() {
-        const res = await fetch(`${API_URL}/products`);
-        const resJson = await res.json();
-        this.products = await resJson.results.filter((el) => {
-            return el.product_name.includes(this.keyword);
-        });
+        let count = parseInt(window.localStorage.getItem("count"));
+        for (let i = 1; i < count / 15 + 1; i++) {
+            const data = await getProducts(i, false);
+            this.products = await data.results.filter((el) => {
+                return el.product_name.includes(this.keyword);
+            });
+            this.productsOnAllPages.push(...this.products);
+        }
     }
 
     async setItems() {
         await this.getItems();
         this.ul.setAttribute("class", "list-match");
-        this.products.forEach((item) => {
+        this.productsOnAllPages.forEach((item) => {
             const searchItem = document.createElement("li");
             const searchListItem = new SearchListItem(this.keyword, item);
             searchItem.appendChild(searchListItem.render());

@@ -1,37 +1,37 @@
-import { API_URL } from "../../common/constants";
+import getProducts from "../../common/api";
 import { ascending, descending, newItemOrder } from "../../common/sort";
 import SearchListItem from "./searchListItem";
 import ProductCard from "../productCard/productCard.js";
+import NotMatchMessage from "../notMatchMessage/notMatchMessage";
 
 class SearchList {
     constructor() {
         this.wrapper = document.createElement("div");
         this.results = {};
+        this.productsOnAllPages = [];
     }
 
     async getProductData() {
-        const res = await fetch(`${API_URL}/products`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-
-        const data = await res.json();
-        if (data.count === 0) {
-            // 검색결과 없음 처리
-        } else {
+        let count = parseInt(window.localStorage.getItem("count"));
+        for (let i = 1; i < count / 15 + 1; i++) {
+            const data = await getProducts(i, false);
             this.results = await data.results.filter((el) => {
-                const keyword = document.getElementById("searchProducts").value;
+                let keyword = document.getElementById("searchProducts").value;
                 return el.product_name.includes(keyword);
             });
+            this.productsOnAllPages.push(...this.results);
         }
     }
 
     async setProductList() {
         await this.getProductData();
+        if (this.productsOnAllPages.length === 0) {
+            const notMatchMessage = new NotMatchMessage();
+            this.wrapper.appendChild(notMatchMessage.render());
+        }
+
         this.wrapper.setAttribute("class", "style-wrapper-search");
-        let products = this.results;
+        let products = this.productsOnAllPages;
         let wrapper = this.wrapper;
         const ul = document.createElement("ul");
 

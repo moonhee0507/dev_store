@@ -5,26 +5,29 @@ class ProductList {
     constructor() {
         this.sectionElement = document.createElement("section");
         this.products = {};
+        this.productsOnAllPages = [];
     }
 
-    // 전체 상품 정보 가져오기
     async getProductsData() {
-        const data = await getProducts(1);
-
         if (window.location.pathname === "/") {
+            const data = await getProducts(1, true);
             this.products = await data.results;
         } else if (window.location.pathname.includes("/store")) {
-            this.products = await data.results.filter((el) => {
-                const sellerNumber = window.location.pathname.replace(
-                    /^\/store\//g,
-                    ""
-                );
-                return el.seller === parseInt(sellerNumber);
-            });
+            let count = parseInt(window.localStorage.getItem("count"));
+            for (let i = 1; i < count / 15 + 1; i++) {
+                const data = await getProducts(i, false);
+                this.products = await data.results.filter((el) => {
+                    const sellerNumber = window.location.pathname.replace(
+                        /^\/store\//g,
+                        ""
+                    );
+                    return el.seller === parseInt(sellerNumber);
+                });
+                this.productsOnAllPages.push(...this.products);
+            }
         }
     }
 
-    // 상품 리스트 세팅하기
     async setProductList() {
         await this.getProductsData();
         this.sectionElement.classList.add("section-products");
@@ -32,14 +35,23 @@ class ProductList {
         const productList = document.createElement("ul");
         productList.classList.add("list-products");
 
-        this.products.forEach((item) => {
+        let products =
+            window.location.pathname === "/"
+                ? this.products
+                : this.productsOnAllPages;
+
+        products.forEach((item) => {
             const productItem = document.createElement("li");
             const productCard = new ProductCard(item);
             productItem.appendChild(productCard.render());
             productList.appendChild(productItem);
         });
-
-        this.sectionElement.append(productList);
+        const spinner = document.createElement("div");
+        spinner.setAttribute("id", "spinner");
+        this.sectionElement.append(
+            productList,
+            window.location.pathname === "/" && spinner
+        );
     }
 
     render() {
