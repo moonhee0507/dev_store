@@ -48,10 +48,9 @@ class ProductList {
         });
         const spinner = document.createElement("div");
         spinner.setAttribute("id", "spinner");
-        this.sectionElement.append(
-            productList,
-            window.location.pathname === "/" && spinner
-        );
+        this.sectionElement.appendChild(productList);
+        window.location.pathname === "/" &&
+            this.sectionElement.appendChild(spinner);
     }
 
     render() {
