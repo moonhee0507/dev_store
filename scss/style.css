@@ -59,7 +59,6 @@ img {
 
 .max-width {
   width: 1200px;
-  max-width: calc(100% - 60px);
   margin: 0 auto;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -117,10 +116,10 @@ input[type="number"] {
 .section-login .form-login {
   width: 100%;
   background-color: white;
+  border-radius: 5px;
 }
 
 .section-login .form-login .style-wrapper {
-  border: 1px solid #c4c4c4;
   margin-bottom: 30px;
 }
 
@@ -139,7 +138,7 @@ input[type="number"] {
   padding: 19px 77px 18px 76px;
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 22px;
 }
 
@@ -635,6 +634,7 @@ input[type="checkbox"]:focus {
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+  background-color: #171717;
 }
 
 .style-wrapper-img.card {
@@ -1176,8 +1176,6 @@ input[type="checkbox"]:focus {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  width: 100%;
-  height: 100%;
 }
 
 .style-wrapper-detail::after {
@@ -1187,10 +1185,11 @@ input[type="checkbox"]:focus {
 }
 
 .large {
-  width: 50%;
-  height: auto;
+  width: 600px;
+  height: 600px;
   margin-bottom: 0;
   border-radius: 0;
+  background-color: black;
 }
 
 .style-container-detail-contents {
@@ -1281,13 +1280,13 @@ input[type="checkbox"]:focus {
   line-height: 45px;
 }
 
-.detail-product-price .detail-txt-price-number {
+.detail-txt-price-number {
   font-weight: bold;
   font-size: 36px;
   line-height: 45px;
 }
 
-.detail-product-price .detail-txt-price-unit {
+.detail-txt-price-unit {
   font-size: 18px;
   line-height: 23px;
 }
@@ -1433,6 +1432,10 @@ input[type="checkbox"]:focus {
   border-radius: 5px;
   color: white;
   cursor: pointer;
+}
+
+.img-tab {
+  margin-bottom: 50px;
 }
 
 .style-wrapper-info {
@@ -2531,6 +2534,11 @@ input[type="checkbox"]:focus {
   background-color: #303134;
 }
 
+.message-no-products {
+  margin-top: 100px;
+  color: #4c4c4c;
+}
+
 .center-title3.upload {
   display: block;
 }
@@ -3262,9 +3270,11 @@ input[type="checkbox"]:focus {
 }
 
 .modal {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   display: none;
