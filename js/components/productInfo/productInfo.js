@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants";
+import { getProductsDetail } from "../../common/api.js";
 import { ProductInfoCard } from "../productInfoCard/index.js";
 
 class ProductInfo {
@@ -10,14 +10,8 @@ class ProductInfo {
 
     // 상품 상세 정보 가져오기
     async getProductData() {
-        const res = await fetch(API_URL + window.location.pathname, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        const data = await res.json();
-
+        let id = window.location.pathname.replace(/\D/g, "");
+        const data = await getProductsDetail(id);
         this.info = await data;
     }
     // 상세내용 세팅하기
