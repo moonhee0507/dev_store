@@ -18,6 +18,10 @@ class ProductInfoCard {
     render() {
         // 상품 상세페이지
         if (window.location.pathname.includes("/products/")) {
+            this.infoWrapper.setAttribute(
+                "class",
+                "style-container-detail-contents"
+            );
             const ul = document.createElement("ul");
             ul.setAttribute("class", "product-detail-list");
             const productImage = new ProductImage(

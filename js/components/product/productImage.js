@@ -18,12 +18,13 @@ class ProductImage {
         } else if (url.includes("/products/")) {
             this.wrapper.setAttribute("class", "style-wrapper-img large");
             productImg.setAttribute("src", `${this.src}`);
+            productImg.addEventListener("load", () => {
+                productImg.style.objectFit = "contain";
+                productImg.style.backgroundColor = "black";
+            });
         } else if (url === "/cart") {
             this.wrapper.setAttribute("class", "style-wrapper-img small");
             productImg.setAttribute("src", `${this.src}`);
-            this.wrapper.addEventListener("click", () => {
-                window.location.href = `/products/${this.id}`;
-            });
         } else if (
             url === "/payment" &&
             window.localStorage.getItem("path") === "1"
