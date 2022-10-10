@@ -77,7 +77,6 @@ class ChangeQuantity {
             plusButton.addEventListener("click", () => {
                 if (stock === qt) {
                     plusButton.disabled = true;
-                    plusButton.style.cursor = "default";
                 } else {
                     qt += 1;
                     quantityInput.value = `${qt}`;
@@ -118,6 +117,7 @@ class ChangeQuantity {
 
         // 바깥부분 클릭하면 모달창이 없어지는 기능
         this.modal.addEventListener("click", (e) => {
+            plusButton.disabled = false;
             const target = e.target;
             if (target.classList.contains("show")) {
                 target.classList.remove("show");
@@ -128,6 +128,7 @@ class ChangeQuantity {
         });
         // x 버튼 클릭하면 모달창이 없어지는 기능
         buttonClose.addEventListener("click", () => {
+            plusButton.disabled = false;
             this.modal.classList.remove("show");
             body.style.overflow = "auto";
             quantityInput.value = this.item.quantity;
@@ -135,6 +136,7 @@ class ChangeQuantity {
         });
         // 취소 버튼 누르면 모달창이 없어지는 기능
         buttonNo.addEventListener("click", () => {
+            plusButton.disabled = false;
             this.modal.classList.remove("show");
             body.style.overflow = "auto";
             quantityInput.value = this.item.quantity;
