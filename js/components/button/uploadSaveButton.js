@@ -78,13 +78,11 @@ class UploadSaveButton {
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.product_id) {
-                        setTimeout(() => {
-                            window.location.href = `/products/${data.product_id}`;
-                        }, 1000);
+                        window.location.href = `/products/${data.product_id}`;
                         window.localStorage.removeItem("edit");
                         window.localStorage.removeItem("shipping_method");
                     } else {
-                        alert("error");
+                        alert("모든 항목을 입력해주세요.");
                     }
                 })
                 .catch((e) => console.error(e));
