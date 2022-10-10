@@ -37,3 +37,32 @@ export async function getProductsDetail(id) {
         console.error(e);
     }
 }
+
+export async function getSeller(token, page) {
+    try {
+        const res = await fetch(`${API_URL}/seller/?page=${page}`, {
+            method: "GET",
+            headers: {
+                Authorization: `JWT ${token}`,
+                "Content-Type": "application/json",
+            },
+        });
+        const data = await res.json();
+        window.localStorage.setItem("sellerCount", data.count);
+        return data;
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+export async function reqLogin(body) {
+    const res = await fetch(`${API_URL}/accounts/login/`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    return data;
+}

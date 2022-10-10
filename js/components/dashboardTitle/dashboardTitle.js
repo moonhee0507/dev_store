@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants.js";
+import { getSeller } from "../../common/api.js";
 import ProductUploadButton from "../button/productUploadButton.js";
 
 class DashboardTitle {
@@ -8,15 +8,13 @@ class DashboardTitle {
     }
 
     async getSellerName() {
-        const res = await fetch(`${API_URL}/seller/`, {
-            method: "GET",
-            headers: {
-                Authorization: `JWT ${window.localStorage.getItem("token")}`,
-                "Content-Type": "application/json",
-            },
-        });
-        const data = await res.json();
-        this.store = await data.results[0].store_name;
+        const token = window.localStorage.getItem("token");
+        const data = await getSeller(token, 1);
+        if (data.results.length === 0) {
+            this.store = "상품을 등록해주세요.";
+        } else {
+            this.store = await data.results[0].store_name;
+        }
     }
 
     async setSellerName() {

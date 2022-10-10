@@ -1,30 +1,25 @@
-import { API_URL } from "../../common/constants.js";
+import { getSeller } from "../../common/api.js";
 import ProductForSaleList from "../productForSaleList/productForSaleList.js";
 
 class DashboardView {
     constructor() {
         this.view = document.createElement("div");
         this.products = {};
+        this.productsOnAllPages = [];
     }
 
-    // 전체 판매상품 정보 가져오기
     async getProductsData() {
-        const res = await fetch(`${API_URL}/seller/`, {
-            method: "GET",
-            headers: {
-                Authorization: `JWT ${window.localStorage.getItem("token")}`,
-                "Content-Type": "application/json",
-            },
-        });
-        const data = await res.json();
-
-        this.products = await data.results;
+        const token = window.localStorage.getItem("token");
+        let count = parseInt(window.localStorage.getItem("sellerCount"));
+        for (let i = 1; i < count / 15 + 1; i++) {
+            const data = await getSeller(token, i);
+            this.products = await data.results;
+            this.productsOnAllPages.push(...this.products);
+        }
     }
 
-    // 상품리스트 세팅
     async setProductList() {
         this.view.setAttribute("class", "center-view");
-        // 제목행
         const tableHead = document.createElement("div");
         tableHead.setAttribute("class", "view-head");
         const ul = document.createElement("ul");
@@ -41,17 +36,22 @@ class DashboardView {
         }
         tableHead.appendChild(ul);
 
-        // get 실행
         await this.getProductsData();
 
-        // 상품정보 행
         const tableBody = document.createElement("div");
         tableBody.setAttribute("class", "view-body");
 
-        this.products.forEach((item) => {
+        this.productsOnAllPages.forEach((item) => {
             const productForSaleList = new ProductForSaleList(item);
             tableBody.appendChild(productForSaleList.render());
         });
+
+        if (this.productsOnAllPages.length === 0) {
+            const msgNoProduct = document.createElement("p");
+            msgNoProduct.setAttribute("class", "message-no-products");
+            msgNoProduct.innerText = "등록된 상품이 없습니다.";
+            tableBody.appendChild(msgNoProduct);
+        }
 
         this.view.append(tableHead, tableBody);
     }
