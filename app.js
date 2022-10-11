@@ -3,7 +3,6 @@ import {
     ProductDetail,
     Login,
     Signup,
-    MoveInfo,
     Payment,
     Cart,
     Center,
@@ -23,11 +22,9 @@ export default class App {
         const router = new Router({
             "/": Home,
             "/products": ProductDetail,
-            "/login": window.localStorage.getItem("token") ? MoveInfo : Login,
-            "/signup": window.localStorage.getItem("token") ? MoveInfo : Signup,
-            "/payment": window.localStorage.getItem("token")
-                ? Payment
-                : MoveInfo,
+            "/login": Login,
+            "/signup": Signup,
+            "/payment": Payment,
             "/cart": Cart,
             "/center": Center,
             "/upload": Upload,
