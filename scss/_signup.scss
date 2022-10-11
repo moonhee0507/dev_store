@@ -19,6 +19,7 @@
         .style-wrapper {
             border: 1px solid $border-color;
             background-color: white;
+            border-radius: 5px;
         }
 
         .style-container {
@@ -35,17 +36,60 @@
         width: calc(100% / 2);
         border: none;
         padding: 19px 87px 18px 86px;
-        font-style: normal;
-        font-weight: bolder;
-        font-size: 18px;
+        font-weight: bold;
+        font-size: 16px;
         line-height: 22px;
         cursor: pointer;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        color: black;
+        position: relative;
     }
     .button-buyer {
         background-color: inherit;
     }
     .button-seller {
         background-color: #f2f2f2;
+    }
+
+    .button-buyer.on {
+        border-right: 1px solid #171717;
+    }
+    .button-seller.help {
+        border-bottom: 1px solid #171717;
+        border-bottom-left-radius: 5px;
+        color: #595959;
+        font-weight: lighter;
+    }
+    .button-buyer.on::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: -3px;
+        width: 0;
+        height: 0;
+        border: 50px solid transparent;
+        border-bottom-color: white;
+    }
+
+    .button-seller.on {
+        border-left: 1px solid #171717;
+    }
+    .button-buyer.help {
+        border-bottom: 1px solid #171717;
+        border-bottom-right-radius: 5px;
+        color: #595959;
+        font-weight: lighter;
+    }
+    .button-seller.on::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -3px;
+        width: 0;
+        height: 0;
+        border: 50px solid transparent;
+        border-bottom-color: white;
     }
 }
 

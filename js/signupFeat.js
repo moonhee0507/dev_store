@@ -310,6 +310,14 @@ buyerButton.addEventListener("click", () => {
     buyerButton.style.backgroundColor = "inherit";
     sellerButton.style.backgroundColor = "#F2F2F2";
     signupType = "";
+
+    // style remove
+    sellerButton.classList.remove("on");
+    buyerButton.classList.remove("help");
+    // style add
+    buyerButton.classList.add("on");
+    sellerButton.classList.add("help");
+
     return signupType;
 });
 sellerButton.addEventListener("click", () => {
@@ -318,6 +326,13 @@ sellerButton.addEventListener("click", () => {
 
     sellerButton.style.backgroundColor = "inherit";
     buyerButton.style.backgroundColor = "#F2F2F2";
+
+    // style remove
+    buyerButton.classList.remove("on");
+    sellerButton.classList.remove("help");
+    // style add
+    sellerButton.classList.add("on");
+    buyerButton.classList.add("help");
 
     allPass();
     return signupType;

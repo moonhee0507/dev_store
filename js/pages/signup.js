@@ -46,8 +46,8 @@ class Signup {
         signupType.classList.add("signup-type");
         styleWrapper.appendChild(signupType);
         signupType.innerHTML = `
-            <button type="button" class="button-buyer">구매회원가입</button>
-            <button type="button" class="button-seller">판매회원가입</button>
+            <button type="button" class="button-buyer on">구매회원가입</button>
+            <button type="button" class="button-seller help">판매회원가입</button>
         `;
 
         // 주요 항목(아이디~스토어이름)
