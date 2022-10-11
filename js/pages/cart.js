@@ -44,7 +44,7 @@ class Cart {
             const body = document.querySelector("body");
             const cartTotalFeat = document.createElement("script");
             cartTotalFeat.type = "module";
-            cartTotalFeat.src = "../js/cartTotalFeat.js";
+            cartTotalFeat.src = "/logic/cartTotalFeat.js";
             body.appendChild(cartTotalFeat);
         }, 1500);
 

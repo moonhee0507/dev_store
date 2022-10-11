@@ -144,7 +144,7 @@ class Signup {
         const body = document.querySelector("body");
         const signupFeat = document.createElement("script");
         signupFeat.type = "module";
-        signupFeat.src = "../js/signupFeat.js";
+        signupFeat.src = "/logic/signupFeat.js";
         body.appendChild(signupFeat);
 
         logoElement.addEventListener("click", () => {

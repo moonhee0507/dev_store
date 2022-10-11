@@ -1,4 +1,4 @@
-import { reqLogin } from "./common/api";
+import { reqLogin } from "./common/api.js";
 
 const idInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");

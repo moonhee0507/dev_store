@@ -49,7 +49,7 @@ class Slide {
         const body = document.querySelector("body");
         const slideFeat = document.createElement("script");
         slideFeat.type = "module";
-        slideFeat.src = "../js/slideFeat.js";
+        slideFeat.src = "/logic/slideFeat.js";
         body.appendChild(slideFeat);
 
         slideWrapper.appendChild(slideContainer);

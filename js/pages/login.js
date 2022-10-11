@@ -72,13 +72,6 @@ class Login {
 
         divElement.appendChild(linkSignup);
         divElement.appendChild(linkSearchPassword);
-
-        const body = document.querySelector("body");
-        const loginFeat = document.createElement("script");
-        loginFeat.type = "module";
-        loginFeat.src = "../js/loginFeat.js";
-        body.appendChild(loginFeat);
-
         logoElement.addEventListener("click", () => {
             window.location.href = "/";
         });

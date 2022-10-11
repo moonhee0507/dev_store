@@ -1,4 +1,4 @@
-import { API_URL } from "./common/constants";
+// import { API_URL } from "../../js/common/constants.js";
 
 const idInput = document.querySelector("#username");
 const message = document.querySelectorAll(".message");
@@ -328,13 +328,16 @@ async function eachRequest(event) {
     };
 
     try {
-        const res = await fetch(`${API_URL}/accounts/signup${signupType}/`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        });
+        const res = await fetch(
+            `https://openmarket.weniv.co.kr/accounts/signup${signupType}/`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            }
+        );
         const resJson = await res.json();
 
         return resJson;
@@ -358,13 +361,16 @@ async function signup(event) {
     };
 
     try {
-        const res = await fetch(`${API_URL}/accounts/signup${signupType}/`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(signupData),
-        });
+        const res = await fetch(
+            `https://openmarket.weniv.co.kr/accounts/signup${signupType}/`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(signupData),
+            }
+        );
         const resJson = await res.json();
         if (
             resJson.username &&
