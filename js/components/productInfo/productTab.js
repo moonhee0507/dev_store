@@ -12,7 +12,6 @@ class ProductTab {
         const ul = document.createElement("ul");
         ul.setAttribute("class", "style-wrapper-info");
 
-        // tab
         const tabName = ["상세정보", "리뷰", "Q&A", "반품/교환정보"];
 
         for (let i = 0; i < tabName.length; i++) {
@@ -28,7 +27,6 @@ class ProductTab {
             ul.appendChild(li);
         }
 
-        // content
         const content = document.createElement("div");
         content.setAttribute("class", "style-wrapper-tab-content");
         const tabDetail = document.createElement("div");

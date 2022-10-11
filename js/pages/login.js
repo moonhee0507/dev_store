@@ -24,13 +24,11 @@ class Login {
         this.sectionElement.appendChild(formElement);
         this.sectionElement.appendChild(divElement);
 
-        // 이미지
         logoElement.src = "../images/logo.svg";
         logoElement.alt = "Logo";
         linkLogo.appendChild(logoElement);
         h1.appendChild(linkLogo);
 
-        // 폼
         const styleWrapper = document.createElement("div");
         styleWrapper.classList.add("style-wrapper");
         formElement.appendChild(styleWrapper);
@@ -64,7 +62,6 @@ class Login {
             <button type="submit" class="button-login" disabled>로그인</button>
         `;
 
-        // 하단 링크
         const linkSignup = document.createElement("a");
         const linkSearchPassword = document.createElement("a");
         linkSignup.classList.add("link-signup");
@@ -76,7 +73,6 @@ class Login {
         divElement.appendChild(linkSignup);
         divElement.appendChild(linkSearchPassword);
 
-        // 스크립트
         const body = document.querySelector("body");
         const loginFeat = document.createElement("script");
         loginFeat.type = "module";

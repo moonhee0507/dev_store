@@ -15,7 +15,6 @@ class Header {
         const styleWrapper = document.createElement("div");
         styleWrapper.setAttribute("class", "style-wrapper");
 
-        // 로고
         const h1 = document.createElement("h1");
         h1.setAttribute("title", "홈 이동");
         const a = document.createElement("a");
@@ -28,15 +27,12 @@ class Header {
         h1.appendChild(a);
         styleWrapper.appendChild(h1);
 
-        // 검색
         const searchBar = new SearchBar();
 
-        // 판매자 센터
         const titleSellerCenter = document.createElement("h2");
         titleSellerCenter.setAttribute("class", "title-seller-center");
         titleSellerCenter.innerText = "판매자 센터";
 
-        // 스토어명
         const storeIntroduction = new StoreIntroduction();
 
         !url.includes("/store") &&
@@ -46,7 +42,6 @@ class Header {
                     : searchBar.render()
             );
 
-        // 사용자 메뉴(우측 상단)
         const nav = document.createElement("nav");
         const listUsermenu = document.createElement("ul");
         listUsermenu.setAttribute("class", "list-usermenu");
@@ -61,7 +56,7 @@ class Header {
         const myPageButton = document.createElement("button");
         myPageButton.setAttribute("class", "link-list mypage");
         myPageButton.setAttribute("type", "button");
-        // 마이페이지 DropDown div
+
         const dropDown = document.createElement("div");
         dropDown.setAttribute("class", "dropdown");
         dropDown.appendChild(myPageButton);
@@ -89,12 +84,10 @@ class Header {
         }
 
         const infoFeat = () => {
-            // id
             const userId = document.createElement("strong");
             userId.setAttribute("class", "txt-user-id");
             userId.innerText = localStorage.getItem("1");
 
-            // 마이페이지 드롭다운박스(마이페이지, 로그아웃)
             const dropContent = document.createElement("div");
             dropContent.setAttribute("class", "drop-content");
             dropContent.style.display = "none";
@@ -119,7 +112,6 @@ class Header {
                 }
             }
 
-            // 로그아웃 기능
             linkDropLogout.addEventListener("click", () => {
                 logout();
             });
@@ -129,7 +121,6 @@ class Header {
             localStorage.getItem("token") &&
             localStorage.getItem("loginType") === "BUYER"
         ) {
-            // 장바구니
             const cartButton = document.createElement("button");
             cartButton.setAttribute("class", "link-list cart");
             cartButton.setAttribute("type", "button");
@@ -144,7 +135,6 @@ class Header {
             });
             cartButton.appendChild(showQt);
             getCartData();
-            // 장바구니 갯수 보여주기
             async function getCartData() {
                 await fetch(`${API_URL}/cart/`, {
                     method: "GET",
@@ -166,7 +156,6 @@ class Header {
         ) {
             infoFeat();
 
-            // 판매자센터 버튼
             const sellerCenterButton = document.createElement("a");
             sellerCenterButton.setAttribute("href", "/center");
             sellerCenterButton.setAttribute("title", "판매자 센터");
@@ -180,7 +169,6 @@ class Header {
             cartButton.innerText = "장바구니";
             listItem1.appendChild(cartButton);
 
-            // 로그인 안내 모달 생성
             const goToLogin = new GoToLogin();
             this.head.appendChild(goToLogin.render());
 
@@ -194,12 +182,10 @@ class Header {
                 window.location.href = "/login";
             });
             myPageButton.appendChild(loginButton);
-            // 장바구니 클릭이벤트(로그인 안내 모달)
             cartButton.addEventListener("click", () => {
                 const body = document.querySelector("body");
                 const modal = document.querySelector(".modal");
                 modal.classList.add("show");
-                // 모달 class가 show면 body의 overflow hidden처리
                 if (modal.classList.contains("show")) {
                     body.style.overflow = "hidden";
                 }

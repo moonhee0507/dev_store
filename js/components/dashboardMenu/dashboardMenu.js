@@ -29,7 +29,6 @@ class DashboardMenu {
         let listLength = 5;
         let listArr = Array();
 
-        // 판매중인 상품
         const txtOnsale = document.createElement("div");
         txtOnsale.setAttribute("class", "txt-onsale");
         const numOnsale = document.createElement("span");
@@ -39,7 +38,6 @@ class DashboardMenu {
 
         listArr.push(txtOnsale);
 
-        // 주문/배송
         const txtOrderDelivery = document.createElement("div");
         txtOrderDelivery.setAttribute("class", "txt-order-delivery");
         txtOrderDelivery.innerText = "주문/배송";
@@ -51,7 +49,6 @@ class DashboardMenu {
 
         listArr.push(txtOrderDelivery);
 
-        // 문의/리뷰
         const txtInquiryReview = document.createElement("div");
         txtInquiryReview.setAttribute("class", "txt-inquiry-review");
         txtInquiryReview.innerText = "문의/리뷰";
@@ -63,14 +60,12 @@ class DashboardMenu {
 
         listArr.push(txtInquiryReview);
 
-        // 통계
         const txtStatistics = document.createElement("div");
         txtStatistics.setAttribute("class", "txt-statistics");
         txtStatistics.innerText = "통계";
 
         listArr.push(txtStatistics);
 
-        // 스토어 설정
         const txtStoreSettings = document.createElement("div");
         txtStoreSettings.setAttribute("class", "txt-store-settings");
         txtStoreSettings.innerText = "스토어 설정";

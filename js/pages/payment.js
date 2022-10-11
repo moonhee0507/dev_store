@@ -17,12 +17,10 @@ class Payment {
         this.payShippingInfo = new PayShippingInfo();
         this.footer = new Footer();
 
-        // header
         const header = document.createElement("header");
         header.setAttribute("class", "header");
         header.appendChild(this.header.render());
 
-        // main
         const main = document.createElement("main");
         main.setAttribute("class", "max-width");
         const h2 = document.createElement("h2");
@@ -32,12 +30,10 @@ class Payment {
         main.appendChild(this.payProducts.render());
         main.append(this.payShippingInfo.render());
 
-        // footer
         const footer = document.createElement("footer");
         footer.setAttribute("class", "footer");
         footer.appendChild(this.footer.render());
 
-        // Daum 우편번호
         const fileLoading = document.createElement("script");
         fileLoading.setAttribute(
             "src",

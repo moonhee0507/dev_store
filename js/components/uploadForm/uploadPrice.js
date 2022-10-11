@@ -31,7 +31,6 @@ class UploadPrice {
         inputContainer.appendChild(input);
         inputContainer.appendChild(span);
 
-        // 수정버튼
         if (window.localStorage.getItem("edit")) {
             input.value = parseInt(
                 JSON.parse(window.localStorage.getItem("edit")).price

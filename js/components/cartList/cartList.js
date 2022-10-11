@@ -9,8 +9,6 @@ class CartList {
         this.sectionElement = document.createElement("section");
         this.cart = {};
     }
-
-    // 장바구니 목록 불러오기
     async getCartData() {
         const res = await fetch(`${API_URL}/cart/`, {
             method: "GET",
@@ -22,9 +20,6 @@ class CartList {
         const data = await res.json();
 
         this.cart = await data;
-        console.log(this.cart); // this.cart.results.product_id, quantity
-
-        // 로컬스토리지에 상품id, qt 저장하기
         const arr = new Array();
         for (let i = 0; i < this.cart.count; i++) {
             const cartItems = new Object();
@@ -35,8 +30,6 @@ class CartList {
         }
         localStorage.setItem("fromCartItems", JSON.stringify(arr));
     }
-
-    // 장바구니 내용 세팅하기
     async setCartData() {
         await this.getCartData();
         this.sectionElement.classList.add("section-cart");
@@ -93,8 +86,6 @@ class CartList {
         cartRowList.append(col1, col2, col3, col4);
         cartRow.appendChild(cartRowList);
         this.sectionElement.append(h2, cartRow, cartProducts);
-
-        // 체크박스 토글
         buttonCartCheck.addEventListener("click", () => {
             buttonCartCheck.classList.toggle("fill");
         });

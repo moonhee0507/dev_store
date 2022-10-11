@@ -1,7 +1,7 @@
 class ProductImage {
     constructor(src, id) {
-        this.src = src; // Home, Detail
-        this.id = id; // Cart, Payment
+        this.src = src;
+        this.id = id;
         this.wrapper = document.createElement("div");
     }
 

@@ -11,7 +11,6 @@
     margin: 20px 0 52px;
 }
 
-// 제목행
 .payment-row {
     background: #303134;
     border-radius: $border-radius;
@@ -27,7 +26,6 @@
     }
 }
 
-// 카드 여러개 묶음
 .payment-products {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -50,7 +48,6 @@
     flex-direction: column;
     gap: 10px;
 }
-// 상품 카드
 .wrapper-payment-product {
     position: relative;
     display: grid;
@@ -63,12 +60,10 @@
     border-radius: $border-radius;
     padding: 20px 0;
 
-    // 상품정보 열
     .payment-product-info-col {
         justify-self: start;
         font-size: 0;
 
-        // 상품이미지
         .style-wrapper-img.small {
             width: 104px;
             height: 104px;
@@ -77,7 +72,6 @@
             margin-left: 20px;
         }
 
-        // 상세 텍스트
         .payment-detail-list {
             vertical-align: top;
             text-align: left;
@@ -88,18 +82,15 @@
                 margin: 6px 0 10px;
             }
 
-            // 셀러
             .payment-txt-seller {
                 font-size: 14px;
                 line-height: 18px;
                 color: #767676;
             }
-            // 상품명
             .payment-txt-product-name {
                 font-size: 18px;
                 line-height: 22px;
             }
-            // 수량
             .payment-txt-quantity {
                 font-size: 14px;
                 line-height: 18px;
@@ -108,14 +99,12 @@
         }
     }
 
-    // 할인 열
     .payment-discount-col {
         font-size: 18px;
         line-height: 23px;
         color: #767676;
     }
 
-    // 배송비 열
     .payment-shipping-col {
         .payment-txt-shipping {
             font-weight: 400;
@@ -125,7 +114,6 @@
         }
     }
 
-    // 주문금액 열
     .payment-order-amount-col {
         .payment-txt-amount {
             font-weight: bold;
@@ -135,7 +123,6 @@
     }
 }
 
-// 총 주문금액
 .wrapper-payment-total-amount {
     text-align: right;
 }
@@ -154,7 +141,6 @@
     color: $point-red;
 }
 
-// 배송정보 섹션
 .section-shipping-info {
     color: white;
     font-size: 16px;
@@ -169,7 +155,6 @@
         line-height: 30px;
     }
 
-    // 인풋공통
     input {
         width: 334px;
         border: none;
@@ -186,7 +171,6 @@
     }
 }
 
-// 주문자정보, 배송지 정보 공통
 .fieldset-shipping-info {
     margin-top: 40px;
 }
@@ -218,7 +202,6 @@
     font-size: 16px;
 }
 
-// 연락처
 #input-orderer-phone-middle,
 #input-recipient-phone-middle,
 #input-orderer-phone-last,
@@ -239,7 +222,6 @@
     color: white;
 }
 
-// 우편번호
 .zip-code-area {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -273,7 +255,6 @@
     outline: 2px solid #c0c0c0;
 }
 
-// 배송주소
 #input-address-main,
 #input-address-sub,
 #input-message {
@@ -290,7 +271,6 @@
     gap: 9px;
 }
 
-// 결제수단 & 최종결제 레이아웃
 .style-wrapper-method-final {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -305,7 +285,6 @@
     }
 }
 
-// 결제수단
 .method-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -323,7 +302,6 @@
     }
 }
 
-// 최종결제
 .article-final-payment {
     border-radius: 10px;
 
@@ -341,7 +319,6 @@
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
 
-        // 계산 과정
         li {
             display: -webkit-box;
             display: -ms-flexbox;
@@ -353,7 +330,6 @@
             line-height: 20px;
         }
 
-        // 계산 결과
         .final-calc-element {
             border-bottom: 1px solid #c4c4c4;
             margin-bottom: 24px;
@@ -384,7 +360,6 @@
     color: $point-red;
 }
 
-// 회색부분
 .style-wrapper-gray {
     padding: 30px;
     background: #f2f2f2;
@@ -392,7 +367,6 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-// 정보제공 동의
 .style-wrapper-final-agree {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -408,7 +382,6 @@
         vertical-align: top;
     }
 }
-// 결제하기 버튼
 .button-payment.off {
     display: block;
     border: none;
@@ -444,7 +417,6 @@
     align-self: flex-end;
 }
 
-// 배송 메시지
 .message-container {
     width: 800px;
     position: relative;

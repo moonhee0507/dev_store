@@ -24,12 +24,10 @@ class Cart {
         deleteModalGroup.setAttribute("class", "delete-modal-group");
         this.footer = new Footer();
 
-        // header
         const header = document.createElement("header");
         header.setAttribute("class", "header");
         header.appendChild(this.header.render());
 
-        // main
         const main = document.createElement("main");
         main.setAttribute("class", "max-width");
         main.appendChild(this.cartList.render());
@@ -38,12 +36,10 @@ class Cart {
         main.appendChild(changeModalGroup);
         main.appendChild(deleteModalGroup);
 
-        // footer
         const footer = document.createElement("footer");
         footer.setAttribute("class", "footer");
         footer.appendChild(this.footer.render());
 
-        // 스크립트
         setTimeout(() => {
             const body = document.querySelector("body");
             const cartTotalFeat = document.createElement("script");

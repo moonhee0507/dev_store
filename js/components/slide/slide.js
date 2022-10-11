@@ -15,7 +15,6 @@ class Slide {
         const slideContainer = document.createElement("ul");
         slideContainer.setAttribute("class", "slide-container");
 
-        // 슬라이드1
         const slide1 = document.createElement("li");
         slide1.setAttribute("class", "slide");
         slide1.style.background = "url('/images/slide_1.png')";
@@ -23,7 +22,6 @@ class Slide {
             <a href="" target="_blank" class="link-slide"></a>
         `;
 
-        // 슬라이드2
         const slide2 = document.createElement("li");
         slide2.setAttribute("class", "slide");
         slide2.style.background = "url('/images/slide_2.png')";
@@ -31,7 +29,6 @@ class Slide {
             <a href="" target="_blank" class="link-slide"></a>
         `;
 
-        // 슬라이드3
         const slide3 = document.createElement("li");
         slide3.setAttribute("class", "slide");
         slide3.style.background = "url('/images/slide_3.png')";
@@ -39,11 +36,9 @@ class Slide {
             <a href="" target="_blank" class="link-slide"></a>
         `;
 
-        // pager
         const pager = document.createElement("p");
         pager.setAttribute("class", "pager");
 
-        // prev, next
         const buttonPrev = document.createElement("button");
         const buttonNext = document.createElement("button");
         buttonPrev.setAttribute("type", "button");
@@ -51,7 +46,6 @@ class Slide {
         buttonPrev.setAttribute("class", "button-prev");
         buttonNext.setAttribute("class", "button-next");
 
-        // 스크립트
         const body = document.querySelector("body");
         const slideFeat = document.createElement("script");
         slideFeat.type = "module";

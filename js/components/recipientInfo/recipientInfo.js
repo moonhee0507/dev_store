@@ -20,13 +20,9 @@ class RecipientInfo {
         const shippingInfoWrapper = document.createElement("div");
         shippingInfoWrapper.setAttribute("class", "shipping-info-wrapper");
 
-        // 수령자 이름
         const recipientName = new RecipientName();
-        // 수령자 연락처
         const recipientPhone = new RecipientPhone();
-        // 수령자 배송주소
         const recipientAddress = new RecipientAddress();
-        // 수령자 배송 메시지
         const shippingMessage = new ShippingMessage();
 
         shippingInfoWrapper.append(

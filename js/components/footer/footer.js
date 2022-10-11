@@ -6,7 +6,6 @@ class Footer {
     render() {
         this.wrapper.setAttribute("class", "max-width");
 
-        // 관련 링크
         const linkBox = document.createElement("div");
         linkBox.setAttribute("class", "link-box");
         const styleLinkPage = document.createElement("div");
@@ -70,7 +69,6 @@ class Footer {
 
         linkBox.appendChild(styleLinkSns);
 
-        // 회사 정보
         const coInfo = document.createElement("div");
         coInfo.setAttribute("class", "co-info");
 

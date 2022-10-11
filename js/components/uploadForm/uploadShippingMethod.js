@@ -48,7 +48,6 @@ class UploadShippingMethod {
             e.target.style.background = "#a158fe";
         }
 
-        // 수정버튼
         if (
             window.localStorage.getItem("edit") &&
             JSON.parse(window.localStorage.getItem("edit")).shipping_method ===

@@ -21,7 +21,6 @@ class UploadEditor {
         this.container.appendChild(em);
         this.container.appendChild(textarea);
 
-        // 수정버튼
         if (window.localStorage.getItem("edit")) {
             textarea.innerText = JSON.parse(
                 window.localStorage.getItem("edit")

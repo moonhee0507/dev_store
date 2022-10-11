@@ -13,7 +13,6 @@ class OrdererPhone {
         const phoneContainer = document.createElement("div");
         phoneContainer.setAttribute("class", "phone-container");
 
-        // 010
         const select = document.createElement("select");
         select.setAttribute("class", "input-orderer-phone first");
         select.setAttribute("value", "010");
@@ -74,7 +73,6 @@ class OrdererPhone {
         );
         this.wrapper.append(inputTitle, phoneContainer, message);
 
-        // 숫자 외 입력불가 함수
         function onlyNumber(event) {
             if (
                 event.key === "+" ||
@@ -85,7 +83,6 @@ class OrdererPhone {
                 event.preventDefault();
             }
         }
-        // 길이제한 함수
         function numberMaxLength() {
             if (inputMiddle.value.length > 4) {
                 inputMiddle.value = inputMiddle.value.slice(0, 4);
@@ -103,7 +100,6 @@ class OrdererPhone {
             numberMaxLength();
         });
 
-        // 유효성 검사
         inputMiddle.addEventListener("blur", () => {
             if (
                 !(

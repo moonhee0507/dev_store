@@ -1,5 +1,3 @@
-import ChangeQuantity from "../modal/changeQuantity";
-
 class ProductQuantity {
     constructor(stock, price, quantity, cart_item_id, is_active, product_id) {
         this.stock = stock;
@@ -34,7 +32,6 @@ class ProductQuantity {
         txtPlus.innerText = "구매 수량 더하기";
 
         let qt = parseInt(quantityInput.value);
-        // (페이지 공통) 재고 0개
         if (this.stock === 0) {
             quantityInput.value = `${0}`;
             plusButton.disabled = true;
@@ -44,7 +41,6 @@ class ProductQuantity {
             minusButton.style.cursor = "default";
         }
 
-        // 상품 상세 페이지
         if (window.location.pathname.includes("/products/")) {
             const txtStock = document.createElement("p");
             txtStock.setAttribute("class", "txt-stock");
@@ -61,7 +57,6 @@ class ProductQuantity {
                 txtStock
             );
 
-            // + 버튼을 누르면 숫자 1 추가
             plusButton.addEventListener("click", () => {
                 if (this.stock === qt) {
                     plusButton.disabled = true;
@@ -76,7 +71,7 @@ class ProductQuantity {
                     ).innerText = (qt * this.price).toLocaleString("ko-KR");
                 }
             });
-            // - 버튼을 누르면 숫자 1 차감
+
             minusButton.addEventListener("click", () => {
                 if (qt > 1) {
                     qt -= 1;
@@ -89,8 +84,6 @@ class ProductQuantity {
                     ).innerText = (qt * this.price).toLocaleString("ko-KR");
                 }
             });
-
-            // 장바구니 페이지
         } else if (window.location.pathname === "/cart") {
             this.quantityWrapper.classList.add("cart");
             quantityInput.value = this.quantity;
@@ -99,7 +92,6 @@ class ProductQuantity {
             plusButton.appendChild(txtPlus);
             this.quantityWrapper.append(minusButton, quantityInput, plusButton);
 
-            // 재고 표시
             const txtStock = document.createElement("p");
             txtStock.setAttribute("class", "cart-txt-stock");
             txtStock.innerHTML = `

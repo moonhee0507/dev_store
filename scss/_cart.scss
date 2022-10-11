@@ -10,7 +10,6 @@
     }
 }
 
-// 제목행
 .cart-row {
     background: #303134;
     border-radius: $border-radius;
@@ -44,7 +43,6 @@
     }
 }
 
-// 카드 여러개 묶음
 .cart-products {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -57,7 +55,6 @@
     padding: 35px 0 80px;
 }
 
-// 체크박스
 .button-cart-check {
     border: none;
     -webkit-box-shadow: none;
@@ -78,7 +75,6 @@
     background-size: 22px 22px;
 }
 
-// 상품 카드
 .wrapper-cart-product {
     position: relative;
     display: grid;
@@ -91,7 +87,6 @@
     border-radius: $border-radius;
     padding: 20px 0;
 
-    // x 버튼
     .button-close-cart {
         position: absolute;
         top: 18px;
@@ -108,12 +103,10 @@
         cursor: pointer;
     }
 
-    // 상품정보 열
     .cart-product-info-col {
         justify-self: start;
         font-size: 0;
 
-        // 상품이미지
         .style-wrapper-img.small {
             width: 160px;
             height: 160px;
@@ -121,7 +114,6 @@
             display: inline-block;
         }
 
-        // 상세 텍스트
         .cart-detail-list {
             vertical-align: top;
             text-align: left;
@@ -136,24 +128,20 @@
                 margin-bottom: 40px;
             }
 
-            // 셀러
             .cart-txt-seller {
                 font-size: 14px;
                 line-height: 18px;
                 color: #767676;
             }
-            // 상품명
             .cart-txt-product-name {
                 font-size: 18px;
                 line-height: 22px;
             }
-            // 가격
             .cart-product-price {
                 font-weight: bold;
                 font-size: 16px;
                 line-height: 20px;
             }
-            // 배송
             .cart-shipping-method,
             .cart-shipping-fee {
                 font-size: 14px;
@@ -163,7 +151,6 @@
         }
     }
 
-    // 상품금액 열
     .cart-last-col {
         .cart-number-total-price,
         .cart-txt-total-price-unit {
@@ -175,7 +162,6 @@
     }
 }
 
-// 상품카드 품절
 .wrapper-cart-product.soldout {
     width: 100%;
     height: 100%;
@@ -195,7 +181,6 @@
     box-shadow: 3px 3px 10px 0px black;
 }
 
-// 수량
 .style-wrapper-quantity.cart {
     position: relative;
     border-top: none;
@@ -217,7 +202,6 @@
     font-size: 16px;
 }
 
-// 작은 버튼
 .button-buy.small {
     display: block;
     width: 130px;
@@ -227,7 +211,6 @@
     margin: 16px 0 0 0;
 }
 
-// 하단 합산
 .wrapper-cart-total {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -242,7 +225,6 @@
         width: 25%;
     }
 
-    // 텍스트 공통(원 포함)
     .txt-cart-sum,
     .txt-cart-minus,
     .txt-cart-sum-shipping,
@@ -262,7 +244,6 @@
         font-weight: bold;
     }
 
-    // 금액 공통
     .num-cart-sum,
     .num-cart-minus,
     .num-cart-sum-shipping,
@@ -281,7 +262,6 @@
     }
 }
 
-// - 아이콘
 .total-col1,
 .total-col2 {
     position: relative;
@@ -301,7 +281,6 @@
     background: url(../images/icon-cart-plus.svg) no-repeat;
 }
 
-// 하단 버튼
 .button-buy.middle {
     display: block;
     width: 200px;

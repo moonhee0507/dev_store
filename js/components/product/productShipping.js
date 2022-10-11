@@ -46,8 +46,6 @@ class ProductShippingMethod {
             li.append(txtMethod, txtFee);
 
             return li;
-
-            // 장바구니 페이지
         } else if (url === "/cart") {
             txtMethod.setAttribute("class", "cart-shipping-method");
             txtFee.setAttribute("class", "cart-shipping-fee");
@@ -68,8 +66,6 @@ class ProductShippingMethod {
             li.append(txtMethod, txtFee);
 
             return li;
-
-            // 상품 상세(path1)에서 유입
         } else if (
             url === "/payment" &&
             window.localStorage.getItem("path") === "1"

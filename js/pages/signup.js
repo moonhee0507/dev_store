@@ -21,13 +21,11 @@ class Signup {
         this.sectionElement.appendChild(h1);
         this.sectionElement.appendChild(formElement);
 
-        // 이미지
         logoElement.src = "../images/logo.svg";
         logoElement.alt = "Logo";
         linkLogo.appendChild(logoElement);
         h1.appendChild(linkLogo);
 
-        // 폼
         const styleWrapper = document.createElement("div");
         const agreementWrapper = document.createElement("div");
         const signupButton = document.createElement("button");
@@ -41,7 +39,6 @@ class Signup {
         formElement.appendChild(agreementWrapper);
         formElement.appendChild(signupButton);
 
-        // 타입
         const signupType = document.createElement("div");
         signupType.classList.add("signup-type");
         styleWrapper.appendChild(signupType);
@@ -50,7 +47,6 @@ class Signup {
             <button type="button" class="button-seller help">판매회원가입</button>
         `;
 
-        // 주요 항목(아이디~스토어이름)
         const mainInputs = document.createElement("div");
         mainInputs.classList.add("style-container");
         styleWrapper.appendChild(mainInputs);
@@ -98,7 +94,6 @@ class Signup {
             </fieldset>
         `;
 
-        // 동의
         const checkWrapper = document.createElement("span");
         checkWrapper.classList.add("pia-check-wrapper");
         checkWrapper.innerHTML = `
@@ -146,7 +141,6 @@ class Signup {
         `;
         agreementWrapper.appendChild(policyBox);
 
-        // 스크립트
         const body = document.querySelector("body");
         const signupFeat = document.createElement("script");
         signupFeat.type = "module";

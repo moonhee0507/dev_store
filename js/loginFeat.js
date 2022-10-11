@@ -9,7 +9,6 @@ const sellerButton = document.querySelector(".button-seller");
 
 idInput.focus();
 
-// 로그인 타입 기본값
 let loginType = "BUYER";
 localStorage.setItem("loginType", loginType);
 
@@ -22,17 +21,13 @@ for (let i = 0; i < buttonLoginType.length; i++) {
         localStorage.setItem("loginType", loginType);
 
         if (i === 0) {
-            // style remove
             buttonLoginType[i + 1].classList.remove("on");
             buttonLoginType[i].classList.remove("help");
-            // style add
             buttonLoginType[i].classList.add("on");
             buttonLoginType[i + 1].classList.add("help");
         } else if (i === 1) {
-            // style remove
             buttonLoginType[i - 1].classList.remove("on");
             buttonLoginType[i].classList.remove("help");
-            // style add
             buttonLoginType[i].classList.add("on");
             buttonLoginType[i - 1].classList.add("help");
         }
@@ -44,7 +39,6 @@ function initializeStyle() {
     }
 }
 
-// 로그인 버튼 활성화 함수
 function isDisabledButton() {
     if (idInput.value !== "" && passwordInput.value !== "") {
         loginButton.disabled = false;
@@ -56,11 +50,9 @@ function isDisabledButton() {
     }
 }
 
-// input의 값이 변경되면 버튼 이벤트 발생
 idInput.addEventListener("input", isDisabledButton);
 passwordInput.addEventListener("input", isDisabledButton);
 
-// 로그인 요청 함수
 async function login(event) {
     event.preventDefault();
 
@@ -104,7 +96,6 @@ async function login(event) {
 
 loginButton.addEventListener("click", login);
 
-// input 내용을 변경하면 message 사라지게 하기
 const input = document.querySelectorAll("input");
 for (let i = 0; i < input.length; i++) {
     input[i].addEventListener("input", () => {

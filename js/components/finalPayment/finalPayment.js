@@ -21,7 +21,6 @@ class FinalPayment {
         const finalCalcResult = document.createElement("ul");
         finalCalcResult.setAttribute("class", "final-calc-result");
 
-        // 상품금액
         const list1 = document.createElement("li");
         const txtFinalPrice = document.createElement("p");
         txtFinalPrice.setAttribute("class", "txt-final-price");
@@ -32,7 +31,6 @@ class FinalPayment {
         txtFinalUnit1.setAttribute("class", "txt-final-unit");
         txtFinalUnit1.innerText = "원";
 
-        // 할인금액
         const list2 = document.createElement("li");
         const txtFinalDiscount = document.createElement("p");
         txtFinalDiscount.setAttribute("class", "txt-final-discount");
@@ -43,7 +41,6 @@ class FinalPayment {
         txtFinalUnit2.setAttribute("class", "txt-final-unit");
         txtFinalUnit2.innerText = "원";
 
-        // 배송비
         const list3 = document.createElement("li");
         const txtFinalShipping = document.createElement("p");
         txtFinalShipping.setAttribute("class", "txt-final-shipping");
@@ -54,7 +51,6 @@ class FinalPayment {
         txtFinalUnit3.setAttribute("class", "txt-final-unit");
         txtFinalUnit3.innerText = "원";
 
-        // 결제금액
         const listResult = document.createElement("li");
         const txtFinalPayment = document.createElement("p");
         txtFinalPayment.setAttribute("class", "txt-final-payment");
@@ -67,7 +63,6 @@ class FinalPayment {
         numFinalPayment.appendChild(txtFinalPaymentUnit);
         listResult.append(txtFinalPayment, numFinalPayment);
 
-        // 체크박스
         const styleWrapperFinalAgree = document.createElement("span");
         styleWrapperFinalAgree.setAttribute(
             "class",
@@ -83,7 +78,6 @@ class FinalPayment {
         checkFinalLabel.innerText =
             "주문 내용을 확인하였으며, 정보 제공 등에 동의합니다.";
 
-        // 결제하기 버튼
         const buttonPayment = document.createElement("button");
         buttonPayment.setAttribute("type", "submit");
         buttonPayment.setAttribute("class", "button-payment");
@@ -185,7 +179,6 @@ class FinalPayment {
         styleWrapperFinal.append(finalCalcElement, finalCalcResult);
         this.article.append(title, styleWrapperFinal, styleWrapperGray);
 
-        // 결제하기 버튼 활성화
         setTimeout(() => {
             const input = document.getElementsByTagName("input");
             const messages = document.querySelectorAll(
@@ -218,7 +211,6 @@ class FinalPayment {
             }
         }, 1500);
 
-        // 결제 버튼 클릭 시 주문 생성
         buttonPayment.addEventListener("click", (e) => {
             e.preventDefault();
             const product_id = () => {
@@ -387,8 +379,6 @@ class FinalPayment {
                     .then((res) => res.json())
                     .then((data) => {
                         console.log(data);
-                        // alert("결제가 완료되었습니다.");
-                        // TODO: 결제내역 확인하는 페이지 만들기
                     })
                     .catch((e) => console.error(e));
             }
