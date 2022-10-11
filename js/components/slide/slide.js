@@ -17,21 +17,21 @@ class Slide {
 
         const slide1 = document.createElement("li");
         slide1.setAttribute("class", "slide");
-        slide1.style.background = "url('/images/slide_1.png')";
+        slide1.style.background = "url('../images/slide_1.png')";
         slide1.innerHTML = `
             <a href="" target="_blank" class="link-slide"></a>
         `;
 
         const slide2 = document.createElement("li");
         slide2.setAttribute("class", "slide");
-        slide2.style.background = "url('/images/slide_2.png')";
+        slide2.style.background = "url('../images/slide_2.png')";
         slide2.innerHTML = `
             <a href="" target="_blank" class="link-slide"></a>
         `;
 
         const slide3 = document.createElement("li");
         slide3.setAttribute("class", "slide");
-        slide3.style.background = "url('/images/slide_3.png')";
+        slide3.style.background = "url('../images/slide_3.png')";
         slide3.innerHTML = `
             <a href="" target="_blank" class="link-slide"></a>
         `;
