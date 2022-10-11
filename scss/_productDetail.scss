@@ -129,14 +129,14 @@
 
     .button-quantity.minus {
         border-radius: $border-radius 0 0 $border-radius;
-        background: url(../images/icon-minus.png) no-repeat;
+        background: url(/assets/images/icon-minus.png) no-repeat;
         background-position: center;
         background-size: 15px 15px;
     }
 
     .button-quantity.plus {
         border-radius: 0 $border-radius $border-radius 0;
-        background: url(../images/icon-plus.png) no-repeat;
+        background: url(/assets/images/icon-plus.png) no-repeat;
         background-position: center;
         background-size: 15px 15px;
     }

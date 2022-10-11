@@ -33,7 +33,7 @@ class ProductTab {
         tabDetail.setAttribute("class", "tab-detail");
         const imgTab = document.createElement("img");
         imgTab.setAttribute("class", "img-tab");
-        imgTab.setAttribute("src", "../images/temporary-image.svg");
+        imgTab.setAttribute("src", "/assets/images/temporary-image.svg");
         imgTab.setAttribute("alt", "임시 이미지");
         tabDetail.appendChild(imgTab);
 

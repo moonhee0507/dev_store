@@ -21,7 +21,7 @@ class Signup {
         this.sectionElement.appendChild(h1);
         this.sectionElement.appendChild(formElement);
 
-        logoElement.src = "../images/logo.svg";
+        logoElement.src = "/assets/images/logo.svg";
         logoElement.alt = "Logo";
         linkLogo.appendChild(logoElement);
         h1.appendChild(linkLogo);

@@ -11,7 +11,7 @@ class SearchButton {
 
         const searchImg = document.createElement("img");
         searchImg.setAttribute("class", "img-search");
-        searchImg.setAttribute("src", "../images/icon-search.png");
+        searchImg.setAttribute("src", "/assets/images/icon-search.png");
         searchImg.setAttribute("alt", "search icon");
         this.button.appendChild(searchImg);
 

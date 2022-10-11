@@ -17,7 +17,7 @@ class UploadImage {
         label.setAttribute("for", "product-img");
 
         const img = document.createElement("img");
-        img.setAttribute("src", "../images/icon-img.png");
+        img.setAttribute("src", "/assets/images/icon-img.png");
         img.setAttribute("alt", "상품 이미지 업로드 버튼");
         img.setAttribute("class", "button-upload-img");
         img.setAttribute("title", "업로드");

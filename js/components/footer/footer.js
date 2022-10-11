@@ -42,7 +42,7 @@ class Footer {
         linkSns1.setAttribute("href", "https://www.instagram.com/");
         const iconSns1 = document.createElement("img");
         iconSns1.setAttribute("class", "icon-sns");
-        iconSns1.setAttribute("src", "../images/icon-insta.png");
+        iconSns1.setAttribute("src", "/assets/images/icon-insta.png");
         iconSns1.setAttribute("alt", "Instagram Link");
         linkSns1.appendChild(iconSns1);
 
@@ -50,7 +50,7 @@ class Footer {
         linkSns2.setAttribute("href", "https://www.facebook.com/");
         const iconSns2 = document.createElement("img");
         iconSns2.setAttribute("class", "icon-sns");
-        iconSns2.setAttribute("src", "../images/icon-facebook.png");
+        iconSns2.setAttribute("src", "/assets/images/icon-facebook.png");
         iconSns2.setAttribute("alt", "Facebook Link");
         linkSns2.appendChild(iconSns2);
 
@@ -58,7 +58,7 @@ class Footer {
         linkSns3.setAttribute("href", "https://www.youtube.com/");
         const iconSns3 = document.createElement("img");
         iconSns3.setAttribute("class", "icon-sns");
-        iconSns3.setAttribute("src", "../images/icon-youtube.png");
+        iconSns3.setAttribute("src", "/assets/images/icon-youtube.png");
         iconSns3.setAttribute("alt", "Youtube Link");
         linkSns3.appendChild(iconSns3);
 

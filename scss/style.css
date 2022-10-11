@@ -460,7 +460,7 @@ input::placeholder {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("../images/icon-down-arrow.svg") no-repeat;
+  background: url("/assets/images/icon-down-arrow.svg") no-repeat;
   background-size: 22px 22px;
   background-position: calc(100% - 14px);
 }
@@ -592,12 +592,12 @@ input[type="checkbox"]:focus {
 }
 
 .button-prev {
-  background-image: url("../images/icon-swiper-left.png");
+  background-image: url("/assets/images/icon-swiper-left.png");
   margin-left: -580px;
 }
 
 .button-next {
-  background-image: url("../images/icon-swiper-right.png");
+  background-image: url("/assets/images/icon-swiper-right.png");
   margin-left: 530px;
 }
 
@@ -1033,7 +1033,7 @@ input[type="checkbox"]:focus {
 .link-list.cart {
   position: relative;
   width: 120px;
-  background: url("../images/icon-shopping-bag.svg") no-repeat;
+  background: url("/assets/images/icon-shopping-bag.svg") no-repeat;
   background-size: 30px 30px;
   background-position: 10px 10px;
   padding: 0 0 0 30px;
@@ -1064,7 +1064,7 @@ input[type="checkbox"]:focus {
 .dropdown .link-list.mypage {
   width: 120px;
   height: 50px;
-  background: url("../images/icon-user.svg") no-repeat;
+  background: url("/assets/images/icon-user.svg") no-repeat;
   background-size: 30px 30px;
   background-position: 10px 10px;
   padding: 0 20px 0 45px;
@@ -1159,7 +1159,7 @@ input[type="checkbox"]:focus {
 
 .link-seller-center {
   display: block;
-  background: url("../images/icon-shopping-bag.svg") no-repeat;
+  background: url("/assets/images/icon-shopping-bag.svg") no-repeat;
   background-size: 30px 30px;
   background-position: 20px 9px;
   padding: 0 0 0 30px;
@@ -1406,14 +1406,14 @@ input[type="checkbox"]:focus {
 
 .style-wrapper-quantity .button-quantity.minus {
   border-radius: 5px 0 0 5px;
-  background: url(../images/icon-minus.png) no-repeat;
+  background: url(/assets/images/icon-minus.png) no-repeat;
   background-position: center;
   background-size: 15px 15px;
 }
 
 .style-wrapper-quantity .button-quantity.plus {
   border-radius: 0 5px 5px 0;
-  background: url(../images/icon-plus.png) no-repeat;
+  background: url(/assets/images/icon-plus.png) no-repeat;
   background-position: center;
   background-size: 15px 15px;
 }
@@ -1638,14 +1638,14 @@ input[type="checkbox"]:focus {
   padding: 0;
   width: 22px;
   height: 22px;
-  background: url(../images/check-box.png) no-repeat;
+  background: url(/assets/images/check-box.png) no-repeat;
   background-position: center center;
   background-size: 22px 22px;
   cursor: pointer;
 }
 
 .button-cart-check.fill {
-  background: url(../images/check-box-fill.png) no-repeat;
+  background: url(/assets/images/check-box-fill.png) no-repeat;
   background-position: center center;
   background-size: 22px 22px;
 }
@@ -1675,7 +1675,7 @@ input[type="checkbox"]:focus {
   border-radius: 0;
   width: 22px;
   height: 22px;
-  background: url("../images/icon-delete.png") no-repeat;
+  background: url("/assets/images/icon-delete.png") no-repeat;
   background-size: 22px 22px;
   background-position: center center;
   cursor: pointer;
@@ -1749,7 +1749,7 @@ input[type="checkbox"]:focus {
 .wrapper-cart-product.soldout::after {
   position: absolute;
   content: "";
-  background: url("../images/sold-out.svg") no-repeat center center;
+  background: url("/assets/images/sold-out.svg") no-repeat center center;
   background-color: white;
   background-size: 105%;
   width: 150px;
@@ -1854,7 +1854,7 @@ input[type="checkbox"]:focus {
 .total-col2::after {
   content: "";
   position: absolute;
-  background: url(../images/icon-cart-minus.svg) no-repeat;
+  background: url(/assets/images/icon-cart-minus.svg) no-repeat;
   background-size: 34px 34px;
   width: 34px;
   height: 34px;
@@ -1863,7 +1863,7 @@ input[type="checkbox"]:focus {
 }
 
 .total-col2::after {
-  background: url(../images/icon-cart-plus.svg) no-repeat;
+  background: url(/assets/images/icon-cart-plus.svg) no-repeat;
 }
 
 .button-buy.middle {
@@ -2324,7 +2324,7 @@ input[type="checkbox"]:focus {
 
 #input-message {
   position: absolute;
-  background: url("../images/icon-down-arrow.svg") no-repeat;
+  background: url("/assets/images/icon-down-arrow.svg") no-repeat;
   background-size: 25px 25px;
   background-position: 99%;
   background-color: #303134;
@@ -2409,7 +2409,7 @@ input[type="checkbox"]:focus {
 .link-upload::before {
   position: absolute;
   content: "";
-  background: url("../images/icon-upload.png") no-repeat;
+  background: url("/assets/images/icon-upload.png") no-repeat;
   background-size: 25px 25px;
   width: 25px;
   height: 25px;
@@ -2960,7 +2960,7 @@ input[type="checkbox"]:focus {
 .style-wrapper-filter .sort-order .sort.on::before {
   position: absolute;
   content: "";
-  background: url("../images/icon-check.svg") no-repeat center center;
+  background: url("/assets/images/icon-check.svg") no-repeat center center;
   background-size: 10px 10px;
   width: 10px;
   height: 10px;
@@ -3038,7 +3038,7 @@ input[type="checkbox"]:focus {
 .style-wrapper-filter .search-view-method .search-view.list:after {
   position: absolute;
   content: "";
-  background: url("../images/icon-list.svg") no-repeat center center;
+  background: url("/assets/images/icon-list.svg") no-repeat center center;
   width: 20px;
   height: 20px;
   background-size: 20px 20px;
@@ -3049,7 +3049,7 @@ input[type="checkbox"]:focus {
 .style-wrapper-filter .search-view-method .search-view.grid:after {
   position: absolute;
   content: "";
-  background: url("../images/icon-grid.svg") no-repeat center center;
+  background: url("/assets/images/icon-grid.svg") no-repeat center center;
   width: 22px;
   height: 22px;
   background-size: 22px 22px;
@@ -3207,7 +3207,7 @@ input[type="checkbox"]:focus {
 .title-store::before {
   position: absolute;
   content: "";
-  background: url("../images/icon-store.svg") no-repeat center center;
+  background: url("/assets/images/icon-store.svg") no-repeat center center;
   background-size: 30px 30px;
   width: 30px;
   height: 30px;
@@ -3239,7 +3239,7 @@ input[type="checkbox"]:focus {
 }
 
 .not-img-container {
-  background: url("../images/icon-404.svg") no-repeat center center;
+  background: url("/assets/images/icon-404.svg") no-repeat center center;
   background-size: 100% 100%;
   width: 270px;
   height: 193px;
@@ -3364,7 +3364,7 @@ input[type="checkbox"]:focus {
   border-radius: 0;
   width: 22px;
   height: 22px;
-  background: url("../images/icon-delete.png") no-repeat;
+  background: url("/assets/images/icon-delete.png") no-repeat;
   background-size: 22px 22px;
   background-position: center center;
   cursor: pointer;

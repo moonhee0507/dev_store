@@ -20,7 +20,7 @@ class Header {
         const a = document.createElement("a");
         const logoImg = document.createElement("img");
         logoImg.setAttribute("class", "logo");
-        logoImg.setAttribute("src", "../images/logo.svg");
+        logoImg.setAttribute("src", "/assets/images/logo.svg");
         logoImg.setAttribute("alt", "dev store logo");
         a.setAttribute("href", "/");
         a.appendChild(logoImg);

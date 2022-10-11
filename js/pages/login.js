@@ -24,7 +24,7 @@ class Login {
         this.sectionElement.appendChild(formElement);
         this.sectionElement.appendChild(divElement);
 
-        logoElement.src = "../images/logo.svg";
+        logoElement.src = "/assets/images/logo.svg";
         logoElement.alt = "Logo";
         linkLogo.appendChild(logoElement);
         h1.appendChild(linkLogo);
