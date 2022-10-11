@@ -1,4 +1,4 @@
-import { API_URL } from "./common/constants";
+import { reqLogin } from "./common/api";
 
 const idInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");
@@ -20,6 +20,22 @@ for (let i = 0; i < buttonLoginType.length; i++) {
         buttonLoginType[i].style.backgroundColor = "inherit";
         loginType = buttonLoginType[i].value;
         localStorage.setItem("loginType", loginType);
+
+        if (i === 0) {
+            // style remove
+            buttonLoginType[i + 1].classList.remove("on");
+            buttonLoginType[i].classList.remove("help");
+            // style add
+            buttonLoginType[i].classList.add("on");
+            buttonLoginType[i + 1].classList.add("help");
+        } else if (i === 1) {
+            // style remove
+            buttonLoginType[i - 1].classList.remove("on");
+            buttonLoginType[i].classList.remove("help");
+            // style add
+            buttonLoginType[i].classList.add("on");
+            buttonLoginType[i - 1].classList.add("help");
+        }
     });
 }
 function initializeStyle() {
@@ -58,36 +74,26 @@ async function login(event) {
     };
 
     try {
-        const res = await fetch(`${API_URL}/accounts/login/`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(loginData),
-        });
-
-        const resJson = await res.json();
-
-        console.log(resJson);
+        const data = await reqLogin(loginData);
 
         if (username === "") {
             errorMessage.textContent = "*아이디를 입력해주세요.";
         } else if (password === "") {
             errorMessage.textContent = "비밀번호를 입력해주세요.";
-        } else if (resJson.FAIL_Message === "로그인 정보가 없습니다.") {
+        } else if (data.FAIL_Message === "로그인 정보가 없습니다.") {
             errorMessage.textContent =
                 "*아이디 또는 비밀번호가 일치하지 않습니다.";
             passwordInput.value = "";
             passwordInput.focus();
         } else if (
-            resJson.FAIL_Message ===
+            data.FAIL_Message ===
             "로그인 정보가 없습니다. 로그인 유형을 학인해주세요."
         ) {
             errorMessage.textContent = "*로그인 유형을 확인해주세요.";
         }
 
-        if (resJson.token) {
-            localStorage.setItem("token", resJson.token);
+        if (data.token) {
+            localStorage.setItem("token", data.token);
             localStorage.setItem("1", username);
             window.history.back();
         }

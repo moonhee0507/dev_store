@@ -40,10 +40,10 @@ class Login {
         styleWrapper.appendChild(loginType);
 
         loginType.innerHTML = `
-            <button type="button" class="button-buyer" name="button-buyer" value="BUYER">
+            <button type="button" class="button-buyer on" name="button-buyer" value="BUYER">
                 구매회원 로그인
             </button>
-            <button type="button" class="button-seller" name="button-seller" value="SELLER">
+            <button type="button" class="button-seller help" name="button-seller" value="SELLER">
                 판매회원 로그인
             </button>
         `;
