@@ -1,4 +1,4 @@
-import OrderListItem from "../orderListItem/orderListItem";
+import OrderListItem from "../orderListItem/orderListItem.js";
 
 class PayProducts {
     constructor() {

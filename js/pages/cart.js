@@ -1,8 +1,8 @@
-import Header from "../components/header/header";
-import CartList from "../components/cartList/cartList";
-import CartTotal from "../components/cartTotal/cartTotal";
+import Header from "../components/header/header.js";
+import CartList from "../components/cartList/cartList.js";
+import CartTotal from "../components/cartTotal/cartTotal.js";
 import { BuyNowButton } from "../components/button/index.js";
-import Footer from "../components/footer/footer";
+import Footer from "../components/footer/footer.js";
 
 class Cart {
     constructor(header, cartList, cartTotal, buyNowButton, footer) {

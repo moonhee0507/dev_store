@@ -1,8 +1,8 @@
-import { API_URL } from "../../common/constants";
-import CartListItem from "../cartListItem/cartListItem";
-import ChangeQuantity from "../modal/changeQuantity";
-import DeleteItemModal from "../modal/deleteItemModal";
-import NoCart from "../noCart/noCart";
+import { API_URL } from "../../common/constants.js";
+import CartListItem from "../cartListItem/cartListItem.js";
+import ChangeQuantity from "../modal/changeQuantity.js";
+import DeleteItemModal from "../modal/deleteItemModal.js";
+import NoCart from "../noCart/noCart.js";
 
 class CartList {
     constructor() {

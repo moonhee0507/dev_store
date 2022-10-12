@@ -1,4 +1,4 @@
-import { numberFormatter } from "../../common/thousands";
+import { numberFormatter } from "../../common/thousands.js";
 
 class UploadStock {
     constructor() {

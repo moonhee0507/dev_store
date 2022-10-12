@@ -1,5 +1,3 @@
-// import { API_URL } from "../../js/common/constants.js";
-
 const idInput = document.querySelector("#username");
 const message = document.querySelectorAll(".message");
 const signupButton = document.querySelector(".button-signup");

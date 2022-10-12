@@ -1,5 +1,5 @@
 import PaymentMethod from "../paymentMethod/paymentMethod.js";
-import FinalPayment from "../finalPayment/finalPayment";
+import FinalPayment from "../finalPayment/finalPayment.js";
 
 class PayMethodFinal {
     constructor() {

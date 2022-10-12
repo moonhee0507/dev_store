@@ -1,7 +1,7 @@
-import Header from "../components/header/header";
-import PayProducts from "../components/payProducts/payProducts";
-import PayShippingInfo from "../components/payShippingInfo/payShippingInfo";
-import Footer from "../components/footer/footer";
+import Header from "../components/header/header.js";
+import PayProducts from "../components/payProducts/payProducts.js";
+import PayShippingInfo from "../components/payShippingInfo/payShippingInfo.js";
+import Footer from "../components/footer/footer.js";
 
 class Payment {
     constructor(header, payProducts, payShippingInfo, footer) {

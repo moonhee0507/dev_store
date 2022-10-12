@@ -1,4 +1,4 @@
-import { API_URL } from "./constants";
+import { API_URL } from "./constants.js";
 
 export default async function getProducts(page, io) {
     try {

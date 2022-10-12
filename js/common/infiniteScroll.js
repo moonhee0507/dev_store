@@ -1,5 +1,5 @@
-import { ProductCard } from "../components/productCard";
-import getProducts from "./api";
+import { ProductCard } from "../components/productCard.js";
+import getProducts from "./api.js";
 
 export default function infiniteScroll() {
     let items = document.querySelector(".list-products").childNodes;

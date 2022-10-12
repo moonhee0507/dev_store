@@ -1,4 +1,4 @@
-import SearchList from "./searchList";
+import SearchList from "./searchList.js";
 import { InputClearButton, SearchButton } from "../button/index.js";
 
 class SearchBar {

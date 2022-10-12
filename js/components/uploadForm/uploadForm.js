@@ -1,6 +1,6 @@
-import UploadImage from "./uploadImage";
-import UploadDetail from "./uploadDetail";
-import UploadEditor from "./uploadEditor";
+import UploadImage from "./uploadImage.js";
+import UploadDetail from "./uploadDetail.js";
+import UploadEditor from "./uploadEditor.js";
 import { UploadCancelButton, UploadSaveButton } from "../button/index.js";
 
 class UploadForm {

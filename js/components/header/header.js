@@ -1,7 +1,7 @@
-import { API_URL } from "../../common/constants";
-import { GoToLogin } from "../modal";
-import SearchBar from "./searchBar";
-import StoreIntroduction from "../storeIntroduction/storeIntroduction";
+import { API_URL } from "../../common/constants.js";
+import { GoToLogin } from "../modal.js";
+import SearchBar from "./searchBar.js";
+import StoreIntroduction from "../storeIntroduction/storeIntroduction.js";
 
 class Header {
     constructor() {
