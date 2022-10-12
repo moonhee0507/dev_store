@@ -1,7 +1,7 @@
 import getProducts from "../../common/api.js";
 import { ascending, descending, newItemOrder } from "../../common/sort.js";
 import SearchListItem from "./searchListItem.js";
-import ProductCard from "../productCard/productCard.js.js";
+import ProductCard from "../productCard/productCard.js";
 import NotMatchMessage from "../notMatchMessage/notMatchMessage.js";
 
 class SearchList {
