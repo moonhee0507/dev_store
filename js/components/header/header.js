@@ -1,5 +1,5 @@
 import { API_URL } from "../../common/constants.js";
-import { GoToLogin } from "../modal.js";
+import { GoToLogin } from "../modal/goToLogin.js";
 import SearchBar from "./searchBar.js";
 import StoreIntroduction from "../storeIntroduction/storeIntroduction.js";
 
