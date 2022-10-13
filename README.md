@@ -3,8 +3,18 @@
 ```
 💻 데브 스토어는 개발자 용품을 파는 온라인 쇼핑몰입니다.
 
-🚀 바닐라 자바스크립트 SPA 프로젝트입니다. 아직 진행중이에요!
+🚀 바닐라 자바스크립트 SPA 프로젝트입니다. 🛠 계속 수정 중이에요!
 ```
+
+#### [배포 URL]
+
+- URL: https://devstore.work/
+- 구매자 계정
+    - ID: devbuyer
+    - PW: devbuyer1
+- 판매자 계정
+    - ID: devseller
+    - PW: devseller1
 
 #### [기술]
 
