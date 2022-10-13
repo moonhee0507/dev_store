@@ -83,7 +83,7 @@ class BuyNowButton {
                 body.style.overflow = "auto";
             });
             buttonYes.addEventListener("click", () => {
-                window.location.href = "/login";
+                window.location.href = "/accounts/login";
             });
         } else if (window.location.pathname === "/cart") {
             this.button.setAttribute("class", "button-buy middle");

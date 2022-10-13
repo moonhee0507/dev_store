@@ -179,7 +179,7 @@ class Header {
             myPageButton.classList.add("login");
 
             myPageButton.addEventListener("click", () => {
-                window.location.href = "/login";
+                window.location.href = "/accounts/login";
             });
             myPageButton.appendChild(loginButton);
             cartButton.addEventListener("click", () => {

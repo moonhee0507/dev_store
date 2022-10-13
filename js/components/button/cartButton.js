@@ -79,7 +79,7 @@ class CartButton {
             body.style.overflow = "auto";
         });
         buttonYes.addEventListener("click", () => {
-            window.location.href = "/login";
+            window.location.href = "/accounts/login";
         });
 
         return this.button;

@@ -56,7 +56,7 @@ class GoToLogin {
         });
 
         buttonYes.addEventListener("click", () => {
-            window.location.href = "/login";
+            window.location.href = "/accounts/login";
         });
 
         return this.modal;

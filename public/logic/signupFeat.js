@@ -376,7 +376,7 @@ async function signup(event) {
             resJson.phone_number &&
             resJson.user_type
         ) {
-            window.location.href = "/login";
+            window.location.href = "/accounts/login";
         } else if (
             resJson.username &&
             resJson.name &&
@@ -385,7 +385,7 @@ async function signup(event) {
             resJson.company_registration_number &&
             resJson.store_name
         ) {
-            window.location.href = "/login";
+            window.location.href = "/accounts/login";
         }
     } catch (err) {
         console.error(err);
