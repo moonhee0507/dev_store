@@ -195,6 +195,11 @@ input[type="number"] {
   border-bottom-color: white;
 }
 
+.legend.id,
+.legend.password {
+  width: 100%;
+}
+
 .input-login-username {
   margin-bottom: 6px;
 }

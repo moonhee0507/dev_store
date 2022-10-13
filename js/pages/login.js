@@ -1,3 +1,9 @@
+import LoginType from "../components/login/loginType.js";
+import IdInput from "../components/login/idInput.js";
+import PasswordInput from "../components/login/passwordInput.js";
+import LoginErrorMessage from "../components/login/loginErrorMessage.js";
+import LoginButton from "../components/button/loginButton.js";
+
 class Login {
     constructor() {
         this.sectionElement = document.createElement("section");
@@ -33,35 +39,23 @@ class Login {
         styleWrapper.classList.add("style-wrapper");
         formElement.appendChild(styleWrapper);
 
-        const loginType = document.createElement("div");
-        loginType.classList.add("login-type");
-        styleWrapper.appendChild(loginType);
-
-        loginType.innerHTML = `
-            <button type="button" class="button-buyer on" name="button-buyer" value="BUYER">
-                구매회원 로그인
-            </button>
-            <button type="button" class="button-seller help" name="button-seller" value="SELLER">
-                판매회원 로그인
-            </button>
-        `;
+        const loginType = new LoginType();
+        styleWrapper.appendChild(loginType.render());
 
         const styleContainer = document.createElement("div");
         styleContainer.classList.add("style-container");
         styleWrapper.appendChild(styleContainer);
 
-        styleContainer.innerHTML = `
-            <label for="username" class="sr-only">아이디</label>
-            <input id="username" class="input-login-username" type="text" placeholder="아이디" required>
-
-            <label for="password" class="sr-only">비밀번호</label>
-            <input id="password" class="input-login-password" type="password" placeholder="비밀번호" required>
-
-            <strong class="error-message"></strong>
-
-            <button type="submit" class="button-login" disabled>로그인</button>
-        `;
-
+        const idInput = new IdInput();
+        const passwordInput = new PasswordInput();
+        const loginErrorMessage = new LoginErrorMessage();
+        const loginButton = new LoginButton();
+        styleContainer.append(
+            idInput.render(),
+            passwordInput.render(),
+            loginErrorMessage.render(),
+            loginButton.render()
+        );
         const linkSignup = document.createElement("a");
         const linkSearchPassword = document.createElement("a");
         linkSignup.classList.add("link-signup");
