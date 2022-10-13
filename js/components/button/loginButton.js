@@ -47,9 +47,9 @@ class LoginButton {
                 }
 
                 if (data.token) {
-                    localStorage.setItem("token", data.token);
-                    localStorage.setItem("1", username);
-                    window.history.back();
+                    window.localStorage.setItem("token", data.token);
+                    window.localStorage.setItem("1", username);
+                    window.location.pathname = "/";
                 }
             } catch (e) {
                 console.error(e);
