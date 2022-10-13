@@ -22,7 +22,7 @@ export default class App {
         const router = new Router({
             "/": Home,
             "/products": ProductDetail,
-            "/accounts/login": Login,
+            "/login": Login,
             "/signup": Signup,
             "/payment": Payment,
             "/cart": Cart,
