@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants";
+import { API_URL } from "../../common/constants.js";
 
 class ChangeQuantity {
     constructor(item) {
@@ -61,7 +61,6 @@ class ChangeQuantity {
         const is_active = this.item.is_active;
         let qt = parseInt(quantityInput.value);
 
-        // 해당 상품 재고 확인
         checkStock();
         async function checkStock() {
             const res = await fetch(`${API_URL}/products/${product_id}/`, {
@@ -73,7 +72,6 @@ class ChangeQuantity {
             const data = await res.json();
             const stock = data.stock;
 
-            // + 버튼을 누르면 숫자 1 추가
             plusButton.addEventListener("click", () => {
                 if (stock === qt) {
                     plusButton.disabled = true;
@@ -82,7 +80,7 @@ class ChangeQuantity {
                     quantityInput.value = `${qt}`;
                 }
             });
-            // - 버튼을 누르면 숫자 1 차감
+
             minusButton.addEventListener("click", () => {
                 if (qt > 1) {
                     qt -= 1;
@@ -91,7 +89,6 @@ class ChangeQuantity {
             });
         }
 
-        // 수정 버튼 누르면 존재하는 자원 변경 요청(PUT)
         buttonYes.addEventListener("click", () => {
             sendQuantityData();
         });
@@ -115,7 +112,6 @@ class ChangeQuantity {
                 .catch((e) => console.error(e));
         }
 
-        // 바깥부분 클릭하면 모달창이 없어지는 기능
         this.modal.addEventListener("click", (e) => {
             plusButton.disabled = false;
             const target = e.target;
@@ -126,7 +122,7 @@ class ChangeQuantity {
                 qt = parseInt(quantityInput.value);
             }
         });
-        // x 버튼 클릭하면 모달창이 없어지는 기능
+
         buttonClose.addEventListener("click", () => {
             plusButton.disabled = false;
             this.modal.classList.remove("show");
@@ -134,7 +130,7 @@ class ChangeQuantity {
             quantityInput.value = this.item.quantity;
             qt = parseInt(quantityInput.value);
         });
-        // 취소 버튼 누르면 모달창이 없어지는 기능
+
         buttonNo.addEventListener("click", () => {
             plusButton.disabled = false;
             this.modal.classList.remove("show");

@@ -1,5 +1,5 @@
 import getProducts from "../../common/api.js";
-import SearchListItem from "./searchListItem";
+import SearchListItem from "./searchListItem.js";
 
 class SearchList {
     constructor(keyword) {

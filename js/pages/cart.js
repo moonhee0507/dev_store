@@ -1,8 +1,8 @@
-import Header from "../components/header/header";
-import CartList from "../components/cartList/cartList";
-import CartTotal from "../components/cartTotal/cartTotal";
+import Header from "../components/header/header.js";
+import CartList from "../components/cartList/cartList.js";
+import CartTotal from "../components/cartTotal/cartTotal.js";
 import { BuyNowButton } from "../components/button/index.js";
-import Footer from "../components/footer/footer";
+import Footer from "../components/footer/footer.js";
 
 class Cart {
     constructor(header, cartList, cartTotal, buyNowButton, footer) {
@@ -24,12 +24,10 @@ class Cart {
         deleteModalGroup.setAttribute("class", "delete-modal-group");
         this.footer = new Footer();
 
-        // header
         const header = document.createElement("header");
         header.setAttribute("class", "header");
         header.appendChild(this.header.render());
 
-        // main
         const main = document.createElement("main");
         main.setAttribute("class", "max-width");
         main.appendChild(this.cartList.render());
@@ -38,17 +36,15 @@ class Cart {
         main.appendChild(changeModalGroup);
         main.appendChild(deleteModalGroup);
 
-        // footer
         const footer = document.createElement("footer");
         footer.setAttribute("class", "footer");
         footer.appendChild(this.footer.render());
 
-        // 스크립트
         setTimeout(() => {
             const body = document.querySelector("body");
             const cartTotalFeat = document.createElement("script");
             cartTotalFeat.type = "module";
-            cartTotalFeat.src = "../js/cartTotalFeat.js";
+            cartTotalFeat.src = "/logic/cartTotalFeat.js";
             body.appendChild(cartTotalFeat);
         }, 1500);
 

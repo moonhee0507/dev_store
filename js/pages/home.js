@@ -1,9 +1,9 @@
-import Header from "../components/header/header";
-import Slide from "../components/slide/slide";
-import ProductList from "../components/productList/productList";
-import Footer from "../components/footer/footer";
-import infiniteScroll from "../common/infiniteScroll";
-import TopButton from "../components/button/topButton";
+import Header from "../components/header/header.js";
+import Slide from "../components/slide/slide.js";
+import ProductList from "../components/productList/productList.js";
+import Footer from "../components/footer/footer.js";
+import infiniteScroll from "../common/infiniteScroll.js";
+import TopButton from "../components/button/topButton.js";
 
 class Home {
     constructor(header, slide, productList, footer) {

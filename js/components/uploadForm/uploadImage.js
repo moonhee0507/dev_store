@@ -17,7 +17,7 @@ class UploadImage {
         label.setAttribute("for", "product-img");
 
         const img = document.createElement("img");
-        img.setAttribute("src", "../images/icon-img.png");
+        img.setAttribute("src", "/assets/images/icon-img.png");
         img.setAttribute("alt", "상품 이미지 업로드 버튼");
         img.setAttribute("class", "button-upload-img");
         img.setAttribute("title", "업로드");
@@ -37,7 +37,6 @@ class UploadImage {
 
         input.addEventListener("change", handleImageChange);
 
-        // formData 객체에 파일정보 담기
         function handleImageChange(e) {
             const currentFile = e.target.files;
             let formData = new FormData();
@@ -46,7 +45,6 @@ class UploadImage {
             iconBlur();
         }
 
-        // 미리보기 기능
         function preview(currentFile) {
             const reader = new FileReader();
             reader.onload = () => {
@@ -55,7 +53,6 @@ class UploadImage {
             reader.readAsDataURL(currentFile[0]);
         }
 
-        // 파일 선택 후 아이콘 스타일 변경
         function iconBlur() {
             img.style.opacity = "0.3";
         }
@@ -71,7 +68,6 @@ class UploadImage {
             }
         }
 
-        // 수정버튼
         if (window.localStorage.getItem("edit")) {
             imgContainer.style.backgroundImage = `url(${
                 JSON.parse(window.localStorage.getItem("edit")).image

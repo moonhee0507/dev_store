@@ -12,11 +12,10 @@ import { BuyNowButton, CartButton } from "../button/index.js";
 class ProductInfoCard {
     constructor(info) {
         this.infoWrapper = document.createElement("div");
-        this.info = info; // Home, Detail, cart, payment
+        this.info = info;
     }
 
     render() {
-        // 상품 상세페이지
         if (window.location.pathname.includes("/products/")) {
             this.infoWrapper.setAttribute(
                 "class",
@@ -37,7 +36,6 @@ class ProductInfoCard {
                 this.info.shipping_fee
             );
 
-            // quantity
             const li = document.createElement("li");
             const productQuantity = new ProductQuantity(
                 this.info.stock,
@@ -45,13 +43,11 @@ class ProductInfoCard {
             );
             li.append(productQuantity.render());
 
-            // total
             const productTotal = new ProductTotal(
                 this.info.stock,
                 this.info.price
             );
 
-            // button
             const buyNowButton = new BuyNowButton(this.info.stock);
             const cartButton = new CartButton(
                 this.info.stock,
@@ -71,8 +67,6 @@ class ProductInfoCard {
             this.infoWrapper.appendChild(ul);
             this.infoWrapper.appendChild(buyNowButton.render());
             this.infoWrapper.appendChild(cartButton.render());
-
-            // 장바구니 페이지
         } else if (window.location.pathname === "/cart") {
             this.infoWrapper.setAttribute("class", "cart-product-info-col");
             const cartDetailList = document.createElement("ul");
@@ -95,8 +89,6 @@ class ProductInfoCard {
             cartDetailList.append(productName.render());
             cartDetailList.append(productPrice.render());
             cartDetailList.append(productShipping.render());
-
-            // 상품 상세(path1)에서 유입
         } else if (
             window.location.pathname === "/payment" &&
             window.localStorage.getItem("path") === "1"
@@ -109,7 +101,6 @@ class ProductInfoCard {
             const productName = new ProductName();
             const quantityList = document.createElement("li");
 
-            // 주문수량
             const paymentTxtQuantity = document.createElement("p");
             paymentTxtQuantity.setAttribute("class", "payment-txt-quantity");
             paymentTxtQuantity.innerText = "수량 : ";
@@ -127,7 +118,6 @@ class ProductInfoCard {
             );
             this.infoWrapper.append(productImage.render());
             this.infoWrapper.append(ul);
-            // 장바구니(path2)에서 유입
         } else if (
             window.location.pathname === "/payment" &&
             window.localStorage.getItem("path") === "2"
@@ -140,7 +130,6 @@ class ProductInfoCard {
             const productName = new ProductName(this.info.productName);
             const quantityList = document.createElement("li");
 
-            // 주문수량
             const paymentTxtQuantity = document.createElement("p");
             paymentTxtQuantity.setAttribute("class", "payment-txt-quantity");
             paymentTxtQuantity.innerText = "수량 : ";
@@ -156,7 +145,6 @@ class ProductInfoCard {
             );
             this.infoWrapper.append(productImage.render());
             this.infoWrapper.append(ul);
-            // 장바구니(path3)에서 유입
         } else if (
             window.location.pathname === "/payment" &&
             window.localStorage.getItem("path") === "3"
@@ -169,7 +157,6 @@ class ProductInfoCard {
             const productName = new ProductName();
             const quantityList = document.createElement("li");
 
-            // 주문수량
             const paymentTxtQuantity = document.createElement("p");
             paymentTxtQuantity.setAttribute("class", "payment-txt-quantity");
             paymentTxtQuantity.innerText = "수량 : ";

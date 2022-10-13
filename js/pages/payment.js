@@ -1,7 +1,7 @@
-import Header from "../components/header/header";
-import PayProducts from "../components/payProducts/payProducts";
-import PayShippingInfo from "../components/payShippingInfo/payShippingInfo";
-import Footer from "../components/footer/footer";
+import Header from "../components/header/header.js";
+import PayProducts from "../components/payProducts/payProducts.js";
+import PayShippingInfo from "../components/payShippingInfo/payShippingInfo.js";
+import Footer from "../components/footer/footer.js";
 
 class Payment {
     constructor(header, payProducts, payShippingInfo, footer) {
@@ -17,12 +17,10 @@ class Payment {
         this.payShippingInfo = new PayShippingInfo();
         this.footer = new Footer();
 
-        // header
         const header = document.createElement("header");
         header.setAttribute("class", "header");
         header.appendChild(this.header.render());
 
-        // main
         const main = document.createElement("main");
         main.setAttribute("class", "max-width");
         const h2 = document.createElement("h2");
@@ -32,12 +30,10 @@ class Payment {
         main.appendChild(this.payProducts.render());
         main.append(this.payShippingInfo.render());
 
-        // footer
         const footer = document.createElement("footer");
         footer.setAttribute("class", "footer");
         footer.appendChild(this.footer.render());
 
-        // Daum 우편번호
         const fileLoading = document.createElement("script");
         fileLoading.setAttribute(
             "src",

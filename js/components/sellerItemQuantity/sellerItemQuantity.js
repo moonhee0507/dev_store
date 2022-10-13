@@ -1,4 +1,4 @@
-import getProducts from "../../common/api";
+import getProducts from "../../common/api.js";
 
 class SellerItemQuantity {
     constructor(store, seller) {

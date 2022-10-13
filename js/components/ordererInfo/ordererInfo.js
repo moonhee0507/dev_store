@@ -15,11 +15,8 @@ class OrdererInfo {
         const ordererInfoWrapper = document.createElement("div");
         ordererInfoWrapper.setAttribute("class", "orderer-info-wrapper");
 
-        // 주문자 이름
         const ordererName = new OrdererName();
-        // 주문자 연락처
         const ordererPhone = new OrdererPhone();
-        // 주문자 이메일
         const ordererEmail = new OrdererEmail();
 
         ordererInfoWrapper.append(

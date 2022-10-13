@@ -12,12 +12,10 @@ class Search {
     render() {
         this.header = new Header();
 
-        // header
         const header = document.createElement("header");
         header.setAttribute("class", "header");
         header.appendChild(this.header.render());
 
-        // main
         const main = document.createElement("main");
         main.setAttribute("class", "max-width");
 

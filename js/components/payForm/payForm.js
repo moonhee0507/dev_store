@@ -1,6 +1,6 @@
 import OrdererInfo from "../ordererInfo/ordererInfo.js";
 import RecipientInfo from "../recipientInfo/recipientInfo.js";
-import PayMethodFinal from "../payMethodFinal/payMethodFinal";
+import PayMethodFinal from "../payMethodFinal/payMethodFinal.js";
 
 class PayForm {
     constructor() {

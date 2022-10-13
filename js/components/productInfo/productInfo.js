@@ -8,13 +8,11 @@ class ProductInfo {
         this.info = {};
     }
 
-    // 상품 상세 정보 가져오기
     async getProductData() {
         let id = window.location.pathname.replace(/\D/g, "");
         const data = await getProductsDetail(id);
         this.info = await data;
     }
-    // 상세내용 세팅하기
     async setProductInfo() {
         await this.getProductData();
         this.sectionElement.classList.add("section-detail");

@@ -6,7 +6,6 @@ class Footer {
     render() {
         this.wrapper.setAttribute("class", "max-width");
 
-        // 관련 링크
         const linkBox = document.createElement("div");
         linkBox.setAttribute("class", "link-box");
         const styleLinkPage = document.createElement("div");
@@ -43,7 +42,7 @@ class Footer {
         linkSns1.setAttribute("href", "https://www.instagram.com/");
         const iconSns1 = document.createElement("img");
         iconSns1.setAttribute("class", "icon-sns");
-        iconSns1.setAttribute("src", "../images/icon-insta.png");
+        iconSns1.setAttribute("src", "/assets/images/icon-insta.png");
         iconSns1.setAttribute("alt", "Instagram Link");
         linkSns1.appendChild(iconSns1);
 
@@ -51,7 +50,7 @@ class Footer {
         linkSns2.setAttribute("href", "https://www.facebook.com/");
         const iconSns2 = document.createElement("img");
         iconSns2.setAttribute("class", "icon-sns");
-        iconSns2.setAttribute("src", "../images/icon-facebook.png");
+        iconSns2.setAttribute("src", "/assets/images/icon-facebook.png");
         iconSns2.setAttribute("alt", "Facebook Link");
         linkSns2.appendChild(iconSns2);
 
@@ -59,7 +58,7 @@ class Footer {
         linkSns3.setAttribute("href", "https://www.youtube.com/");
         const iconSns3 = document.createElement("img");
         iconSns3.setAttribute("class", "icon-sns");
-        iconSns3.setAttribute("src", "../images/icon-youtube.png");
+        iconSns3.setAttribute("src", "/assets/images/icon-youtube.png");
         iconSns3.setAttribute("alt", "Youtube Link");
         linkSns3.appendChild(iconSns3);
 
@@ -70,7 +69,6 @@ class Footer {
 
         linkBox.appendChild(styleLinkSns);
 
-        // 회사 정보
         const coInfo = document.createElement("div");
         coInfo.setAttribute("class", "co-info");
 

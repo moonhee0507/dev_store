@@ -15,7 +15,6 @@ class ProductDeleteButton {
                 const body = document.querySelector("body");
                 body.style.overflow = "hidden";
             }
-            console.log(this.id);
         });
 
         return this.button;

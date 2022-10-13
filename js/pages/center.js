@@ -14,29 +14,24 @@ class Center {
         this.header = new Header();
         this.footer = new Footer();
 
-        // header
         const header = document.createElement("header");
         header.setAttribute("class", "header");
         header.appendChild(this.header.render());
 
-        // main
         const main = document.createElement("main");
         main.setAttribute("class", "max-width");
         const dashboard = document.createElement("div");
         dashboard.setAttribute("class", "style-wrapper-dashboard");
         main.appendChild(dashboard);
 
-        // 대시보드 타이틀(셀러명)
         const dashboardTitle = new DashboardTitle();
 
-        // 판매자 메뉴, 판매 상품리스트
         const dashboardMain = document.createElement("div");
         dashboardMain.setAttribute("class", "style-container-center-main");
         const dashboardMenu = new DashboardMenu();
         const dashboardView = new DashboardView();
         dashboardMain.append(dashboardMenu.render(), dashboardView.render());
 
-        // footer
         const footer = document.createElement("footer");
         footer.setAttribute("class", "footer");
         footer.appendChild(this.footer.render());

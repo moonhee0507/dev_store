@@ -13,7 +13,6 @@ class PaymentMethod {
         const methodForm = document.createElement("div");
         methodForm.setAttribute("class", "method-wrapper");
 
-        // 신용/체크카드
         const creditWrapper = document.createElement("div");
         const creditInput = document.createElement("input");
         creditInput.setAttribute("type", "radio");
@@ -25,7 +24,6 @@ class PaymentMethod {
         creditLabel.setAttribute("for", "input-method-card");
         creditLabel.innerText = "신용/체크카드";
 
-        // 무통장 입금
         const depositWrapper = document.createElement("div");
         const depositInput = document.createElement("input");
         depositInput.setAttribute("type", "radio");
@@ -36,7 +34,6 @@ class PaymentMethod {
         depositLabel.setAttribute("for", "input-method-deposit");
         depositLabel.innerText = "무통장 입금";
 
-        // 휴대폰 결제
         const phoneWrapper = document.createElement("div");
         const phoneInput = document.createElement("input");
         phoneInput.setAttribute("type", "radio");
@@ -47,7 +44,6 @@ class PaymentMethod {
         phoneLabel.setAttribute("for", "input-method-phone");
         phoneLabel.innerText = "휴대폰 결제";
 
-        // 카카오페이
         const kakaopayWrapper = document.createElement("div");
         const kakaopayInput = document.createElement("input");
         kakaopayInput.setAttribute("type", "radio");
@@ -58,7 +54,6 @@ class PaymentMethod {
         kakaopayLabel.setAttribute("for", "input-method-kakaopay");
         kakaopayLabel.innerText = "카카오페이";
 
-        // 네이버페이
         const naverpayWrapper = document.createElement("div");
         const naverpayInput = document.createElement("input");
         naverpayInput.setAttribute("type", "radio");

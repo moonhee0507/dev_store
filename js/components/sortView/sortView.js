@@ -1,5 +1,5 @@
-import SearchViewQuantity from "./searchViewQuantity";
-import SearchViewMethod from "./searchViewMethod";
+import SearchViewQuantity from "./searchViewQuantity.js";
+import SearchViewMethod from "./searchViewMethod.js";
 
 class SortView {
     constructor() {

@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants";
+import { API_URL } from "../../common/constants.js";
 
 class DeleteItemModal {
     constructor(cart_item_id) {
@@ -37,7 +37,6 @@ class DeleteItemModal {
 
         const body = document.querySelector("body");
 
-        // 바깥부분 클릭하면 모달창이 없어지는 기능
         this.modal.addEventListener("click", (e) => {
             const target = e.target;
             if (target.classList.contains("show")) {
@@ -45,18 +44,17 @@ class DeleteItemModal {
                 body.style.overflow = "auto";
             }
         });
-        // x 버튼 클릭하면 모달창이 없어지는 기능
+
         buttonClose.addEventListener("click", () => {
             this.modal.classList.remove("show");
             body.style.overflow = "auto";
         });
-        // 취소 버튼 누르면 모달창이 없어지는 기능
+
         buttonNo.addEventListener("click", () => {
             this.modal.classList.remove("show");
             body.style.overflow = "auto";
         });
 
-        // 확인 버튼을 누르면 DELETE 요청
         const cart_item_id = this.cart_item_id;
         buttonYes.addEventListener("click", () => {
             deleteReq();

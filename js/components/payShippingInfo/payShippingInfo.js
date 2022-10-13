@@ -1,4 +1,4 @@
-import PayForm from "../payForm/payForm";
+import PayForm from "../payForm/payForm.js";
 
 class PayShippingInfo {
     constructor() {

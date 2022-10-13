@@ -46,7 +46,6 @@ class UploadProductName {
             }
         });
 
-        // Chrome
         input.addEventListener("keyup", (e) => {
             if (parseInt(input.value.length) > parseInt(input.maxLength)) {
                 input.value = input.value.substring(
@@ -58,7 +57,6 @@ class UploadProductName {
             }
         });
 
-        // 수정버튼
         if (window.localStorage.getItem("edit")) {
             input.value = JSON.parse(
                 window.localStorage.getItem("edit")

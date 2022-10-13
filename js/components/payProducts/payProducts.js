@@ -1,4 +1,4 @@
-import OrderListItem from "../orderListItem/orderListItem";
+import OrderListItem from "../orderListItem/orderListItem.js";
 
 class PayProducts {
     constructor() {
@@ -32,7 +32,6 @@ class PayProducts {
         const orderProduct = document.createElement("div");
         orderProduct.setAttribute("class", "style-wrapper-order-products");
 
-        // 총 주문금액
         const wrapperPaymentTotalAmount = document.createElement("div");
         wrapperPaymentTotalAmount.setAttribute(
             "class",
@@ -64,7 +63,6 @@ class PayProducts {
             wrapperPaymentTotalAmount
         );
 
-        // 상품 상세(path1)에서 유입
         if (
             window.location.pathname === "/payment" &&
             window.localStorage.getItem("path") === "1"
@@ -86,8 +84,6 @@ class PayProducts {
                         ).shipping.replace(/\D/g, "")
                     )
                 ).toLocaleString("ko-KR") + "원";
-
-            // 장바구니 메인버튼(path2)에서 유입
         } else if (
             window.location.pathname === "/payment" &&
             window.localStorage.getItem("path") === "2"
@@ -104,7 +100,6 @@ class PayProducts {
                 parseInt(
                     JSON.parse(localStorage.getItem("total")).amount
                 ).toLocaleString("ko-KR") + "원";
-            // 장바구니 미니버튼(path3)에서 유입
         } else if (
             window.location.pathname === "/payment" &&
             window.localStorage.getItem("path") === "3"

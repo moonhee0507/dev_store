@@ -1,5 +1,5 @@
-import SellerInfoButton from "../button/sellerInfoButton";
-import SellerItemQuantity from "../sellerItemQuantity/sellerItemQuantity";
+import SellerInfoButton from "../button/sellerInfoButton.js";
+import SellerItemQuantity from "../sellerItemQuantity/sellerItemQuantity.js";
 
 class ProductSeller {
     constructor(store, seller) {

@@ -1,6 +1,6 @@
-import UploadImage from "./uploadImage";
-import UploadDetail from "./uploadDetail";
-import UploadEditor from "./uploadEditor";
+import UploadImage from "./uploadImage.js";
+import UploadDetail from "./uploadDetail.js";
+import UploadEditor from "./uploadEditor.js";
 import { UploadCancelButton, UploadSaveButton } from "../button/index.js";
 
 class UploadForm {
@@ -14,20 +14,15 @@ class UploadForm {
         const formContent = document.createElement("div");
         formContent.setAttribute("class", "style-wrapper-upload-grid");
 
-        // 상품이미지 등록
         const uploadImage = new UploadImage();
-        // 상품명등
         const uploadDetail = new UploadDetail();
-        // 상품 에디터
         const uploadEditor = new UploadEditor();
 
         const buttonContainer = document.createElement("div");
         buttonContainer.setAttribute("class", "button-container-upload");
 
-        // 취소버튼
         const uploadCancelButton = new UploadCancelButton();
 
-        // 저장버튼
         const uploadSaveButton = new UploadSaveButton();
 
         this.form.appendChild(formContent);

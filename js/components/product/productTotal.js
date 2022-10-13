@@ -9,7 +9,6 @@ class ProductTotal {
     }
 
     render() {
-        // 상품 상세페이지
         if (window.location.pathname.includes("/products/")) {
             const totalWrapper = document.createElement("div");
             const txtTotalPrice = document.createElement("strong");
@@ -48,7 +47,6 @@ class ProductTotal {
             );
             totalWrapper.append(txtTotalPrice, totalContainer);
             this.li.appendChild(totalWrapper);
-            // 장바구니 페이지
         } else if (window.location.pathname === "/cart") {
             this.div.setAttribute("class", "cart-last-col");
 
@@ -80,7 +78,6 @@ class ProductTotal {
                     );
                 } else {
                     localStorage.setItem("path", "3");
-                    // fromCartItems 스토리지에서 클릭 상품 가져오기
                     const initialCartStorage = JSON.parse(
                         localStorage.getItem("fromCartItems")
                     );
@@ -138,7 +135,6 @@ class ProductTotal {
                         JSON.stringify(initialCartStorage)
                     );
 
-                    // 로컬스토리지의 값이 checked가 true 이면서, selectedQt가 0이 아닌 것 추출
                     const filteredFromCartItems = JSON.parse(
                         window.localStorage.getItem("fromCartItems")
                     ).filter((el) => {

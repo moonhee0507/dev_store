@@ -69,9 +69,7 @@ class ProductCard {
             let circle = document.createElement("span");
             product.appendChild(circle);
 
-            // let x = e.clientX - e.target.offsetLeft;
             let x = e.layerX;
-            // let y = e.clientY - e.target.offsetTop;
             let y = e.layerY;
 
             circle.style.left = `${x}px`;

@@ -1,5 +1,3 @@
-import { API_URL } from "./common/constants";
-
 const idInput = document.querySelector("#username");
 const message = document.querySelectorAll(".message");
 const signupButton = document.querySelector(".button-signup");
@@ -17,11 +15,9 @@ let passCRN = false;
 let passStoreName = false;
 let passAgreement = false;
 
-// 초기화
 for (let i = 0; i < input.length; i++) {
     input[i].value = "";
 }
-// (공통) 빈값 처리
 for (let i = 1; i <= 3; i++) {
     input[i].addEventListener("focus", () => {
         input[i - 1].value === "" &&
@@ -29,7 +25,6 @@ for (let i = 1; i <= 3; i++) {
     });
 }
 
-// username - 중복 체크, regex
 const usernameDuplicateCheck = document.querySelector(
     ".username-duplicate-check"
 );
@@ -54,7 +49,6 @@ usernameDuplicateCheck.addEventListener("click", async (event) => {
         }
     });
 });
-// 중복확인 클릭 안내, 값 변경 시 pass false
 idInput.addEventListener("input", () => {
     message[0].classList.remove("possible");
     passUsername = false;
@@ -63,7 +57,6 @@ idInput.addEventListener("input", () => {
     }
 });
 
-// password - regex(영문, 숫자, 특수문자 포함 8자 이상 && 소문자, 숫자 1개 이상 필수)
 const passwordInput = document.querySelector("#password");
 const passwordRegex =
     /^(?=.*[a-z])(?=.*[0-9])[a-z0-9A-Z\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]{8,}$/;
@@ -79,7 +72,6 @@ passwordInput.addEventListener("input", () => {
     }
 });
 
-// password2 - 일치
 const passwordInput2 = document.querySelector("#password2");
 passwordInput2.addEventListener("input", () => {
     if (passwordInput2.value !== passwordInput.value) {
@@ -91,7 +83,6 @@ passwordInput2.addEventListener("input", () => {
     }
 });
 
-// name - 빈값
 const nameInput = document.querySelector("#name");
 nameInput.addEventListener("blur", () => {
     if (nameInput.value === "") {
@@ -103,7 +94,6 @@ nameInput.addEventListener("blur", () => {
     }
 });
 
-// phoneNumber - 중복 체크, regex
 const phoneNumber = document.querySelectorAll(".phoneNumber");
 
 for (let i = 0; i <= 2; i++) {
@@ -151,10 +141,7 @@ function phoneNumberDuplicateCheck(event) {
     });
 }
 
-// company_registration_number - 중복 체크, regex
 const crnDuplicateCheck = document.querySelector(".crn-duplicate-check");
-
-// 숫자 외 입력불가 함수
 function onlyNumber(event) {
     if (
         event.key === "+" ||
@@ -166,7 +153,6 @@ function onlyNumber(event) {
     }
 }
 
-// 길이제한 함수
 function numberMaxLength() {
     if (crnInput.value.length > 10) {
         crnInput.value = crnInput.value.slice(0, 10);
@@ -202,7 +188,6 @@ crnDuplicateCheck.addEventListener("click", async (event) => {
     });
 });
 
-// store_name - 중복 체크, regex
 const storeNameInput = document.querySelector("#storeName");
 storeNameInput.addEventListener("input", async (event) => {
     passStoreName = false;
@@ -218,7 +203,6 @@ function storeNameRegexCheck() {
         storeNameInput.value === " " ||
         !storeNameRegex.test(storeNameInput.value) ||
         /\s+(\s)/.test(storeNameInput.value)
-        // 전체 글자에서 연속된 공백이 2개 이상
     ) {
         storeNameInput.focus();
         message[6].innerText = "스토어 이름을 다시 확인해주세요.";
@@ -242,7 +226,6 @@ function storeNameDuplicateCheck(event) {
     });
 }
 
-// PIA - 체크여부
 const agreementCheckbox = document.querySelector(
     "#personalInfomationAgreement"
 );
@@ -293,16 +276,13 @@ function allPass() {
     }
 }
 
-// 버튼 활성화 여부 체크
 for (let i = 0; i < input.length; i++) {
     input[i].addEventListener("input", () => {
-        // allPass를 0.5초 후 실행
         setTimeout(allPass, 500);
         allPass();
     });
 }
 
-// 회원가입 타입에 따른 폼 보여주는 이벤트
 let signupType = "";
 
 buyerButton.addEventListener("click", () => {
@@ -311,10 +291,8 @@ buyerButton.addEventListener("click", () => {
     sellerButton.style.backgroundColor = "#F2F2F2";
     signupType = "";
 
-    // style remove
     sellerButton.classList.remove("on");
     buyerButton.classList.remove("help");
-    // style add
     buyerButton.classList.add("on");
     sellerButton.classList.add("help");
 
@@ -327,10 +305,8 @@ sellerButton.addEventListener("click", () => {
     sellerButton.style.backgroundColor = "inherit";
     buyerButton.style.backgroundColor = "#F2F2F2";
 
-    // style remove
     buyerButton.classList.remove("on");
     sellerButton.classList.remove("help");
-    // style add
     sellerButton.classList.add("on");
     buyerButton.classList.add("help");
 
@@ -338,7 +314,6 @@ sellerButton.addEventListener("click", () => {
     return signupType;
 });
 
-// 중복확인 요청 함수
 async function eachRequest(event) {
     event.preventDefault();
 
@@ -351,15 +326,17 @@ async function eachRequest(event) {
     };
 
     try {
-        const res = await fetch(`${API_URL}/accounts/signup${signupType}/`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        });
+        const res = await fetch(
+            `https://openmarket.weniv.co.kr/accounts/signup${signupType}/`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            }
+        );
         const resJson = await res.json();
-        console.log(resJson);
 
         return resJson;
     } catch (err) {
@@ -367,7 +344,6 @@ async function eachRequest(event) {
     }
 }
 
-// 회원가입 요청 함수
 async function signup(event) {
     event.preventDefault();
 
@@ -383,15 +359,17 @@ async function signup(event) {
     };
 
     try {
-        const res = await fetch(`${API_URL}/accounts/signup${signupType}/`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(signupData),
-        });
+        const res = await fetch(
+            `https://openmarket.weniv.co.kr/accounts/signup${signupType}/`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(signupData),
+            }
+        );
         const resJson = await res.json();
-        console.log(resJson);
         if (
             resJson.username &&
             resJson.name &&
