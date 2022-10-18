@@ -436,7 +436,7 @@ input::placeholder {
 
 .username-duplicate-check,
 .crn-duplicate-check {
-  width: 122px;
+  width: 120px;
   border: none;
   padding: 18px 0;
   color: #ffffff;
@@ -452,7 +452,7 @@ input::placeholder {
 }
 
 .phoneNumber {
-  width: 152px;
+  width: 150px;
 }
 
 .phoneNumber.first {
