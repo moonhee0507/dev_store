@@ -20,7 +20,7 @@
 
 -   FrontEnd: vanilla JavaScript, Sass
 -   BackEnd: 제공된 API 사용
--   vite
+-   AWS Amplify, vite
 
 #### [개발 환경]
 
@@ -30,12 +30,11 @@
 
 <h2>페이지</h2>
 
-<hr>
-
 <h3 align=center>⛪ 홈</h3>
 
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/102460056/192025372-1974eaf3-3d62-4bf1-bfc0-c02a680c6a44.gif" alt="" width=600>
+    <img src="https://user-images.githubusercontent.com/102460056/196949561-776e8331-a8c7-4c4e-a15d-91457c25f356.gif" alt="" width=600>
+
 </div>
 
 <br>
@@ -44,9 +43,13 @@
 
 <h3 align=center>🔑 로그인 / 회원가입</h3>
 
+<div align=center>
+
 |                                                          **로그인**                                                          |                                                         **회원가입**                                                          |
 | :--------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: |
 | <img src="https://user-images.githubusercontent.com/102460056/192025581-6888f63a-1448-4f2e-8d41-052cd754c51e.jpg" width=400> | <img src="https://user-images.githubusercontent.com/102460056/192025897-1ef5813d-2234-4818-97d7-c84eee28a0df.gif"  width=400> |
+
+</div>
 
 <br>
 
@@ -55,7 +58,8 @@
 <h3 align=center>🎬 상품 상세</h3>
 
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/102460056/192026186-e458d5aa-4da6-4307-bd5b-4abd573244e3.gif" alt="" width=600>
+    <img src="https://user-images.githubusercontent.com/102460056/196953007-3173be1d-1a64-44f4-a68e-c5098081a49b.gif" alt="" width=600>
+
 </div>
 
 <br>
@@ -104,10 +108,19 @@
 
 <h3 align=center>🔎 검색결과</h3>
 
-    - 낮은 가격순, 높은 가격순 정렬
+    - sort: 낮은 가격순, 높은 가격순, 등록일순 정렬
 
 <div align="center">
     <img src="https://user-images.githubusercontent.com/102460056/192026533-2678e037-300d-4eb0-b22a-8b934b0ff222.gif" alt="" width=600>
+</div>
+
+<br>
+
+    - view mode: 리스트 형식, 그리드 형식
+
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/102460056/196954033-ba467e4b-6c61-4911-873f-d7851e6f4e97.gif" alt="" width=600>
+
 </div>
 
 <br>
