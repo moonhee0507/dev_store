@@ -66,3 +66,52 @@ export async function reqLogin(body) {
     const data = await res.json();
     return data;
 }
+
+export async function reqLogout() {
+    await fetch(`${API_URL}/accounts/logout/`, {
+        method: "POST",
+        headers: {
+            Authorization: `JWT ${window.localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+        },
+    })
+        .then((res) => {
+            if (res.ok === true) {
+                window.localStorage.clear();
+                window.location.href = "/";
+            } else {
+                console.error("다시 시도해주세요.");
+            }
+        })
+        .catch((e) => console.error(e));
+}
+
+export async function reqCart(
+    method,
+    product_id,
+    quantity,
+    cart_item_id,
+    is_active
+) {
+    const res = await fetch(
+        `${API_URL}/cart/${cart_item_id ? cart_item_id + "/" : ""}`,
+        {
+            method: method,
+            headers: {
+                Authorization: `JWT ${window.localStorage.getItem("token")}`,
+                "Content-Type": "application/json",
+            },
+            ...((method === "POST" || method === "PUT") && {
+                body: JSON.stringify({
+                    product_id: product_id,
+                    quantity: quantity,
+                    check: true,
+                    ...(is_active && {
+                        is_active: is_active,
+                    }),
+                }),
+            }),
+        }
+    );
+    return res;
+}

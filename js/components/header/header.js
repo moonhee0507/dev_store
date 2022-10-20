@@ -1,7 +1,7 @@
-import { API_URL } from "../../common/constants.js";
 import GoToLogin from "../modal/goToLogin.js";
 import SearchBar from "./searchBar.js";
 import StoreIntroduction from "../storeIntroduction/storeIntroduction.js";
+import { reqCart, reqLogout } from "../../common/api.js";
 
 class Header {
     constructor() {
@@ -62,27 +62,6 @@ class Header {
         dropDown.appendChild(myPageButton);
         listItem2.appendChild(dropDown);
 
-        async function logout() {
-            await fetch(`${API_URL}/accounts/logout/`, {
-                method: "POST",
-                headers: {
-                    Authorization: `JWT ${window.localStorage.getItem(
-                        "token"
-                    )}`,
-                    "Content-Type": "application/json",
-                },
-            })
-                .then((res) => {
-                    if (res.ok === true) {
-                        window.localStorage.clear();
-                        window.location.href = "/";
-                    } else {
-                        console.error("다시 시도해주세요.");
-                    }
-                })
-                .catch((e) => console.error(e));
-        }
-
         const infoFeat = () => {
             const userId = document.createElement("strong");
             userId.setAttribute("class", "txt-user-id");
@@ -113,7 +92,7 @@ class Header {
             }
 
             linkDropLogout.addEventListener("click", () => {
-                logout();
+                reqLogout();
             });
         };
 
@@ -134,21 +113,11 @@ class Header {
                 window.location.href = "/cart";
             });
             cartButton.appendChild(showQt);
-            getCartData();
-            async function getCartData() {
-                await fetch(`${API_URL}/cart/`, {
-                    method: "GET",
-                    headers: {
-                        Authorization: `JWT ${window.localStorage.getItem(
-                            "token"
-                        )}`,
-                        "Content-Type": "application/json",
-                    },
-                })
-                    .then((res) => res.json())
-                    .then((data) => (showQt.innerText = data.count))
-                    .catch((e) => console.error(e));
-            }
+            const method = "GET";
+            reqCart(method)
+                .then((res) => res.json())
+                .then((data) => (showQt.innerText = data.count))
+                .catch((e) => console.error(e));
             infoFeat();
         } else if (
             localStorage.getItem("token") &&

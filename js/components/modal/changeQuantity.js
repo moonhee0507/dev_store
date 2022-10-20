@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants.js";
+import { getProductsDetail, reqCart } from "../../common/api.js";
 
 class ChangeQuantity {
     constructor(item) {
@@ -59,58 +59,31 @@ class ChangeQuantity {
         const cart_item_id = this.item.cart_item_id;
         const product_id = this.item.product_id;
         const is_active = this.item.is_active;
-        let qt = parseInt(quantityInput.value);
+        let quantity = parseInt(quantityInput.value);
 
-        checkStock();
-        async function checkStock() {
-            const res = await fetch(`${API_URL}/products/${product_id}/`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            const data = await res.json();
-            const stock = data.stock;
-
-            plusButton.addEventListener("click", () => {
-                if (stock === qt) {
-                    plusButton.disabled = true;
-                } else {
-                    qt += 1;
-                    quantityInput.value = `${qt}`;
-                }
-            });
-
-            minusButton.addEventListener("click", () => {
-                if (qt > 1) {
-                    qt -= 1;
-                    quantityInput.value = `${qt}`;
-                }
-            });
-        }
-
-        buttonYes.addEventListener("click", () => {
-            sendQuantityData();
+        const data = getProductsDetail(product_id);
+        const stock = data.stock;
+        plusButton.addEventListener("click", () => {
+            if (stock === quantity) {
+                plusButton.disabled = true;
+            } else {
+                quantity += 1;
+                quantityInput.value = `${quantity}`;
+            }
+        });
+        minusButton.addEventListener("click", () => {
+            if (quantity > 1) {
+                quantity -= 1;
+                quantityInput.value = `${quantity}`;
+            }
         });
 
-        async function sendQuantityData() {
-            await fetch(`${API_URL}/cart/${cart_item_id}/`, {
-                method: "PUT",
-                headers: {
-                    Authorization: `JWT ${window.localStorage.getItem(
-                        "token"
-                    )}`,
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    product_id: product_id,
-                    quantity: qt,
-                    is_active: is_active,
-                }),
-            })
+        buttonYes.addEventListener("click", () => {
+            const method = "PUT";
+            reqCart(method, product_id, quantity, cart_item_id, is_active)
                 .then((res) => res.ok === true && location.reload())
                 .catch((e) => console.error(e));
-        }
+        });
 
         this.modal.addEventListener("click", (e) => {
             plusButton.disabled = false;
@@ -119,7 +92,7 @@ class ChangeQuantity {
                 target.classList.remove("show");
                 body.style.overflow = "auto";
                 quantityInput.value = this.item.quantity;
-                qt = parseInt(quantityInput.value);
+                quantity = parseInt(quantityInput.value);
             }
         });
 
@@ -128,7 +101,7 @@ class ChangeQuantity {
             this.modal.classList.remove("show");
             body.style.overflow = "auto";
             quantityInput.value = this.item.quantity;
-            qt = parseInt(quantityInput.value);
+            quantity = parseInt(quantityInput.value);
         });
 
         buttonNo.addEventListener("click", () => {
@@ -136,7 +109,7 @@ class ChangeQuantity {
             this.modal.classList.remove("show");
             body.style.overflow = "auto";
             quantityInput.value = this.item.quantity;
-            qt = parseInt(quantityInput.value);
+            quantity = parseInt(quantityInput.value);
         });
 
         return this.modal;
