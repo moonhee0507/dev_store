@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants.js";
+import { reqCart } from "../../common/api.js";
 
 class CartButton {
     constructor(stock, product_id) {
@@ -18,7 +18,8 @@ class CartButton {
         const buttonYes = document.querySelector(".button-yes");
 
         this.button.addEventListener("click", () => {
-            const product_id = this.product_id.toString();
+            const method = "POST";
+            const product_id = this.product_id;
             let quantity = parseInt(
                 document.querySelector(".input-quantity.cart").value
             );
@@ -26,41 +27,25 @@ class CartButton {
                 if (this.stock === 0) {
                     alert("해당 상품은 재고가 없습니다.");
                 } else {
-                    addToCartReq();
+                    reqCart(method, product_id, quantity, false, false)
+                        .then((res) => {
+                            res.ok === true
+                                ? window.confirm(
+                                      "장바구니로 이동하시겠습니까?"
+                                  ) && (window.location.href = "/cart")
+                                : window.confirm(
+                                      "재고 수량이 초과 되었습니다. \n장바구니로 이동하시겠습니까?"
+                                  ) && (window.location.href = "/cart");
+                        })
+                        .catch((e) => {
+                            console.error(e);
+                        });
                 }
             } else {
                 modal.classList.toggle("show");
                 if (modal.classList.contains("show")) {
                     body.style.overflow = "hidden";
                 }
-            }
-
-            async function addToCartReq() {
-                await fetch(`${API_URL}/cart/`, {
-                    method: "POST",
-                    headers: {
-                        Authorization: `JWT ${window.localStorage.getItem(
-                            "token"
-                        )}`,
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        product_id: product_id,
-                        quantity: quantity,
-                        check: true,
-                    }),
-                })
-                    .then((res) => {
-                        res.ok === true
-                            ? window.confirm("장바구니로 이동하시겠습니까?") &&
-                              (window.location.href = "/cart")
-                            : window.confirm(
-                                  "재고 수량이 초과 되었습니다. \n장바구니로 이동하시겠습니까?"
-                              ) && (window.location.href = "/cart");
-                    })
-                    .catch((e) => {
-                        console.error(e);
-                    });
             }
         });
         modal.addEventListener("click", (e) => {

@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants.js";
+import { reqCart } from "../../common/api.js";
 import CartListItem from "../cartListItem/cartListItem.js";
 import ChangeQuantity from "../modal/changeQuantity.js";
 import DeleteItemModal from "../modal/deleteItemModal.js";
@@ -10,14 +10,10 @@ class CartList {
         this.cart = {};
     }
     async getCartData() {
-        const res = await fetch(`${API_URL}/cart/`, {
-            method: "GET",
-            headers: {
-                Authorization: `JWT ${window.localStorage.getItem("token")}`,
-                "Content-Type": "application/json",
-            },
+        const method = "GET";
+        const data = await reqCart(method).then((res) => {
+            return res.json();
         });
-        const data = await res.json();
 
         this.cart = await data;
         const arr = new Array();
@@ -28,7 +24,7 @@ class CartList {
             cartItems.checked = "true";
             arr.push(cartItems);
         }
-        localStorage.setItem("fromCartItems", JSON.stringify(arr));
+        window.localStorage.setItem("fromCartItems", JSON.stringify(arr));
     }
     async setCartData() {
         await this.getCartData();
