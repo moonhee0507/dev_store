@@ -1,5 +1,3 @@
-import { API_URL } from "../../common/constants.js";
-
 class SearchButton {
     constructor() {
         this.button = document.createElement("button");
@@ -23,28 +21,10 @@ class SearchButton {
                     "검색어가 입력되지 않았습니다.\n정확한 검색어를 입력하여 다시 검색해주세요."
                 );
             } else {
-                getProductsData();
+                let keyword = document.getElementById("searchProducts").value;
+                window.location.href = `/search/keyword=${keyword}`;
             }
         });
-
-        async function getProductsData() {
-            await fetch(`${API_URL}/products`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            })
-                .then((res) => {
-                    if (res.ok === true) {
-                        let keyword =
-                            document.getElementById("searchProducts").value;
-                        window.location.href = `/search/keyword=${keyword}`;
-                    } else {
-                        alert("error");
-                    }
-                })
-                .catch((e) => console.error(e));
-        }
 
         return this.button;
     }
