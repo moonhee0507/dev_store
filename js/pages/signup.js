@@ -52,9 +52,11 @@ class Signup {
         styleWrapper.appendChild(mainInputs);
         mainInputs.innerHTML = `
             <label for="username" class="label-block">아이디</label>
-            <input id="username" class="input-signup-username" type="text" minlength="5" maxlength="20"
-                placeholder="영문 및 숫자(5자 이상 20자 이내)" autofocus required>
-            <button type="button" class="username-duplicate-check">중복확인</button>
+            <div class="style-container-input-button">
+                <input id="username" class="input-signup-username" type="text" minlength="5" maxlength="20"
+                    placeholder="영문 및 숫자(5자 이상 20자 이내)" autofocus required>
+                <button type="button" class="username-duplicate-check">중복확인</button>
+            </div>
             <strong class="message"></strong>
 
             <label for="password" class="label-block">비밀번호</label>
@@ -70,22 +72,24 @@ class Signup {
             <strong class="message"></strong>
 
             <label for="phoneNumber" class="label-block">휴대폰번호</label>
-            <select class="phoneNumber first" name="phoneNumber-first" required>
-                <option value="010">010</option>
-            </select>
+            <div class="style-container-phoneNumber">
+                <select class="phoneNumber first" name="phoneNumber-first" required>
+                    <option value="010">010</option>
+                </select>
 
-            <input id="phoneNumber" class="phoneNumber middle" type="tel" minlength="3" maxlength="4" required>
-
-            <label for="phoneNumberLast"></label>
-            <input id="phoneNumberLast" class="phoneNumber last" type="tel" maxlength="4" required>
+                <input id="phoneNumber" class="phoneNumber middle" type="tel" minlength="3" maxlength="4" required>
+                <input id="phoneNumberLast" class="phoneNumber last" type="tel" maxlength="4" required>
+            </div>
             <strong class="message"></strong>
 
             <fieldset hidden>
                 <legend class="sr-only">판매자 추가 입력사항</legend>
 
                 <label for="companyRegistrationNumber" class="label-block">사업자 등록번호</label>
-                <input id="companyRegistrationNumber" type="number" placeholder="- 제외" required>
-                <button type="button" class="crn-duplicate-check">인증</button>
+                <div class="style-container-input-button">
+                    <input id="companyRegistrationNumber" type="number" placeholder="- 제외" required>
+                    <button type="button" class="crn-duplicate-check">인증</button>
+                </div>
                 <strong class="message"></strong>
 
                 <label for="storeName" class="label-block">스토어 이름</label>

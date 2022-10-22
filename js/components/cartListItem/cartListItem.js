@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants.js";
+import { getProductsDetail } from "../../common/api.js";
 import { ProductQuantity, ProductTotal } from "../product/index.js";
 import { ProductInfoCard } from "../productInfoCard/index.js";
 
@@ -9,14 +9,7 @@ class CartListItem {
         this.cartItem = {};
     }
     async getProductData() {
-        const res = await fetch(`${API_URL}/products/${this.item.product_id}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        const data = await res.json();
-
+        const data = await getProductsDetail(this.item.product_id);
         this.cartItem = await data;
     }
     async setCart() {

@@ -115,6 +115,7 @@ input[type="number"] {
   width: 100%;
   background-color: white;
   border-radius: 5px;
+  margin-top: 20px;
 }
 
 .section-login .form-login .style-wrapper {
@@ -137,7 +138,6 @@ input[type="number"] {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   padding: 19px 77px 18px 76px;
-  font-weight: bold;
   font-size: 16px;
   line-height: 22px;
   color: black;
@@ -169,7 +169,7 @@ input[type="number"] {
   right: -3px;
   width: 0;
   height: 0;
-  border: 50px solid transparent;
+  border: 13px solid transparent;
   border-bottom-color: white;
 }
 
@@ -191,7 +191,7 @@ input[type="number"] {
   left: -3px;
   width: 0;
   height: 0;
-  border: 50px solid transparent;
+  border: 13px solid transparent;
   border-bottom-color: white;
 }
 
@@ -223,7 +223,6 @@ input[type="number"] {
 .error-message {
   display: block;
   font-style: normal;
-  font-weight: bold;
   font-size: 16px;
   line-height: 20px;
   color: #eb5757;
@@ -239,7 +238,6 @@ input[type="number"] {
 .input-login-password,
 .button-login {
   width: 100%;
-  font-weight: bold;
 }
 
 .button-login {
@@ -270,6 +268,24 @@ input[type="number"] {
   height: 20px;
 }
 
+@media (max-width: 580px) {
+  .section-login {
+    width: calc(100% - 100px);
+    min-width: 300px;
+  }
+  .login-type .button-buyer,
+  .login-type .button-seller {
+    padding: 15px 0;
+    font-size: 15px;
+  }
+  .button-login {
+    font-size: 15px;
+  }
+  .error-message {
+    font-size: 12px;
+  }
+}
+
 .section-signup {
   width: 550px;
   margin: 50px auto 0;
@@ -287,6 +303,7 @@ input[type="number"] {
 .section-signup .form-signup {
   width: 100%;
   background-color: #202124;
+  margin-top: 20px;
 }
 
 .section-signup .form-signup .style-wrapper {
@@ -308,7 +325,6 @@ input[type="number"] {
   width: calc(100% / 2);
   border: none;
   padding: 19px 87px 18px 86px;
-  font-weight: bold;
   font-size: 16px;
   line-height: 22px;
   cursor: pointer;
@@ -344,7 +360,7 @@ input[type="number"] {
   right: -3px;
   width: 0;
   height: 0;
-  border: 50px solid transparent;
+  border: 13px solid transparent;
   border-bottom-color: white;
 }
 
@@ -366,7 +382,7 @@ input[type="number"] {
   left: -3px;
   width: 0;
   height: 0;
-  border: 50px solid transparent;
+  border: 13px solid transparent;
   border-bottom-color: white;
 }
 
@@ -375,7 +391,6 @@ input[type="number"] {
   text-align: left;
   margin-bottom: 10px;
   font-style: normal;
-  font-weight: bolder;
   font-size: 16px;
   line-height: 20px;
 }
@@ -429,20 +444,25 @@ input::placeholder {
   width: 100%;
 }
 
+.style-container-input-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .input-signup-username,
 #companyRegistrationNumber {
-  width: 346px;
+  width: 80%;
 }
 
 .username-duplicate-check,
 .crn-duplicate-check {
   width: 120px;
+  height: 54px;
   border: none;
-  padding: 18px 0;
   color: #ffffff;
   background-color: #334863;
   font-style: normal;
-  font-weight: bolder;
   font-size: 16px;
   line-height: 20px;
   margin-left: 8px;
@@ -451,12 +471,19 @@ input::placeholder {
   cursor: pointer;
 }
 
+.style-container-phoneNumber {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .phoneNumber {
-  width: 150px;
+  width: 33%;
 }
 
 .phoneNumber.first {
-  padding: 16px 50px 16px;
+  height: 54px;
+  padding: 0 0 0 20px;
   border: 1px solid #c4c4c4;
   border-radius: 5px;
   font-style: normal;
@@ -476,8 +503,13 @@ input::placeholder {
 
 .phoneNumber.middle,
 .phoneNumber.last {
+  height: 54px;
   margin-left: 8px;
   text-align: center;
+  padding: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .pia-check-wrapper {
@@ -514,7 +546,6 @@ input[type="checkbox"]:focus {
 }
 
 .label-pia .important {
-  font-weight: bold;
   text-decoration: underline;
 }
 
@@ -522,7 +553,6 @@ input[type="checkbox"]:focus {
   display: block;
   color: #eb5757;
   margin-bottom: 20px;
-  font-weight: bolder;
 }
 
 .possible {
@@ -546,7 +576,6 @@ input[type="checkbox"]:focus {
 
 .policy-text .first-sentence {
   display: block;
-  font-weight: bolder;
 }
 
 .button-signup {
@@ -558,10 +587,46 @@ input[type="checkbox"]:focus {
   padding: 19px 0;
   margin-bottom: 110px;
   font-style: normal;
-  font-weight: bolder;
   font-size: 18px;
   line-height: 22px;
   color: #ffffff;
+}
+
+@media (max-width: 580px) {
+  .section-signup {
+    width: calc(100% - 100px);
+    min-width: 300px;
+  }
+  .signup-type .button-buyer,
+  .signup-type .button-seller {
+    padding: 15px 0;
+    font-size: 15px;
+  }
+  .button-signup {
+    font-size: 15px;
+  }
+  .message {
+    font-size: 15px;
+  }
+  input::-webkit-input-placeholder {
+    font-size: 13px;
+    line-height: 13px;
+  }
+  input:-ms-input-placeholder {
+    font-size: 13px;
+    line-height: 13px;
+  }
+  input::-ms-input-placeholder {
+    font-size: 13px;
+    line-height: 13px;
+  }
+  input::placeholder {
+    font-size: 13px;
+    line-height: 13px;
+  }
+  .phoneNumber.first {
+    min-width: 84px;
+  }
 }
 
 .slide-wrapper {
