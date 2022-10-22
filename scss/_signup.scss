@@ -167,15 +167,12 @@ input::placeholder {
 
 .input-signup-username,
 #companyRegistrationNumber {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
+    width: 80%;
 }
 
 .username-duplicate-check,
 .crn-duplicate-check {
-    width: -webkit-fill-available;
-    max-width: 120px;
+    width: 120px;
     height: 54px;
     border: none;
     color: $light-txt-color;
@@ -314,7 +311,7 @@ input[type="checkbox"]:focus {
 @media (max-width: 580px) {
     .section-signup {
         width: calc(100% - 100px);
-        min-width: 360px;
+        min-width: 300px;
     }
     .signup-type .button-buyer,
     .signup-type .button-seller {
@@ -325,6 +322,29 @@ input[type="checkbox"]:focus {
         font-size: 15px;
     }
     .message {
-        font-size: 12px;
+        font-size: 15px;
+    }
+    input::-webkit-input-placeholder {
+        font-size: 13px;
+        line-height: 13px;
+    }
+    input::-moz-placeholder {
+        font-size: 13px;
+        line-height: 13px;
+    }
+    input:-ms-input-placeholder {
+        font-size: 13px;
+        line-height: 13px;
+    }
+    input::-ms-input-placeholder {
+        font-size: 13px;
+        line-height: 13px;
+    }
+    input::placeholder {
+        font-size: 13px;
+        line-height: 13px;
+    }
+    .phoneNumber.first {
+        min-width: 84px;
     }
 }
