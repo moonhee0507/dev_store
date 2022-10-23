@@ -58,7 +58,7 @@ img {
 }
 
 .max-width {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -643,17 +643,28 @@ input[type="checkbox"]:focus {
 }
 
 .slide {
+  position: absolute;
   background-repeat: no-repeat;
-  width: 1200px;
+  width: 100%;
   height: 500px;
   left: 0;
-  position: absolute;
-  width: 100%;
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   text-align: center;
   overflow: hidden;
+}
+
+.slide-container :nth-child(1) {
+  background: url("/assets/images/slide_1.png");
+}
+
+.slide-container :nth-child(2) {
+  background: url("/assets/images/slide_2.png");
+}
+
+.slide-container :nth-child(3) {
+  background: url("/assets/images/slide_3.png");
 }
 
 .slide-container.animated {
@@ -818,6 +829,10 @@ input[type="checkbox"]:focus {
   font-size: 16px;
   line-height: 22px;
   color: #a158fe;
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .txt-product-name {
@@ -827,6 +842,10 @@ input[type="checkbox"]:focus {
   font-size: 18px;
   line-height: 22px;
   margin: 10px 0;
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .container-date-shipping-price {
@@ -910,6 +929,55 @@ input[type="checkbox"]:focus {
   text-decoration: underline;
 }
 
+@media (max-width: 1200px) {
+  .article-slide {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-products {
+    padding: 0 10px 180px;
+  }
+  .style-wrapper-img {
+    width: auto;
+    height: 200px;
+  }
+  .search-txt-date {
+    display: none;
+  }
+  .container-date-shipping-price {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+  .txt-seller {
+    width: 70px;
+  }
+}
+
+@media (max-width: 650px) {
+  .style-wrapper-img {
+    height: 150px;
+  }
+  .list-products {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -webkit-column-gap: 15px;
+    column-gap: 15px;
+    row-gap: 30px;
+  }
+  .txt-seller {
+    width: 50px;
+  }
+  .style-wrapper-SNP {
+    padding: 10px;
+  }
+  .card-container-price .txt-price-number {
+    font-size: 22px;
+  }
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -929,7 +997,8 @@ input[type="checkbox"]:focus {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 20px;
+  gap: 30px;
 }
 
 .header .style-wrapper {
@@ -942,7 +1011,7 @@ input[type="checkbox"]:focus {
 }
 
 .header .logo {
-  width: 200px;
+  max-width: 200px;
 }
 
 .style-search {
@@ -1077,7 +1146,7 @@ input[type="checkbox"]:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 10px;
+  gap: 5px;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -1252,6 +1321,45 @@ input[type="checkbox"]:focus {
   margin-left: 20px;
 }
 
+.button-responsive-search {
+  display: none;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  background: url(/assets/images/icon-search.png) no-repeat;
+  background-size: 30px 30px;
+  background-position: center;
+}
+
+@media (max-width: 830px) {
+  .style-search,
+  .txt-cart {
+    display: none;
+  }
+  .button-responsive-search {
+    display: block;
+  }
+  .button-responsive-search,
+  .link-list.cart {
+    width: 40px;
+    height: 40px;
+    background-size: 25px 25px;
+  }
+  .link-list.cart {
+    background-position: center;
+  }
+  .button-responsive-search:hover {
+    background-color: #303134;
+    border-radius: 50%;
+  }
+  .link-list.cart:hover {
+    border-radius: 50%;
+  }
+}
+
 .footer {
   background-color: #171717;
 }
@@ -1330,6 +1438,24 @@ input[type="checkbox"]:focus {
 
 .style-co-info:not(:first-child, :last-child) {
   margin-bottom: 7px;
+}
+
+@media (max-width: 768px) {
+  .style-link-page {
+    gap: 5px;
+  }
+  .style-link-sns {
+    gap: 3px;
+  }
+  .style-link-page .link-page {
+    font-size: 10px;
+  }
+  .txt-co-name {
+    font-size: 15px;
+  }
+  .co-info-list {
+    font-size: 10px;
+  }
 }
 
 .style-wrapper-detail {

@@ -12,18 +12,27 @@
 }
 
 .slide {
+    position: absolute;
     background-repeat: no-repeat;
-    width: 1200px;
+    width: 100%;
     height: 500px;
     left: 0;
-    position: absolute;
-    width: 100%;
     top: 50%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     text-align: center;
     overflow: hidden;
+}
+
+.slide-container :nth-child(1) {
+    background: url("/assets/images/slide_1.png");
+}
+.slide-container :nth-child(2) {
+    background: url("/assets/images/slide_2.png");
+}
+.slide-container :nth-child(3) {
+    background: url("/assets/images/slide_3.png");
 }
 
 .slide-container.animated {
@@ -191,6 +200,11 @@
     font-size: 16px;
     line-height: 22px;
     color: $point-purple;
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
 }
 
 .txt-product-name {
@@ -200,6 +214,11 @@
     font-size: 18px;
     line-height: 22px;
     margin: 10px 0;
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
 }
 
 .container-date-shipping-price {
@@ -281,4 +300,53 @@
 
 .link-all-products:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+    .article-slide {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-products {
+        padding: 0 10px 180px;
+    }
+    .style-wrapper-img {
+        width: auto;
+        height: 200px;
+    }
+    .search-txt-date {
+        display: none;
+    }
+    .container-date-shipping-price {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+    }
+    .txt-seller {
+        width: 70px;
+    }
+}
+
+@media (max-width: 650px) {
+    .style-wrapper-img {
+        height: 150px;
+    }
+    .list-products {
+        grid-template-columns: 1fr 1fr;
+        -webkit-column-gap: 15px;
+        -moz-column-gap: 15px;
+        column-gap: 15px;
+        row-gap: 30px;
+    }
+    .txt-seller {
+        width: 50px;
+    }
+    .style-wrapper-SNP {
+        padding: 10px;
+    }
+    .card-container-price .txt-price-number {
+        font-size: 22px;
+    }
 }
