@@ -79,3 +79,21 @@
 .style-co-info:not(:first-child, :last-child) {
     margin-bottom: 7px;
 }
+
+@media (max-width: 768px) {
+    .style-link-page {
+        gap: 5px;
+    }
+    .style-link-sns {
+        gap: 3px;
+    }
+    .style-link-page .link-page {
+        font-size: 10px;
+    }
+    .txt-co-name {
+        font-size: 15px;
+    }
+    .co-info-list {
+        font-size: 10px;
+    }
+}

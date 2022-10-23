@@ -2,6 +2,10 @@ import GoToLogin from "../modal/goToLogin.js";
 import SearchBar from "./searchBar.js";
 import StoreIntroduction from "../storeIntroduction/storeIntroduction.js";
 import { reqCart, reqLogout } from "../../common/api.js";
+import {
+    ResponsiveSearchButton,
+    ResponsiveCartButton,
+} from "../button/index.js";
 
 class Header {
     constructor() {
@@ -53,6 +57,12 @@ class Header {
         const listItem2 = document.createElement("li");
         listUsermenu.appendChild(listItem2);
 
+        const listItem3 = document.createElement("li");
+        listUsermenu.appendChild(listItem3);
+
+        const responsiveSearchButton = new ResponsiveSearchButton();
+        listItem1.appendChild(responsiveSearchButton.render());
+
         const myPageButton = document.createElement("button");
         myPageButton.setAttribute("class", "link-list mypage");
         myPageButton.setAttribute("type", "button");
@@ -60,7 +70,7 @@ class Header {
         const dropDown = document.createElement("div");
         dropDown.setAttribute("class", "dropdown");
         dropDown.appendChild(myPageButton);
-        listItem2.appendChild(dropDown);
+        listItem3.appendChild(dropDown);
 
         const infoFeat = () => {
             const userId = document.createElement("strong");
@@ -100,11 +110,8 @@ class Header {
             localStorage.getItem("token") &&
             localStorage.getItem("loginType") === "BUYER"
         ) {
-            const cartButton = document.createElement("button");
-            cartButton.setAttribute("class", "link-list cart");
-            cartButton.setAttribute("type", "button");
-            cartButton.innerText = "장바구니";
-            listItem1.appendChild(cartButton);
+            const responsiveCartButton = new ResponsiveCartButton();
+            listItem2.appendChild(responsiveCartButton.render());
 
             const showQt = document.createElement("em");
             showQt.setAttribute("class", "header-cart-qt");
@@ -130,13 +137,10 @@ class Header {
             sellerCenterButton.setAttribute("title", "판매자 센터");
             sellerCenterButton.setAttribute("class", "link-seller-center");
             sellerCenterButton.innerText = "판매자 센터";
-            listItem1.appendChild(sellerCenterButton);
+            listItem2.appendChild(sellerCenterButton);
         } else {
-            const cartButton = document.createElement("button");
-            cartButton.setAttribute("class", "link-list cart");
-            cartButton.setAttribute("type", "button");
-            cartButton.innerText = "장바구니";
-            listItem1.appendChild(cartButton);
+            const responsiveCartButton = new ResponsiveCartButton();
+            listItem2.appendChild(responsiveCartButton.render());
 
             const goToLogin = new GoToLogin();
             this.head.appendChild(goToLogin.render());
@@ -151,14 +155,6 @@ class Header {
                 window.location.href = "/login";
             });
             myPageButton.appendChild(loginButton);
-            cartButton.addEventListener("click", () => {
-                const body = document.querySelector("body");
-                const modal = document.querySelector(".modal");
-                modal.classList.add("show");
-                if (modal.classList.contains("show")) {
-                    body.style.overflow = "hidden";
-                }
-            });
         }
 
         this.head.appendChild(styleWrapper);

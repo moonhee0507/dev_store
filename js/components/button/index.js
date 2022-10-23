@@ -12,3 +12,5 @@ export { default as ViewInGridButton } from "./viewInGridButton.js";
 export { default as LoginButton } from "./loginButton.js";
 export { default as BuyerButton } from "./buyerButton.js";
 export { default as SellerButton } from "./sellerButton.js";
+export { default as ResponsiveSearchButton } from "./responsiveSearchButton.js";
+export { default as ResponsiveCartButton } from "./responsiveCartButton.js";
