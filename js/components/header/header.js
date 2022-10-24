@@ -21,6 +21,7 @@ class Header {
 
         const h1 = document.createElement("h1");
         h1.setAttribute("title", "홈 이동");
+        h1.setAttribute("class", "dev-store");
         const a = document.createElement("a");
         const logoImg = document.createElement("img");
         logoImg.setAttribute("class", "logo");
@@ -47,6 +48,7 @@ class Header {
             );
 
         const nav = document.createElement("nav");
+        nav.setAttribute("class", "header-nav");
         const listUsermenu = document.createElement("ul");
         listUsermenu.setAttribute("class", "list-usermenu");
         nav.appendChild(listUsermenu);
