@@ -1008,10 +1008,7 @@ input[type="checkbox"]:focus {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.header .dev-store.responsive {
-  display: none;
+  gap: 5px;
 }
 
 .header .logo {
@@ -1325,20 +1322,15 @@ input[type="checkbox"]:focus {
   margin-left: 20px;
 }
 
-.button-responsive-search {
+.button-responsive-search,
+.button-back {
   display: none;
-  width: 50px;
-  height: 50px;
-  padding: 0;
-  outline: none;
-  border: none;
-  border-radius: 50%;
-  background: url(/assets/images/icon-search.png) no-repeat;
-  background-size: 30px 30px;
-  background-position: center;
 }
 
 @media (max-width: 830px) {
+  .dev-store.responsive {
+    display: none;
+  }
   .style-wrapper {
     width: 100%;
   }
@@ -1350,14 +1342,23 @@ input[type="checkbox"]:focus {
   .style-search.responsive {
     display: block;
     width: 100%;
+    padding-left: 0;
   }
   .style-search.responsive #searchProducts {
     width: 80%;
   }
   .button-responsive-search {
     display: block;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    background: url(/assets/images/icon-search.png) no-repeat;
+    background-size: 25px 25px;
+    background-position: center;
   }
-  .button-responsive-search,
   .link-list.cart {
     width: 40px;
     height: 40px;
@@ -1373,28 +1374,26 @@ input[type="checkbox"]:focus {
   .link-list.cart:hover {
     border-radius: 50%;
   }
-}
-
-.header-nav.responsive {
-  display: none;
-}
-
-.button-back {
-  width: 50px;
-  height: 50px;
-  border: 0;
-  border-radius: 50%;
-  background-color: inherit;
-  background-image: url("/assets/images/icon-down-arrow.svg");
-  background-repeat: no-repeat;
-  background-size: 45px 45px;
-  background-position: center;
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-
-.button-back:hover {
-  background-color: black;
+  .button-back {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 0;
+    border-radius: 50%;
+    background-color: inherit;
+    background-image: url("/assets/images/icon-down-arrow.svg");
+    background-repeat: no-repeat;
+    background-size: 45px 45px;
+    background-position: center;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  .button-back:hover {
+    background-color: black;
+  }
+  .header-nav.responsive {
+    display: none;
+  }
 }
 
 .footer {
