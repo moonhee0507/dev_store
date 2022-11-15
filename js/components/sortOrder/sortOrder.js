@@ -9,12 +9,19 @@ class SortOrder {
         const lowPriceOrder = document.createElement("button");
         lowPriceOrder.setAttribute("type", "button");
         lowPriceOrder.setAttribute("class", "sort low-price");
-        lowPriceOrder.innerText = "낮은 가격순";
+        const vw = window.matchMedia(`(max-width: 440px)`);
+        lowPriceOrder.innerText = vw.matches ? "↓" : "낮은 가격순";
+        vw.addEventListener("change", (e) => {
+            lowPriceOrder.innerText = e.matches ? "↓" : "낮은 가격순";
+        });
 
         const highPriceOrder = document.createElement("button");
         highPriceOrder.setAttribute("type", "button");
         highPriceOrder.setAttribute("class", "sort high-price");
-        highPriceOrder.innerText = "높은 가격순";
+        highPriceOrder.innerText = vw.matches ? "↑" : "높은 가격순";
+        vw.addEventListener("change", (e) => {
+            highPriceOrder.innerText = e.matches ? "↑" : "높은 가격순";
+        });
 
         const createdOrder = document.createElement("button");
         createdOrder.setAttribute("type", "button");
