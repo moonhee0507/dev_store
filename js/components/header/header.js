@@ -1,7 +1,7 @@
 import GoToLogin from "../modal/goToLogin.js";
 import SearchBar from "./searchBar.js";
 import StoreIntroduction from "../storeIntroduction/storeIntroduction.js";
-import { reqCart, reqLogout } from "../../common/api.js";
+import { reqLogout } from "../../common/api.js";
 import {
     ResponsiveSearchButton,
     ResponsiveCartButton,
@@ -114,19 +114,6 @@ class Header {
         ) {
             const responsiveCartButton = new ResponsiveCartButton();
             listItem2.appendChild(responsiveCartButton.render());
-
-            const showQt = document.createElement("em");
-            showQt.setAttribute("class", "header-cart-qt");
-
-            cartButton.addEventListener("click", () => {
-                window.location.href = "/cart";
-            });
-            cartButton.appendChild(showQt);
-            const method = "GET";
-            reqCart(method)
-                .then((res) => res.json())
-                .then((data) => (showQt.innerText = data.count))
-                .catch((e) => console.error(e));
             infoFeat();
         } else if (
             localStorage.getItem("token") &&
@@ -138,7 +125,15 @@ class Header {
             sellerCenterButton.setAttribute("href", "/center");
             sellerCenterButton.setAttribute("title", "판매자 센터");
             sellerCenterButton.setAttribute("class", "link-seller-center");
-            sellerCenterButton.innerText = "판매자 센터";
+            const vw = window.matchMedia(`(max-width: 500px)`);
+            sellerCenterButton.innerHTML = vw.matches
+                ? `<img src="/assets/images/icon-shopping-bag.svg" alt="판매자 센터" class="img-center">`
+                : "판매자 센터";
+            vw.addEventListener("change", (e) => {
+                sellerCenterButton.innerHTML = e.matches
+                    ? `<img src="/assets/images/icon-shopping-bag.svg" alt="판매자 센터" class="img-center">`
+                    : "판매자 센터";
+            });
             listItem2.appendChild(sellerCenterButton);
         } else {
             const responsiveCartButton = new ResponsiveCartButton();

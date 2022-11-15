@@ -323,7 +323,7 @@
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    line-height: 47px;
+    line-height: 48px;
     color: white;
 }
 
@@ -413,5 +413,27 @@
     }
     .autocomplete {
         width: inherit;
+    }
+}
+
+@media (max-width: 830px) {
+    .link-seller-center {
+        background-image: none;
+        padding: 0;
+        width: 110px;
+    }
+}
+
+@media (max-width: 500px) {
+    .link-seller-center {
+        width: 50px;
+        font-size: 13px;
+        line-height: 13px;
+        padding: 10px;
+        border-radius: 50%;
+
+        .img-center {
+            width: 30px;
+        }
     }
 }
