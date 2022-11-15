@@ -952,7 +952,7 @@ input[type="checkbox"]:focus {
     justify-content: flex-end;
   }
   .txt-seller {
-    width: 70px;
+    width: 100px;
   }
 }
 
@@ -968,7 +968,10 @@ input[type="checkbox"]:focus {
     row-gap: 30px;
   }
   .txt-seller {
-    width: 50px;
+    position: relative;
+  }
+  .button-seller-info {
+    position: absolute;
   }
   .style-wrapper-SNP {
     padding: 10px;
@@ -1608,9 +1611,26 @@ input[type="checkbox"]:focus {
   line-height: 23px;
 }
 
+.detail-txt-seller,
+.detail-txt-total-price,
+.detail-txt-total-quantity,
+.button-buy,
+.button-cart {
+  width: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .detail-txt-product-name {
   font-size: 36px;
   line-height: 45px;
+  width: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .detail-txt-price-number {
@@ -1691,7 +1711,6 @@ input[type="checkbox"]:focus {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  min-width: 350px;
 }
 
 .style-wrapper-total .detail-txt-total-price {
@@ -1708,6 +1727,9 @@ input[type="checkbox"]:focus {
   line-height: 23px;
   -ms-flex-item-align: end;
   align-self: flex-end;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
 }
 
 .style-wrapper-total .style-container-total .detail-txt-total-quantity {
@@ -1808,6 +1830,44 @@ input[type="checkbox"]:focus {
 .style-wrapper-info .style-container-info:hover .link-product-info {
   color: black;
   font-weight: bold;
+}
+
+.product-detail-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .style-wrapper-detail {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #171717;
+  }
+  .style-wrapper-detail .style-wrapper-img.large {
+    width: 100%;
+    height: auto;
+  }
+  .style-wrapper-detail .style-container-detail-contents {
+    width: 100%;
+    height: 500px;
+  }
+  .style-wrapper-total {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .button-buy,
+  .button-cart {
+    height: 45px;
+  }
+  .style-wrapper-detail::after {
+    display: none;
+  }
 }
 
 .section-cart {

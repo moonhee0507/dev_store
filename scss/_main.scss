@@ -325,7 +325,7 @@
         justify-content: flex-end;
     }
     .txt-seller {
-        width: 70px;
+        width: 100px;
     }
 }
 
@@ -341,7 +341,10 @@
         row-gap: 30px;
     }
     .txt-seller {
-        width: 50px;
+        position: relative;
+    }
+    .button-seller-info {
+        position: absolute;
     }
     .style-wrapper-SNP {
         padding: 10px;
