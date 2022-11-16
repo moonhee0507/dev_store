@@ -143,7 +143,6 @@
     border-radius: $border-radius;
     background-color: $button-disabled;
     padding: 19px 0;
-    font-style: normal;
     font-size: 18px;
     line-height: 22px;
     color: $light-txt-color;
@@ -165,6 +164,36 @@
     }
 }
 
+.button-github {
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px solid #202124;
+    border-radius: 5px;
+
+    .txt-github {
+        position: relative;
+        font-size: 18px;
+    }
+
+    .txt-github::before {
+        position: absolute;
+        content: "";
+        background: url("/assets/images/icon-github.png") no-repeat;
+        background-size: 40px auto;
+        width: 40px;
+        height: 40px;
+        top: -8px;
+        left: -50px;
+    }
+}
+
+.button-github:hover {
+    cursor: pointer;
+}
+
 @media (max-width: 580px) {
     .section-login {
         width: calc(100% - 100px);
@@ -175,10 +204,18 @@
         padding: 15px 0;
         font-size: 15px;
     }
-    .button-login {
+    .button-login,
+    .button-github .txt-github {
         font-size: 15px;
     }
     .error-message {
         font-size: 12px;
+    }
+    .button-github .txt-github::before {
+        background-size: 30px auto;
+        width: 30px;
+        height: 30px;
+        top: -4px;
+        left: -35px;
     }
 }

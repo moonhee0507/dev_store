@@ -1,4 +1,5 @@
 .search-title3 {
+    padding-left: 15px;
     font-size: 18px;
     color: $soft-white;
     margin-bottom: 30px;
@@ -31,6 +32,8 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
     background-color: #171717;
     padding: 8px 8px 8px 13px;
     border-radius: 5px;
@@ -169,6 +172,7 @@
 .style-wrapper-search {
     color: $soft-white;
     margin: 30px 0 100px;
+    padding: 0 10px;
 
     .list-search-items {
         border: 3px solid #303134;
@@ -255,6 +259,7 @@
         .search-txt-seller {
             display: inline-block;
             font-size: 18px;
+            line-height: 30px;
             color: $point-purple;
         }
     }
@@ -285,4 +290,24 @@
 
 .search-shipping {
     font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .style-wrapper-search .search-product-info::after {
+        display: none;
+    }
+    .style-wrapper-search .search-seller-info {
+        width: 35vw;
+        // font-size: 16px;
+    }
+    .search-txt-quantity,
+    .link-all-products {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .search-seller-info {
+        display: none;
+    }
 }

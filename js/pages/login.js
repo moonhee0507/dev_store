@@ -2,7 +2,7 @@ import LoginType from "../components/login/loginType.js";
 import IdInput from "../components/login/idInput.js";
 import PasswordInput from "../components/login/passwordInput.js";
 import LoginErrorMessage from "../components/login/loginErrorMessage.js";
-import LoginButton from "../components/button/loginButton.js";
+import { LoginButton, GithubLoginButton } from "../components/button/index.js";
 
 class Login {
     constructor() {
@@ -50,11 +50,13 @@ class Login {
         const passwordInput = new PasswordInput();
         const loginErrorMessage = new LoginErrorMessage();
         const loginButton = new LoginButton();
+        const githubLoginButton = new GithubLoginButton();
         styleContainer.append(
             idInput.render(),
             passwordInput.render(),
             loginErrorMessage.render(),
-            loginButton.render()
+            loginButton.render(),
+            githubLoginButton.render()
         );
         const linkSignup = document.createElement("a");
         const linkSearchPassword = document.createElement("a");

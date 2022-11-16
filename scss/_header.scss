@@ -56,6 +56,8 @@
     }
 
     .button-clear {
+        position: absolute;
+        right: 44px;
         width: 12px;
         height: 44px;
         vertical-align: bottom;
@@ -81,6 +83,8 @@
     }
 
     .button-search {
+        position: absolute;
+        right: 0;
         height: 44px;
         border: none;
         padding: 10px;
@@ -319,7 +323,7 @@
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    line-height: 47px;
+    line-height: 48px;
     color: white;
 }
 
@@ -349,11 +353,13 @@
         min-width: auto;
     }
     .style-search.responsive {
+        position: relative;
         display: block;
         width: 100%;
         padding-left: 0;
         #searchProducts {
-            width: 80%;
+            // width: 80%;
+            width: 100%;
         }
     }
     .button-responsive-search {
@@ -404,5 +410,30 @@
     }
     .header-nav.responsive {
         display: none;
+    }
+    .autocomplete {
+        width: inherit;
+    }
+}
+
+@media (max-width: 830px) {
+    .link-seller-center {
+        background-image: none;
+        padding: 0;
+        width: 110px;
+    }
+}
+
+@media (max-width: 500px) {
+    .link-seller-center {
+        width: 50px;
+        font-size: 13px;
+        line-height: 13px;
+        padding: 10px;
+        border-radius: 50%;
+
+        .img-center {
+            width: 30px;
+        }
     }
 }
