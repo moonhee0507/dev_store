@@ -1593,8 +1593,8 @@ input[type="checkbox"]:focus {
   padding: 30px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 200px;
-      grid-template-columns: 1fr 200px;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   -ms-grid-rows: 92% 8%;
       grid-template-rows: 92% 8%;
   background-color: #171717;
@@ -1925,6 +1925,12 @@ input[type="checkbox"]:focus {
   }
   .style-wrapper-detail::after {
     display: none;
+  }
+}
+
+@media (max-width: 390px) {
+  .link-product-info {
+    font-size: 13px;
   }
 }
 
