@@ -30,7 +30,10 @@ class Center {
         dashboardMain.setAttribute("class", "style-container-center-main");
         const dashboardMenu = new DashboardMenu();
         const dashboardView = new DashboardView();
-        dashboardMain.append(dashboardMenu.render(), dashboardView.render());
+        dashboardMain.appendChild(dashboardMenu.render());
+        setTimeout(() => {
+            dashboardMain.appendChild(dashboardView.render());
+        }, 2000);
 
         const footer = document.createElement("footer");
         footer.setAttribute("class", "footer");
