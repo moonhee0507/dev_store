@@ -38,7 +38,7 @@ class LoginType {
         }
         function initializeStyle() {
             for (let i = 0; i < buttonLoginType.length; i++) {
-                buttonLoginType[i].style.backgroundColor = "#F2F2F2";
+                buttonLoginType[i].style.backgroundColor = "#e9e9e9";
             }
         }
 
