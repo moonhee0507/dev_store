@@ -4,6 +4,7 @@ import ProductList from "../components/productList/productList.js";
 import Footer from "../components/footer/footer.js";
 import infiniteScroll from "../common/infiniteScroll.js";
 import TopButton from "../components/button/topButton.js";
+import Loading from "../common/loading.js";
 
 class Home {
     constructor(header, slide, productList, footer) {
@@ -14,6 +15,10 @@ class Home {
     }
 
     render() {
+        const loading = new Loading();
+        const root = document.getElementById("root");
+        root.appendChild(loading.render());
+
         this.header = new Header();
         this.slide = new Slide();
         this.productList = new ProductList();
@@ -34,10 +39,10 @@ class Home {
 
         const topButton = new TopButton();
 
-        const root = document.getElementById("root");
         root.append(header, main, footer, topButton.render());
         setTimeout(() => {
             infiniteScroll();
+            root.removeChild(root.firstChild);
         }, 2000);
     }
 }

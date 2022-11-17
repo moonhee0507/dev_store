@@ -29,7 +29,7 @@
 }
 
 .not-description-container {
-    color: white;
+    color: $on-surface;
 
     strong {
         display: block;
@@ -60,19 +60,19 @@
             width: 150px;
             padding: 10px 0;
             margin: 0;
-            border-radius: 5px;
+            border-radius: $border-radius;
             font-weight: bold;
             font-size: 16px;
             line-height: 22px;
-            color: white;
+            color: $on-surface;
         }
         .button-tomain {
-            background-color: $point-purple;
+            background-color: $primary;
             border: none;
         }
         .button-toprev {
             background-color: inherit;
-            border: 1px solid #c4c4c4;
+            border: 1px solid $border;
         }
     }
 }

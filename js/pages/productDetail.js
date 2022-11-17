@@ -2,6 +2,7 @@ import Header from "../components/header/header.js";
 import { ProductInfo, ProductTab } from "../components/productInfo/index.js";
 import { GoToLogin } from "../components/modal/index.js";
 import Footer from "../components/footer/footer.js";
+import Loading from "../common/loading.js";
 
 class ProductDetail {
     constructor(header, productInfo, productTab, goToLogin, footer) {
@@ -13,6 +14,10 @@ class ProductDetail {
     }
 
     render() {
+        const loading = new Loading();
+        const root = document.getElementById("root");
+        root.appendChild(loading.render());
+
         this.header = new Header();
         this.productInfo = new ProductInfo();
         this.productTab = new ProductTab();
@@ -32,6 +37,10 @@ class ProductDetail {
         const footer = document.createElement("footer");
         footer.setAttribute("class", "footer");
         footer.appendChild(this.footer.render());
+
+        setTimeout(() => {
+            root.removeChild(root.firstChild);
+        }, 2000);
 
         document.getElementById("root").append(header, main, footer);
     }

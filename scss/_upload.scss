@@ -15,12 +15,12 @@
         font-style: normal;
         font-size: 16px;
         line-height: 20px;
-        color: $point-red;
+        color: $secondary;
     }
 
     .style-wrapper-reference {
-        background: $point-green;
-        border-radius: 5px;
+        background: $primary-variant;
+        border-radius: $border-radius;
         padding: 20px;
         margin-top: 10px;
 
@@ -28,7 +28,7 @@
             margin-bottom: 14px;
             font-size: 14px;
             line-height: 18px;
-            color: black;
+            color: $surface;
         }
 
         p:last-child {
@@ -39,7 +39,7 @@
 
 .style-wrapper-upload-content {
     padding-left: 310px;
-    color: $soft-white;
+    color: $on-background;
 }
 
 .txt-upload-small {
@@ -64,7 +64,7 @@
     position: relative;
     width: 400px;
     height: 400px;
-    background-color: #c4c4c4;
+    background-color: $surface;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -101,14 +101,14 @@
     }
 
     input {
-        background-color: #303134;
+        background-color: $surface;
         padding: 10px 0 10px 8px;
         margin: 0;
         border: none;
         border-radius: 0;
         font-size: 16px;
         line-height: 20px;
-        color: white;
+        color: $on-surface;
     }
 
     input:focus {
@@ -121,8 +121,8 @@
 }
 
 .input-container-productname {
-    background-color: #303134;
-    border-radius: 5px;
+    background-color: $surface;
+    border-radius: $border-radius;
     overflow: hidden;
 
     #input-upload-productname {
@@ -130,14 +130,14 @@
     }
     .txt-char-limit {
         width: 70px;
-        color: grey;
+        color: $on-background;
     }
 }
 .input-container-productname:focus-within,
 .input-container-price:focus-within,
 .input-container-shippingfee:focus-within,
 .input-container-stock:focus-within {
-    outline: 2px solid white;
+    outline: 1px solid $outline;
 }
 
 .input-container-price,
@@ -145,15 +145,15 @@
 .input-container-stock {
     display: inline-block;
     font-size: 0;
-    border-radius: 5px;
+    border-radius: $border-radius;
     overflow: hidden;
 }
 
 .txt-upload-unit {
     display: inline-block;
-    background-color: #1a1a1a;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    background-color: $overlay;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
     padding: 10px;
     font-size: 16px;
     line-height: 20px;
@@ -171,23 +171,23 @@
 }
 .button-parcel,
 .button-delivery {
-    background-color: #303134;
+    background-color: $surface;
     width: 150px;
     -webkit-box-shadow: none;
     box-shadow: none;
     border: none;
-    border-radius: 5px;
+    border-radius: $border-radius;
     outline: none;
     padding: 10px 0;
     margin: 0 10px 0 0;
     font-size: 13px;
     line-height: 20px;
-    color: white;
+    color: $on-surface;
     cursor: pointer;
 }
 .button-parcel:hover,
 .button-delivery:hover {
-    background-color: $point-purple;
+    background-color: $primary;
 }
 
 .style-container-upload-detail {
@@ -207,12 +207,12 @@
     }
 }
 #upload-textarea {
-    background-color: #303134;
+    background-color: $surface;
     width: 100%;
     height: 300px;
     font-family: inherit;
     font-size: 16px;
-    color: $soft-white;
+    color: $on-background;
 }
 
 .button-container-upload {
@@ -226,19 +226,19 @@
         -webkit-box-shadow: none;
         box-shadow: none;
         border: none;
-        border-radius: 5px;
+        border-radius: $border-radius;
         outline: none;
         padding: 10px 0;
         margin: 0 10px 0 0;
         font-weight: bold;
         font-size: 16px;
         line-height: 20px;
-        color: black;
+        color: $surface;
         cursor: pointer;
     }
 
     .button-upload-save {
-        color: white;
-        background-color: $point-purple;
+        color: $on-surface;
+        background-color: $primary;
     }
 }

@@ -1,9 +1,9 @@
 .section-payment-products {
-    color: white;
+    color: $on-surface;
     text-align: center;
 }
 .title-payment {
-    color: white;
+    color: $on-surface;
     text-align: center;
     font-weight: bold;
     font-size: 30px;
@@ -56,7 +56,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    border: 3px solid #303134;
+    border: 3px solid $border;
     border-radius: $border-radius;
     padding: 20px 0;
 
@@ -85,7 +85,7 @@
             .payment-txt-seller {
                 font-size: 14px;
                 line-height: 18px;
-                color: #767676;
+                @include low-emphasis;
             }
             .payment-txt-product-name {
                 font-size: 18px;
@@ -94,7 +94,7 @@
             .payment-txt-quantity {
                 font-size: 14px;
                 line-height: 18px;
-                color: #767676;
+                @include low-emphasis;
             }
         }
     }
@@ -102,7 +102,7 @@
     .payment-discount-col {
         font-size: 18px;
         line-height: 23px;
-        color: #767676;
+        @include low-emphasis;
     }
 
     .payment-shipping-col {
@@ -110,7 +110,7 @@
             font-weight: 400;
             font-size: 18px;
             line-height: 23px;
-            color: #767676;
+            @include low-emphasis;
         }
     }
 
@@ -138,17 +138,17 @@
     font-weight: bold;
     font-size: 24px;
     line-height: 30px;
-    color: $point-red;
+    color: $secondary;
 }
 
 .section-shipping-info {
-    color: white;
+    color: $on-surface;
     font-size: 16px;
     margin: 50px 0;
 
     .title-shipping-info,
     .title-payment-method {
-        border-bottom: 2px solid #303134;
+        border-bottom: 2px solid $border;
         padding-bottom: 18px;
         font-weight: bold;
         font-size: 24px;
@@ -158,12 +158,12 @@
     input {
         width: 334px;
         border: none;
-        border-radius: 5px;
+        border-radius: $border-radius;
         padding: 9px 0 9px 3px;
         margin: 0;
         font-size: 16px;
-        color: white;
-        background-color: #303134;
+        color: $on-surface;
+        background-color: $surface;
     }
 
     input:focus {
@@ -178,7 +178,7 @@
     width: 100%;
     padding-bottom: 8px;
     margin-bottom: 4px;
-    border-bottom: 2px solid #303134;
+    border-bottom: 2px solid $border;
     font-weight: bold;
     font-size: 18px;
     line-height: 23px;
@@ -188,7 +188,7 @@
     display: -ms-flexbox;
     display: flex;
     padding: 8px 0;
-    border-bottom: 1px solid #303134;
+    border-bottom: 1px solid $border;
 }
 .input-title {
     width: 170px;
@@ -214,12 +214,12 @@
 .input-recipient-phone.first {
     width: 95px;
     height: 40px;
-    border-radius: 5px;
+    border-radius: $border-radius;
     border: none;
-    background-color: #303134;
+    background-color: $surface;
     text-align: center;
     font-size: 16px;
-    color: white;
+    color: $on-surface;
 }
 
 .zip-code-area {
@@ -237,17 +237,17 @@
 }
 
 .find-zip-code {
-    background-color: $point-purple;
+    background-color: $primary;
     padding: 10px 30px;
     margin: 0;
     border: none;
-    border-radius: 5px;
+    border-radius: $border-radius;
     -webkit-box-shadow: none;
     box-shadow: none;
     vertical-align: sub;
     font-size: 16px;
     line-height: 20px;
-    color: white;
+    color: $on-surface;
     cursor: pointer;
 }
 
@@ -291,7 +291,7 @@
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    border-bottom: 2px solid #303134;
+    border-bottom: 2px solid $border;
     padding: 18px 0;
     input[name="payment_method"] {
         width: initial;
@@ -303,7 +303,7 @@
 }
 
 .article-final-payment {
-    border-radius: 10px;
+    border-radius: $border-radius;
 
     .title-final-payment {
         padding-bottom: 18px;
@@ -314,8 +314,8 @@
 
     .style-wrapper-final {
         padding: 30px;
-        background-color: white;
-        color: black;
+        background-color: $on-surface;
+        color: $background;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
 
@@ -331,7 +331,7 @@
         }
 
         .final-calc-element {
-            border-bottom: 1px solid #c4c4c4;
+            border-bottom: 1px solid $border;
             margin-bottom: 24px;
 
             li {
@@ -346,26 +346,25 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 23px;
-    color: black;
+    color: $background;
 }
 .txt-final-unit {
     font-size: 14px;
     line-height: 18px;
-    color: #767676;
 }
 .num-final-payment {
     font-weight: bold;
     font-size: 24px;
     line-height: 30px;
-    color: $point-red;
+    color: $secondary;
 }
 
 .style-wrapper-gray {
     padding: 30px;
-    background: #f2f2f2;
-    color: black;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    background: $on-background;
+    color: $background;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
 }
 .style-wrapper-final-agree {
     display: -webkit-box;
@@ -376,7 +375,7 @@
     input[type="checkbox"] {
         width: 22px;
         height: 22px;
-        border: 1px solid #c4c4c4;
+        border: 1px solid $border;
         border-radius: 0;
         margin: 0 10px 10px 0px;
         vertical-align: top;
@@ -385,33 +384,33 @@
 .button-payment.off {
     display: block;
     border: none;
-    border-radius: 5px;
-    background-color: #c4c4c4;
+    border-radius: $border-radius;
+    background-color: $button-disabled;
     padding: 8px 55px;
     margin: 0 auto;
     font-weight: bold;
     font-size: 20px;
     line-height: 25px;
-    color: white;
+    color: $on-surface;
     cursor: default;
 }
 .button-payment {
     display: block;
     border: none;
-    border-radius: 5px;
-    background-color: $point-purple;
+    border-radius: $border-radius;
+    background-color: $primary;
     padding: 8px 55px;
     margin: 0 auto;
     font-weight: bold;
     font-size: 20px;
     line-height: 25px;
-    color: white;
+    color: $on-surface;
     cursor: pointer;
 }
 
 .payment-error-message {
     font-size: 16px;
-    color: $point-red;
+    color: $secondary;
     padding-left: 20px;
     -ms-flex-item-align: end;
     align-self: flex-end;
@@ -426,7 +425,7 @@
     background: url("/assets/images/icon-down-arrow.svg") no-repeat;
     background-size: 25px 25px;
     background-position: 99%;
-    background-color: #303134;
+    background-color: $surface;
     padding-right: 30px;
 }
 
@@ -436,8 +435,8 @@
     position: absolute;
     top: 38px;
     padding: 10px;
-    background-color: #303134;
-    border: 1px solid white;
+    background-color: $surface;
+    border: 1px solid $border;
     font-size: 16px;
     line-height: 20px;
 
@@ -446,8 +445,8 @@
     }
 
     li:hover {
-        background: #858585;
-        border-radius: 5px;
+        background: $overlay;
+        border-radius: $border-radius;
         cursor: pointer;
     }
     ul > :nth-child(1),

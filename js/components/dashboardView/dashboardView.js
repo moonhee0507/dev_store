@@ -19,6 +19,8 @@ class DashboardView {
     }
 
     async setProductList() {
+        await this.getProductsData();
+
         this.view.setAttribute("class", "center-view");
         const tableHead = document.createElement("div");
         tableHead.setAttribute("class", "view-head");
@@ -35,8 +37,6 @@ class DashboardView {
             ul.appendChild(li);
         }
         tableHead.appendChild(ul);
-
-        await this.getProductsData();
 
         const tableBody = document.createElement("div");
         tableBody.setAttribute("class", "view-body");

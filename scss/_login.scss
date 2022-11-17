@@ -1,6 +1,7 @@
 .section-login {
     width: 550px;
     margin: 50px auto 0;
+    color: $surface;
 
     .login-header {
         .link-logo {
@@ -15,8 +16,8 @@
 
     .form-login {
         width: 100%;
-        background-color: white;
-        border-radius: 5px;
+        background-color: $on-surface;
+        border-radius: $border-radius;
         margin-top: 20px;
 
         .style-wrapper {
@@ -37,27 +38,27 @@
         position: relative;
         width: calc(100% / 2);
         border: none;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
         padding: 19px 77px 18px 76px;
         font-size: 16px;
         line-height: 22px;
-        color: black;
+        color: $surface;
     }
     .button-buyer {
         background-color: inherit;
     }
     .button-seller {
-        background-color: #f2f2f2;
+        background-color: $on-background;
     }
 
     .button-buyer.on {
-        border-right: 1px solid #171717;
+        border-right: 1px solid $border;
     }
     .button-seller.help {
-        border-bottom: 1px solid #171717;
-        border-bottom-left-radius: 5px;
-        color: #595959;
+        border-bottom: 1px solid $border;
+        border-bottom-left-radius: $border-radius;
+        color: $surface;
         font-weight: lighter;
     }
     .button-buyer.on::after {
@@ -68,16 +69,16 @@
         width: 0;
         height: 0;
         border: 13px solid transparent;
-        border-bottom-color: white;
+        border-bottom-color: $on-surface;
     }
 
     .button-seller.on {
-        border-left: 1px solid #171717;
+        border-left: 1px solid $border;
     }
     .button-buyer.help {
-        border-bottom: 1px solid #171717;
-        border-bottom-right-radius: 5px;
-        color: #595959;
+        border-bottom: 1px solid $border;
+        border-bottom-right-radius: $border-radius;
+        color: $surface;
         font-weight: lighter;
     }
     .button-seller.on::after {
@@ -88,7 +89,7 @@
         width: 0;
         height: 0;
         border: 13px solid transparent;
-        border-bottom-color: white;
+        border-bottom-color: $on-surface;
     }
 }
 
@@ -105,7 +106,7 @@
 .input-login-password {
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid $border;
 }
 
 .input-login-password {
@@ -114,7 +115,7 @@
 
 .input-login-username:focus,
 .input-login-password:focus {
-    background-color: #f2f2f2;
+    background-color: $on-background;
 }
 
 .error-message {
@@ -122,7 +123,7 @@
     font-style: normal;
     font-size: 16px;
     line-height: 20px;
-    color: $emphasis-txt-color;
+    color: $error;
     margin-bottom: 16px;
 }
 
@@ -145,7 +146,7 @@
     padding: 19px 0;
     font-size: 18px;
     line-height: 22px;
-    color: $light-txt-color;
+    color: $on-surface;
 }
 
 .style-link {
@@ -153,7 +154,7 @@
 
     a {
         text-decoration: none;
-        color: #595959;
+        @include low-emphasis;
     }
 
     .link-signup::after {
@@ -167,11 +168,12 @@
 .button-github {
     width: 100%;
     height: 60px;
-    background-color: white;
+    background-color: $on-surface;
     padding: 5px;
     margin-top: 10px;
-    border: 1px solid #202124;
-    border-radius: 5px;
+    border: 1px solid $border;
+    border-radius: $border-radius;
+    color: $surface;
 
     .txt-github {
         position: relative;
