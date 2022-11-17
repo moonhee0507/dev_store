@@ -1,28 +1,28 @@
 .search-title3 {
     padding-left: 15px;
     font-size: 18px;
-    color: $soft-white;
+    color: $on-background;
     margin-bottom: 30px;
 }
 .search-message-box {
     text-align: center;
     padding: 50px 0;
-    border: 1px solid #3c4043;
+    border: 1px solid $border;
 }
 .search-keyword {
     font-weight: bold;
-    color: $point-green;
+    color: $primary-variant;
 }
 
 .search-no-match {
     font-size: 20px;
-    color: $soft-white;
+    color: $on-background;
 }
 
 .style-wrapper-filter {
     text-align: right;
     font-size: 0;
-    color: $soft-white;
+    color: $on-background;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -34,9 +34,9 @@
     align-items: center;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    background-color: #171717;
+    background-color: $overlay;
     padding: 8px 8px 8px 13px;
-    border-radius: 5px;
+    border-radius: $border-radius;
 
     .sort-order {
         .sort {
@@ -48,7 +48,7 @@
             padding: 0;
             margin: 0 10px;
             font-size: 13px;
-            color: $soft-white;
+            color: $on-background;
             text-decoration: none;
         }
         .sort:hover {
@@ -58,7 +58,7 @@
         .sort::before {
             position: absolute;
             content: "";
-            background-color: $soft-white;
+            background-color: $on-background;
             background-size: 3px 3px;
             width: 3px;
             height: 3px;
@@ -81,7 +81,7 @@
     .search-view-quantity {
         position: relative;
         display: inline-block;
-        background-color: #303134;
+        background-color: $surface;
         width: 110px;
         padding-left: 10px;
         margin-right: 10px;
@@ -89,7 +89,7 @@
         cursor: pointer;
 
         a {
-            color: $soft-white;
+            color: $on-background;
             text-decoration: none;
             font-size: 13px;
             line-height: 30px;
@@ -97,7 +97,7 @@
 
         .list-view-quantity {
             position: absolute;
-            background-color: #303134;
+            background-color: $surface;
             width: 110px;
             display: none;
             top: 30px;
@@ -113,7 +113,7 @@
             padding-left: 10px;
         }
         .list-view-quantity > li:hover {
-            background-color: #191919;
+            background-color: $overlay;
         }
     }
 
@@ -125,7 +125,7 @@
 
         .search-view.list,
         .search-view.grid {
-            border: 1px solid #303134;
+            border: 1px solid $border;
             display: inline-block;
             width: 30px;
             height: 30px;
@@ -140,7 +140,7 @@
         .search-view.list:focus,
         .search-view.grid.on,
         .search-view.grid:focus {
-            background-color: $point-purple;
+            background-color: $primary;
         }
 
         .search-view.list:after {
@@ -170,13 +170,13 @@
 }
 
 .style-wrapper-search {
-    color: $soft-white;
+    color: $on-background;
     margin: 30px 0 100px;
     padding: 0 10px;
 
     .list-search-items {
-        border: 3px solid #303134;
-        border-radius: 5px;
+        border: 1px solid $border;
+        border-radius: $border-radius;
         padding: 20px;
     }
 
@@ -189,7 +189,7 @@
     .style-wrapper-img.small {
         width: 150px;
         height: 150px;
-        border-radius: 5px;
+        border-radius: $border-radius;
         cursor: pointer;
     }
 
@@ -202,7 +202,7 @@
 
         .link-search-name {
             text-decoration: none;
-            color: white;
+            color: $on-surface;
 
             .search-txt-product-name {
                 font-weight: bold;
@@ -215,13 +215,13 @@
 
         .search-product-price {
             font-size: 18px;
-            color: $point-red;
+            color: $secondary;
         }
 
         .search-txt-productinfo,
         .search-txt-date {
             font-size: 13px;
-            color: #bdc1c6;
+            @include low-emphasis;
         }
     }
 
@@ -260,7 +260,7 @@
             display: inline-block;
             font-size: 18px;
             line-height: 30px;
-            color: $point-purple;
+            color: $primary;
         }
     }
 }
@@ -276,12 +276,12 @@
 .button-seller-info {
     width: 40px;
     height: 28px;
-    border: 1px solid #3c4043;
-    border-radius: 5px;
-    background-color: #171717;
+    border: 1px solid $border;
+    border-radius: $border-radius;
+    background-color: $overlay;
     margin: 0 10px 0;
     font-size: 13px;
-    color: white;
+    color: $on-surface;
     cursor: pointer;
 }
 .button-seller-info:focus {

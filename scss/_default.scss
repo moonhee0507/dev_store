@@ -32,12 +32,12 @@ td {
 body,
 html {
     width: 100%;
-    background-color: $background-color;
+    background-color: $background;
 }
 
 body,
 button {
-    color: $txt-color;
+    color: $on-background;
     font-family: $base-font;
 }
 
@@ -73,7 +73,7 @@ img {
     background-color: black;
     border: none;
     font-size: 16px;
-    color: $soft-white;
+    color: $on-background;
     cursor: pointer;
 }
 

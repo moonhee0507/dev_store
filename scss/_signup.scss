@@ -1,6 +1,7 @@
 .section-signup {
     width: 550px;
     margin: 50px auto 0;
+    color: $surface;
 
     .signup-header {
         .link-logo {
@@ -15,13 +16,13 @@
 
     .form-signup {
         width: 100%;
-        background-color: $background-color;
+        background-color: $background;
         margin-top: 20px;
 
         .style-wrapper {
-            border: 1px solid $border-color;
-            background-color: white;
-            border-radius: 5px;
+            border: 1px solid $border;
+            background-color: $on-surface;
+            border-radius: $border-radius;
         }
 
         .style-container {
@@ -41,25 +42,25 @@
         font-size: 16px;
         line-height: 22px;
         cursor: pointer;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        color: black;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        color: $background;
         position: relative;
     }
     .button-buyer {
         background-color: inherit;
     }
     .button-seller {
-        background-color: #f2f2f2;
+        background-color: $on-background;
     }
 
     .button-buyer.on {
-        border-right: 1px solid #171717;
+        border-right: 1px solid $border;
     }
     .button-seller.help {
-        border-bottom: 1px solid #171717;
-        border-bottom-left-radius: 5px;
-        color: #595959;
+        border-bottom: 1px solid $border;
+        border-bottom-left-radius: $border-radius;
+        color: $surface;
         font-weight: lighter;
     }
     .button-buyer.on::after {
@@ -70,16 +71,16 @@
         width: 0;
         height: 0;
         border: 13px solid transparent;
-        border-bottom-color: white;
+        border-bottom-color: $on-surface;
     }
 
     .button-seller.on {
-        border-left: 1px solid #171717;
+        border-left: 1px solid $border;
     }
     .button-buyer.help {
-        border-bottom: 1px solid #171717;
-        border-bottom-right-radius: 5px;
-        color: #595959;
+        border-bottom: 1px solid $border;
+        border-bottom-right-radius: $border-radius;
+        color: $surface;
         font-weight: lighter;
     }
     .button-seller.on::after {
@@ -90,7 +91,7 @@
         width: 0;
         height: 0;
         border: 13px solid transparent;
-        border-bottom-color: white;
+        border-bottom-color: $on-surface;
     }
 }
 
@@ -104,7 +105,7 @@
 }
 
 input {
-    border: 1px solid $border-color;
+    border: 1px solid $border;
     padding: 16px 15px 16px;
     border-radius: $border-radius;
     margin-bottom: 10px;
@@ -114,7 +115,7 @@ input {
 }
 
 input:focus {
-    outline: 1px solid $main-color;
+    outline: 1px solid $background;
 }
 
 input::-webkit-input-placeholder {
@@ -175,8 +176,8 @@ input::placeholder {
     width: 120px;
     height: 54px;
     border: none;
-    color: $light-txt-color;
-    background-color: $dark-blue;
+    color: $on-surface;
+    background-color: $background;
     font-style: normal;
     font-size: 16px;
     line-height: 20px;
@@ -199,7 +200,7 @@ input::placeholder {
 .phoneNumber.first {
     height: 54px;
     padding: 0 0 0 20px;
-    border: 1px solid $border-color;
+    border: 1px solid $border;
     border-radius: $border-radius;
     font-style: normal;
     font-size: 16px;
@@ -214,7 +215,7 @@ input::placeholder {
 }
 
 .phoneNumber.first:focus {
-    outline: 1px solid $main-color;
+    outline: 1px solid $background;
 }
 
 .phoneNumber.middle,
@@ -243,7 +244,7 @@ input::placeholder {
 input[type="checkbox"] {
     width: 22px;
     height: 22px;
-    border: 1px solid $border-color;
+    border: 1px solid $border;
     border-radius: 0;
     margin: 3px 10px 10px 0px;
     cursor: pointer;
@@ -258,7 +259,7 @@ input[type="checkbox"]:focus {
     font-size: 16px;
     line-height: 20px;
     vertical-align: top;
-    color: white;
+    color: $on-surface;
 
     .important {
         text-decoration: underline;
@@ -267,12 +268,12 @@ input[type="checkbox"]:focus {
 
 .message {
     display: block;
-    color: $emphasis-txt-color;
+    color: $error;
     margin-bottom: 20px;
 }
 
 .possible {
-    color: $possible-txt-color;
+    color: $success;
 }
 
 .policy-box {
@@ -280,9 +281,9 @@ input[type="checkbox"]:focus {
     overflow: auto;
     height: 88px;
     padding: 12px;
-    border: 1px solid $border-color;
+    border: 1px solid $border;
     margin-bottom: 34px;
-    background-color: #fff;
+    background-color: $on-surface;
 }
 
 .policy-text {
@@ -297,15 +298,14 @@ input[type="checkbox"]:focus {
 .button-signup {
     display: block;
     width: 100%;
-    border: none;
-    border-radius: $border-radius;
+    border: 1px solid $border;
     background-color: $button-disabled;
     padding: 19px 0;
     margin-bottom: 110px;
     font-style: normal;
     font-size: 18px;
     line-height: 22px;
-    color: $light-txt-color;
+    color: $on-surface;
 }
 
 @media (max-width: 580px) {

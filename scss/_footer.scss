@@ -1,5 +1,5 @@
 .footer {
-    background-color: $footer-color;
+    background-color: $overlay;
 }
 
 .footer > .max-width {
@@ -14,7 +14,7 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 60px 0 30px;
-    border-bottom: 1px solid #3c4043;
+    border-bottom: 1px solid $border;
     margin-bottom: 30px;
 }
 
@@ -31,7 +31,7 @@
     .link-page {
         position: relative;
         text-decoration: none;
-        color: #bdc1c6;
+        color: $on-background;
         font-style: normal;
         font-size: 14px;
         line-height: 18px;
@@ -63,7 +63,7 @@
     dt,
     dd {
         display: inline-block;
-        color: #bdc1c6;
+        color: $on-background;
     }
 }
 

@@ -3,10 +3,9 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: $main-color;
-    border-bottom: 1px solid #191919;
-    -webkit-box-shadow: 0 4px 5px 0px #191919;
-    box-shadow: 0 4px 5px 0px #191919;
+    background-color: $background;
+    -webkit-box-shadow: 0 4px 5px 0px $overlay;
+    box-shadow: 0 4px 5px 0px $overlay;
     z-index: 9999;
 
     .head {
@@ -51,8 +50,8 @@
         font-family: $base-font;
         font-size: 16px;
         line-height: 16px;
-        background-color: #303134;
-        color: #e8eaed;
+        background-color: $surface;
+        color: $on-background;
     }
 
     .button-clear {
@@ -65,8 +64,8 @@
         padding: 0;
         margin: 0;
         outline: none;
-        background-color: #303134;
-        color: white;
+        background-color: $surface;
+        color: $on-surface;
 
         .img-clear {
             width: 10px;
@@ -88,7 +87,7 @@
         height: 44px;
         border: none;
         padding: 10px;
-        background-color: #303134;
+        background-color: $surface;
         vertical-align: bottom;
         cursor: pointer;
 
@@ -121,7 +120,9 @@
 .autocomplete {
     position: absolute;
     width: 366px;
-    background-color: #303134;
+    background-color: $surface;
+    -webkit-box-shadow: 5px 5px 5px 0px $background;
+    box-shadow: 5px 5px 5px 0px $background;
     z-index: 9999;
 
     .list-match {
@@ -133,19 +134,16 @@
                 display: block;
                 padding: 0 15px;
                 text-decoration: none;
-                color: white;
+                color: $on-surface;
             }
             .autocomplete-name {
                 display: block;
                 font-size: 16px;
                 line-height: 36px;
-                overflow: hidden;
-                -o-text-overflow: ellipsis;
-                text-overflow: ellipsis;
-                white-space: nowrap;
+                @include ellipsis;
             }
             .style-keyword {
-                color: $point-green;
+                color: $primary-variant;
             }
         }
     }
@@ -156,12 +154,12 @@
 }
 
 .link-match:hover {
-    background-color: #191919;
+    background-color: $overlay;
 }
 
 .link-match:focus-visible {
     outline: none;
-    background-color: #191919;
+    background-color: $overlay;
 }
 
 .list-usermenu {
@@ -187,7 +185,7 @@
     background-color: inherit;
     border: none;
     margin: 0;
-    color: #c0c0c0;
+    color: $on-background;
     cursor: pointer;
 }
 .link-list.cart {
@@ -201,17 +199,14 @@
 }
 .link-list.login {
     width: 75px;
-    background-color: #303134;
-    border-radius: 10px;
+    background-color: $surface;
+    border-radius: $border-radius;
     font-size: 13px;
 }
-.link-list.login:hover {
-    color: white;
-}
 .link-list.cart:hover {
-    background-color: #303134;
-    border-radius: 10px;
-    color: white;
+    background-color: $surface;
+    border-radius: $border-radius;
+    color: $on-background;
 }
 
 .dropdown {
@@ -226,11 +221,8 @@
         padding: 0 20px 0 45px;
         border-radius: 50%;
         font-size: 13px;
-        white-space: nowrap;
-        overflow: hidden;
-        -o-text-overflow: ellipsis;
-        text-overflow: ellipsis;
         text-align: center;
+        @include ellipsis;
 
         .drop-content {
             position: absolute;
@@ -238,8 +230,8 @@
             right: 0;
             width: 120px;
             z-index: 1;
-            background-color: white;
-            border-radius: 5px;
+            background-color: $on-surface;
+            border-radius: $border-radius;
             -webkit-box-shadow: 3px 3px 3px 3px black;
             box-shadow: 3px 3px 3px 3px black;
         }
@@ -248,7 +240,7 @@
             position: absolute;
             width: 0;
             height: 0;
-            border-bottom: 22px solid white;
+            border-bottom: 22px solid $on-surface;
             border-left: 15px solid transparent;
             border-right: 15px solid transparent;
             top: -10px;
@@ -263,30 +255,29 @@
             font-weight: bold;
             font-size: 16px;
             line-height: 20px;
-            color: #767676;
-            border: 2px solid white;
-            border-radius: 10px;
+            color: $surface;
+            border: 1px solid $on-surface;
+            border-radius: $border-radius;
         }
         .link-drop:hover {
-            color: black;
-            border: 2px solid #767676;
+            border: 1px solid $border;
         }
     }
 
     .link-list.mypage:hover {
-        background-color: #303134;
-        border-radius: 10px;
-        color: white;
+        background-color: $surface;
+        border-radius: $border-radius;
+        color: $on-surface;
     }
     .link-list.mypage:focus-visible {
-        border-radius: 10px;
-        border: 1px solid #303134;
+        border-radius: $border-radius;
+        border: 1px solid $border;
     }
     .link-list.mypage::after {
         position: absolute;
         content: "▾";
         font-size: 13px;
-        color: #c0c0c0;
+        color: $on-background;
         top: 16px;
         right: 5px;
     }
@@ -301,13 +292,13 @@
     width: 15px;
     height: 15px;
     position: absolute;
-    background-color: $point-red;
+    background-color: $secondary;
     border-radius: 50%;
     top: 7px;
     left: 30px;
     font-size: 10px;
     line-height: 13px;
-    color: white;
+    color: $on-surface;
 }
 
 .link-seller-center {
@@ -318,20 +309,20 @@
     padding: 0 0 0 30px;
     width: 170px;
     height: 50px;
-    background-color: $point-purple;
-    border-radius: 10px;
+    background-color: $primary;
+    border-radius: $border-radius;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     line-height: 48px;
-    color: white;
+    color: $on-surface;
 }
 
 .title-seller-center {
     font-weight: bold;
     font-size: 30px;
     line-height: 38px;
-    color: white;
+    color: $on-surface;
     margin-left: 20px;
 }
 
@@ -383,7 +374,7 @@
         background-position: center;
     }
     .button-responsive-search:hover {
-        background-color: #303134;
+        background-color: $surface;
         border-radius: 50%;
     }
     .link-list.cart:hover {
@@ -406,7 +397,7 @@
     }
 
     .button-back:hover {
-        background-color: black;
+        background-color: $overlay;
     }
     .header-nav.responsive {
         display: none;

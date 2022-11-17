@@ -6,7 +6,7 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    color: rgb(233, 233, 233);
+    color: $on-background;
 }
 
 .style-container-center-top {
@@ -22,7 +22,7 @@
 
     .center-txt-seller {
         margin-left: 16px;
-        color: $point-purple;
+        color: $primary;
     }
 }
 
@@ -31,7 +31,7 @@
     display: inline;
     font-size: 36px;
     line-height: 44px;
-    color: $soft-white;
+    color: $on-background;
 }
 
 .style-container-upload {
@@ -39,12 +39,12 @@
         position: relative;
         display: block;
         width: 168px;
-        background-color: $point-purple;
-        border-radius: 5px;
+        background-color: $primary;
+        border-radius: $border-radius;
         padding: 14px 10px 16px 60px;
         text-align: left;
         text-decoration: none;
-        color: white;
+        color: $on-surface;
     }
 }
 .link-upload::before {
@@ -66,7 +66,7 @@
     padding: 44px 0;
 
     .center-menu {
-        border-radius: 5px;
+        border-radius: $border-radius;
         background-color: inherit;
         li {
             display: -webkit-box;
@@ -87,7 +87,7 @@
             .num-small {
                 width: 20px;
                 height: 20px;
-                background-color: $point-red;
+                background-color: $secondary;
                 border-radius: 50%;
                 text-align: center;
                 font-size: 0;
@@ -100,10 +100,9 @@
         }
 
         li:hover,
-        li:active,
-        li:focus {
-            border-radius: 5px;
-            background-color: #303134;
+        li:active {
+            border-radius: $border-radius;
+            background-color: $overlay;
             cursor: pointer;
         }
     }
@@ -111,26 +110,26 @@
     .center-view {
         width: 100%;
         height: 500px;
-        background: #333333;
-        border: 1px solid #4c4c4c;
+        background: inherit;
+        border: 1px solid $border;
         overflow: hidden;
         font-size: 18px;
         line-height: 23px;
 
         .view-head {
-            border-bottom: 1px solid #4c4c4c;
+            border-bottom: 1px solid $border;
         }
         .view-head,
         .view-body {
             text-align: center;
-            background-color: $main-color;
+            background-color: $background;
         }
         .view-body {
             height: calc(100% - 60px);
             overflow-y: scroll;
 
             ul:hover {
-                background-color: #171717;
+                background-color: $overlay;
                 -webkit-transition: all ease 0.2s;
                 -o-transition: all ease 0.2s;
                 transition: all ease 0.2s;
@@ -140,12 +139,12 @@
             width: 10px;
         }
         .view-body::-webkit-scrollbar-thumb {
-            background-color: #171717;
+            background-color: $on-scroll;
             background-clip: padding-box;
             border: 1px solid transparent;
         }
         .view-body::-webkit-scrollbar-track {
-            background-color: #333333;
+            background-color: $scroll;
         }
     }
 }
@@ -175,7 +174,7 @@
 
 .view-list.add {
     padding: 13px 0;
-    border-bottom: 1px solid #4c4c4c;
+    border-bottom: 1px solid $border;
     li:nth-child(1) {
         width: 55.5%;
     }
@@ -204,7 +203,7 @@
     width: 70px;
     height: 70px;
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: $border-radius;
     margin-left: 20px;
     cursor: pointer;
 
@@ -223,7 +222,7 @@
 .center-txt-stock {
     font-size: 16px;
     line-height: 20px;
-    color: #767676;
+    @include low-emphasis;
     text-align: left;
     margin-top: 10px;
 }
@@ -236,13 +235,13 @@
 .button-center-delete {
     width: 70px;
     border: none;
-    background-color: $point-purple;
-    border-radius: 5px;
+    background-color: $primary;
+    border-radius: $border-radius;
     padding: 10px 0;
     margin: 0;
     font-size: 16px;
     line-height: 16px;
-    color: white;
+    color: $on-surface;
     cursor: pointer;
 }
 .button-center-edit:focus,
@@ -250,7 +249,7 @@
     outline: 3px solid white;
 }
 .button-center-delete {
-    background-color: #303134;
+    background-color: $surface;
 }
 
 .message-no-products {

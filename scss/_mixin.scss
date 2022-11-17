@@ -1,0 +1,11 @@
+@mixin low-emphasis {
+    color: $on-surface;
+    opacity: 0.6;
+}
+
+@mixin ellipsis {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

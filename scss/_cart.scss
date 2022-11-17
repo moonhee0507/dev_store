@@ -1,5 +1,5 @@
 .section-cart {
-    color: white;
+    color: $on-surface;
     text-align: center;
 
     .title-cart {
@@ -30,7 +30,7 @@
 }
 
 .style-wrapper-nocart {
-    border: 3px dotted #303134;
+    border: 3px dotted $surface;
     padding: 170px;
 
     .txt-nocart {
@@ -83,7 +83,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    border: 3px solid #303134;
+    border: 3px solid $surface;
     border-radius: $border-radius;
     padding: 20px 0;
 
@@ -131,7 +131,7 @@
             .cart-txt-seller {
                 font-size: 14px;
                 line-height: 18px;
-                color: #767676;
+                @include low-emphasis;
             }
             .cart-txt-product-name {
                 font-size: 18px;
@@ -146,7 +146,7 @@
             .cart-shipping-fee {
                 font-size: 14px;
                 line-height: 18px;
-                color: #767676;
+                @include low-emphasis;
             }
         }
     }
@@ -157,7 +157,7 @@
             font-weight: 700;
             font-size: 18px;
             line-height: 23px;
-            color: $point-red;
+            color: $secondary;
         }
     }
 }
@@ -170,7 +170,7 @@
     position: absolute;
     content: "";
     background: url("/assets/images/sold-out.svg") no-repeat center center;
-    background-color: white;
+    background-color: $on-surface;
     background-size: 105%;
     width: 150px;
     height: 150px;
@@ -216,9 +216,9 @@
     display: -ms-flexbox;
     display: flex;
     background: #303134;
-    border-radius: 10px;
+    border-radius: $border-radius;
     padding: 46px 0 42px;
-    color: white;
+    color: $on-surface;
     text-align: center;
 
     > div {
@@ -254,7 +254,7 @@
     }
 
     .num-amount {
-        color: $point-red;
+        color: $secondary;
     }
     .txt-amount-unit {
         font-size: 18px;
