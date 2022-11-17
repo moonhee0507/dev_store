@@ -293,6 +293,11 @@
     text-decoration: underline;
 }
 
+#spinner {
+    margin: 30px auto;
+    @include spinner;
+}
+
 @media (max-width: 1200px) {
     .article-slide {
         display: none;

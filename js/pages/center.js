@@ -3,6 +3,7 @@ import Footer from "../components/footer/footer.js";
 import DashboardTitle from "../components/dashboardTitle/dashboardTitle.js";
 import DashboardMenu from "../components/dashboardMenu/dashboardMenu.js";
 import DashboardView from "../components/dashboardView/dashboardView.js";
+import Loading from "../common/loading.js";
 
 class Center {
     constructor(header, footer) {
@@ -11,6 +12,10 @@ class Center {
     }
 
     render() {
+        const loading = new Loading();
+        const root = document.getElementById("root");
+        root.appendChild(loading.render());
+
         this.header = new Header();
         this.footer = new Footer();
 
@@ -33,6 +38,7 @@ class Center {
         dashboardMain.appendChild(dashboardMenu.render());
         setTimeout(() => {
             dashboardMain.appendChild(dashboardView.render());
+            root.removeChild(root.firstChild);
         }, 2000);
 
         const footer = document.createElement("footer");

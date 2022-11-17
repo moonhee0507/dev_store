@@ -3,6 +3,7 @@ import SearchDescription from "../components/searchDescription/searchDescription
 import SearchFilter from "../components/searchFilter/searchFilter.js";
 import SearchList from "../components/searchList/searchList.js";
 import TopButton from "../components/button/topButton.js";
+import Loading from "../common/loading.js";
 
 class Search {
     constructor(header) {
@@ -10,6 +11,10 @@ class Search {
     }
 
     render() {
+        const loading = new Loading();
+        const root = document.getElementById("root");
+        root.appendChild(loading.render());
+
         this.header = new Header();
 
         const header = document.createElement("header");
@@ -30,8 +35,10 @@ class Search {
             searchList.render()
         );
 
-        const root = document.getElementById("root");
         root.append(header, main, topButton.render());
+        setTimeout(() => {
+            root.removeChild(root.firstChild);
+        }, 2000);
     }
 }
 
