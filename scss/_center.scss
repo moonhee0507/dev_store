@@ -332,14 +332,15 @@
 }
 
 @media (max-width: 500px) {
-    .dev-store {
-        width: 150px;
+    .style-container-center-top {
+        padding-top: 20px;
     }
 
     .title-seller-center,
     .center-title3,
     .center-txt-seller {
         font-size: 28px;
+        word-break: keep-all;
     }
 
     .style-container-upload .link-upload {
@@ -360,6 +361,7 @@
         gap: 15px;
     }
     .style-container-center-main {
+        padding-top: 20px;
         .center-view,
         .center-txt-product,
         .center-txt-stock {
