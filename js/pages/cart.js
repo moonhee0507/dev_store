@@ -3,6 +3,7 @@ import CartList from "../components/cartList/cartList.js";
 import CartTotal from "../components/cartTotal/cartTotal.js";
 import { BuyNowButton } from "../components/button/index.js";
 import Footer from "../components/footer/footer.js";
+import Loading from "../common/loading.js";
 
 class Cart {
     constructor(header, cartList, cartTotal, buyNowButton, footer) {
@@ -14,6 +15,10 @@ class Cart {
     }
 
     render() {
+        const loading = new Loading();
+        const root = document.getElementById("root");
+        root.appendChild(loading.render());
+
         this.header = new Header();
         this.cartList = new CartList();
         this.cartTotal = new CartTotal();
@@ -46,6 +51,7 @@ class Cart {
             cartTotalFeat.type = "module";
             cartTotalFeat.src = "/logic/cartTotalFeat.js";
             body.appendChild(cartTotalFeat);
+            root.removeChild(root.firstChild);
         }, 1500);
 
         document.getElementById("root").append(header, main, footer);

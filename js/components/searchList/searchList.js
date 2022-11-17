@@ -64,17 +64,29 @@ class SearchList {
         buttonLowPrice.addEventListener("click", () => {
             removeProducts();
             let arrProducts = ascending(products);
-            paintProducts(arrProducts);
+            if (window.localStorage.getItem("grid") === "true") {
+                setGrid(arrProducts);
+            } else {
+                paintProducts(arrProducts);
+            }
         });
         buttonHighPrice.addEventListener("click", () => {
             removeProducts();
             let arrProducts = descending(products);
-            paintProducts(arrProducts);
+            if (window.localStorage.getItem("grid") === "true") {
+                setGrid(arrProducts);
+            } else {
+                paintProducts(arrProducts);
+            }
         });
         buttonCreated.addEventListener("click", () => {
             removeProducts();
             let arrProducts = newItemOrder(products);
-            paintProducts(arrProducts);
+            if (window.localStorage.getItem("grid") === "true") {
+                setGrid(arrProducts);
+            } else {
+                paintProducts(arrProducts);
+            }
         });
 
         for (let i = 0; i < buttonView.length; i++) {

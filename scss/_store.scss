@@ -14,7 +14,7 @@
     text-align: center;
     font-size: 25px;
     font-weight: bold;
-    color: white;
+    color: $on-surface;
     padding-left: 45px;
 }
 .title-store::before {
@@ -39,8 +39,8 @@
         bottom: 10px;
         width: 185px;
         padding: 15px;
-        border-radius: 30px;
-        background-color: white;
+        border-radius: $mobile-radius;
+        background-color: $on-surface;
         text-align: center;
         outline: 2px solid lightgray;
 
@@ -48,12 +48,10 @@
             position: relative;
             padding-left: 30px;
             width: 150px;
-            white-space: nowrap;
-            overflow: hidden;
-            -o-text-overflow: ellipsis;
-            text-overflow: ellipsis;
             font-weight: bold;
             line-height: 25px;
+            color: $surface;
+            @include ellipsis;
         }
         .responsive-txt-seller::before {
             position: absolute;

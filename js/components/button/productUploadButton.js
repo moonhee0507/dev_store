@@ -9,12 +9,17 @@ class ProductUploadButton {
         const linkUpload = document.createElement("a");
         linkUpload.setAttribute("href", "/upload");
         linkUpload.setAttribute("class", "link-upload");
-        linkUpload.innerText = "상품 업로드";
 
         this.container.appendChild(linkUpload);
 
         linkUpload.addEventListener("click", () => {
             window.localStorage.removeItem("edit");
+        });
+
+        const vw = window.matchMedia(`(max-width: 500px)`);
+        linkUpload.innerText = vw.matches ? "" : "상품 업로드";
+        vw.addEventListener("change", (e) => {
+            linkUpload.innerHTML = e.matches ? "" : "상품 업로드";
         });
 
         return this.container;

@@ -248,7 +248,7 @@ function allPass() {
         passAgreement
     ) {
         signupButton.disabled = false;
-        signupButton.style.backgroundColor = "#334863";
+        signupButton.style.backgroundColor = "#a158fe";
         signupButton.innerText = "시작하기";
         signupButton.style.cursor = "pointer";
         return true;
@@ -264,13 +264,13 @@ function allPass() {
         passAgreement
     ) {
         signupButton.disabled = false;
-        signupButton.style.backgroundColor = "#334863";
+        signupButton.style.backgroundColor = "#a158fe";
         signupButton.innerText = "시작하기";
         signupButton.style.cursor = "pointer";
         return true;
     } else {
         signupButton.disabled = true;
-        signupButton.style.backgroundColor = "#abb5c2";
+        signupButton.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
         signupButton.innerText = "모두 작성해주세요 :)";
         return false;
     }
