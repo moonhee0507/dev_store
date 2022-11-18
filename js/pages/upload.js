@@ -10,6 +10,11 @@ class Upload {
     }
 
     render() {
+        const meta = document.createElement("meta");
+        meta.name = "viewport";
+        meta.content = "width=1200";
+        document.querySelector("head").appendChild(meta);
+
         this.header = new Header();
         this.footer = new Footer();
 

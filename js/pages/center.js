@@ -12,6 +12,11 @@ class Center {
     }
 
     render() {
+        const meta = document.createElement("meta");
+        meta.name = "viewport";
+        meta.content = "width=1200";
+        document.querySelector("head").appendChild(meta);
+
         const loading = new Loading();
         const root = document.getElementById("root");
         root.appendChild(loading.render());

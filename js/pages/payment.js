@@ -12,6 +12,11 @@ class Payment {
     }
 
     render() {
+        const meta = document.createElement("meta");
+        meta.name = "viewport";
+        meta.content = "width=1200";
+        document.querySelector("head").appendChild(meta);
+
         this.header = new Header();
         this.payProducts = new PayProducts();
         this.payShippingInfo = new PayShippingInfo();
