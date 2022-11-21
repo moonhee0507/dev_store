@@ -379,6 +379,10 @@ class FinalPayInfo {
                     .then((res) => res.json())
                     .then((data) => {
                         console.log(data);
+                        alert(
+                            `🎉 ${data.order_quantity}개의 상품이 주문되었습니다. 🎉`
+                        );
+                        window.location.href = "/";
                     })
                     .catch((e) => console.error(e));
             }
