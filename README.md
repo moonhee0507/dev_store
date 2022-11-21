@@ -150,7 +150,7 @@
 -   삭제 버튼을 누르면 삭제를 재확인하는 모달이 나타납니다. 삭제 버튼을 누르면 등록된 상품이 삭제됩니다.
 
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/102460056/192026456-45587399-81a8-4654-8274-ff7e0ee1a19b.gif" alt="" width=800>
+    <img src="https://user-images.githubusercontent.com/102460056/203088934-93c55b09-496a-44ac-8496-78458ad5d271.gif" alt="" width=800>
 </div>
 
 <br>
@@ -342,7 +342,7 @@ async getProductsData() {
 
 <br>
 
--   장바구니의 체크박스 제목행과 각 행의 체크여부의 관계에 따라서 적절히 구현하는데 어려움이 있었습니다. 특히 각 행의 체크가 모두 해제된 상태에서 사용자가 직접 체크해서 모두 체크되는 경우에 제목행이 체크되도록 하는 것이 문제였으나, querySelectorAll로 DOM을 잡고 해당 NodeList를 배열로 바꿔(Array.from) 클래스명만 남기고 처리를 했습니다. 배열의 맨앞 요소는 제목행이기 때문에 shift로 제거하고 모든 배열에 fill이 있는지 확인하여 제목행 체크박스를 컨트롤 했습니다.
+-   장바구니의 체크박스 제목행과 각 행의 체크여부의 관계에 따라서 적절히 구현하는데 어려움이 있었습니다. 특히 각 행의 체크가 모두 해제된 상태에서 사용자가 직접 체크해서 모두 체크되는 경우에 제목행이 체크되도록 하는 것이 문제였으나, `querySelectorAll`을 사용하여 해당 `NodeList`를 배열로 바꿔(`Array.from`) 클래스명만 남기고 처리를 했습니다. 배열의 맨앞 요소는 제목행이기 때문에 `shift`로 제거하고 모든 배열에 fill이 있는지 확인하여 제목행 체크박스를 컨트롤 했습니다.
 
 ```js
 for (let i = 0; i < allCheckBox.length; i++) {
