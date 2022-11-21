@@ -1,4 +1,4 @@
-import { ProductCard } from "../components/productCard/index.js";
+import { ProductCard } from "../components/common/productCard/index.js";
 import getProducts from "./api.js";
 
 export default function infiniteScroll() {

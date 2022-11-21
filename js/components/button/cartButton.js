@@ -23,7 +23,13 @@ class CartButton {
             let quantity = parseInt(
                 document.querySelector(".input-quantity.cart").value
             );
-            if (window.localStorage.getItem("token")) {
+            const isSeller =
+                window.localStorage.getItem("loginType") === "SELLER"
+                    ? true
+                    : false;
+            if (isSeller) {
+                alert("🚫 판매자는 사용할 수 없는 서비스입니다.");
+            } else if (window.localStorage.getItem("token")) {
                 if (this.stock === 0) {
                     alert("해당 상품은 재고가 없습니다.");
                 } else {
