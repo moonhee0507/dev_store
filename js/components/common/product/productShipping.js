@@ -82,7 +82,7 @@ class ProductShippingMethod {
             window.localStorage.getItem("path") === "2"
         ) {
             paymentNumShipping.innerText =
-                parseInt(this.shippingFee).toLocaleString("ko-KR") + "원";
+                Number(this.shippingFee).toLocaleString("ko-KR") + "원";
             paymentTxtShipping.appendChild(paymentNumShipping);
 
             return paymentTxtShipping;
@@ -91,7 +91,7 @@ class ProductShippingMethod {
             window.localStorage.getItem("path") === "3"
         ) {
             paymentNumShipping.innerText =
-                parseInt(
+                Number(
                     JSON.parse(window.localStorage.getItem("fromCartOne"))[0]
                         .shippingFee
                 ).toLocaleString("ko-KR") + "원";
