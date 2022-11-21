@@ -22,7 +22,6 @@ function calc() {
                 eachSumPrice[i].innerText.replace(/\D/g, "")
         );
     }
-    console.log(priceSum);
     numCartSum.innerText = `${priceSum.toLocaleString("ko-KR")}원`;
 
     let discount = Number(numCartMinus.innerText.replace("원", ""));
