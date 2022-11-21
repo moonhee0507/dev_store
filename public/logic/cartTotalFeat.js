@@ -19,9 +19,10 @@ function calc() {
     for (let i = 0; i < eachSumPrice.length; i++) {
         priceSum += Number(
             allCheckBox[i + 1].className.includes("fill") &&
-                eachSumPrice[i].innerText.replace(",", "")
+                eachSumPrice[i].innerText.replace(/\D/g, "")
         );
     }
+    console.log(priceSum);
     numCartSum.innerText = `${priceSum.toLocaleString("ko-KR")}원`;
 
     let discount = Number(numCartMinus.innerText.replace("원", ""));
