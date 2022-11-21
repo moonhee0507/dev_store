@@ -49,7 +49,13 @@ class LoginButton {
                 if (data.token) {
                     window.localStorage.setItem("token", data.token);
                     window.localStorage.setItem("1", username);
-                    window.location.pathname = "/";
+                    let preURL = document.referrer;
+                    if (
+                        preURL === "https://devstore.work/" ||
+                        preURL.includes("/products/")
+                    ) {
+                        window.location.href = preURL;
+                    } else window.location.href = "/";
                 }
             } catch (e) {
                 console.error(e);
