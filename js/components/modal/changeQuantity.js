@@ -4,9 +4,16 @@ class ChangeQuantity {
     constructor(item) {
         this.item = item;
         this.modal = document.createElement("div");
+        this.stock = {};
+    }
+
+    async getStock() {
+        const data = await getProductsDetail(this.item.product_id);
+        this.stock = data.stock;
     }
 
     render() {
+        this.getStock();
         this.modal.setAttribute("class", "modal");
         const modalContent = document.createElement("div");
         const buttonClose = document.createElement("button");
@@ -41,6 +48,7 @@ class ChangeQuantity {
         quantityInput.setAttribute("value", this.item.quantity);
         quantityInput.setAttribute("type", "number");
         quantityInput.setAttribute("readOnly", "true");
+        quantityInput.style.color = "#333333";
 
         const txtMinus = document.createElement("span");
         const txtPlus = document.createElement("span");
@@ -61,10 +69,8 @@ class ChangeQuantity {
         const is_active = this.item.is_active;
         let quantity = parseInt(quantityInput.value);
 
-        const data = getProductsDetail(product_id);
-        const stock = data.stock;
         plusButton.addEventListener("click", () => {
-            if (stock === quantity) {
+            if (this.stock === quantity) {
                 plusButton.disabled = true;
             } else {
                 quantity += 1;
