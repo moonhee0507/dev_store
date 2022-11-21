@@ -1,6 +1,6 @@
 import GoToLogin from "../modal/goToLogin.js";
 import SearchBar from "./searchBar.js";
-import StoreIntroduction from "../storeIntroduction/storeIntroduction.js";
+import StoreIntroduction from "../store/storeIntroduction.js";
 import { reqLogout } from "../../common/api.js";
 import {
     ResponsiveSearchButton,

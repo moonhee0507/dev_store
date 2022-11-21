@@ -1,7 +1,7 @@
 import Header from "../components/header/header.js";
 import Footer from "../components/footer/footer.js";
-import UploadReference from "../components/uploadReference/uploadReference.js";
-import UploadForm from "../components/uploadForm/uploadForm.js";
+import UploadReference from "../components/upload/uploadReference.js";
+import UploadForm from "../components/upload/uploadForm/uploadForm.js";
 
 class Upload {
     constructor(header, footer) {

@@ -1,6 +1,8 @@
 import Header from "../components/header/header.js";
-import PayProducts from "../components/payProducts/payProducts.js";
-import PayShippingInfo from "../components/payShippingInfo/payShippingInfo.js";
+import {
+    PayProducts,
+    PayShippingInfo,
+} from "../components/payment/payInfo/index.js";
 import Footer from "../components/footer/footer.js";
 
 class Payment {

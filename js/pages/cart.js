@@ -1,6 +1,5 @@
 import Header from "../components/header/header.js";
-import CartList from "../components/cartList/cartList.js";
-import CartTotal from "../components/cartTotal/cartTotal.js";
+import { CartList, CartTotal } from "../components/cart/index.js";
 import { BuyNowButton } from "../components/button/index.js";
 import Footer from "../components/footer/footer.js";
 import Loading from "../common/loading.js";

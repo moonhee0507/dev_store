@@ -1,5 +1,5 @@
 import Header from "../components/header/header.js";
-import ProductList from "../components/productList/productList.js";
+import ProductList from "../components/common/productList/productList.js";
 import Footer from "../components/footer/footer.js";
 import TopButton from "../components/button/topButton.js";
 

@@ -1,5 +1,8 @@
 import Header from "../components/header/header.js";
-import { ProductInfo, ProductTab } from "../components/productInfo/index.js";
+import {
+    ProductInfo,
+    ProductTab,
+} from "../components/common/productInfo/index.js";
 import { GoToLogin } from "../components/modal/index.js";
 import Footer from "../components/footer/footer.js";
 import Loading from "../common/loading.js";
