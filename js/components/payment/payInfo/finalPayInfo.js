@@ -93,7 +93,7 @@ class FinalPayInfo {
             window.localStorage.getItem("path") === "1"
         ) {
             numFinalPrice.append(
-                parseInt(
+                Number(
                     JSON.parse(window.localStorage.getItem("fromDetail"))
                         .selectedTotal
                 ).toLocaleString("ko-KR"),
@@ -106,7 +106,7 @@ class FinalPayInfo {
             ).toLocaleString("ko-KR");
             numFinalPayment.append(
                 (
-                    parseInt(
+                    Number(
                         JSON.parse(window.localStorage.getItem("fromDetail"))
                             .selectedTotal
                     ) +
@@ -123,18 +123,18 @@ class FinalPayInfo {
             window.localStorage.getItem("path") === "2"
         ) {
             numFinalPrice.append(
-                parseInt(
+                Number(
                     JSON.parse(window.localStorage.getItem("total"))
                         .selectedTotalPrice
                 ).toLocaleString("ko-KR"),
                 txtFinalUnit1
             );
-            numFinalShipping.innerText = parseInt(
+            numFinalShipping.innerText = Number(
                 JSON.parse(window.localStorage.getItem("total"))
                     .selectedTotalShippingFee
             ).toLocaleString("ko-KR");
             numFinalPayment.append(
-                parseInt(
+                Number(
                     JSON.parse(window.localStorage.getItem("total")).amount
                 ).toLocaleString("ko-KR"),
                 txtFinalPaymentUnit
@@ -144,23 +144,23 @@ class FinalPayInfo {
             window.localStorage.getItem("path") === "3"
         ) {
             numFinalPrice.append(
-                parseInt(
+                Number(
                     JSON.parse(window.localStorage.getItem("fromCartOne"))[0]
                         .totalPrice
                 ).toLocaleString("ko-KR"),
                 txtFinalUnit1
             );
-            numFinalShipping.innerText = parseInt(
+            numFinalShipping.innerText = Number(
                 JSON.parse(window.localStorage.getItem("fromCartOne"))[0]
                     .shippingFee
             ).toLocaleString("ko-KR");
             numFinalPayment.append(
                 (
-                    parseInt(
+                    Number(
                         JSON.parse(localStorage.getItem("fromCartOne"))[0]
                             .totalPrice
                     ) +
-                    parseInt(
+                    Number(
                         JSON.parse(localStorage.getItem("fromCartOne"))[0]
                             .shippingFee
                     )
@@ -215,7 +215,7 @@ class FinalPayInfo {
             e.preventDefault();
             const product_id = () => {
                 if (window.localStorage.getItem("path") === "1") {
-                    let product_id = parseInt(
+                    let product_id = Number(
                         JSON.parse(window.localStorage.getItem("fromDetail"))
                             .productId
                     );
@@ -226,7 +226,7 @@ class FinalPayInfo {
 
                     return product_id;
                 } else if (window.localStorage.getItem("path") === "3") {
-                    let product_id = parseInt(
+                    let product_id = Number(
                         JSON.parse(
                             window.localStorage.getItem("fromCartOne")
                         )[0].productId
@@ -238,7 +238,7 @@ class FinalPayInfo {
 
             const quantity = () => {
                 if (window.localStorage.getItem("path") === "1") {
-                    let quantity = parseInt(
+                    let quantity = Number(
                         JSON.parse(window.localStorage.getItem("fromDetail"))
                             .selectedQt
                     );
@@ -249,7 +249,7 @@ class FinalPayInfo {
 
                     return quantity;
                 } else if (window.localStorage.getItem("path") === "3") {
-                    let quantity = parseInt(
+                    let quantity = Number(
                         JSON.parse(
                             window.localStorage.getItem("fromCartOne")
                         )[0].selectedQt
@@ -307,7 +307,7 @@ class FinalPayInfo {
             const total_price = () => {
                 if (window.localStorage.getItem("path") === "1") {
                     let total_price =
-                        parseInt(
+                        Number(
                             JSON.parse(
                                 window.localStorage.getItem("fromDetail")
                             ).selectedTotal
@@ -325,13 +325,13 @@ class FinalPayInfo {
                     );
 
                     const allShippingFee = fromCartItems
-                        .map((item) => parseInt(item.shippingFee))
+                        .map((item) => Number(item.shippingFee))
                         .reduce((a, b) => {
                             return a + b;
                         });
 
                     let total_price =
-                        parseInt(
+                        Number(
                             JSON.parse(window.localStorage.getItem("total"))
                                 .selectedTotalPrice
                         ) + allShippingFee;
@@ -339,12 +339,12 @@ class FinalPayInfo {
                     return total_price;
                 } else if (window.localStorage.getItem("path") === "3") {
                     let total_price =
-                        parseInt(
+                        Number(
                             JSON.parse(
                                 window.localStorage.getItem("fromCartOne")
                             )[0].totalPrice
                         ) +
-                        parseInt(
+                        Number(
                             JSON.parse(
                                 window.localStorage.getItem("fromCartOne")
                             )[0].shippingFee
@@ -380,7 +380,7 @@ class FinalPayInfo {
                     .then((data) => {
                         console.log(data);
                         alert(
-                            `🎉 ${data.order_quantity}개의 상품이 주문되었습니다. 🎉`
+                            `🎉 ${data.order_items.length}개의 상품이 주문되었습니다. 🎉`
                         );
                         window.location.href = "/";
                     })
