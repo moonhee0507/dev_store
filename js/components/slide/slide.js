@@ -33,6 +33,14 @@ class Slide {
         buttonNext.setAttribute("type", "button");
         buttonPrev.setAttribute("class", "button-prev");
         buttonNext.setAttribute("class", "button-next");
+        const txtPrev = document.createElement("span");
+        const txtNext = document.createElement("span");
+        txtPrev.setAttribute("class", "sr-only");
+        txtNext.setAttribute("class", "sr-only");
+        txtPrev.innerText = "앞으로 가기";
+        txtNext.innerText = "뒤로 가기";
+        buttonPrev.appendChild(txtPrev);
+        buttonNext.appendChild(txtNext);
 
         const body = document.querySelector("body");
         const slideFeat = document.createElement("script");
