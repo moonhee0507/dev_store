@@ -115,3 +115,48 @@ export async function reqCart(
     );
     return res;
 }
+
+export async function reqValid(username) {
+    await fetch(`${API_URL}/accounts/signup/valid/${username}`, {
+        method: "POST",
+    })
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((e) => console.error(e));
+}
+
+export async function reqUpload(formData, id) {
+    await fetch(`${API_URL}/products/${id ? id + "/" : ""}`, {
+        method: id ? "PATCH" : "POST",
+        headers: {
+            Authorization: `JWT ${window.localStorage.getItem("token")}`,
+        },
+        body: formData,
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.product_id) {
+                window.location.href = `/products/${data.product_id}`;
+                window.localStorage.removeItem("edit");
+                window.localStorage.removeItem("shipping_method");
+            } else {
+                alert("모든 항목을 입력해주세요.");
+            }
+        })
+        .catch((e) => console.error(e));
+}
+
+export async function reqDeleteCart(middleAddress, cart_item_id) {
+    await fetch(`${API_URL}/${middleAddress}/${cart_item_id}/`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `JWT ${window.localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+        },
+    })
+        .then((res) => {
+            res.ok === true && location.reload();
+        })
+        .catch((e) => console.error(e));
+}

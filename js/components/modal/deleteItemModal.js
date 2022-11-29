@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants.js";
+import { reqDeleteCart } from "../../common/api.js";
 
 class DeleteItemModal {
     constructor(cart_item_id) {
@@ -55,30 +55,12 @@ class DeleteItemModal {
             body.style.overflow = "auto";
         });
 
-        const cart_item_id = this.cart_item_id;
         buttonYes.addEventListener("click", () => {
-            deleteReq();
+            const middleAddress =
+                window.location.pathname === "/cart" ? "cart" : "products";
+            const cart_item_id = this.cart_item_id;
+            reqDeleteCart(middleAddress, cart_item_id);
         });
-
-        const middleAPI = () => {
-            return window.location.pathname === "/cart" ? "cart" : "products";
-        };
-
-        async function deleteReq() {
-            await fetch(`${API_URL}/${middleAPI()}/${cart_item_id}/`, {
-                method: "DELETE",
-                headers: {
-                    Authorization: `JWT ${window.localStorage.getItem(
-                        "token"
-                    )}`,
-                    "Content-Type": "application/json",
-                },
-            })
-                .then((res) => {
-                    res.ok === true && location.reload();
-                })
-                .catch((e) => console.error(e));
-        }
 
         return this.modal;
     }

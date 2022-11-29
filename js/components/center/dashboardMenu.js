@@ -1,25 +1,19 @@
-import { API_URL } from "../../common/constants.js";
+import { getSeller } from "../../common/api.js";
 
 class DashboardMenu {
     constructor() {
         this.menu = document.createElement("div");
-        this.saleQt = {};
+        this.quantity = {};
     }
 
-    async getSaleQt() {
-        const res = await fetch(`${API_URL}/seller/`, {
-            method: "GET",
-            headers: {
-                Authorization: `JWT ${window.localStorage.getItem("token")}`,
-                "Content-Type": "application/json",
-            },
-        });
-        const qt = await res.json();
-        this.saleQt = await qt.count;
+    async getQuantity() {
+        const token = window.localStorage.getItem("token");
+        const data = await getSeller(token, 1);
+        this.quantity = await data.count;
     }
 
-    async setSaleQt() {
-        await this.getSaleQt();
+    async setQuantity() {
+        await this.getQuantity();
 
         this.menu.setAttribute("class", "center-menu");
 
@@ -33,7 +27,7 @@ class DashboardMenu {
         txtOnsale.setAttribute("class", "txt-onsale");
         const numOnsale = document.createElement("span");
         numOnsale.setAttribute("class", "num-onsale");
-        numOnsale.innerText = this.saleQt;
+        numOnsale.innerText = this.quantity;
         txtOnsale.append("판매중인 상품(", numOnsale, ")");
 
         listArr.push(txtOnsale);
@@ -83,7 +77,7 @@ class DashboardMenu {
         txtInquiryReview.after(numSmallIr);
     }
     render() {
-        this.setSaleQt();
+        this.setQuantity();
 
         return this.menu;
     }
