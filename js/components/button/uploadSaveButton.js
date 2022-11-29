@@ -1,4 +1,4 @@
-import { API_URL } from "../../common/constants.js";
+import { reqUpload } from "../../common/api.js";
 
 class UploadSaveButton {
     constructor() {
@@ -61,32 +61,9 @@ class UploadSaveButton {
             formData.append("product_info", product_info);
             formData.append("token", token);
 
-            save(formData);
+            const id = parseInt(storageEdit?.product_id);
+            reqUpload(formData, id);
         });
-
-        const id = parseInt(storageEdit?.product_id);
-        async function save(formData) {
-            await fetch(`${API_URL}/products/${id ? id + "/" : ""}`, {
-                method: id ? "PATCH" : "POST",
-                headers: {
-                    Authorization: `JWT ${window.localStorage.getItem(
-                        "token"
-                    )}`,
-                },
-                body: formData,
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    if (data.product_id) {
-                        window.location.href = `/products/${data.product_id}`;
-                        window.localStorage.removeItem("edit");
-                        window.localStorage.removeItem("shipping_method");
-                    } else {
-                        alert("모든 항목을 입력해주세요.");
-                    }
-                })
-                .catch((e) => console.error(e));
-        }
 
         return this.button;
     }
