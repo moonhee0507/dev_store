@@ -15,4 +15,4 @@ export { default as SellerButton } from "./sellerButton.js";
 export { default as ResponsiveSearchButton } from "./responsiveSearchButton.js";
 export { default as ResponsiveCartButton } from "./responsiveCartButton.js";
 export { default as ResponsiveBackButton } from "./responsiveBackButton.js";
-export { default as GithubLoginButton } from "./githubLoginButton.js";
+export { default as GoogleLoginButton } from "./googleLoginButton.js";

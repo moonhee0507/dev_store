@@ -13,6 +13,7 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
+        "aws-amplify": "^5.0.8",
         "dotenv": "^16.0.3"
     }
 }

@@ -2,7 +2,7 @@ import LoginType from "../components/login/loginType.js";
 import IdInput from "../components/login/idInput.js";
 import PasswordInput from "../components/login/passwordInput.js";
 import LoginErrorMessage from "../components/login/loginErrorMessage.js";
-import { LoginButton, GithubLoginButton } from "../components/button/index.js";
+import { LoginButton, GoogleLoginButton } from "../components/button/index.js";
 
 class Login {
     constructor() {
@@ -50,13 +50,19 @@ class Login {
         const passwordInput = new PasswordInput();
         const loginErrorMessage = new LoginErrorMessage();
         const loginButton = new LoginButton();
-        const githubLoginButton = new GithubLoginButton();
+
+        const txtSocialLogin = document.createElement("p");
+        txtSocialLogin.setAttribute("class", "txt-social");
+        txtSocialLogin.innerText = "소셜 미디어 계정으로 로그인하기";
+
+        const googleLoginButton = new GoogleLoginButton();
         styleContainer.append(
             idInput.render(),
             passwordInput.render(),
             loginErrorMessage.render(),
             loginButton.render(),
-            githubLoginButton.render()
+            txtSocialLogin,
+            googleLoginButton.render()
         );
         const linkSignup = document.createElement("a");
         const linkSearchPassword = document.createElement("a");

@@ -149,6 +149,55 @@
     color: $on-surface;
 }
 
+.txt-social {
+    position: relative;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.txt-social::before {
+    position: absolute;
+    content: "";
+    background-color: $outline;
+    width: 100%;
+    height: 1px;
+    top: -11px;
+    left: 0;
+}
+
+.button-google {
+    width: 100%;
+    height: 60px;
+    background-color: $on-surface;
+    padding: 5px;
+    margin-top: 20px;
+    border: 1px solid $border;
+    border-radius: $border-radius;
+    color: $surface;
+
+    .txt-google {
+        position: relative;
+        font-size: 18px;
+        margin-left: 27px;
+    }
+
+    .txt-google::before {
+        position: absolute;
+        content: "";
+        background: url("/assets/images/icon-google.png") no-repeat;
+        background-size: 40px auto;
+        width: 40px;
+        height: 40px;
+        top: -8px;
+        left: -50px;
+    }
+}
+
+.button-google:hover {
+    cursor: pointer;
+}
+
 .style-link {
     text-align: center;
 
@@ -165,37 +214,6 @@
     }
 }
 
-.button-github {
-    width: 100%;
-    height: 60px;
-    background-color: $on-surface;
-    padding: 5px;
-    margin-top: 10px;
-    border: 1px solid $border;
-    border-radius: $border-radius;
-    color: $surface;
-
-    .txt-github {
-        position: relative;
-        font-size: 18px;
-    }
-
-    .txt-github::before {
-        position: absolute;
-        content: "";
-        background: url("/assets/images/icon-github.png") no-repeat;
-        background-size: 40px auto;
-        width: 40px;
-        height: 40px;
-        top: -8px;
-        left: -50px;
-    }
-}
-
-.button-github:hover {
-    cursor: pointer;
-}
-
 @media (max-width: 580px) {
     .section-login {
         width: calc(100% - 100px);
@@ -207,13 +225,14 @@
         font-size: 15px;
     }
     .button-login,
-    .button-github .txt-github {
+    .button-google .txt-google,
+    .txt-social {
         font-size: 15px;
     }
     .error-message {
         font-size: 12px;
     }
-    .button-github .txt-github::before {
+    .button-google .txt-google::before {
         background-size: 30px auto;
         width: 30px;
         height: 30px;
