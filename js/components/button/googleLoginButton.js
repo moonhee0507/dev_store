@@ -1,7 +1,3 @@
-import { Amplify, Auth, Hub } from "aws-amplify";
-import { CognitoHostedUIIdentityProvider } from "@aws-amplify/auth";
-import config from "../../oauth/awsConfig";
-
 class GoogleLoginButton {
     constructor() {
         this.button = document.createElement("button");
