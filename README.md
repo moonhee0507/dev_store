@@ -82,13 +82,14 @@
 
 <div align=center>
 
-|                                                          **로그인**                                                          |                                                         **회원가입**                                                          |
+|                                                          **로그인**                                                          |                                                         **구글 계정으로 로그인**                                                          |
 | :--------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: |
-| <img src="https://user-images.githubusercontent.com/102460056/203059560-1ae413c2-dd43-44d6-88b7-66fe428ccaab.gif" width=400> | <img src="https://user-images.githubusercontent.com/102460056/203060439-cc1ee2f3-5b17-4caf-ac86-0be30d728bd8.gif"  width=400> |
+| <img src="https://user-images.githubusercontent.com/102460056/210270416-f0c5836b-3651-400b-8e38-422d389062ef.PNG" width=400> | <img src="https://user-images.githubusercontent.com/102460056/210270545-4632c2dc-ddba-42d7-a452-2739d70a62f2.PNG"  width=400> |
 
 </div>
 
 <br>
+
 
 <br>
 
