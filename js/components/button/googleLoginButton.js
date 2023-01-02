@@ -16,18 +16,16 @@ class GoogleLoginButton {
             // Auth.federatedSignIn({
             //     provider: CognitoHostedUIIdentityProvider.Google,
             // });
-            // window.location.href = `${
-            //     import.meta.env.VITE_COGNITO_DOMAIN
-            // }/login?client_id=${
-            //     import.meta.env.VITE_COGNITO_CLIENT_ID
-            // }&response_type=${
-            //     import.meta.env.VITE_COGNITO_RESPONSE_TYPE
-            // }&scope=email+openid+profile&redirect_uri=${
-            //     import.meta.env.VITE_REDIRECT_URI
-            // }`;
 
-            console.log(import.meta.env.VITE_COGNITO_DOMAIN);
-            console.log(process.env.VITE_COGNITO_DOMAIN);
+            window.location.href = `${
+                import.meta.env.VITE_COGNITO_DOMAIN
+            }/login?client_id=${
+                import.meta.env.VITE_COGNITO_CLIENT_ID
+            }&response_type=${
+                import.meta.env.VITE_COGNITO_RESPONSE_TYPE
+            }&scope=email+openid+profile&redirect_uri=${
+                import.meta.env.VITE_REDIRECT_URI
+            }`;
         });
 
         return this.button;
