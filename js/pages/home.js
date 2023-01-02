@@ -1,6 +1,6 @@
 import Header from "../components/header/header.js";
 import Slide from "../components/slide/slide.js";
-import ProductList from "../components/productList/productList.js";
+import ProductList from "../components/common/productList/productList.js";
 import Footer from "../components/footer/footer.js";
 import infiniteScroll from "../common/infiniteScroll.js";
 import TopButton from "../components/button/topButton.js";

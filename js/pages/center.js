@@ -1,8 +1,10 @@
 import Header from "../components/header/header.js";
 import Footer from "../components/footer/footer.js";
-import DashboardTitle from "../components/dashboardTitle/dashboardTitle.js";
-import DashboardMenu from "../components/dashboardMenu/dashboardMenu.js";
-import DashboardView from "../components/dashboardView/dashboardView.js";
+import {
+    DashboardTitle,
+    DashboardMenu,
+    DashboardView,
+} from "../components/center/index.js";
 import Loading from "../common/loading.js";
 
 class Center {
@@ -12,6 +14,11 @@ class Center {
     }
 
     render() {
+        const meta = document.createElement("meta");
+        meta.name = "viewport";
+        meta.content = "width=1200";
+        document.querySelector("head").appendChild(meta);
+
         const loading = new Loading();
         const root = document.getElementById("root");
         root.appendChild(loading.render());

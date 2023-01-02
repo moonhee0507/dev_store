@@ -46,3 +46,5 @@ amplifytools.xcconfig
 
 #dotenv
 .env
+.env.development
+.env.production

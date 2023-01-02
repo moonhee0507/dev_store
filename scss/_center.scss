@@ -128,7 +128,7 @@
         }
         .view-body {
             height: calc(100% - 60px);
-            overflow-y: overlay;
+            overflow-y: scroll;
 
             ul:hover {
                 background-color: $overlay;

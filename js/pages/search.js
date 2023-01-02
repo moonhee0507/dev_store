@@ -1,9 +1,11 @@
 import Header from "../components/header/header.js";
-import SearchDescription from "../components/searchDescription/searchDescription.js";
-import SearchFilter from "../components/searchFilter/searchFilter.js";
-import SearchList from "../components/searchList/searchList.js";
 import TopButton from "../components/button/topButton.js";
 import Loading from "../common/loading.js";
+import {
+    SearchDescription,
+    SearchFilter,
+    SearchList,
+} from "../components/search/index.js";
 
 class Search {
     constructor(header) {

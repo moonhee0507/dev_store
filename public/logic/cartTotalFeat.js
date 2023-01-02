@@ -19,7 +19,7 @@ function calc() {
     for (let i = 0; i < eachSumPrice.length; i++) {
         priceSum += Number(
             allCheckBox[i + 1].className.includes("fill") &&
-                eachSumPrice[i].innerText.replace(",", "")
+                eachSumPrice[i].innerText.replace(/\D/g, "")
         );
     }
     numCartSum.innerText = `${priceSum.toLocaleString("ko-KR")}원`;
