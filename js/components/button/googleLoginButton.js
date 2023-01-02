@@ -26,14 +26,8 @@ class GoogleLoginButton {
             //     import.meta.env.VITE_REDIRECT_URI
             // }`;
 
-            console.log(
-                "import.meta.env.VITE_COGNITO_DOMAIN",
-                import.meta.env.VITE_COGNITO_DOMAIN
-            );
-            console.log(
-                "process.env.VITE_COGNITO_DOMAIN",
-                process.env.VITE_COGNITO_DOMAIN
-            );
+            console.log(import.meta.env.VITE_COGNITO_DOMAIN);
+            console.log(process.env.VITE_COGNITO_DOMAIN);
         });
 
         return this.button;
