@@ -16,15 +16,7 @@ class GoogleLoginButton {
             // Auth.federatedSignIn({
             //     provider: CognitoHostedUIIdentityProvider.Google,
             // });
-            window.location.href = `${
-                import.meta.env.VITE_COGNITO_DOMAIN
-            }/login?client_id=${
-                import.meta.env.VITE_COGNITO_CLIENT_ID
-            }&response_type=${
-                import.meta.env.VITE_COGNITO_RESPONSE_TYPE
-            }&scope=email+openid+profile&redirect_uri=${
-                import.meta.env.VITE_REDIRECT_URI
-            }`;
+            window.location.href = `${process.env.VITE_COGNITO_DOMAIN}/login?client_id=${process.env.VITE_COGNITO_CLIENT_ID}&response_type=${process.env.VITE_COGNITO_RESPONSE_TYPE}&scope=email+openid+profile&redirect_uri=${process.env.VITE_REDIRECT_URI}`;
         });
 
         return this.button;
