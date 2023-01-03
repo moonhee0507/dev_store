@@ -14,7 +14,29 @@ class Home {
         this.footer = footer;
     }
 
+    async getAccessToken() {
+        const queryString = window.location.hash;
+        const paramFromURL = new URLSearchParams(queryString);
+        const accessToken = paramFromURL.get("access_token");
+        const publicKey = await fetch(
+            `https://cognito-idp.${import.meta.env.VITE_REGION}.amazonaws.com/${
+                import.meta.env.VITE_USER_POOL_ID
+            }/.well-known/jwks.json`,
+            {
+                method: "GET",
+            }
+        )
+            .then((res) => res.json())
+            .then((resJson) => resJson.data)
+            .catch((e) => console.error(e));
+
+        if (accessToken) localStorage.setItem("accessToken", accessToken);
+        if (publicKey && typeof publicKey === "string")
+            localStorage.setItem("publicKey", JSON.stringify(publicKey));
+    }
+
     render() {
+        this.getAccessToken();
         const loading = new Loading();
         const root = document.getElementById("root");
         root.appendChild(loading.render());
