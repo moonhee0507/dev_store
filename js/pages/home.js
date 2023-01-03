@@ -5,6 +5,7 @@ import Footer from "../components/footer/footer.js";
 import infiniteScroll from "../common/infiniteScroll.js";
 import TopButton from "../components/button/topButton.js";
 import Loading from "../common/loading.js";
+import verifyAccessToken from "../oauth/verifyAccessToken.js";
 
 class Home {
     constructor(header, slide, productList, footer) {
@@ -14,7 +15,7 @@ class Home {
         this.footer = footer;
     }
 
-    async getAccessToken() {
+    async getKeyFromCognito() {
         const queryString = window.location.hash;
         const paramFromURL = new URLSearchParams(queryString);
         const accessToken = paramFromURL.get("access_token");
@@ -31,12 +32,15 @@ class Home {
             .catch((e) => console.error(e));
 
         if (accessToken) localStorage.setItem("accessToken", accessToken);
-        if (publicKey && typeof publicKey === "string")
+        if (publicKey) {
             localStorage.setItem("publicKey", JSON.stringify(publicKey));
+        }
+
+        verifyAccessToken();
     }
 
     render() {
-        this.getAccessToken();
+        this.getKeyFromCognito();
         const loading = new Loading();
         const root = document.getElementById("root");
         root.appendChild(loading.render());
