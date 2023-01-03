@@ -11,8 +11,7 @@ export default async function verifyAccessToken() {
         const payload = await verifier.verify(
             localStorage.getItem("accessToken")
         );
-        console.log("Token이 유효합니다. payload: ", payload);
     } catch {
-        console.log("❌ Token이 유효하지 않습니다!");
+        console.log("❌ 토큰이 유효하지 않습니다!");
     }
 }
