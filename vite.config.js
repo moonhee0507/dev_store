@@ -13,6 +13,7 @@ export default defineConfig({
             external: [
                 "@aws-sdk/protocol-http",
                 "@aws-sdk/querystring-builder",
+                "#node-web-compat",
             ],
         },
     },
