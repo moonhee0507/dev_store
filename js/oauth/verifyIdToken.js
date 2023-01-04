@@ -1,4 +1,5 @@
 import { CognitoJwtVerifier } from "aws-jwt-verify";
+import getUserId from "../common/getUserId.js";
 
 export default async function verifyIdToken(idToken) {
     const idTokenVerifier = CognitoJwtVerifier.create([
@@ -11,7 +12,8 @@ export default async function verifyIdToken(idToken) {
 
     try {
         const idTokenPayload = await idTokenVerifier.verify(idToken);
-        console.log(idTokenPayload);
+
+        getUserId(idTokenPayload.email);
     } catch {
         console.log("❌ ID TOKEN이 유효하지 않습니다!");
     }

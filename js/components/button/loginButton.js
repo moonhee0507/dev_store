@@ -48,7 +48,7 @@ class LoginButton {
 
                 if (data.token) {
                     window.localStorage.setItem("token", data.token);
-                    window.localStorage.setItem("1", username);
+                    window.localStorage.setItem("user", username);
                     let preURL = document.referrer;
                     if (
                         preURL === "https://devstore.work/" ||

@@ -6,6 +6,7 @@ import {
     ResponsiveSearchButton,
     ResponsiveCartButton,
 } from "../button/index.js";
+import getUserId from "../../common/getUserId.js";
 
 class Header {
     constructor() {
@@ -77,7 +78,7 @@ class Header {
         const infoFeat = () => {
             const userId = document.createElement("strong");
             userId.setAttribute("class", "txt-user-id");
-            userId.innerText = localStorage.getItem("1");
+            userId.innerText = getUserId();
 
             const dropContent = document.createElement("div");
             dropContent.setAttribute("class", "drop-content");
