@@ -104,7 +104,12 @@ class Header {
             }
 
             linkDropLogout.addEventListener("click", () => {
-                reqLogout();
+                if (JSON.parse(localStorage.getItem("user")).isCog) {
+                    localStorage.clear();
+                    location.href = "/";
+                } else {
+                    reqLogout();
+                }
             });
         };
 
