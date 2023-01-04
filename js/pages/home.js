@@ -6,6 +6,7 @@ import infiniteScroll from "../common/infiniteScroll.js";
 import TopButton from "../components/button/topButton.js";
 import Loading from "../common/loading.js";
 import verifyAccessToken from "../oauth/verifyAccessToken.js";
+import verifyIdToken from "../oauth/verifyIdToken.js";
 
 class Home {
     constructor(header, slide, productList, footer) {
@@ -28,7 +29,10 @@ class Home {
     }
 
     render() {
-        this.getKeyFromCognito();
+        if (window.location.hash !== "") {
+            this.getKeyFromCognito();
+        }
+
         const loading = new Loading();
         const root = document.getElementById("root");
         root.appendChild(loading.render());
