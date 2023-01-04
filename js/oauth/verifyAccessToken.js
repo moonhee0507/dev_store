@@ -1,6 +1,6 @@
 import { CognitoJwtVerifier } from "aws-jwt-verify";
 
-export default async function verifyAccessToken() {
+export default async function verifyAccessToken(accessToken) {
     const verifier = CognitoJwtVerifier.create({
         userPoolId: import.meta.env.VITE_USER_POOL_ID,
         tokenUse: "access",
@@ -8,10 +8,10 @@ export default async function verifyAccessToken() {
     });
 
     try {
-        const payload = await verifier.verify(
-            localStorage.getItem("accessToken")
-        );
+        await verifier.verify(accessToken);
+
+        return true;
     } catch {
-        console.log("❌ 토큰이 유효하지 않습니다!");
+        console.log("❌ 액세스 토큰이 유효하지 않습니다!");
     }
 }
