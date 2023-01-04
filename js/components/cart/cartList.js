@@ -1,7 +1,6 @@
 import { reqCart } from "../../common/api.js";
 import { CartListItem, NoCart } from "./index.js";
-import ChangeQuantity from "../modal/changeQuantity.js";
-import DeleteItemModal from "../modal/deleteItemModal.js";
+import { ChangeQuantityModal, DeleteItemModal } from "../modal/index.js";
 
 class CartList {
     constructor() {
@@ -56,7 +55,7 @@ class CartList {
             this.cart.results.forEach((item) => {
                 const cartProduct = document.createElement("div");
                 const cartListItem = new CartListItem(item);
-                const changeQuantity = new ChangeQuantity(item);
+                const changeQuantityModal = new ChangeQuantityModal(item);
                 const deleteItemModal = new DeleteItemModal(item.cart_item_id);
                 const changeModalGroup = document.querySelector(
                     ".change-modal-group"
@@ -64,7 +63,7 @@ class CartList {
                 const deleteModalGroup = document.querySelector(
                     ".delete-modal-group"
                 );
-                changeModalGroup.appendChild(changeQuantity.render());
+                changeModalGroup.appendChild(changeQuantityModal.render());
                 deleteModalGroup.appendChild(deleteItemModal.render());
                 cartProduct.appendChild(cartListItem.render());
                 cartProducts.appendChild(cartProduct);

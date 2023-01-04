@@ -3,16 +3,16 @@ import {
     ProductInfo,
     ProductTab,
 } from "../components/common/productInfo/index.js";
-import { GoToLogin } from "../components/modal/index.js";
+import { GoToLoginModal } from "../components/modal/index.js";
 import Footer from "../components/footer/footer.js";
 import Loading from "../common/loading.js";
 
 class ProductDetail {
-    constructor(header, productInfo, productTab, goToLogin, footer) {
+    constructor(header, productInfo, productTab, goToLoginModal, footer) {
         this.header = header;
         this.productInfo = productInfo;
         this.productTab = productTab;
-        this.goToLogin = goToLogin;
+        this.goToLoginModal = goToLoginModal;
         this.footer = footer;
     }
 
@@ -24,7 +24,7 @@ class ProductDetail {
         this.header = new Header();
         this.productInfo = new ProductInfo();
         this.productTab = new ProductTab();
-        this.goToLogin = new GoToLogin();
+        this.goToLoginModal = new GoToLoginModal();
         this.footer = new Footer();
 
         const header = document.createElement("header");
@@ -35,7 +35,7 @@ class ProductDetail {
         main.setAttribute("class", "max-width");
         main.appendChild(this.productInfo.render());
         main.appendChild(this.productTab.render());
-        main.appendChild(this.goToLogin.render());
+        main.appendChild(this.goToLoginModal.render());
 
         const footer = document.createElement("footer");
         footer.setAttribute("class", "footer");

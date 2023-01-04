@@ -1,4 +1,4 @@
-class GoToLogin {
+class GoToLoginModal {
     constructor() {
         this.modal = document.createElement("div");
     }
@@ -62,4 +62,4 @@ class GoToLogin {
         return this.modal;
     }
 }
-export default GoToLogin;
+export default GoToLoginModal;

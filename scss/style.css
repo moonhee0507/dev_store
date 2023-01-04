@@ -3876,7 +3876,8 @@ input[type="checkbox"]:focus {
   margin: 50px 0 30px;
 }
 
-.modal-content .modal-wrapper-txt .txt-goToLogin {
+.modal-content .modal-wrapper-txt .txt-goToLogin,
+.modal-content .modal-wrapper-txt .txt-notify-google {
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
@@ -3892,7 +3893,8 @@ input[type="checkbox"]:focus {
 }
 
 .modal-content .modal-wrapper-button .button-no,
-.modal-content .modal-wrapper-button .button-yes {
+.modal-content .modal-wrapper-button .button-yes,
+.modal-content .modal-wrapper-button .button-confirm {
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -3905,7 +3907,8 @@ input[type="checkbox"]:focus {
   cursor: pointer;
 }
 
-.modal-content .modal-wrapper-button .button-no {
+.modal-content .modal-wrapper-button .button-no,
+.modal-content .modal-wrapper-button .button-confirm {
   border: 1px solid #c4c4c4;
   color: #333333;
   margin-right: 10px;

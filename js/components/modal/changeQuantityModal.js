@@ -1,6 +1,6 @@
 import { getProductsDetail, reqCart } from "../../common/api.js";
 
-class ChangeQuantity {
+class ChangeQuantityModal {
     constructor(item) {
         this.item = item;
         this.modal = document.createElement("div");
@@ -121,4 +121,4 @@ class ChangeQuantity {
         return this.modal;
     }
 }
-export default ChangeQuantity;
+export default ChangeQuantityModal;

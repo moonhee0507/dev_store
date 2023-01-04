@@ -1,4 +1,3 @@
-import GoToLogin from "../modal/goToLogin.js";
 import SearchBar from "./searchBar.js";
 import StoreIntroduction from "../store/storeIntroduction.js";
 import { reqLogout } from "../../common/api.js";
@@ -6,6 +5,7 @@ import {
     ResponsiveSearchButton,
     ResponsiveCartButton,
 } from "../button/index.js";
+import { GoToLoginModal, NotifyGoogleUserModal } from "../modal/index.js";
 
 class Header {
     constructor() {
@@ -141,14 +141,18 @@ class Header {
             localStorage.getItem("token") &&
             JSON.parse(localStorage.getItem("user")).isCog
         ) {
-            const goToLogin = new GoToLogin();
-            this.head.appendChild(goToLogin.render());
+            const responsiveCartButton = new ResponsiveCartButton();
+            listItem2.appendChild(responsiveCartButton.render());
+            infoFeat();
+
+            const notifyGoogleUserModal = new NotifyGoogleUserModal();
+            this.head.appendChild(notifyGoogleUserModal.render());
         } else {
             const responsiveCartButton = new ResponsiveCartButton();
             listItem2.appendChild(responsiveCartButton.render());
 
-            const goToLogin = new GoToLogin();
-            this.head.appendChild(goToLogin.render());
+            const goToLoginModal = new GoToLoginModal();
+            this.head.appendChild(goToLoginModal.render());
 
             const loginButton = document.createElement("p");
             loginButton.innerText = "로그인";

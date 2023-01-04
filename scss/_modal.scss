@@ -50,7 +50,8 @@
     .modal-wrapper-txt {
         margin: 50px 0 30px;
 
-        .txt-goToLogin {
+        .txt-goToLogin,
+        .txt-notify-google {
             font-weight: bold;
             font-size: 16px;
             line-height: 20px;
@@ -66,7 +67,8 @@
         font-size: 0;
 
         .button-no,
-        .button-yes {
+        .button-yes,
+        .button-confirm {
             border: none;
             -webkit-box-shadow: none;
             box-shadow: none;
@@ -79,7 +81,8 @@
             cursor: pointer;
         }
 
-        .button-no {
+        .button-no,
+        .button-confirm {
             border: 1px solid #c4c4c4;
             color: $surface;
             margin-right: 10px;
