@@ -77,7 +77,7 @@ class Header {
         const infoFeat = () => {
             const userId = document.createElement("strong");
             userId.setAttribute("class", "txt-user-id");
-            userId.innerText = localStorage.getItem("user");
+            userId.innerText = JSON.parse(localStorage.getItem("user")).id;
 
             const dropContent = document.createElement("div");
             dropContent.setAttribute("class", "drop-content");
@@ -110,14 +110,16 @@ class Header {
 
         if (
             localStorage.getItem("token") &&
-            localStorage.getItem("loginType") === "BUYER"
+            localStorage.getItem("loginType") === "BUYER" &&
+            !JSON.parse(localStorage.getItem("user")).isCog
         ) {
             const responsiveCartButton = new ResponsiveCartButton();
             listItem2.appendChild(responsiveCartButton.render());
             infoFeat();
         } else if (
             localStorage.getItem("token") &&
-            localStorage.getItem("loginType") === "SELLER"
+            localStorage.getItem("loginType") === "SELLER" &&
+            !JSON.parse(localStorage.getItem("user")).isCog
         ) {
             infoFeat();
 
@@ -135,6 +137,12 @@ class Header {
                     : "판매자 센터";
             });
             listItem2.appendChild(sellerCenterButton);
+        } else if (
+            localStorage.getItem("token") &&
+            JSON.parse(localStorage.getItem("user")).isCog
+        ) {
+            const goToLogin = new GoToLogin();
+            this.head.appendChild(goToLogin.render());
         } else {
             const responsiveCartButton = new ResponsiveCartButton();
             listItem2.appendChild(responsiveCartButton.render());

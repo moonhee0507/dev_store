@@ -23,7 +23,7 @@ class ResponsiveCartButton {
             const method = "GET";
             reqCart(method)
                 .then((res) => res.json())
-                .then((data) => (showQt.innerText = data.count))
+                .then((data) => (showQt.innerText = data.count || 0))
                 .catch((e) => console.error(e));
             this.button.addEventListener("click", () => {
                 window.location.href = "/cart";

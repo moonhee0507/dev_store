@@ -11,8 +11,12 @@ export default async function verifyIdToken(idToken) {
 
     try {
         const idTokenPayload = await idTokenVerifier.verify(idToken);
-        localStorage.setItem("user", idTokenPayload.email);
+        localStorage.setItem(
+            "user",
+            JSON.stringify({ id: idTokenPayload.email, isCog: true })
+        );
+        window.location.reload();
     } catch {
-        console.log("❌ ID TOKEN이 유효하지 않습니다!");
+        alert("002: 유효하지 않은 토큰입니다.");
     }
 }

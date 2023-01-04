@@ -28,7 +28,7 @@ class Home {
     }
 
     render() {
-        if (window.location.hash !== "") {
+        if (window.location.hash !== "" && !localStorage.getItem("token")) {
             this.getKeyFromCognito();
         }
 
