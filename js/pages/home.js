@@ -22,8 +22,7 @@ class Home {
         const accessToken = paramFromURL.get("access_token");
         const idToken = paramFromURL.get("#id_token");
 
-        if (accessToken)
-            localStorage.setItem("accessTokenFromCognito", accessToken);
+        if (accessToken) localStorage.setItem("token", accessToken);
 
         verifyAccessToken(accessToken) && verifyIdToken(idToken);
     }
