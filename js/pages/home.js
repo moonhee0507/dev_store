@@ -24,12 +24,16 @@ class Home {
 
         if (accessToken) localStorage.setItem("token", accessToken);
 
-        (await verifyAccessToken(accessToken)) && verifyIdToken(idToken);
+        (await verifyAccessToken(accessToken)) &&
+            (await verifyIdToken(idToken));
+        window.location.reload();
     }
 
     render() {
         if (window.location.hash !== "" && !localStorage.getItem("token")) {
-            this.getKeyFromCognito();
+            setTimeout(() => {
+                this.getKeyFromCognito();
+            }, 2000);
         }
 
         const loading = new Loading();

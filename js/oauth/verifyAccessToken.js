@@ -12,6 +12,6 @@ export default async function verifyAccessToken(accessToken) {
 
         return true;
     } catch {
-        alert("001: 유효하지 않은 토큰입니다.");
+        console.log("001: 유효하지 않은 토큰입니다.");
     }
 }

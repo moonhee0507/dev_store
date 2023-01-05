@@ -17,6 +17,6 @@ export default async function verifyIdToken(idToken) {
         );
         window.location.reload();
     } catch {
-        alert("002: 유효하지 않은 토큰입니다.");
+        console.log("002: 유효하지 않은 토큰입니다.");
     }
 }
