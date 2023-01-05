@@ -19,9 +19,12 @@ class Home {
     async getKeyFromCognito() {
         const queryString = window.location.hash;
         const paramFromURL = new URLSearchParams(queryString);
-        const accessToken = paramFromURL.get("access_token");
-        const idToken = paramFromURL.get("#id_token");
-
+        const accessToken =
+            paramFromURL.get("access_token") ||
+            paramFromURL.get("#access_token");
+        const idToken =
+            paramFromURL.get("#id_token") || paramFromURL.get("id_token");
+        console.log(accessToken);
         if (accessToken) localStorage.setItem("token", accessToken);
 
         (await verifyAccessToken(accessToken)) &&
