@@ -15,7 +15,7 @@
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        padding: 20px;
+        padding: 25px 20px 20px;
         gap: 30px;
     }
 
@@ -219,7 +219,7 @@
         background-size: 30px 30px;
         background-position: 10px 10px;
         padding: 0 20px 0 45px;
-        border-radius: 50%;
+        // border-radius: 50%;
         font-size: 13px;
         text-align: center;
         @include ellipsis;
@@ -385,12 +385,13 @@
         width: 50px;
         height: 50px;
         border: 0;
-        border-radius: 50%;
+        border-radius: 30%;
         background-color: inherit;
         background-image: url("/assets/images/icon-down-arrow.svg");
         background-repeat: no-repeat;
-        background-size: 45px 45px;
+        background-size: 50px 50px;
         background-position: center;
+        outline: 1px solid $button-border;
         -webkit-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
         transform: rotate(90deg);
@@ -399,6 +400,7 @@
     .button-back:hover {
         background-color: $overlay;
     }
+
     .header-nav.responsive {
         display: none;
     }
@@ -425,6 +427,32 @@
 
         .img-center {
             width: 30px;
+        }
+    }
+
+    .header-cart-qt {
+        left: 25px;
+    }
+
+    .txt-user-id,
+    .link-list.mypage::after {
+        display: none;
+    }
+
+    .dropdown {
+        .link-list.mypage {
+            width: 40px;
+            height: 40px;
+            background-size: 25px 25px;
+            background-position: center;
+            padding: 0;
+
+            .drop-content::before {
+                display: none;
+            }
+        }
+        .link-list.mypage:hover {
+            border-radius: 50%;
         }
     }
 }

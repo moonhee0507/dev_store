@@ -35,7 +35,7 @@ class Home {
         if (window.location.hash !== "" && !localStorage.getItem("token")) {
             setTimeout(() => {
                 this.getKeyFromCognito();
-            }, 2000);
+            }, 1500);
         }
 
         const loading = new Loading();
