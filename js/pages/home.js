@@ -24,7 +24,7 @@ class Home {
 
         if (accessToken) localStorage.setItem("token", accessToken);
 
-        verifyAccessToken(accessToken) && verifyIdToken(idToken);
+        (await verifyAccessToken(accessToken)) && verifyIdToken(idToken);
     }
 
     render() {
