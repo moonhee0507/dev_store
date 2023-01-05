@@ -26,7 +26,6 @@ class Home {
 
         (await verifyAccessToken(accessToken)) &&
             (await verifyIdToken(idToken));
-        window.location.reload();
     }
 
     render() {
