@@ -16,9 +16,11 @@
     "dependencies": {
         "@aws-sdk/protocol-http": "^3.226.0",
         "@aws-sdk/querystring-builder": "^3.226.0",
+        "@reduxjs/toolkit": "^1.9.1",
         "@rollup/plugin-node-resolve": "^15.0.1",
         "aws-amplify": "^5.0.8",
         "aws-jwt-verify": "^3.2.0",
-        "dotenv": "^16.0.3"
+        "dotenv": "^16.0.3",
+        "redux": "^4.2.0"
     }
 }

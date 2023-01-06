@@ -13,6 +13,7 @@ import {
 import { Router } from "./utils/index.js";
 import { Amplify } from "aws-amplify";
 import cognitoInfo from "./js/oauth/cognitoInfo.js";
+import store from "./store.js";
 
 export default class App {
     constructor(props) {
@@ -39,5 +40,7 @@ export default class App {
         Amplify.configure({
             Auth: cognitoInfo,
         });
+
+        store;
     }
 }

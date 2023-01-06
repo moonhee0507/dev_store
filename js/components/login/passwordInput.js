@@ -1,8 +1,12 @@
-import loginState from "./loginState.js";
+import store from "../../../store";
 
 class PasswordInput {
     constructor() {
         this.container = document.createElement("fieldset");
+    }
+
+    isActive(length) {
+        store.dispatch({ type: "LOGIN_PW", isActivePW: length ? true : false });
     }
 
     render() {
@@ -21,13 +25,10 @@ class PasswordInput {
         legend.append(label, input);
         this.container.appendChild(legend);
 
-        input.addEventListener("input", () => {
-            if (input.value !== "") {
-                loginState.passPw = true;
-            } else {
-                loginState.passPw = false;
-            }
+        input.addEventListener("input", (e) => {
+            this.isActive(e.target.value.length);
         });
+
         return this.container;
     }
 }
