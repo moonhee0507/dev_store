@@ -1,12 +1,15 @@
-import store from "../../../store";
+import store from "../../../store.js";
 
 class IdInput {
     constructor() {
         this.container = document.createElement("fieldset");
     }
 
-    isActive(length) {
-        store.dispatch({ type: "LOGIN_ID", isActiveID: length ? true : false });
+    isActive(str) {
+        store.dispatch({
+            type: "loginSlice/LOGIN_ID",
+            isActiveID: str.length ? true : false,
+        });
     }
 
     render() {
@@ -29,7 +32,7 @@ class IdInput {
         this.container.appendChild(legend);
 
         input.addEventListener("input", (e) => {
-            this.isActive(e.target.value.length);
+            this.isActive(e.target.value);
         });
 
         return this.container;

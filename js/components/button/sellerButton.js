@@ -7,7 +7,7 @@ class SellerButton {
 
     storeType() {
         store.dispatch({
-            type: "LOGIN_USER",
+            type: "loginSlice/LOGIN_USER",
             loginType: "SELLER",
             buyer: false,
             seller: true,
@@ -24,15 +24,19 @@ class SellerButton {
         this.button.addEventListener("click", this.storeType);
 
         store.subscribe(() => {
-            this.button.style.backgroundColor = store.getState().login
+            this.button.style.backgroundColor = store.getState().loginSlice
                 .typeButtonStyle.seller
                 ? "inherit"
                 : "#e9e9e9";
             this.button.classList.remove(
-                store.getState().login.typeButtonStyle.seller ? "help" : "on"
+                store.getState().loginSlice.typeButtonStyle.seller
+                    ? "help"
+                    : "on"
             );
             this.button.classList.add(
-                store.getState().login.typeButtonStyle.seller ? "on" : "help"
+                store.getState().loginSlice.typeButtonStyle.seller
+                    ? "on"
+                    : "help"
             );
         });
 

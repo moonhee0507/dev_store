@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import rootReducer from "./js/reducers/index.js";
+import { loginSlice } from "./js/slice/index.js";
 
 const store = configureStore({
-    reducer: rootReducer,
+    reducer: {
+        loginSlice: loginSlice.reducer,
+    },
     devTools:
         window.__REDUX__DEVTOOLS_EXTENSION__ &&
         window.__REDUX__DEVTOOLS_EXTENSION__(),

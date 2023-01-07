@@ -1,4 +1,4 @@
-import store from "../../../store";
+import store from "../../../store.js";
 
 class PasswordInput {
     constructor() {
@@ -6,7 +6,10 @@ class PasswordInput {
     }
 
     isActive(length) {
-        store.dispatch({ type: "LOGIN_PW", isActivePW: length ? true : false });
+        store.dispatch({
+            type: "loginSlice/LOGIN_PW",
+            isActivePW: length ? true : false,
+        });
     }
 
     render() {
@@ -16,12 +19,14 @@ class PasswordInput {
         label.setAttribute("for", "password");
         label.setAttribute("class", "sr-only");
         label.innerText = "비밀번호";
+
         const input = document.createElement("input");
         input.setAttribute("id", "password");
         input.setAttribute("class", "input-login-password");
         input.setAttribute("type", "password");
         input.setAttribute("placeholder", "비밀번호");
         input.setAttribute("required", true);
+
         legend.append(label, input);
         this.container.appendChild(legend);
 
