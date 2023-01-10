@@ -8,7 +8,7 @@ class LoginErrorMessage {
     render() {
         this.strong.setAttribute("class", "error-message");
         store.subscribe(() => {
-            switch (store.getState().loginSlice.errorMsg) {
+            switch (store.getState().rootReducer.loginSlice.errorMsg) {
                 case "로그인 정보가 없습니다.":
                     this.strong.innerText =
                         "*아이디 또는 비밀번호가 일치하지 않습니다.";

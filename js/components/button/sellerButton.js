@@ -24,17 +24,17 @@ class SellerButton {
         this.button.addEventListener("click", this.storeType);
 
         store.subscribe(() => {
-            this.button.style.backgroundColor = store.getState().loginSlice
-                .typeButtonStyle.seller
+            this.button.style.backgroundColor = store.getState().rootReducer
+                .loginSlice.typeButtonStyle.seller
                 ? "inherit"
                 : "#e9e9e9";
             this.button.classList.remove(
-                store.getState().loginSlice.typeButtonStyle.seller
+                store.getState().rootReducer.loginSlice.typeButtonStyle.seller
                     ? "help"
                     : "on"
             );
             this.button.classList.add(
-                store.getState().loginSlice.typeButtonStyle.seller
+                store.getState().rootReducer.loginSlice.typeButtonStyle.seller
                     ? "on"
                     : "help"
             );

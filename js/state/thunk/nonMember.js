@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { API_URL } from "../common/constants.js";
+import { API_URL } from "../../common/constants";
 
 export const __reqLogin = createAsyncThunk(
     "loginSlice/__reqLogin",

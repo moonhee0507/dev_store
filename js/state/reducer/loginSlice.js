@@ -42,7 +42,6 @@ const loginSlice = createSlice({
             if (typeof action.payload.token === "string") {
                 state.token = action.payload.token;
             }
-            document.referrer;
         });
     },
 });

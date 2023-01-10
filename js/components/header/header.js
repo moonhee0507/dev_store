@@ -6,6 +6,7 @@ import {
     ResponsiveCartButton,
 } from "../button/index.js";
 import { GoToLoginModal, NotifyGoogleUserModal } from "../modal/index.js";
+import store from "../../../store.js";
 
 class Header {
     constructor() {
@@ -77,7 +78,8 @@ class Header {
         const infoFeat = () => {
             const userId = document.createElement("strong");
             userId.setAttribute("class", "txt-user-id");
-            userId.innerText = JSON.parse(localStorage.getItem("user")).id;
+            // userId.innerText = JSON.parse(localStorage.getItem("user")).id;
+            userId.innerText = store.getState().rootReducer.loginSlice.username;
 
             const dropContent = document.createElement("div");
             dropContent.setAttribute("class", "drop-content");
@@ -113,19 +115,28 @@ class Header {
             });
         };
 
-        if (
-            localStorage.getItem("token") &&
-            localStorage.getItem("loginType") === "BUYER" &&
-            !JSON.parse(localStorage.getItem("user")).isCog
-        ) {
+        let authType;
+        store.subscribe(() => {
+            if (
+                store.getState().rootReducer.loginSlice.token &&
+                !store.getState().rootReducer.loginSlice.isCog
+            ) {
+                switch (store.getState().rootReducer.loginSlice.loginType) {
+                    case "BUYER":
+                        return (authType = "BUYER");
+                        break;
+                    case "SELLER":
+                        return (authType = "SELLER");
+                        break;
+                }
+            }
+        });
+
+        if (authType === "BUYER") {
             const responsiveCartButton = new ResponsiveCartButton();
             listItem2.appendChild(responsiveCartButton.render());
             infoFeat();
-        } else if (
-            localStorage.getItem("token") &&
-            localStorage.getItem("loginType") === "SELLER" &&
-            !JSON.parse(localStorage.getItem("user")).isCog
-        ) {
+        } else if (authType === "SELLER") {
             infoFeat();
 
             const sellerCenterButton = document.createElement("a");

@@ -1,10 +1,13 @@
+import store from "../store";
+
 class Router {
-    constructor(routes) {
+    constructor(routes, pathStore) {
         if (!routes) {
             console.log("경로를 초기화할 수 없습니다. 경로가 필요합니다.");
         }
 
         this.routes = routes;
+        this.pathStore = pathStore;
 
         for (const key in routes) {
             const route = routes[key];
@@ -31,6 +34,10 @@ class Router {
             }
         });
 
+        window.addEventListener("popstate", () =>
+            this.routing(window.location.pathname)
+        );
+
         window.onpopstate = () => this.routing(window.location.pathname);
     }
 
@@ -54,12 +61,22 @@ class Router {
         if (page) {
             this.render(page);
         }
+        // this.routerContext(pathname);
     }
+
+    // routerContext(pathname) {
+    //     // TODO: 여기다 만들어야 하나...
+    //     console.log(pathname);
+    // }
 
     render(page) {
         const rootElement = document.querySelector(this.rootElementId);
         rootElement.innerHTML = "";
         rootElement.appendChild(page);
+        // store.dispatch({
+        //     type: "naviSlice/CURRENT_PAGE",
+        //     currentPage: window.location.pathname,
+        // });
     }
 }
 
